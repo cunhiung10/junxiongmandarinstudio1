@@ -1498,35 +1498,67 @@ function toggleGlyphGrid() {
   btn.classList.toggle('on', !showing);
 }
 
-/* ── Speech / Audio ───────────────────────────────────── */
-function speakWord(gender) {
+/* ── Speech / Audio (Doubao / Edge TTS via server) ────── */
+let _currentAudio = null;
+
+async function speakWord(gender) {
   const w = WORDS[curWordIdx];
   const femaleBtn = document.getElementById('voice-female');
-  const maleBtn = document.getElementById('voice-male');
+  const maleBtn   = document.getElementById('voice-male');
   const btn = gender === 'female' ? femaleBtn : maleBtn;
+  const other = gender === 'female' ? maleBtn : femaleBtn;
+
+  // stop any playing audio
+  if (_currentAudio) { _currentAudio.pause(); _currentAudio = null; }
+  femaleBtn.classList.remove('playing');
+  maleBtn.classList.remove('playing');
+
   btn.classList.add('playing');
-  setTimeout(() => btn.classList.remove('playing'), 1800);
-  speakText(w.simplified);
+  other.classList.remove('playing');
+
+  await speakText(w.simplified, gender);
+  btn.classList.remove('playing');
 }
 
-function speakText(text) {
-  if (!window.speechSynthesis) return;
-  speechSynthesis.cancel();
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = 'zh-CN';
-  utter.rate = speechSpeed;
-  const voices = speechSynthesis.getVoices().filter(v => v.lang.startsWith('zh'));
-  if (voices.length) utter.voice = voices[0];
-  speechSynthesis.speak(utter);
+async function speakText(text, voice = 'female') {
+  // Stop current audio
+  if (_currentAudio) { _currentAudio.pause(); _currentAudio = null; }
+
+  const speed = speechSpeed;
+  const url   = `/api/tts?text=${encodeURIComponent(text)}&voice=${voice}&speed=${speed}`;
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`TTS server: ${res.status}`);
+    const blob    = await res.blob();
+    const objUrl  = URL.createObjectURL(blob);
+    const audio   = new Audio(objUrl);
+    audio.playbackRate = speed;
+    _currentAudio = audio;
+    audio.play();
+    audio.onended = () => { URL.revokeObjectURL(objUrl); _currentAudio = null; };
+  } catch (err) {
+    // Fallback to Web Speech API if server is unavailable
+    console.warn('[TTS] server unavailable, falling back to Web Speech API:', err.message);
+    if (!window.speechSynthesis) return;
+    speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang  = 'zh-CN';
+    utter.rate  = speed;
+    const voices = speechSynthesis.getVoices().filter(v => v.lang.startsWith('zh'));
+    if (voices.length) utter.voice = voices[0];
+    speechSynthesis.speak(utter);
+  }
 }
 
 function setSpeed(speed, btn) {
   speechSpeed = speed;
   document.querySelectorAll('.audio-speed button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  if (_currentAudio) _currentAudio.playbackRate = speed;
 }
 
-// Ensure voices are loaded
+// Fallback voice preload
 if (window.speechSynthesis) speechSynthesis.onvoiceschanged = () => {};
 
 /* ── HanziWriter (stroke practice) ───────────────────── */

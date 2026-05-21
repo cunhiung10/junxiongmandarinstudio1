@@ -1,0 +1,27 @@
+{
+  "name": "junxiongmandarinstudio1",
+  "version": "1.0.0",
+  "description": "Junxiong Mandarin Studio — online Mandarin learning platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cunhiung10/junxiongmandarinstudio1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cunhiung10/junxiongmandarinstudio1/issues"
+  },
+  "homepage": "https://github.com/cunhiung10/junxiongmandarinstudio1#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "node-edge-tts": "^1.2.10",
+    "volcengine-tts": "^1.0.10"
+  }
+}
