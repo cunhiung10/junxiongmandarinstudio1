@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@JMandarinStudio — Kursus Mandarin Online</title>
-  <meta name="description" content="Platform belajar Mandarin online terlengkap. Tersedia kelas HSK, BCT, YCT, HSKK, TOFCL, dan UKBI.">
+  <meta name="description" content="Platform belajar Mandarin online terlengkap. Tersedia kelas HSK, BCT, YCT, HSKK, dan TOFCL.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -74,6 +74,178 @@
     .footer .brand-name b {
       background-image: linear-gradient(90deg, #e06050 0%, #d4af37 100%);
     }
+
+/* ── HSK Overlay Panel ───────────────────────────────────── */
+.overlay-page {
+  align-items: stretch !important;
+  justify-items: stretch !important;
+  padding: 0 !important;
+  background: rgba(20,15,12,.72) !important;
+  backdrop-filter: blur(4px);
+}
+.hsk-panel {
+  background: var(--ivory);
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.hsk-panel-head {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--ivory);
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 28px;
+  display: flex; align-items: center; gap: 14px;
+}
+.hsk-panel-head .hsk-title-main {
+  font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--ink);
+}
+.hsk-panel-head .hsk-title-han {
+  font-family: var(--font-han); font-size: 14px; color: var(--ink-3); margin-left: 8px;
+}
+.hsk-panel-head .modal-x {
+  margin-left: auto; flex-shrink: 0;
+}
+.hsk-back-btn {
+  background: none; border: 1px solid var(--rule); border-radius: 8px;
+  padding: 6px 12px; font-size: 13px; color: var(--ink-2); cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+}
+.hsk-back-btn:hover { background: var(--ivory-2); }
+.hsk-view { display: none; }
+.hsk-view.active { display: block; }
+.hsk-section { padding: 28px 32px; border-bottom: 1px solid var(--rule); }
+.hsk-section:last-child { border-bottom: none; }
+.hsk-section-title {
+  font-family: var(--font-sans); font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--cinnabar);
+  margin-bottom: 18px;
+}
+.hsk-hero-bar {
+  padding: 24px 32px 20px;
+  background: linear-gradient(135deg, #1a1714 0%, #2a1f1c 100%);
+  color: #fff8ec;
+}
+.hsk-hero-bar .hsk-tag {
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: #d4af37; font-weight: 600; margin-bottom: 10px;
+}
+.hsk-hero-bar .hsk-hero-desc { font-size: 15px; color: #c8bfb0; max-width: 560px; margin-bottom: 14px; }
+.hsk-hero-stats { display: flex; gap: 20px; }
+.hsk-hero-stats span { font-size: 13px; color: #9a8f84; }
+.hsk-hero-stats b { color: #fff8ec; }
+/* Level tabs */
+.hsk-level-tabs-wrap { padding: 22px 32px 0; }
+.hsk-level-tabs-label {
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-4); font-weight: 600; margin-bottom: 12px;
+}
+.hsk-level-tabs {
+  display: flex; gap: 8px; flex-wrap: wrap; padding-bottom: 22px;
+}
+.hsk-level-tab {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 10px 16px; border: 1px solid var(--rule); border-radius: 10px;
+  background: var(--paper); cursor: pointer; gap: 3px; min-width: 80px;
+  transition: border-color .15s, background .15s;
+}
+.hsk-level-tab:hover { border-color: var(--cinnabar); background: var(--ivory); }
+.hsk-level-tab.active { border-color: var(--cinnabar); background: var(--cinnabar); color: #fff8ec; }
+.hsk-level-tab .tab-lvl { font-size: 13px; font-weight: 700; }
+.hsk-level-tab .tab-cefr { font-size: 10px; opacity: .7; }
+/* 5W1H grid */
+.w5h1-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+}
+@media(max-width:900px){ .w5h1-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:600px){ .w5h1-grid { grid-template-columns: 1fr; } }
+.w5h1-card {
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 12px;
+  padding: 18px;
+}
+.w5h1-q {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em;
+  font-weight: 700; color: var(--cinnabar); margin-bottom: 6px;
+}
+.w5h1-card h4 { font-size: 14px; font-weight: 600; margin: 0 0 8px; color: var(--ink); }
+.w5h1-card p  { font-size: 13px; line-height: 1.6; color: var(--ink-3); margin: 0; }
+/* Level detail */
+.hsk-lv-hero {
+  background: linear-gradient(135deg, #1a1714 0%, #2a1f1c 100%);
+  padding: 24px 32px; color: #fff8ec;
+}
+.hsk-lv-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .08em; color: #d4af37;
+  border: 1px solid rgba(212,175,55,.4); border-radius: 6px;
+  padding: 4px 10px; margin-bottom: 10px;
+}
+.hsk-lv-desc { font-size: 14px; color: #c8bfb0; margin: 0 0 18px; max-width: 600px; }
+.hsk-lv-stats {
+  display: flex; gap: 24px; flex-wrap: wrap;
+}
+.hsk-lv-stats > div { display: flex; flex-direction: column; gap: 2px; }
+.hsk-lv-stats span { font-size: 11px; color: #7a706a; text-transform: uppercase; letter-spacing: .06em; }
+.hsk-lv-stats b { font-size: 20px; font-weight: 700; color: #fff8ec; }
+/* Test structure cards */
+.struct-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.struct-card {
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 10px;
+  padding: 16px; display: flex; flex-direction: column; gap: 8px;
+}
+.struct-card-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+.struct-card-meta { display: flex; flex-direction: column; gap: 4px; }
+.struct-card-meta span { font-size: 12px; color: var(--ink-3); }
+.struct-card-meta b { color: var(--ink); }
+.struct-score-chip {
+  margin-top: auto; display: inline-block; padding: 3px 8px;
+  background: rgba(184,49,43,.08); border-radius: 5px;
+  font-size: 11px; font-weight: 600; color: var(--cinnabar);
+}
+/* Vocab table */
+.vocab-tbl-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; }
+.vocab-tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+.vocab-tbl thead th {
+  background: var(--paper); padding: 10px 14px; text-align: left;
+  font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink-3); border-bottom: 1px solid var(--rule); white-space: nowrap;
+}
+.vocab-tbl tbody tr { border-bottom: 1px solid var(--rule); }
+.vocab-tbl tbody tr:last-child { border-bottom: none; }
+.vocab-tbl tbody tr:hover { background: var(--ivory); }
+.vocab-tbl td { padding: 9px 14px; color: var(--ink); vertical-align: middle; }
+.vocab-tbl .td-num { color: var(--ink-4); font-size: 11px; font-family: var(--font-mono); width: 40px; }
+.vocab-tbl .td-han { font-family: var(--font-han); font-size: 17px; white-space: nowrap; }
+.vocab-tbl .td-trad { font-family: var(--font-han); font-size: 14px; color: var(--ink-3); }
+.vocab-tbl .td-py  { font-family: var(--font-mono); font-size: 12.5px; color: var(--cinnabar); }
+.vocab-tbl .td-meaning { font-size: 13px; color: var(--ink-2); }
+.vocab-tbl .td-cat { font-size: 11px; color: var(--ink-4); white-space: nowrap; }
+.vocab-tbl-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0 0; gap: 10px;
+}
+.vocab-tbl-nav button {
+  padding: 7px 16px; border: 1px solid var(--rule); border-radius: 8px;
+  background: var(--paper); font-size: 13px; cursor: pointer; color: var(--ink-2);
+}
+.vocab-tbl-nav button:hover { border-color: var(--cinnabar); color: var(--cinnabar); }
+.vocab-tbl-nav button:disabled { opacity: .4; cursor: not-allowed; }
+.vocab-tbl-counter { font-family: var(--font-mono); font-size: 12px; color: var(--ink-4); }
+/* Level tabs small (inside level view) */
+.hsk-lv-tabs-row {
+  padding: 14px 32px; border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  background: var(--ivory);
+}
+.hsk-lv-tab-sm {
+  padding: 5px 12px; border: 1px solid var(--rule); border-radius: 6px;
+  background: var(--paper); font-size: 12px; font-weight: 600; cursor: pointer;
+  color: var(--ink-2); transition: all .15s;
+}
+.hsk-lv-tab-sm:hover { border-color: var(--cinnabar); color: var(--cinnabar); }
+.hsk-lv-tab-sm.active { background: var(--cinnabar); border-color: var(--cinnabar); color: #fff8ec; }
   </style>
 </head>
 <body>
@@ -330,23 +502,6 @@
           <button onclick="closeAllMenus()" data-i18n="nav.career">Karir</button>
         </div>
 
-        <!-- UKBI -->
-        <div class="nav-item special" data-menu="ukbi">
-          <button aria-haspopup="true" aria-expanded="false">
-            <span data-i18n="nav.ukbi">UKBI</span>
-            <svg class="nav-caret" viewBox="0 0 9 9" fill="none"><path d="M1.5 3l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="megamenu">
-            <div class="mm-row" onclick="closeAllMenus()">
-              <div class="mm-icon" style="font-family:var(--font-sans);font-size:12px;font-weight:700">ID</div>
-              <div class="mm-text"><b>学习印尼语</b><span>Kelas Bahasa Indonesia untuk penutur asing</span></div>
-            </div>
-            <div class="mm-row" onclick="closeAllMenus()">
-              <div class="mm-icon">语</div>
-              <div class="mm-text"><b>Learn Indonesian</b><span>Certified UKBI test preparation</span></div>
-            </div>
-          </div>
-        </div>
       </nav>
 
       <div class="header-right">
@@ -440,7 +595,7 @@
       <div class="left">
         <div class="section-tag">Ujian Internasional</div>
         <h2>Pilih <span class="han">考试</span> yang Tepat untuk Anda</h2>
-        <p>Dari HSK standar hingga UKBI khusus penutur asing — semua ada di sini.</p>
+        <p>Dari HSK standar hingga TOFCL khusus penutur asing — semua ada di sini.</p>
       </div>
       <div class="right">
         <button class="btn btn-ghost btn-sm">Lihat Semua Tes</button>
@@ -448,33 +603,18 @@
     </div>
 
     <div class="tests-grid">
-      <!-- Featured: UKBI -->
-      <div class="test-card feature" onclick="">
-        <div class="ukbi-flag" aria-hidden="true"></div>
-        <div>
-          <div class="tc-tag">Unggulan</div>
-          <div class="tc-title">UKBI</div>
-          <div class="tc-han">学习印尼语 · Ujian Kemahiran Bahasa Indonesia</div>
-          <p class="tc-desc">Sertifikasi kemahiran bahasa Indonesia untuk penutur asing. Diakui secara nasional oleh Badan Bahasa Kemendikbud.</p>
-        </div>
-        <div class="tc-meta-row">
-          <span>Modul <b>5</b></span>
-          <span>Soal <b>210+</b></span>
-          <span>Waktu <b>120 mnt</b></span>
-        </div>
-        <div class="tc-bg-char">语</div>
-      </div>
-
-      <!-- HSK -->
-      <div class="test-card" onclick="">
+      <!-- HSK — Featured -->
+      <div class="test-card feature" onclick="openModal('hsk')" style="cursor:pointer">
         <div>
           <div class="tc-tag">Mandarin Standar</div>
           <div class="tc-title">HSK</div>
           <div class="tc-han">汉语水平考试</div>
+          <p class="tc-desc">Ujian Mandarin paling diakui dunia. Tersedia dalam 9 level dari pemula hingga mahir, digunakan untuk beasiswa, karir, dan imigrasi.</p>
         </div>
         <div class="tc-meta-row">
-          <span>Level <b>1–6</b></span>
-          <span>Kosakata <b>5.000+</b></span>
+          <span>Level <b>1–9</b></span>
+          <span>Kosakata <b>11.000+</b></span>
+          <span>Negara <b>160+</b></span>
         </div>
         <div class="tc-bg-char">汉</div>
       </div>
@@ -535,6 +675,158 @@
     </div>
   </div>
 </section>
+
+<!-- ═══ HSK OVERLAY PANEL ═══ -->
+<div id="overlay-hsk" class="overlay overlay-page" onclick="if(event.target===this)closeModal('hsk')">
+  <div class="hsk-panel">
+
+    <!-- ── Sticky header ── -->
+    <div class="hsk-panel-head">
+      <button class="hsk-back-btn" id="hsk-head-back" onclick="hskBack()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="hsk-back-label">Kembali</span>
+      </button>
+      <div>
+        <span class="hsk-title-main">HSK</span>
+        <span class="hsk-title-han">汉语水平考试</span>
+      </div>
+      <button class="modal-x" onclick="closeModal('hsk')" aria-label="Tutup">✕</button>
+    </div>
+
+    <!-- ══════════ VIEW: OVERVIEW ══════════ -->
+    <div id="hsk-view-overview" class="hsk-view active">
+
+      <!-- Hero bar -->
+      <div class="hsk-hero-bar">
+        <div class="hsk-tag">Mandarin Standar · Diakui Internasional</div>
+        <p class="hsk-hero-desc">Ujian kemampuan Mandarin resmi yang dikembangkan Hanban / Institut Konfusius, Tiongkok. Tersedia dalam 9 level dan berlaku di 160+ negara.</p>
+        <div class="hsk-hero-stats">
+          <span>Level <b>1–9</b></span>
+          <span>Negara <b>160+</b></span>
+          <span>Kosakata <b>150–11.000+</b></span>
+          <span>Format <b>PBT / IBT</b></span>
+        </div>
+      </div>
+
+      <!-- Level selector -->
+      <div class="hsk-level-tabs-wrap">
+        <div class="hsk-level-tabs-label">Pilih Level untuk detail struktur &amp; kosakata</div>
+        <div class="hsk-level-tabs" id="hsk-ov-tabs">
+          <button class="hsk-level-tab" data-lv="1"   onclick="openHSKLevel(1)">  <span class="tab-lvl">Level 1</span><span class="tab-cefr">A1</span></button>
+          <button class="hsk-level-tab" data-lv="2"   onclick="openHSKLevel(2)">  <span class="tab-lvl">Level 2</span><span class="tab-cefr">A2</span></button>
+          <button class="hsk-level-tab" data-lv="3"   onclick="openHSKLevel(3)">  <span class="tab-lvl">Level 3</span><span class="tab-cefr">B1</span></button>
+          <button class="hsk-level-tab" data-lv="4"   onclick="openHSKLevel(4)">  <span class="tab-lvl">Level 4</span><span class="tab-cefr">B2</span></button>
+          <button class="hsk-level-tab" data-lv="5"   onclick="openHSKLevel(5)">  <span class="tab-lvl">Level 5</span><span class="tab-cefr">C1</span></button>
+          <button class="hsk-level-tab" data-lv="6"   onclick="openHSKLevel(6)">  <span class="tab-lvl">Level 6</span><span class="tab-cefr">C2</span></button>
+          <button class="hsk-level-tab" data-lv="7-9" onclick="openHSKLevel('7-9')"><span class="tab-lvl">Level 7–9</span><span class="tab-cefr">C2+</span></button>
+        </div>
+      </div>
+
+      <!-- 5W1H -->
+      <div class="hsk-section">
+        <div class="hsk-section-title">Tentang HSK — 5W1H</div>
+        <div class="w5h1-grid">
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHAT · Apa</div>
+            <h4>Apa itu HSK?</h4>
+            <p>HSK (汉语水平考试 — Hànyǔ Shuǐpíng Kǎoshì) adalah ujian standar kemampuan bahasa Mandarin resmi yang dikembangkan oleh Hanban / Institut Konfusius di bawah Kementerian Pendidikan Tiongkok. Terdiri dari 9 level tertulis, ditambah HSKK untuk kemampuan lisan.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHY · Mengapa</div>
+            <h4>Mengapa perlu HSK?</h4>
+            <p>Dibutuhkan untuk pendaftaran beasiswa ke Tiongkok (CSC, Konfusius, dll.), penerimaan di universitas berbahasa Mandarin, rekrutmen perusahaan multinasional Tiongkok, proses imigrasi, serta sebagai bukti kompetensi bahasa Mandarin yang diakui resmi.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHO · Siapa</div>
+            <h4>Siapa yang mengikuti?</h4>
+            <p>Pelajar non-native bahasa Mandarin dari seluruh dunia — termasuk pelajar Indonesia, ekspatriat yang bekerja di perusahaan Tiongkok, akademisi, profesional bisnis, dan siapa saja yang ingin mendapat sertifikasi resmi kemampuan Mandarin.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHEN · Kapan</div>
+            <h4>Kapan ujian dilaksanakan?</h4>
+            <p>HSK diselenggarakan 6–12 kali per tahun. Jadwal berbeda di setiap pusat tes. Untuk Indonesia, jadwal biasanya tersedia setiap 1–2 bulan sekali. Pendaftaran umumnya ditutup 1 bulan sebelum hari ujian.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHERE · Di mana</div>
+            <h4>Di mana ujian diadakan?</h4>
+            <p>Di pusat tes resmi Hanban / Institut Konfusius di lebih dari 160 negara, termasuk Indonesia (Jakarta, Surabaya, Bandung, Medan, dan kota lainnya). Tersedia dalam format kertas (PBT) dan berbasis internet (IBT) di pusat tes resmi.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">HOW · Bagaimana</div>
+            <h4>Bagaimana cara ikut HSK?</h4>
+            <p>Daftar melalui situs resmi <b>chinesetest.cn</b> atau lembaga tes setempat. Pilih level, tanggal, dan lokasi ujian. Bayar biaya pendaftaran. Hasil ujian keluar sekitar 1 bulan setelah tes dan berlaku seumur hidup (tidak ada masa kedaluwarsa).</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /hsk-view-overview -->
+
+    <!-- ══════════ VIEW: LEVEL DETAIL ══════════ -->
+    <div id="hsk-view-level" class="hsk-view">
+
+      <!-- Level tab switcher row -->
+      <div class="hsk-lv-tabs-row" id="hsk-lv-tabs-row">
+        <button class="hsk-lv-tab-sm" data-lv="1"   onclick="openHSKLevel(1)">L1</button>
+        <button class="hsk-lv-tab-sm" data-lv="2"   onclick="openHSKLevel(2)">L2</button>
+        <button class="hsk-lv-tab-sm" data-lv="3"   onclick="openHSKLevel(3)">L3</button>
+        <button class="hsk-lv-tab-sm" data-lv="4"   onclick="openHSKLevel(4)">L4</button>
+        <button class="hsk-lv-tab-sm" data-lv="5"   onclick="openHSKLevel(5)">L5</button>
+        <button class="hsk-lv-tab-sm" data-lv="6"   onclick="openHSKLevel(6)">L6</button>
+        <button class="hsk-lv-tab-sm" data-lv="7-9" onclick="openHSKLevel('7-9')">L7–9</button>
+      </div>
+
+      <!-- Level hero -->
+      <div class="hsk-lv-hero">
+        <div class="hsk-lv-badge" id="hsk-lv-badge">HSK 1 · A1</div>
+        <p class="hsk-lv-desc" id="hsk-lv-desc">—</p>
+        <div class="hsk-lv-stats">
+          <div><span>Kosakata</span><b id="hsk-lv-vocab-count">—</b></div>
+          <div><span>Total Skor</span><b id="hsk-lv-total-score">—</b></div>
+          <div><span>Skor Lulus</span><b id="hsk-lv-passing">—</b></div>
+          <div><span>CEFR</span><b id="hsk-lv-cefr">—</b></div>
+        </div>
+      </div>
+
+      <!-- Test structure -->
+      <div class="hsk-section">
+        <div class="hsk-section-title">Struktur Ujian</div>
+        <div class="struct-grid" id="hsk-struct-grid"></div>
+      </div>
+
+      <!-- Vocabulary table -->
+      <div class="hsk-section">
+        <div class="hsk-section-title" style="display:flex;align-items:center;justify-content:space-between">
+          <span>Daftar Kosakata</span>
+          <span class="vocab-tbl-counter" id="hsk-vocab-counter">—</span>
+        </div>
+        <div class="vocab-tbl-wrap">
+          <table class="vocab-tbl">
+            <thead>
+              <tr>
+                <th class="td-num">#</th>
+                <th>汉字</th>
+                <th>Tradisional</th>
+                <th>Pinyin</th>
+                <th>Arti</th>
+                <th>Kategori</th>
+              </tr>
+            </thead>
+            <tbody id="hsk-vocab-tbody">
+              <tr><td colspan="6" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat kosakata…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="vocab-tbl-nav">
+          <button id="hsk-vocab-prev" onclick="hskVocabPage(-1)" disabled>← Sebelumnya</button>
+          <span class="vocab-tbl-counter" id="hsk-vocab-page-info">—</span>
+          <button id="hsk-vocab-next" onclick="hskVocabPage(1)">Berikutnya →</button>
+        </div>
+      </div>
+
+    </div><!-- /hsk-view-level -->
+
+  </div><!-- /hsk-panel -->
+</div><!-- /overlay-hsk -->
 
 <!-- ═══ ALL CLASSES ═══ -->
 <section class="section" id="semua-kelas">
@@ -1136,7 +1428,6 @@
           <li><a href="#">TOFCL</a></li>
           <li><a href="#">BCT</a></li>
           <li><a href="#">YCT</a></li>
-          <li><a href="#">UKBI</a></li>
         </ul>
       </div>
 
@@ -1343,6 +1634,170 @@ function showToast(msg) {
   el.style.display = 'flex';
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { el.style.display = 'none'; }, 3500);
+}
+
+/* ── HSK Panel ──────────────────────────────────────────── */
+const HSK_DATA = {
+  1:   { label:'HSK 1',  vocabKey:'HSK1',  vocabCount:150,   cefr:'A1',  totalScore:200, passing:120,
+         desc:'Mampu memahami dan menggunakan ekspresi Mandarin sangat dasar untuk kebutuhan sehari-hari yang konkret.',
+         sections:[
+           {name:'Mendengar',  han:'听力', items:20, time:15, score:100},
+           {name:'Membaca',    han:'阅读', items:20, time:17, score:100},
+         ]},
+  2:   { label:'HSK 2',  vocabKey:'HSK2',  vocabCount:300,   cefr:'A2',  totalScore:200, passing:120,
+         desc:'Mampu berkomunikasi tentang topik-topik umum dan rutin yang sederhana dalam bahasa Mandarin.',
+         sections:[
+           {name:'Mendengar',  han:'听力', items:35, time:25, score:100},
+           {name:'Membaca',    han:'阅读', items:25, time:22, score:100},
+         ]},
+  3:   { label:'HSK 3',  vocabKey:'HSK3',  vocabCount:600,   cefr:'B1',  totalScore:300, passing:180,
+         desc:'Mampu berkomunikasi dalam bahasa Mandarin untuk keperluan kehidupan, pekerjaan, dan akademik tingkat dasar.',
+         sections:[
+           {name:'Mendengar',  han:'听力', items:40, time:35, score:100},
+           {name:'Membaca',    han:'阅读', items:30, time:30, score:100},
+           {name:'Menulis',    han:'书写', items:10, time:15, score:100},
+         ]},
+  4:   { label:'HSK 4',  vocabKey:'HSK4',  vocabCount:1200,  cefr:'B2',  totalScore:300, passing:180,
+         desc:'Mampu berdiskusi tentang berbagai topik dalam bahasa Mandarin dan berkomunikasi dengan penutur asli secara fasih.',
+         sections:[
+           {name:'Mendengar',  han:'听力', items:45, time:30, score:100},
+           {name:'Membaca',    han:'阅读', items:40, time:40, score:100},
+           {name:'Menulis',    han:'书写', items:15, time:25, score:100},
+         ]},
+  5:   { label:'HSK 5',  vocabKey:'HSK5',  vocabCount:2500,  cefr:'C1',  totalScore:300, passing:180,
+         desc:'Mampu membaca koran dan majalah berbahasa Mandarin, menonton film, serta berpidato dalam bahasa Mandarin.',
+         sections:[
+           {name:'Mendengar',  han:'听力', items:45, time:30, score:100},
+           {name:'Membaca',    han:'阅读', items:45, time:45, score:100},
+           {name:'Menulis',    han:'书写', items:10, time:40, score:100},
+         ]},
+  6:   { label:'HSK 6',  vocabKey:'HSK6',  vocabCount:5000,  cefr:'C2',  totalScore:300, passing:180,
+         desc:'Mampu dengan mudah memahami semua informasi Mandarin yang tertulis maupun lisan, dan berekspresi secara spontan dan lancar.',
+         sections:[
+           {name:'Mendengar',  han:'听力', items:50, time:35, score:100},
+           {name:'Membaca',    han:'阅读', items:50, time:50, score:100},
+           {name:'Menulis',    han:'书写', items:1,  time:45, score:100, note:'Esai'},
+         ]},
+  '7-9':{ label:'HSK 7–9', vocabKey:'HSK7-9', vocabCount:11000, cefr:'C2+', totalScore:null, passing:null,
+         desc:'Tingkat mahir setara profesional dan akademik. Mencakup mendengar, membaca, menulis panjang, terjemahan, dan berbicara.',
+         sections:[
+           {name:'Mendengar',    han:'听力', items:60, time:40,  score:null},
+           {name:'Membaca',      han:'阅读', items:60, time:60,  score:null},
+           {name:'Menulis',      han:'书写', items:20, time:55,  score:null},
+           {name:'Terjemahan',   han:'翻译', items:2,  time:30,  score:null},
+           {name:'Berbicara',    han:'说话', items:null,time:null,score:null, note:'Terpisah (HSKK)'},
+         ]},
+};
+
+let hskCurrentLevel = null;
+let hskVocabOffset  = 0;
+let hskVocabTotal   = 0;
+const HSK_TBL_PAGE  = 50;
+
+function openHSKLevel(lv) {
+  hskCurrentLevel = lv;
+  hskVocabOffset  = 0;
+  const d = HSK_DATA[lv];
+  if (!d) return;
+
+  // Switch views
+  document.getElementById('hsk-view-overview').classList.remove('active');
+  document.getElementById('hsk-view-level').classList.add('active');
+
+  // Back button label
+  document.getElementById('hsk-back-label').textContent = 'Overview';
+
+  // Highlight active tabs (overview tabs + small tabs)
+  document.querySelectorAll('#hsk-ov-tabs .hsk-level-tab').forEach(b =>
+    b.classList.toggle('active', b.dataset.lv == String(lv)));
+  document.querySelectorAll('#hsk-lv-tabs-row .hsk-lv-tab-sm').forEach(b =>
+    b.classList.toggle('active', b.dataset.lv == String(lv)));
+
+  // Scroll panel to top
+  document.querySelector('.hsk-panel').scrollTo({top:0, behavior:'smooth'});
+
+  // Hero section
+  document.getElementById('hsk-lv-badge').textContent = `${d.label} · ${d.cefr}`;
+  document.getElementById('hsk-lv-desc').textContent  = d.desc;
+  document.getElementById('hsk-lv-vocab-count').textContent = d.vocabCount.toLocaleString();
+  document.getElementById('hsk-lv-total-score').textContent = d.totalScore ? d.totalScore.toString() : '—';
+  document.getElementById('hsk-lv-passing').textContent     = d.passing    ? d.passing.toString()    : '—';
+  document.getElementById('hsk-lv-cefr').textContent        = d.cefr;
+
+  // Test structure
+  const sg = document.getElementById('hsk-struct-grid');
+  sg.innerHTML = d.sections.map(s => `
+    <div class="struct-card">
+      <div class="struct-card-name">${s.name} <span style="font-family:var(--font-han);font-weight:400;color:var(--ink-3)">${s.han}</span></div>
+      <div class="struct-card-meta">
+        ${s.items  != null ? `<span>Soal: <b>${s.items}</b></span>` : ''}
+        ${s.time   != null ? `<span>Waktu: <b>${s.time} mnt</b></span>` : ''}
+        ${s.note               ? `<span style="color:var(--cinnabar);font-size:11px">${s.note}</span>` : ''}
+      </div>
+      ${s.score != null ? `<div class="struct-score-chip">Skor maks ${s.score}</div>` : ''}
+    </div>`).join('');
+
+  // Load vocab
+  hskLoadVocabPage(0);
+}
+
+function hskBack() {
+  if (document.getElementById('hsk-view-level').classList.contains('active')) {
+    hskShowOverview();
+  } else {
+    closeModal('hsk');
+  }
+}
+
+function hskShowOverview() {
+  document.getElementById('hsk-view-level').classList.remove('active');
+  document.getElementById('hsk-view-overview').classList.add('active');
+  document.getElementById('hsk-back-label').textContent = 'Kembali';
+  document.querySelector('.hsk-panel').scrollTo({top:0, behavior:'smooth'});
+}
+
+async function hskLoadVocabPage(offset) {
+  const lv  = hskCurrentLevel;
+  const d   = HSK_DATA[lv];
+  if (!d) return;
+  const tbody = document.getElementById('hsk-vocab-tbody');
+  tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat…</td></tr>`;
+  try {
+    const url  = `/api/vocab/${encodeURIComponent(d.vocabKey)}?limit=${HSK_TBL_PAGE}&offset=${offset}`;
+    const data = await fetch(url).then(r => r.json());
+    if (data.error) throw new Error(data.error);
+    hskVocabTotal  = data.total  || 0;
+    hskVocabOffset = data.offset || 0;
+    const items = data.items || [];
+    tbody.innerHTML = items.length ? items.map((w, i) => {
+      const meaning = (w.meaning_id || '').trim() || (w.meaning_en || '—');
+      const pos     = (w.part_of_speech_id || '').trim() || (w.part_of_speech_en || '—');
+      return `<tr>
+        <td class="td-num">${hskVocabOffset + i + 1}</td>
+        <td class="td-han">${w.simplified || '?'}</td>
+        <td class="td-trad">${w.traditional && w.traditional !== w.simplified ? w.traditional : '—'}</td>
+        <td class="td-py">${w.pinyin || '—'}</td>
+        <td class="td-meaning">${meaning}</td>
+        <td class="td-cat">${pos}</td>
+      </tr>`;
+    }).join('') : `<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--ink-4)">Tidak ada data.</td></tr>`;
+    // Update nav
+    const pageNum  = Math.floor(hskVocabOffset / HSK_TBL_PAGE) + 1;
+    const pageTot  = Math.ceil(hskVocabTotal   / HSK_TBL_PAGE);
+    document.getElementById('hsk-vocab-counter').textContent   = `${hskVocabOffset + 1}–${Math.min(hskVocabOffset + items.length, hskVocabTotal)} dari ${hskVocabTotal.toLocaleString()} kata`;
+    document.getElementById('hsk-vocab-page-info').textContent = `Halaman ${pageNum} / ${pageTot}`;
+    document.getElementById('hsk-vocab-prev').disabled = hskVocabOffset === 0;
+    document.getElementById('hsk-vocab-next').disabled = hskVocabOffset + items.length >= hskVocabTotal;
+  } catch(e) {
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--ink-4)">Gagal memuat: ${e.message}</td></tr>`;
+  }
+}
+
+function hskVocabPage(dir) {
+  const newOffset = hskVocabOffset + dir * HSK_TBL_PAGE;
+  if (newOffset < 0 || newOffset >= hskVocabTotal) return;
+  document.querySelector('.hsk-panel').scrollTo({top: document.querySelector('.hsk-section:last-child').offsetTop - 120, behavior:'smooth'});
+  hskLoadVocabPage(newOffset);
 }
 
 /* ── Report modal ─────────────────────────────────────── */
