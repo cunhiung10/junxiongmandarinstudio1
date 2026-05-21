@@ -52,50 +52,6 @@
     #hanzi-stroke-target { width:100%; min-height:280px; }
     #hanzi-stroke-target svg { display:block; margin:auto; }
 
-    /* ── Calligraphy seal — red + gold ─────────────────── */
-    .seal-jun {
-      background: linear-gradient(160deg, #c0302b 0%, #9b2420 100%) !important;
-      border: none !important;
-      border-radius: 7px !important;
-      box-shadow:
-        inset 0 1px 0 rgba(255,210,100,.18),   /* warm top sheen       */
-        0 0 0 1px rgba(212,175,55,.55),          /* gold outer ring      */
-        0 0 0 2.5px rgba(110,20,16,.65),         /* dark border wrap     */
-        0 6px 22px -6px rgba(120,20,15,.7),
-        0 2px 8px rgba(0,0,0,.35) !important;
-    }
-    /* Outer gold frame line */
-    .seal-jun::before {
-      inset: 3px !important;
-      border-color: rgba(212,175,55,.5) !important;
-      border-radius: 4px !important;
-    }
-    /* Inner gold frame line */
-    .seal-jun::after {
-      inset: 6px !important;
-      border-color: rgba(212,175,55,.25) !important;
-      border-radius: 2px !important;
-    }
-    /* No notch needed for this style */
-    .seal-jun .jun-notch { display: none !important; }
-    /* JUN — horizontal */
-    .jun-text {
-      font-family: 'Source Serif 4', serif !important;
-      font-size: 13px !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.22em !important;
-      padding-left: 0.22em !important; /* optical balance for trailing spacing */
-      color: #f5d060 !important;
-      text-shadow:
-        0 1px 1px rgba(80,10,8,.6),
-        0 0 8px rgba(245,208,96,.45),
-        0 0 20px rgba(212,175,55,.2);
-      position: relative;
-      z-index: 2;
-      line-height: 1 !important;
-      display: block !important;
-      white-space: nowrap !important;
-    }
     /* @ prefix styling in brand name */
     .brand-at {
       font-family: 'JetBrains Mono', monospace;
@@ -243,7 +199,7 @@
     <div class="header-inner">
       <!-- Logo -->
       <a class="brand" href="#" aria-label="@JMandarinStudio — Beranda">
-        <div class="seal seal-jun"><span class="jun-text">JUN</span></div>
+
         <div class="brand-name">
           <b><span class="brand-at">@</span>JMandarinStudio</b>
         </div>
@@ -1132,7 +1088,7 @@
       <!-- Brand -->
       <div>
         <div class="brand" style="cursor:default">
-          <div class="seal seal-jun" style="width:38px;height:38px"><span class="jun-text" style="font-size:10px;letter-spacing:0.18em;padding-left:0.18em">JUN</span></div>
+
           <div class="brand-name">
             <b><span class="brand-at">@</span>JMandarinStudio</b>
           </div>
