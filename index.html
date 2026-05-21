@@ -228,7 +228,8 @@
 .vocab-tbl .td-num { color: var(--ink-4); font-size: 11px; font-family: var(--font-mono); width: 40px; }
 .vocab-tbl .td-han { font-family: var(--font-han); font-size: 17px; white-space: nowrap; }
 .vocab-tbl .td-trad { font-family: var(--font-han); font-size: 14px; color: var(--ink-3); }
-.vocab-tbl .td-py  { font-family: var(--font-mono); font-size: 12.5px; color: var(--cinnabar); }
+.vocab-tbl .td-py     { font-family: var(--font-mono); font-size: 12.5px; color: var(--cinnabar); }
+.vocab-tbl .td-zhuyin { font-family: var(--font-han);  font-size: 13px;   color: var(--ink-3); white-space: nowrap; }
 .vocab-tbl .td-meaning { font-size: 13px; color: var(--ink-2); }
 .vocab-tbl .td-cat { font-size: 11px; color: var(--ink-4); white-space: nowrap; }
 .vocab-tbl-nav {
@@ -816,12 +817,13 @@
                 <th>汉字</th>
                 <th>Tradisional</th>
                 <th>Pinyin</th>
+                <th>注音</th>
                 <th>Arti</th>
                 <th>Kategori</th>
               </tr>
             </thead>
             <tbody id="hsk-vocab-tbody">
-              <tr><td colspan="6" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat kosakata…</td></tr>
+              <tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat kosakata…</td></tr>
             </tbody>
           </table>
         </div>
@@ -1770,7 +1772,7 @@ async function hskLoadVocabPage(offset) {
   const d   = HSK_DATA[lv];
   if (!d) return;
   const tbody = document.getElementById('hsk-vocab-tbody');
-  tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat…</td></tr>`;
+  tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat…</td></tr>`;
   try {
     const url  = `/api/vocab/${encodeURIComponent(d.vocabKey)}?limit=${HSK_TBL_PAGE}&offset=${offset}`;
     const data = await fetch(url).then(r => r.json());
@@ -1786,10 +1788,11 @@ async function hskLoadVocabPage(offset) {
         <td class="td-han">${w.simplified || '?'}</td>
         <td class="td-trad">${w.traditional && w.traditional !== w.simplified ? w.traditional : '—'}</td>
         <td class="td-py">${w.pinyin || '—'}</td>
+        <td class="td-zhuyin">${w.zhuyin || '—'}</td>
         <td class="td-meaning">${meaning}</td>
         <td class="td-cat">${pos}</td>
       </tr>`;
-    }).join('') : `<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--ink-4)">Tidak ada data.</td></tr>`;
+    }).join('') : `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Tidak ada data.</td></tr>`;
     // Update nav
     const pageNum  = Math.floor(hskVocabOffset / HSK_TBL_PAGE) + 1;
     const pageTot  = Math.ceil(hskVocabTotal   / HSK_TBL_PAGE);
@@ -1798,7 +1801,7 @@ async function hskLoadVocabPage(offset) {
     document.getElementById('hsk-vocab-prev').disabled = hskVocabOffset === 0;
     document.getElementById('hsk-vocab-next').disabled = hskVocabOffset + items.length >= hskVocabTotal;
   } catch(e) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--ink-4)">Gagal memuat: ${e.message}</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Gagal memuat: ${e.message}</td></tr>`;
   }
 }
 
