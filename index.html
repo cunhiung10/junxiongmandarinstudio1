@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junxiong Mandarin Studio — Kursus Mandarin Online</title>
+  <meta name="description" content="Platform belajar Mandarin online terlengkap. Tersedia kelas HSK, BCT, YCT, HSKK, TOFCL, dan UKBI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="vocab.css">
+  <style>
+    /* Additional styles */
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+    .overlay { display:none; }
+    .overlay.active { display:grid; }
+    html { scroll-behavior: smooth; }
+    .nav-item { position: relative; }
+    /* Hamburger */
+    .hamburger { display:none; appearance:none; background:transparent; border:1px solid var(--rule); width:40px; height:40px; border-radius:10px; cursor:pointer; place-items:center; color:var(--ink-2); }
+    @media(max-width:900px){
+      .nav { display:none; }
+      .hamburger { display:grid; }
+      .hero-grid { grid-template-columns:1fr !important; }
+      .hero-visual { display:none !important; }
+      .tests-grid { grid-template-columns:1fr 1fr !important; height:auto !important; }
+      .test-card.feature { grid-row:span 1 !important; }
+      .classes-grid { grid-template-columns:1fr 1fr !important; }
+      .practice-grid { grid-template-columns:1fr 1fr !important; }
+      .articles-grid { grid-template-columns:1fr !important; }
+      .contact-grid { grid-template-columns:1fr !important; }
+      .footer-grid { grid-template-columns:1fr 1fr !important; }
+      .vocab-stage { grid-template-columns:1fr !important; }
+    }
+    @media(max-width:600px){
+      .classes-grid,.practice-grid,.tests-grid,.contact-channels { grid-template-columns:1fr !important; }
+      .footer-grid { grid-template-columns:1fr !important; }
+      .container { padding:0 16px; }
+    }
+    /* Ensure LMS link looks special */
+    .nav-item.lms-item > button { background:var(--ivory-2); border:1px solid var(--rule); border-radius:8px; }
+    /* Tab hidden state */
+    .class-card[style*="none"] { display:none !important; }
+    /* Smooth transitions for vocal section */
+    #word-compose, #word-sentences, #word-stroke { display:none; }
+    #word-compose.active, #word-sentences.active, #word-stroke.active { display:flex; flex-direction:column; flex:1; }
+    /* Vocab counter */
+    .word-counter-text { font-family:var(--font-mono); font-size:11.5px; color:var(--ink-4); display:flex; align-items:center; gap:6px; }
+    /* Stroke canvas */
+    #hanzi-stroke-target { width:100%; min-height:280px; }
+    #hanzi-stroke-target svg { display:block; margin:auto; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ TOAST ═══ -->
+<div id="toast" class="toast" style="display:none" role="status" aria-live="polite">
+  <div class="icon">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <span id="toast-msg">Laporan terkirim!</span>
+</div>
+
+<!-- ═══ FAB REPORT ═══ -->
+<button class="fab-report" onclick="openModal('report')" aria-label="Laporkan masalah">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v6M7 10v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/></svg>
+  Laporkan
+</button>
+
+<!-- ═══ SEARCH OVERLAY ═══ -->
+<div id="overlay-search" class="overlay" role="dialog" aria-modal="true" aria-label="Cari kelas" onclick="if(event.target===this)closeModal('search')">
+  <div class="overlay-content">
+    <input id="search-input" class="search-input" type="text" placeholder="Cari kelas, tes, atau kosakata…" oninput="handleSearch(this.value)" autocomplete="off">
+    <div class="search-results" id="search-results">
+      <div class="search-result" onclick="closeModal('search')">
+        <div class="mm-icon">学</div>
+        <div><b style="font-size:13.5px">Kosakata HSK 1</b><br><span style="font-size:12px;color:var(--ink-3)">Pelajari 150 kosakata dasar</span></div>
+      </div>
+      <div class="search-result" onclick="closeModal('search')">
+        <div class="mm-icon">汉</div>
+        <div><b style="font-size:13.5px">Mandarin Dasar</b><br><span style="font-size:12px;color:var(--ink-3)">Kelas gratis untuk pemula</span></div>
+      </div>
+      <div class="search-result" onclick="closeModal('search')">
+        <div class="mm-icon">试</div>
+        <div><b style="font-size:13.5px">Persiapan HSK 4</b><br><span style="font-size:12px;color:var(--ink-3)">Simulasi ujian & strategi</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LOGIN OVERLAY ═══ -->
+<div id="overlay-login" class="overlay" role="dialog" aria-modal="true" aria-label="Masuk ke LMS" onclick="if(event.target===this)closeModal('login')">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <h3>Masuk ke LMS</h3>
+        <p>Akses materi, tes, dan progres belajar Anda</p>
+      </div>
+      <button class="modal-x" onclick="closeModal('login')" aria-label="Tutup">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field"><label>Email</label><input type="email" placeholder="nama@email.com"></div>
+      <div class="field"><label>Kata Sandi</label><input type="password" placeholder="••••••••"></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="showToast('Fitur login akan segera hadir!')">Masuk</button>
+      <p style="text-align:center;margin-top:14px;font-size:13px;color:var(--ink-3)">Belum punya akun? <a href="#" style="color:var(--cinnabar);font-weight:600">Daftar gratis</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ REPORT OVERLAY ═══ -->
+<div id="overlay-report" class="overlay" role="dialog" aria-modal="true" aria-label="Formulir laporan" onclick="if(event.target===this)closeModal('report')">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <h3>Kirim Laporan</h3>
+        <p>Bantu kami meningkatkan kualitas konten dan layanan</p>
+      </div>
+      <button class="modal-x" onclick="closeModal('report')" aria-label="Tutup">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px">Jenis Laporan</p>
+      <div class="report-type-grid">
+        <div class="report-type active" onclick="selectReportType(this)">
+          <div class="ck"></div>
+          <div><b>Kesalahan Kata</b><span>Koreksi kosakata, terjemahan, atau penulisan yang salah</span></div>
+        </div>
+        <div class="report-type" onclick="selectReportType(this)">
+          <div class="ck"></div>
+          <div><b>Masalah Kelas</b><span>Materi, video, atau latihan yang bermasalah</span></div>
+        </div>
+        <div class="report-type" onclick="selectReportType(this)">
+          <div class="ck"></div>
+          <div><b>Bug / Teknis</b><span>Fitur tidak berfungsi atau tampilan rusak</span></div>
+        </div>
+        <div class="report-type" onclick="selectReportType(this)">
+          <div class="ck"></div>
+          <div><b>Saran &amp; Lainnya</b><span>Usulan fitur atau komentar umum</span></div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Nama</label><input type="text" id="r-name" placeholder="Nama Anda"></div>
+        <div class="field"><label>Email</label><input type="email" id="r-email" placeholder="nama@email.com"></div>
+      </div>
+      <div class="field"><label>Judul Laporan</label><input type="text" id="r-title" placeholder="Ringkasan singkat masalah"></div>
+      <div class="field"><label>Deskripsi</label><textarea id="r-desc" placeholder="Jelaskan masalah secara detail…"></textarea></div>
+      <div class="attach-zone" id="attach-zone" onclick="document.getElementById('attach-input').click()" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="handleDrop(event)">
+        <div class="icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 12V4M6 7l3-3 3 3M3 14h12" stroke="var(--ink-3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <b>Lampirkan file</b>
+        <small>Foto atau dokumen, maks. 1 MB</small>
+        <input type="file" id="attach-input" style="display:none" accept="image/*,.pdf,.doc,.docx" onchange="handleAttach(this.files)">
+      </div>
+      <div class="attach-list" id="attach-list"></div>
+      <div id="attach-error" class="attach-error" style="display:none"></div>
+    </div>
+    <div class="modal-foot">
+      <span class="note">Laporan dikirim ke junxiongmandarinstudio@gmail.com</span>
+      <button class="btn btn-primary btn-sm" onclick="submitReport()">Kirim Laporan</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ UTILITY BAR ═══ -->
+<div class="utilbar">
+  <div class="container">
+    <div class="utilbar-inner">
+      <div class="ops">
+        <span><span class="dot" id="status-dot"></span><span id="status-text">Sen–Sab · 10:00–18:00</span></span>
+        <span>WhatsApp: +62 8131007134</span>
+      </div>
+      <div class="right">
+        <span class="util-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Kontak</span>
+        <div class="lang-switch" role="group" aria-label="Pilih bahasa">
+          <button class="active" onclick="setLang('id')" data-lang="id">ID</button>
+          <button onclick="setLang('en')" data-lang="en">EN</button>
+          <button onclick="setLang('zh')" data-lang="zh">中文</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <!-- Logo -->
+      <a class="brand" href="#" aria-label="Junxiong Mandarin Studio — Beranda">
+        <div class="seal"><span class="seal-char">峻</span></div>
+        <div class="brand-name">
+          <b>Junxiong Mandarin</b>
+          <small>Studio · 骏雄</small>
+        </div>
+      </a>
+
+      <!-- Nav -->
+      <nav class="nav" aria-label="Navigasi utama">
+        <!-- Tentang -->
+        <div class="nav-item" data-menu="tentang">
+          <button aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav.about">Tentang</span>
+            <svg class="nav-caret" viewBox="0 0 9 9" fill="none"><path d="M1.5 3l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="megamenu">
+            <div class="mm-h">Tentang Kami</div>
+            <div class="mm-row" onclick="closeAllMenus()">
+              <div class="mm-icon">愿</div>
+              <div class="mm-text"><b>Visi</b><span>Menjadi platform Mandarin terpercaya di Asia Tenggara</span></div>
+            </div>
+            <div class="mm-row" onclick="closeAllMenus()">
+              <div class="mm-icon">务</div>
+              <div class="mm-text"><b>Misi</b><span>Menghadirkan pengajaran Mandarin berkualitas &amp; terjangkau</span></div>
+            </div>
+            <div class="mm-row" onclick="closeAllMenus()">
+              <div class="mm-icon">值</div>
+              <div class="mm-text"><b>Nilai</b><span>Integritas, inovasi, dan inklusivitas</span></div>
+            </div>
+            <div class="mm-aside">
+              <b>Hubungi Kami</b>
+              <div class="mm-contact-row"><span class="k">WhatsApp</span><span>+62 8131007134</span></div>
+              <div class="mm-contact-row"><span class="k">Jam Buka</span><span>Sen–Sab, 10:00–18:00</span></div>
+              <div class="mm-contact-row"><span class="k">Tutup</span><span>Hari Minggu</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kelas -->
+        <div class="nav-item" data-menu="kelas">
+          <button aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav.class">Kelas</span>
+            <svg class="nav-caret" viewBox="0 0 9 9" fill="none"><path d="M1.5 3l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="megamenu">
+            <div class="mm-row" onclick="closeAllMenus()">
+              <div class="mm-icon">材</div>
+              <div class="mm-text"><b>Materi Pembelajaran</b><span>Video, PDF, dan latihan interaktif</span></div>
+            </div>
+            <div class="mm-row" onclick="closeAllMenus()">
+              <div class="mm-icon">试</div>
+              <div class="mm-text"><b>Tes &amp; Latihan</b><span>Simulasi ujian dan kuis</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LMS -->
+        <div class="nav-item lms-item" data-menu="">
+          <button onclick="openModal('login')">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1a3 3 0 100 6 3 3 0 000-6zm-5 10.5a5 5 0 0110 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span data-i18n="nav.lms">LMS</span>
+          </button>
+        </div>
+
+        <!-- Tes -->
+        <div class="nav-item" data-menu="tes">
+          <button aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav.test">Tes</span>
+            <svg class="nav-caret" viewBox="0 0 9 9" fill="none"><path d="M1.5 3l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="megamenu wide">
+            <div class="mm-h">Ujian Internasional</div>
+            <div class="mm-grid">
+              <div class="mm-row" onclick="closeAllMenus()">
+                <div class="mm-icon">汉</div>
+                <div class="mm-text"><b>HSK</b><span>汉语水平考试 · Level 1–6</span></div>
+              </div>
+              <div class="mm-row" onclick="closeAllMenus()">
+                <div class="mm-icon">口</div>
+                <div class="mm-text"><b>HSKK</b><span>汉语水平口语考试 · Lisan</span></div>
+              </div>
+              <div class="mm-row" onclick="closeAllMenus()">
+                <div class="mm-icon">业</div>
+                <div class="mm-text"><b>BCT</b><span>Business Chinese Test</span></div>
+              </div>
+              <div class="mm-row" onclick="closeAllMenus()">
+                <div class="mm-icon">幼</div>
+                <div class="mm-text"><b>YCT</b><span>Youth Chinese Test · Anak</span></div>
+              </div>
+              <div class="mm-row" onclick="closeAllMenus()">
+                <div class="mm-icon">福</div>
+                <div class="mm-text"><b>TOFCL</b><span>Tes Online bagi Orang Asing</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aktivitas -->
+        <div class="nav-item" data-menu="aktivitas">
+          <button aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav.activity">Aktivitas</span>
+            <svg class="nav-caret" viewBox="0 0 9 9" fill="none"><path d="M1.5 3l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="megamenu">
+            <div class="mm-row" onclick="closeAllMenus()">
+              <div class="mm-icon">文</div>
+              <div class="mm-text"><b>Artikel</b><span>Tips belajar &amp; budaya Tiongkok</span></div>
+            </div>
+            <div class="mm-row" onclick="closeAllMenus()">
+              <div class="mm-icon">华</div>
+              <div class="mm-text"><b>All About Chinese</b><span>Fakta unik bahasa &amp; budaya Cina</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Karir -->
+        <div class="nav-item">
+          <button onclick="closeAllMenus()" data-i18n="nav.career">Karir</button>
+        </div>
+
+        <!-- UKBI -->
+        <div class="nav-item special" data-menu="ukbi">
+          <button aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav.ukbi">UKBI</span>
+            <svg class="nav-caret" viewBox="0 0 9 9" fill="none"><path d="M1.5 3l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="megamenu">
+            <div class="mm-row" onclick="closeAllMenus()">
+              <div class="mm-icon" style="font-family:var(--font-sans);font-size:12px;font-weight:700">ID</div>
+              <div class="mm-text"><b>学习印尼语</b><span>Kelas Bahasa Indonesia untuk penutur asing</span></div>
+            </div>
+            <div class="mm-row" onclick="closeAllMenus()">
+              <div class="mm-icon">语</div>
+              <div class="mm-text"><b>Learn Indonesian</b><span>Certified UKBI test preparation</span></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-right">
+        <button class="icon-btn" onclick="openModal('search')" aria-label="Cari">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M12.5 12.5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="openModal('login')">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1a3 3 0 100 6 3 3 0 000-6zm-5 10.5a5 5 0 0110 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span data-i18n="nav.login">Masuk</span>
+        </button>
+        <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="eyebrow">
+          <span class="pill">Baru</span>
+          Platform Belajar Mandarin Online Indonesia
+        </div>
+        <h1>Kuasai Bahasa <em class="han">普通话</em> dengan Percaya Diri</h1>
+        <p class="lead">Belajar Mandarin dengan metode terstruktur, ujian internasional bersertifikat, dan kosakata interaktif. Tersedia dalam Bahasa Indonesia &amp; Inggris.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary btn-lg" onclick="openModal('login')">Mulai Belajar Gratis</button>
+          <a href="#semua-kelas" class="btn btn-ghost btn-lg">Lihat Semua Kelas</a>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <b>2.400<span class="han">+</span></b>
+            <span>Siswa Aktif</span>
+          </div>
+          <div class="stat">
+            <b>60<span class="han">+</span></b>
+            <span>Kelas Tersedia</span>
+          </div>
+          <div class="stat">
+            <b>6<span class="han">种</span></b>
+            <span>Jenis Ujian</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero visual: stacked test cards -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="ink-wash">語</div>
+
+        <div class="hero-card c1">
+          <div class="hc-tag"><i></i>UJIAN INTERNASIONAL</div>
+          <div class="hc-title">HSK</div>
+          <div class="hc-han">汉语水平考试</div>
+          <div class="hc-divider"></div>
+          <div class="hc-meta">
+            <span>Level <b>1–6</b></span>
+            <span>Peserta <b>Tersertifikasi</b></span>
+          </div>
+          <div class="hc-levels" style="margin-top:12px">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="hero-card c2">
+          <div class="hc-tag"><i></i>UJIAN LISAN</div>
+          <div class="hc-title">HSKK</div>
+          <div class="hc-han">汉语水平口语考试</div>
+          <div class="hc-divider"></div>
+          <div class="hc-meta">
+            <span>Level <b>Dasar–Lanjut</b></span>
+          </div>
+        </div>
+
+        <div class="hero-card c3">
+          <div class="hc-tag"><i></i>BISNIS</div>
+          <div class="hc-title">BCT</div>
+          <div class="hc-han">商务汉语考试</div>
+          <div class="hc-divider"></div>
+          <div class="hc-meta">
+            <span>Modul <b>Mendengar + Membaca</b></span>
+          </div>
+        </div>
+
+        <div class="hero-card c4">
+          <div class="hc-tag"><i></i>ANAK &amp; REMAJA</div>
+          <div class="hc-title">YCT</div>
+          <div class="hc-han">青少年汉语考试</div>
+          <div class="hc-divider"></div>
+          <div class="hc-meta">
+            <span>Level <b>1–4</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TEST CATEGORIES ═══ -->
+<section class="section cream">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-tag">Ujian Internasional</div>
+        <h2>Pilih <span class="han">考试</span> yang Tepat untuk Anda</h2>
+        <p>Dari HSK standar hingga UKBI khusus penutur asing — semua ada di sini.</p>
+      </div>
+      <div class="right">
+        <button class="btn btn-ghost btn-sm">Lihat Semua Tes</button>
+      </div>
+    </div>
+
+    <div class="tests-grid">
+      <!-- Featured: UKBI -->
+      <div class="test-card feature" onclick="">
+        <div class="ukbi-flag" aria-hidden="true"></div>
+        <div>
+          <div class="tc-tag">Unggulan</div>
+          <div class="tc-title">UKBI</div>
+          <div class="tc-han">学习印尼语 · Ujian Kemahiran Bahasa Indonesia</div>
+          <p class="tc-desc">Sertifikasi kemahiran bahasa Indonesia untuk penutur asing. Diakui secara nasional oleh Badan Bahasa Kemendikbud.</p>
+        </div>
+        <div class="tc-meta-row">
+          <span>Modul <b>5</b></span>
+          <span>Soal <b>210+</b></span>
+          <span>Waktu <b>120 mnt</b></span>
+        </div>
+        <div class="tc-bg-char">语</div>
+      </div>
+
+      <!-- HSK -->
+      <div class="test-card" onclick="">
+        <div>
+          <div class="tc-tag">Mandarin Standar</div>
+          <div class="tc-title">HSK</div>
+          <div class="tc-han">汉语水平考试</div>
+        </div>
+        <div class="tc-meta-row">
+          <span>Level <b>1–6</b></span>
+          <span>Kosakata <b>5.000+</b></span>
+        </div>
+        <div class="tc-bg-char">汉</div>
+      </div>
+
+      <!-- HSKK -->
+      <div class="test-card" onclick="">
+        <div>
+          <div class="tc-tag">Ujian Lisan</div>
+          <div class="tc-title">HSKK</div>
+          <div class="tc-han">汉语水平口语考试</div>
+        </div>
+        <div class="tc-meta-row">
+          <span>Level <b>Dasar–Lanjut</b></span>
+        </div>
+        <div class="tc-bg-char">口</div>
+      </div>
+
+      <!-- BCT -->
+      <div class="test-card" onclick="">
+        <div>
+          <div class="tc-tag">Bisnis &amp; Profesional</div>
+          <div class="tc-title">BCT</div>
+          <div class="tc-han">商务汉语考试</div>
+        </div>
+        <div class="tc-meta-row">
+          <span>Modul <b>2</b></span>
+          <span>Skor <b>0–100</b></span>
+        </div>
+        <div class="tc-bg-char">业</div>
+      </div>
+
+      <!-- YCT -->
+      <div class="test-card" onclick="">
+        <div>
+          <div class="tc-tag">Anak &amp; Remaja</div>
+          <div class="tc-title">YCT</div>
+          <div class="tc-han">青少年汉语考试</div>
+        </div>
+        <div class="tc-meta-row">
+          <span>Level <b>1–4</b></span>
+          <span>Usia <b>6–15 thn</b></span>
+        </div>
+        <div class="tc-bg-char">幼</div>
+      </div>
+
+      <!-- TOFCL -->
+      <div class="test-card" onclick="">
+        <div>
+          <div class="tc-tag">Orang Asing</div>
+          <div class="tc-title">TOFCL</div>
+          <div class="tc-han">对外汉语能力考试</div>
+        </div>
+        <div class="tc-meta-row">
+          <span>Online <b>Tersedia</b></span>
+        </div>
+        <div class="tc-bg-char">福</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ALL CLASSES ═══ -->
+<section class="section" id="semua-kelas">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-tag">Semua Kelas</div>
+        <h2>Temukan Kelas <span class="han">课程</span> yang Sesuai</h2>
+        <p>Dari pemula hingga mahir, ada kelas untuk semua level.</p>
+      </div>
+    </div>
+
+    <div class="class-tabs" role="tablist">
+      <button class="active" role="tab" onclick="filterClasses('all', this)">Semua <span class="badge">12</span></button>
+      <button role="tab" onclick="filterClasses('mandarin', this)">Mandarin</button>
+      <button role="tab" onclick="filterClasses('test', this)">Persiapan Ujian</button>
+      <button role="tab" onclick="filterClasses('free', this)">Gratis</button>
+    </div>
+
+    <div class="classes-grid" id="classes-grid">
+      <!-- Card 1 -->
+      <div class="class-card class-free" data-cat="mandarin free">
+        <div class="class-thumb">
+          <div class="class-thumb-pattern"></div>
+          <div class="class-thumb-han">学</div>
+          <span class="class-thumb-tag">Gratis</span>
+        </div>
+        <div class="class-body">
+          <div class="class-level">HSK 1 · Pemula</div>
+          <h3 class="class-title">Mandarin Dasar</h3>
+          <p class="class-desc">Mulai dari nol — pinyin, nada, dan 150 kosakata pertama Anda.</p>
+          <div class="class-foot">
+            <span class="class-price"><span class="free">Gratis</span></span>
+            <div class="class-meta-icons">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                8 jam
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V4a1 1 0 011-1h7a1 1 0 011 1v6l-4.5-2.5L2 10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                24 pelajaran
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="class-card class-pro" data-cat="mandarin">
+        <div class="class-thumb">
+          <div class="class-thumb-pattern"></div>
+          <div class="class-thumb-han">话</div>
+          <span class="class-thumb-tag">Pro</span>
+        </div>
+        <div class="class-body">
+          <div class="class-level">HSK 2–3 · Menengah</div>
+          <h3 class="class-title">Mandarin Menengah</h3>
+          <p class="class-desc">Percakapan sehari-hari, tata bahasa lanjutan, dan 600 kosakata.</p>
+          <div class="class-foot">
+            <span class="class-price">Rp 350.000</span>
+            <div class="class-meta-icons">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                20 jam
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V4a1 1 0 011-1h7a1 1 0 011 1v6l-4.5-2.5L2 10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                48 pelajaran
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="class-card class-pro" data-cat="mandarin">
+        <div class="class-thumb">
+          <div class="class-thumb-pattern"></div>
+          <div class="class-thumb-han">進</div>
+          <span class="class-thumb-tag">Pro</span>
+        </div>
+        <div class="class-body">
+          <div class="class-level">HSK 4–6 · Lanjutan</div>
+          <h3 class="class-title">Mandarin Lanjutan</h3>
+          <p class="class-desc">Membaca teks autentik, menulis esai, dan menguasai 2.500+ karakter.</p>
+          <div class="class-foot">
+            <span class="class-price">Rp 550.000</span>
+            <div class="class-meta-icons">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                40 jam
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V4a1 1 0 011-1h7a1 1 0 011 1v6l-4.5-2.5L2 10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                80 pelajaran
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="class-card class-pro" data-cat="test mandarin">
+        <div class="class-thumb">
+          <div class="class-thumb-pattern"></div>
+          <div class="class-thumb-han">试</div>
+          <span class="class-thumb-tag">Pro</span>
+        </div>
+        <div class="class-body">
+          <div class="class-level">HSK · Persiapan Ujian</div>
+          <h3 class="class-title">HSK Intensif</h3>
+          <p class="class-desc">Strategi ujian, latihan soal, dan simulasi tes HSK 3, 4, &amp; 5.</p>
+          <div class="class-foot">
+            <span class="class-price">Rp 420.000</span>
+            <div class="class-meta-icons">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                16 jam
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V4a1 1 0 011-1h7a1 1 0 011 1v6l-4.5-2.5L2 10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                200+ soal
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="class-card class-pro" data-cat="test">
+        <div class="class-thumb">
+          <div class="class-thumb-pattern"></div>
+          <div class="class-thumb-han">商</div>
+          <span class="class-thumb-tag">Pro</span>
+        </div>
+        <div class="class-body">
+          <div class="class-level">BCT · Bisnis</div>
+          <h3 class="class-title">BCT Business Chinese</h3>
+          <p class="class-desc">Terminologi bisnis, negosiasi, dan surat menyurat dalam Mandarin.</p>
+          <div class="class-foot">
+            <span class="class-price">Rp 480.000</span>
+            <div class="class-meta-icons">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                18 jam
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="class-card class-free" data-cat="test free">
+        <div class="class-thumb">
+          <div class="class-thumb-pattern"></div>
+          <div class="class-thumb-han">幼</div>
+          <span class="class-thumb-tag">Gratis</span>
+        </div>
+        <div class="class-body">
+          <div class="class-level">YCT 1–2 · Anak</div>
+          <h3 class="class-title">YCT Anak-anak</h3>
+          <p class="class-desc">Belajar Mandarin seru untuk anak usia 6–12 tahun dengan gambar dan lagu.</p>
+          <div class="class-foot">
+            <span class="class-price"><span class="free">Gratis</span></span>
+            <div class="class-meta-icons">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                10 jam
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V4a1 1 0 011-1h7a1 1 0 011 1v6l-4.5-2.5L2 10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                30 pelajaran
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRACTICE ═══ -->
+<section class="section cream">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-tag">Latihan Interaktif</div>
+        <h2>Berlatih Setiap Hari bersama <span class="han">练习</span></h2>
+        <p>Fitur interaktif yang membuat belajar terasa mudah dan menyenangkan.</p>
+      </div>
+    </div>
+    <div class="practice-grid">
+      <div class="practice-card">
+        <div class="practice-icon">卡</div>
+        <h4>Flashcard</h4>
+        <p>Hafal kosakata dengan sistem pengulangan terspasi (spaced repetition).</p>
+        <span class="arrow">Mulai latihan <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="practice-card">
+        <div class="practice-icon">题</div>
+        <h4>Latihan Soal</h4>
+        <p>Simulasi soal ujian dengan tingkat kesulitan yang bisa disesuaikan.</p>
+        <span class="arrow">Mulai latihan <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="practice-card">
+        <div class="practice-icon">法</div>
+        <h4>Tata Bahasa</h4>
+        <p>Pelajari pola kalimat Mandarin dengan contoh nyata &amp; latihan terstruktur.</p>
+        <span class="arrow">Mulai latihan <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="practice-card">
+        <div class="practice-icon">话</div>
+        <h4>Percakapan</h4>
+        <p>Rekam suara Anda dan bandingkan dengan pelafalan native speaker.</p>
+        <span class="arrow">Mulai latihan <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VOCABULARY MASTERY ═══ -->
+<div class="vocab-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-tag">Penguasaan Kosakata</div>
+        <h2>Pelajari Setiap Karakter <span class="han">词汇</span> Secara Mendalam</h2>
+        <p>Dari guratan hingga contoh kalimat — kuasai kosakata dengan lengkap.</p>
+      </div>
+    </div>
+
+    <!-- Level picker -->
+    <div class="vocab-picker">
+      <div class="vocab-picker-group">
+        <b>HSK</b>
+        <button class="vocab-pill active" onclick="setVocabLevel('hsk1',this)">1</button>
+        <button class="vocab-pill" onclick="setVocabLevel('hsk2',this)">2</button>
+        <button class="vocab-pill" onclick="setVocabLevel('hsk3',this)">3</button>
+        <button class="vocab-pill" onclick="setVocabLevel('hsk4',this)">4</button>
+        <button class="vocab-pill" onclick="setVocabLevel('hsk5',this)">5</button>
+        <button class="vocab-pill" onclick="setVocabLevel('hsk6',this)">6</button>
+      </div>
+      <div class="vocab-picker-group">
+        <b>BCT</b>
+        <button class="vocab-pill" onclick="setVocabLevel('bct',this)">A</button>
+        <button class="vocab-pill" onclick="setVocabLevel('bctb',this)">B</button>
+      </div>
+      <div class="vocab-picker-group">
+        <b>YCT</b>
+        <button class="vocab-pill" onclick="setVocabLevel('yct1',this)">1</button>
+        <button class="vocab-pill" onclick="setVocabLevel('yct2',this)">2</button>
+        <button class="vocab-pill" onclick="setVocabLevel('yct3',this)">3</button>
+        <button class="vocab-pill" onclick="setVocabLevel('yct4',this)">4</button>
+      </div>
+    </div>
+
+    <!-- Main stage -->
+    <div class="vocab-stage">
+      <!-- LEFT: Word card -->
+      <div class="word-card">
+        <div class="word-card-head">
+          <div class="word-card-tags">
+            <span class="word-tag level" id="wt-level">HSK 1</span>
+            <span class="word-tag cat" id="wt-cat">Kata Kerja</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span class="word-counter-text"><span id="wc-cur">1</span> / <span id="wc-total">3</span></span>
+            <div class="word-card-nav">
+              <button class="wc-nav-btn" id="btn-prev" onclick="navWord(-1)" disabled aria-label="Kata sebelumnya">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="wc-nav-btn" id="btn-next" onclick="navWord(1)" aria-label="Kata berikutnya">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="word-big-row">
+          <!-- Glyph box -->
+          <div class="word-glyph" id="word-glyph-box">
+            <svg class="grid-bg" viewBox="0 0 100 100" id="glyph-grid" style="display:none">
+              <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(184,49,43,.35)" stroke-width=".5"/>
+              <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(184,49,43,.35)" stroke-width=".5"/>
+              <line x1="0" y1="0" x2="100" y2="100" stroke="rgba(184,49,43,.25)" stroke-width=".5"/>
+              <line x1="100" y1="0" x2="0" y2="100" stroke="rgba(184,49,43,.25)" stroke-width=".5"/>
+              <rect x="1" y="1" width="98" height="98" fill="none" stroke="rgba(184,49,43,.2)" stroke-width=".5"/>
+            </svg>
+            <span class="glyph-text han" id="glyph-char">学</span>
+            <button class="grid-toggle" id="grid-toggle-btn" onclick="toggleGlyphGrid()" title="Tampilkan/sembunyikan grid">田</button>
+          </div>
+
+          <!-- Meta -->
+          <div class="word-meta">
+            <!-- Pinyin + Tone -->
+            <div class="script-row">
+              <span class="lbl">Pinyin</span>
+              <span class="val pinyin" id="wm-pinyin">xué <span class="tone" data-t="2" id="tone-chip"><span class="stroke"></span>2</span></span>
+            </div>
+            <!-- Traditional -->
+            <div class="script-row">
+              <span class="lbl">Tradisional</span>
+              <span class="val" id="wm-trad">學</span>
+            </div>
+            <!-- Zhuyin -->
+            <div class="script-row">
+              <span class="lbl">注音</span>
+              <span class="val zhuyin" id="wm-zhuyin">ㄒㄩㄝˊ</span>
+            </div>
+            <!-- Meaning -->
+            <div class="script-row">
+              <span class="lbl">Arti</span>
+              <span class="val meaning" id="wm-meaning">belajar; mempelajari</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audio row -->
+        <div class="audio-row">
+          <span class="lbl">Dengarkan</span>
+          <button class="voice-btn female" id="voice-female" onclick="speakWord('female')">
+            <span class="voice-avatar">👩</span>
+            Perempuan
+            <span class="wave"><span></span><span></span><span></span><span></span></span>
+          </button>
+          <button class="voice-btn male" id="voice-male" onclick="speakWord('male')">
+            <span class="voice-avatar">👨</span>
+            Laki-laki
+            <span class="wave"><span></span><span></span><span></span><span></span></span>
+          </button>
+          <div class="audio-speed">
+            <button class="active" onclick="setSpeed(1,this)">1×</button>
+            <button onclick="setSpeed(0.7,this)">0.7×</button>
+            <button onclick="setSpeed(0.5,this)">0.5×</button>
+          </div>
+        </div>
+
+        <!-- Related rail -->
+        <div class="related-rail" id="related-rail">
+          <span class="label">Lihat juga</span>
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- RIGHT: Tabs + panels -->
+      <div class="word-right">
+        <div class="word-tabs" role="tablist">
+          <button class="active" role="tab" onclick="switchWordTab('compose',this)">
+            <span class="han">组词</span> Kata Gabung
+          </button>
+          <button role="tab" onclick="switchWordTab('sentences',this)">
+            <span class="han">例句</span> Kalimat
+          </button>
+          <button role="tab" onclick="switchWordTab('stroke',this)">
+            <span class="han">笔画</span> Guratan
+          </button>
+        </div>
+
+        <div class="word-panel">
+          <!-- Compose tab -->
+          <div id="word-compose" class="active">
+            <div class="compose-h">
+              <span>Kata Gabung</span>
+              <span class="han">组词</span>
+            </div>
+            <div class="compose-list" id="compose-list">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Sentences tab -->
+          <div id="word-sentences">
+            <div class="sentence-list" id="sentence-list">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Stroke tab -->
+          <div id="word-stroke">
+            <div class="stroke-stage">
+              <div class="stroke-info"><b>Cara Menggores:</b> Ikuti urutan guratan yang benar. Klik "Animasi" untuk melihat contoh, lalu "Latihan" untuk mencoba sendiri.</div>
+              <div class="stroke-canvas-wrap">
+                <div id="hanzi-stroke-target"></div>
+              </div>
+              <div class="stroke-tools">
+                <button class="stroke-btn primary" onclick="animateStroke()">▶ Animasi</button>
+                <button class="stroke-btn" onclick="quizStroke()">✏ Latihan</button>
+                <button class="stroke-btn" onclick="resetStroke()">↺ Ulangi</button>
+                <span class="stat-line" id="stroke-stat">Guratan: <b id="stroke-count">8</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLES ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-tag">Artikel &amp; Aktivitas</div>
+        <h2>Tips Belajar &amp; <span class="han">文化</span> Tiongkok</h2>
+        <p>Wawasan, strategi, dan fakta menarik seputar bahasa Mandarin.</p>
+      </div>
+      <div class="right">
+        <button class="btn btn-ghost btn-sm">Semua Artikel</button>
+      </div>
+    </div>
+
+    <div class="articles-grid">
+      <div class="article-card feature">
+        <div class="article-thumb">
+          <span class="article-thumb-cat">Tips Belajar</span>
+          <div class="article-thumb-han">字</div>
+        </div>
+        <div class="article-body">
+          <h4>5 Cara Cepat Menghafal Karakter Hanzi yang Terbukti Efektif</h4>
+          <p>Teknik mnemonik, radikal, dan metode pengulangan terspasi untuk mempercepat hafalan Anda.</p>
+          <div class="article-meta">
+            <span>Mei 2026</span>
+            <span class="dot"></span>
+            <span>7 mnt baca</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb">
+          <span class="article-thumb-cat">Ujian</span>
+          <div class="article-thumb-han">新</div>
+        </div>
+        <div class="article-body">
+          <h4>Perbedaan HSK 2.0 vs HSK 3.0: Apa yang Berubah?</h4>
+          <p>Panduan lengkap perubahan kurikulum HSK terbaru.</p>
+          <div class="article-meta">
+            <span>Apr 2026</span>
+            <span class="dot"></span>
+            <span>5 mnt baca</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb">
+          <span class="article-thumb-cat">Karir</span>
+          <div class="article-thumb-han">职</div>
+        </div>
+        <div class="article-body">
+          <h4>Mengapa Sertifikat Mandarin Meningkatkan Peluang Karir Anda</h4>
+          <p>Data terbaru tentang permintaan tenaga kerja berbahasa Mandarin di Asia Tenggara.</p>
+          <div class="article-meta">
+            <span>Apr 2026</span>
+            <span class="dot"></span>
+            <span>4 mnt baca</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="section cream" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <div class="section-tag">Hubungi Kami</div>
+        <h2>Ada Pertanyaan? <span class="han">联系</span> Kami</h2>
+        <p>Tim kami siap membantu Anda memilih kelas yang paling sesuai.</p>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Left: channels -->
+      <div>
+        <p style="font-size:15px;color:var(--ink-3);line-height:1.6;margin:0 0 8px">Hubungi kami melalui platform favorit Anda. Kami merespons dalam <b style="color:var(--ink)">1×24 jam</b> hari kerja.</p>
+        <div class="contact-channels">
+          <!-- WhatsApp -->
+          <div class="channel-card" onclick="window.open('https://wa.me/628131007134','_blank')">
+            <div class="channel-logo wa">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="white"><path d="M14 2C7.373 2 2 7.373 2 14c0 2.136.561 4.143 1.539 5.885L2 26l6.29-1.519A11.94 11.94 0 0014 26c6.627 0 12-5.373 12-12S20.627 2 14 2zm0 21.818a9.778 9.778 0 01-5.013-1.374l-.36-.213-3.262.854.872-3.178-.233-.372A9.794 9.794 0 014.182 14c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818zm5.387-7.372c-.297-.148-1.757-.866-2.03-.966-.272-.1-.47-.149-.669.149-.198.297-.767.966-.94 1.164-.174.199-.347.223-.644.075-.297-.149-1.254-.463-2.39-1.476-.882-.788-1.479-1.762-1.652-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.372-.025-.52-.074-.15-.668-1.613-.915-2.208-.241-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.793.372-.272.297-1.04 1.016-1.04 2.48 0 1.463 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.226 1.36.194 1.871.118.571-.085 1.758-.718 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.569-.347z"/></svg>
+            </div>
+            <div class="channel-info">
+              <b>WhatsApp</b>
+              <span>+62 8131007134</span>
+            </div>
+          </div>
+
+          <!-- WeChat -->
+          <div class="channel-card" onclick="showToast('WeChat ID: cjxwx51')">
+            <div class="channel-logo wc">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="white"><path d="M11 6C7.134 6 4 8.91 4 12.5c0 1.98.93 3.75 2.4 4.95L5.5 20l2.8-1.4c.87.26 1.79.4 2.7.4.18 0 .36-.01.54-.02A5.49 5.49 0 0011 17.5c0-3.038 2.686-5.5 6-5.5.18 0 .36.01.54.02C17.08 9.24 14.28 6 11 6zm-2.5 5a1 1 0 110-2 1 1 0 010 2zm5 0a1 1 0 110-2 1 1 0 010 2zM17 13c-2.761 0-5 1.791-5 4s2.239 4 5 4c.69 0 1.35-.12 1.95-.34L21 22l-.9-2.52C21.27 18.54 22 16.84 22 15c0-2.21-2.239-2-5-2zm-1.5 3.5a.75.75 0 110-1.5.75.75 0 010 1.5zm3 0a.75.75 0 110-1.5.75.75 0 010 1.5z"/></svg>
+            </div>
+            <div class="channel-info">
+              <b>WeChat</b>
+              <span>cjxwx51</span>
+            </div>
+          </div>
+
+          <!-- LINE -->
+          <div class="channel-card" onclick="showToast('LINE ID: chejuxe')">
+            <div class="channel-logo ln">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="white"><path d="M14 4C8.477 4 4 7.918 4 12.75c0 4.255 3.563 7.82 8.39 8.6l.61.12v2.53l3.16-1.75c.27.04.54.06.84.06 5.523 0 10-3.918 10-8.75S19.523 4 14 4zm-3 12H8v-6.5h1.5V14.5H11V16zm1.75 0h-1.5V9.5h1.5V16zm4.75 0h-1.5l-2-3.25V16h-1.5V9.5h1.5l2 3.25V9.5h1.5V16z"/></svg>
+            </div>
+            <div class="channel-info">
+              <b>LINE</b>
+              <span>chejuxe</span>
+            </div>
+          </div>
+
+          <!-- Instagram -->
+          <div class="channel-card" onclick="window.open('https://instagram.com/jmandarinstudio','_blank')">
+            <div class="channel-logo ig">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="white"><rect x="4" y="4" width="20" height="20" rx="6" stroke="white" stroke-width="2" fill="none"/><circle cx="14" cy="14" r="5" stroke="white" stroke-width="2" fill="none"/><circle cx="20.5" cy="7.5" r="1.5" fill="white"/></svg>
+            </div>
+            <div class="channel-info">
+              <b>Instagram</b>
+              <span>@jmandarinstudio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Report anchor -->
+        <div class="report-anchor" onclick="openModal('report')">
+          <span class="icon">!</span>
+          Temukan kesalahan atau masalah? Laporkan di sini
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form">
+        <h3>Kirim Pesan</h3>
+        <p>Isi formulir ini dan kami akan menghubungi Anda segera.</p>
+        <div class="field-row">
+          <div class="field"><label>Nama</label><input type="text" placeholder="Nama Anda"></div>
+          <div class="field"><label>Email</label><input type="email" placeholder="nama@email.com"></div>
+        </div>
+        <div class="field">
+          <label>Topik</label>
+          <select>
+            <option>Informasi Kelas</option>
+            <option>Pendaftaran</option>
+            <option>Jadwal Ujian</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="field"><label>Pesan</label><textarea placeholder="Tulis pesan Anda di sini…"></textarea></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="showToast('Pesan terkirim! Kami akan menghubungi Anda segera.')">Kirim Pesan</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <div class="brand" style="cursor:default">
+          <div class="seal" style="width:38px;height:38px"><span class="seal-char" style="font-size:20px">峻</span></div>
+          <div class="brand-name">
+            <b>Junxiong Mandarin</b>
+            <small>Studio · 骏雄</small>
+          </div>
+        </div>
+        <p class="tag">Platform kursus Mandarin online terpercaya. Bersertifikasi internasional, tersedia dalam Bahasa Indonesia &amp; Inggris.</p>
+        <div style="display:flex;gap:10px">
+          <a href="https://wa.me/628131007134" target="_blank" rel="noopener" style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.08);border:.5px solid rgba(255,255,255,.1)" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 28 28" fill="#d5c8af"><path d="M14 2C7.373 2 2 7.373 2 14c0 2.136.561 4.143 1.539 5.885L2 26l6.29-1.519A11.94 11.94 0 0014 26c6.627 0 12-5.373 12-12S20.627 2 14 2zm5.387 15.446c-.297-.148-1.757-.866-2.03-.966-.272-.1-.47-.149-.669.149-.198.297-.767.966-.94 1.164-.174.199-.347.223-.644.075-.297-.149-1.254-.463-2.39-1.476-.882-.788-1.479-1.762-1.652-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.372-.025-.52-.074-.15-.668-1.613-.915-2.208-.241-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.793.372-.272.297-1.04 1.016-1.04 2.48 0 1.463 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.226 1.36.194 1.871.118.571-.085 1.758-.718 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.569-.347z"/></svg>
+          </a>
+          <a href="https://instagram.com/jmandarinstudio" target="_blank" rel="noopener" style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.08);border:.5px solid rgba(255,255,255,.1)" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#d5c8af" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="#d5c8af" stroke-width="1.5"/><circle cx="18" cy="6" r="1" fill="#d5c8af"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Kelas -->
+      <div>
+        <h5>Kelas</h5>
+        <ul>
+          <li><a href="#">Mandarin Dasar</a></li>
+          <li><a href="#">Mandarin Menengah</a></li>
+          <li><a href="#">Mandarin Lanjutan</a></li>
+          <li><a href="#">BCT Business</a></li>
+          <li><a href="#">YCT Anak-anak</a></li>
+        </ul>
+      </div>
+
+      <!-- Ujian -->
+      <div>
+        <h5>Ujian</h5>
+        <ul>
+          <li><a href="#">HSK 1–6</a></li>
+          <li><a href="#">HSKK</a></li>
+          <li><a href="#">TOFCL</a></li>
+          <li><a href="#">BCT</a></li>
+          <li><a href="#">YCT</a></li>
+          <li><a href="#">UKBI</a></li>
+        </ul>
+      </div>
+
+      <!-- Aktivitas -->
+      <div>
+        <h5>Aktivitas</h5>
+        <ul>
+          <li><a href="#">Artikel</a></li>
+          <li><a href="#">All About Chinese</a></li>
+          <li><a href="#">Karir</a></li>
+          <li><a href="#">LMS — Login</a></li>
+        </ul>
+      </div>
+
+      <!-- Kontak -->
+      <div>
+        <h5>Kontak</h5>
+        <ul>
+          <li>
+            <div class="contact-line">
+              <div class="logo-mini" style="background:#25D366">
+                <svg width="13" height="13" viewBox="0 0 28 28" fill="white"><path d="M14 2C7.373 2 2 7.373 2 14c0 2.136.561 4.143 1.539 5.885L2 26l6.29-1.519A11.94 11.94 0 0014 26c6.627 0 12-5.373 12-12S20.627 2 14 2z"/></svg>
+              </div>
+              <a href="https://wa.me/628131007134" target="_blank">+62 8131007134</a>
+            </div>
+          </li>
+          <li>
+            <div class="contact-line">
+              <div class="logo-mini" style="background:#07C160">
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="white"><circle cx="7" cy="7" r="6"/></svg>
+              </div>
+              <a href="#">WeChat: cjxwx51</a>
+            </div>
+          </li>
+          <li>
+            <div class="contact-line">
+              <div class="logo-mini" style="background:#06C755">
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="white"><circle cx="7" cy="7" r="6"/></svg>
+              </div>
+              <a href="#">LINE: chejuxe</a>
+            </div>
+          </li>
+          <li>
+            <div class="contact-line">
+              <div class="logo-mini" style="background:linear-gradient(135deg,#FED576,#F47133,#BC3081,#4C63D2)">
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="white"><circle cx="7" cy="7" r="5" fill="none" stroke="white" stroke-width="1.5"/></svg>
+              </div>
+              <a href="https://instagram.com/jmandarinstudio" target="_blank">@jmandarinstudio</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Junxiong Mandarin Studio · 骏雄汉语学院. Hak cipta dilindungi.</span>
+      <div class="links">
+        <a href="#">Syarat &amp; Ketentuan</a>
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#" onclick="openModal('report');return false">Laporkan Masalah</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ JAVASCRIPT ═══ -->
+<script>
+/* ── Data ─────────────────────────────────────────────── */
+const WORDS = [
+  {
+    simplified:'学', traditional:'學', pinyin:'xué', toneNum:2,
+    zhuyin:'ㄒㄩㄝˊ', meaningId:'belajar; mempelajari',
+    categoryId:'Kata Kerja', level:'HSK 1', strokeCount:8,
+    composeWords:[
+      {word:'学习',pinyin:'xuéxí',meaning:'belajar, berlatih',focus:0},
+      {word:'学生',pinyin:'xuéshēng',meaning:'pelajar; murid',focus:0},
+      {word:'大学',pinyin:'dàxué',meaning:'universitas',focus:1},
+      {word:'学校',pinyin:'xuéxiào',meaning:'sekolah',focus:0},
+    ],
+    sentences:[
+      {han:'我每天学习汉语。',pinyin:'Wǒ měi tiān xuéxí Hànyǔ.',trans:'Saya belajar bahasa Mandarin setiap hari.',focus:'学'},
+      {han:'她在大学里学中文。',pinyin:'Tā zài dàxué lǐ xué Zhōngwén.',trans:'Dia belajar Mandarin di universitas.',focus:'学'},
+    ],
+    related:[{s:'习',p:'xí'},{s:'教',p:'jiāo'},{s:'读',p:'dú'},{s:'写',p:'xiě'},{s:'语',p:'yǔ'}],
+  },
+  {
+    simplified:'爱', traditional:'愛', pinyin:'ài', toneNum:4,
+    zhuyin:'ㄞˋ', meaningId:'cinta; menyukai',
+    categoryId:'Kata Kerja', level:'HSK 1', strokeCount:10,
+    composeWords:[
+      {word:'爱好',pinyin:'àihào',meaning:'hobi; kegemaran',focus:0},
+      {word:'爱情',pinyin:'àiqíng',meaning:'cinta romantis',focus:0},
+      {word:'可爱',pinyin:"kě'ài",meaning:'lucu; menggemaskan',focus:1},
+      {word:'爱国',pinyin:'àiguó',meaning:'cinta tanah air',focus:0},
+    ],
+    sentences:[
+      {han:'我爱学习中文。',pinyin:'Wǒ ài xuéxí Zhōngwén.',trans:'Saya suka belajar bahasa Mandarin.',focus:'爱'},
+      {han:'他非常爱他的家人。',pinyin:'Tā fēicháng ài tā de jiārén.',trans:'Dia sangat mencintai keluarganya.',focus:'爱'},
+    ],
+    related:[{s:'喜',p:'xǐ'},{s:'情',p:'qíng'},{s:'心',p:'xīn'},{s:'恋',p:'liàn'}],
+  },
+  {
+    simplified:'语', traditional:'語', pinyin:'yǔ', toneNum:3,
+    zhuyin:'ㄩˇ', meaningId:'bahasa; kata',
+    categoryId:'Kata Benda', level:'HSK 1', strokeCount:9,
+    composeWords:[
+      {word:'语言',pinyin:'yǔyán',meaning:'bahasa; percakapan',focus:0},
+      {word:'汉语',pinyin:'Hànyǔ',meaning:'bahasa Mandarin',focus:1},
+      {word:'语法',pinyin:'yǔfǎ',meaning:'tata bahasa',focus:0},
+      {word:'英语',pinyin:'Yīngyǔ',meaning:'bahasa Inggris',focus:1},
+    ],
+    sentences:[
+      {han:'汉语是很美的语言。',pinyin:'Hànyǔ shì hěn měi de yǔyán.',trans:'Bahasa Mandarin adalah bahasa yang sangat indah.',focus:'语'},
+      {han:'她的语言能力很强。',pinyin:'Tā de yǔyán nénglì hěn qiáng.',trans:'Kemampuan bahasanya sangat kuat.',focus:'语'},
+    ],
+    related:[{s:'言',p:'yán'},{s:'话',p:'huà'},{s:'文',p:'wén'},{s:'说',p:'shuō'}],
+  },
+];
+
+let curWordIdx = 0;
+let speechSpeed = 1;
+let hanziWriter = null;
+let currentLang = 'id';
+
+/* ── i18n ─────────────────────────────────────────────── */
+const i18n = {
+  id: { 'nav.about':'Tentang','nav.class':'Kelas','nav.lms':'LMS','nav.test':'Tes','nav.activity':'Aktivitas','nav.career':'Karir','nav.ukbi':'UKBI','nav.login':'Masuk' },
+  en: { 'nav.about':'About','nav.class':'Classes','nav.lms':'LMS','nav.test':'Tests','nav.activity':'Activities','nav.career':'Career','nav.ukbi':'UKBI','nav.login':'Sign In' },
+  zh: { 'nav.about':'关于','nav.class':'课程','nav.lms':'学习系统','nav.test':'考试','nav.activity':'活动','nav.career':'就业','nav.ukbi':'UKBI','nav.login':'登录' },
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-lang]').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = i18n[lang][el.dataset.i18n];
+    if (v) el.textContent = v;
+  });
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+}
+
+/* ── Nav menus ────────────────────────────────────────── */
+document.querySelectorAll('.nav-item[data-menu]').forEach(item => {
+  if (!item.dataset.menu) return;
+  const btn = item.querySelector('button');
+  item.addEventListener('mouseenter', () => { closeAllMenus(); item.classList.add('open'); btn && btn.setAttribute('aria-expanded','true'); });
+  item.addEventListener('mouseleave', () => { item.classList.remove('open'); btn && btn.setAttribute('aria-expanded','false'); });
+  btn && btn.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    closeAllMenus();
+    if (!wasOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  });
+});
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav-item')) closeAllMenus();
+});
+
+function closeAllMenus() {
+  document.querySelectorAll('.nav-item.open').forEach(i => {
+    i.classList.remove('open');
+    const b = i.querySelector('button');
+    b && b.setAttribute('aria-expanded','false');
+  });
+}
+
+/* ── Modals ───────────────────────────────────────────── */
+function openModal(id) {
+  const el = document.getElementById('overlay-' + id);
+  if (!el) return;
+  closeAllModals();
+  el.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  if (id === 'search') document.getElementById('search-input').focus();
+}
+function closeModal(id) {
+  const el = document.getElementById('overlay-' + id);
+  if (el) el.classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeAllModals() {
+  document.querySelectorAll('.overlay.active').forEach(o => o.classList.remove('active'));
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAllModals(); });
+
+/* ── Search ───────────────────────────────────────────── */
+function handleSearch(val) {
+  /* placeholder — in production would query an API */
+}
+
+/* ── Class tabs ───────────────────────────────────────── */
+function filterClasses(cat, btn) {
+  document.querySelectorAll('.class-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#classes-grid .class-card').forEach(card => {
+    const cats = card.dataset.cat || 'all';
+    card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
+  });
+}
+
+/* ── Toast ────────────────────────────────────────────── */
+let toastTimer = null;
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  el.style.display = 'flex';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.style.display = 'none'; }, 3500);
+}
+
+/* ── Report modal ─────────────────────────────────────── */
+function selectReportType(el) {
+  document.querySelectorAll('.report-type').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+let attachedFile = null;
+function handleAttach(files) {
+  const file = files[0];
+  if (!file) return;
+  const errEl = document.getElementById('attach-error');
+  if (file.size > 1024 * 1024) {
+    errEl.textContent = 'File terlalu besar. Maks. 1 MB.';
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+  attachedFile = file;
+  renderAttachList();
+}
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('attach-zone').classList.remove('drag');
+  handleAttach(e.dataTransfer.files);
+}
+function renderAttachList() {
+  const list = document.getElementById('attach-list');
+  if (!attachedFile) { list.innerHTML = ''; return; }
+  const kb = (attachedFile.size / 1024).toFixed(1);
+  list.innerHTML = `<div class="attach-row"><span class="att-name">${attachedFile.name}</span><span class="att-size">${kb} KB</span><button class="att-rm" onclick="removeAttach()" aria-label="Hapus lampiran">✕</button></div>`;
+}
+function removeAttach() { attachedFile = null; renderAttachList(); }
+function submitReport() {
+  const name = document.getElementById('r-name').value.trim();
+  const email = document.getElementById('r-email').value.trim();
+  const title = document.getElementById('r-title').value.trim();
+  const desc = document.getElementById('r-desc').value.trim();
+  if (!name || !email || !title) { showToast('Lengkapi nama, email, dan judul laporan.'); return; }
+  const type = document.querySelector('.report-type.active b')?.textContent || 'Umum';
+  const subject = encodeURIComponent(`[Laporan: ${type}] ${title}`);
+  const body = encodeURIComponent(`Dari: ${name} <${email}>\nJenis: ${type}\nJudul: ${title}\n\nDeskripsi:\n${desc}\n\nDikirim dari: Junxiong Mandarin Studio`);
+  window.location.href = `mailto:junxiongmandarinstudio@gmail.com?subject=${subject}&body=${body}`;
+  closeModal('report');
+  showToast('Laporan siap dikirim via email!');
+}
+
+/* ── Status dot ───────────────────────────────────────── */
+(function() {
+  const now = new Date();
+  const day = now.getDay(); // 0=Sun
+  const hour = now.getHours();
+  const isOpen = day >= 1 && day <= 6 && hour >= 10 && hour < 18;
+  const dot = document.getElementById('status-dot');
+  const txt = document.getElementById('status-text');
+  if (!isOpen) { dot.classList.add('closed'); txt.textContent = 'Sedang Tutup'; }
+  else txt.textContent = 'Buka · Sen–Sab 10:00–18:00';
+})();
+
+/* ── Vocab section ────────────────────────────────────── */
+function renderWord(idx) {
+  const w = WORDS[idx];
+  document.getElementById('glyph-char').textContent = w.simplified;
+  document.getElementById('wm-pinyin').innerHTML = `${w.pinyin} <span class="tone" data-t="${w.toneNum}"><span class="stroke"></span>${w.toneNum}</span>`;
+  document.getElementById('wm-trad').textContent = w.traditional;
+  document.getElementById('wm-zhuyin').textContent = w.zhuyin;
+  document.getElementById('wm-meaning').textContent = w.meaningId;
+  document.getElementById('wt-level').textContent = w.level;
+  document.getElementById('wt-cat').textContent = w.categoryId;
+  document.getElementById('wc-cur').textContent = idx + 1;
+  document.getElementById('wc-total').textContent = WORDS.length;
+  document.getElementById('btn-prev').disabled = idx === 0;
+  document.getElementById('btn-next').disabled = idx === WORDS.length - 1;
+  document.getElementById('stroke-count').textContent = w.strokeCount;
+  renderComposeWords(w);
+  renderSentences(w);
+  renderRelated(w, idx);
+  resetHanziWriter(w.simplified, w.strokeCount);
+}
+
+function renderComposeWords(w) {
+  const el = document.getElementById('compose-list');
+  el.innerHTML = w.composeWords.map(cw => {
+    const chars = cw.word.split('');
+    const highlighted = chars.map((c,i) => i === cw.focus ? `<span class="focus">${c}</span>` : c).join('');
+    return `<div class="compose-row">
+      <span class="compose-han">${highlighted}</span>
+      <div class="compose-info">
+        <div class="compose-pinyin">${cw.pinyin}</div>
+        <div class="compose-meaning">${cw.meaning}</div>
+      </div>
+      <button class="compose-play" onclick="speakText('${cw.word}')" aria-label="Putar ${cw.word}">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2.5l7 4-7 4V2.5z" fill="currentColor"/></svg>
+      </button>
+    </div>`;
+  }).join('');
+}
+
+function renderSentences(w) {
+  const el = document.getElementById('sentence-list');
+  el.innerHTML = w.sentences.map((s,i) => {
+    const escaped = s.han.replace(new RegExp(s.focus,'g'), `<span class="focus">${s.focus}</span>`);
+    return `<div class="sentence">
+      <span class="idx">${i+1}</span>
+      <div class="sentence-han">${escaped}</div>
+      <div class="sentence-pinyin">${s.pinyin}</div>
+      <div class="sentence-trans">${s.trans}</div>
+      <div class="sentence-foot">
+        <button onclick="speakText('${s.han}')">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 2l7 3.5-7 3.5V2z" fill="currentColor"/></svg>
+          Putar
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderRelated(w, currentIdx) {
+  const rail = document.getElementById('related-rail');
+  const pills = w.related.map(r => `<button class="related-pill" onclick="speakText('${r.s}')"><span class="han">${r.s}</span><span class="py">${r.p}</span></button>`).join('');
+  // Also add current word as "current" pill at start
+  rail.innerHTML = `<span class="label">Lihat juga</span><button class="related-pill current"><span class="han">${w.simplified}</span><span class="py">${w.pinyin}</span></button>${pills}`;
+}
+
+function navWord(dir) {
+  const next = curWordIdx + dir;
+  if (next < 0 || next >= WORDS.length) return;
+  curWordIdx = next;
+  renderWord(curWordIdx);
+}
+
+function setVocabLevel(level, btn) {
+  document.querySelectorAll('.vocab-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  // In production would load different word sets
+  showToast(`Level ${btn.textContent} dipilih. Menampilkan contoh kata…`);
+}
+
+/* ── Word tabs ────────────────────────────────────────── */
+function switchWordTab(tab, btn) {
+  document.querySelectorAll('.word-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  ['compose','sentences','stroke'].forEach(t => {
+    const el = document.getElementById('word-' + t);
+    if (el) el.classList.toggle('active', t === tab);
+  });
+  if (tab === 'stroke' && !hanziWriter) resetHanziWriter(WORDS[curWordIdx].simplified, WORDS[curWordIdx].strokeCount);
+}
+
+/* ── Glyph grid toggle ────────────────────────────────── */
+function toggleGlyphGrid() {
+  const grid = document.getElementById('glyph-grid');
+  const btn = document.getElementById('grid-toggle-btn');
+  const showing = grid.style.display !== 'none';
+  grid.style.display = showing ? 'none' : 'block';
+  btn.classList.toggle('on', !showing);
+}
+
+/* ── Speech / Audio ───────────────────────────────────── */
+function speakWord(gender) {
+  const w = WORDS[curWordIdx];
+  const femaleBtn = document.getElementById('voice-female');
+  const maleBtn = document.getElementById('voice-male');
+  const btn = gender === 'female' ? femaleBtn : maleBtn;
+  btn.classList.add('playing');
+  setTimeout(() => btn.classList.remove('playing'), 1800);
+  speakText(w.simplified);
+}
+
+function speakText(text) {
+  if (!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'zh-CN';
+  utter.rate = speechSpeed;
+  const voices = speechSynthesis.getVoices().filter(v => v.lang.startsWith('zh'));
+  if (voices.length) utter.voice = voices[0];
+  speechSynthesis.speak(utter);
+}
+
+function setSpeed(speed, btn) {
+  speechSpeed = speed;
+  document.querySelectorAll('.audio-speed button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Ensure voices are loaded
+if (window.speechSynthesis) speechSynthesis.onvoiceschanged = () => {};
+
+/* ── HanziWriter (stroke practice) ───────────────────── */
+function resetHanziWriter(char, strokeCount) {
+  const target = document.getElementById('hanzi-stroke-target');
+  target.innerHTML = '';
+  const w = Math.min(target.offsetWidth || 280, 280);
+  try {
+    hanziWriter = HanziWriter.create('hanzi-stroke-target', char, {
+      width: w, height: w, padding: 24,
+      strokeColor: '#1a1714',
+      outlineColor: 'rgba(26,23,20,.15)',
+      showOutline: true,
+      drawingColor: '#b8312b',
+      drawingWidth: 4,
+      showCharacter: false,
+      strokeAnimationSpeed: 1,
+      delayBetweenStrokes: 300,
+      strokeFadeDuration: 400,
+      highlightColor: '#b8312b',
+    });
+  } catch(e) { /* HanziWriter may not have data for all chars */ }
+}
+
+function animateStroke() {
+  if (!hanziWriter) return;
+  hanziWriter.animateCharacter();
+}
+
+function quizStroke() {
+  if (!hanziWriter) return;
+  hanziWriter.quiz({
+    onMistake() { showToast('Guratan kurang tepat, coba lagi!'); },
+    onComplete(data) { showToast(`Hebat! Selesai dalam ${data.totalMistakes} kesalahan.`); },
+  });
+}
+
+function resetStroke() {
+  if (!hanziWriter) return;
+  hanziWriter.cancelQuiz();
+  hanziWriter.hideCharacter();
+  resetHanziWriter(WORDS[curWordIdx].simplified, WORDS[curWordIdx].strokeCount);
+}
+
+/* ── Mobile nav ───────────────────────────────────────── */
+function toggleMobileNav() {
+  showToast('Menu mobile — segera hadir!');
+}
+
+/* ── Init ─────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  renderWord(0);
+});
+</script>
+</body>
+</html>
