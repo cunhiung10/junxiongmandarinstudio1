@@ -746,28 +746,29 @@
       </div>
     </div>
 
-    <!-- Level picker -->
-    <div class="vocab-picker">
+    <!-- Level picker (populated from /api/vocab/levels) -->
+    <div class="vocab-picker" id="vocab-picker">
       <div class="vocab-picker-group">
         <b>HSK</b>
-        <button class="vocab-pill active" onclick="setVocabLevel('hsk1',this)">1</button>
-        <button class="vocab-pill" onclick="setVocabLevel('hsk2',this)">2</button>
-        <button class="vocab-pill" onclick="setVocabLevel('hsk3',this)">3</button>
-        <button class="vocab-pill" onclick="setVocabLevel('hsk4',this)">4</button>
-        <button class="vocab-pill" onclick="setVocabLevel('hsk5',this)">5</button>
-        <button class="vocab-pill" onclick="setVocabLevel('hsk6',this)">6</button>
+        <button class="vocab-pill active" onclick="setVocabLevel('HSK1',this)">1</button>
+        <button class="vocab-pill" onclick="setVocabLevel('HSK2',this)">2</button>
+        <button class="vocab-pill" onclick="setVocabLevel('HSK3',this)">3</button>
+        <button class="vocab-pill" onclick="setVocabLevel('HSK4',this)">4</button>
+        <button class="vocab-pill" onclick="setVocabLevel('HSK5',this)">5</button>
+        <button class="vocab-pill" onclick="setVocabLevel('HSK6',this)">6</button>
+        <button class="vocab-pill" onclick="setVocabLevel('HSK7-9',this)">7–9</button>
       </div>
       <div class="vocab-picker-group">
         <b>BCT</b>
-        <button class="vocab-pill" onclick="setVocabLevel('bct',this)">A</button>
-        <button class="vocab-pill" onclick="setVocabLevel('bctb',this)">B</button>
+        <button class="vocab-pill" onclick="setVocabLevel('BCT',this)">BCT</button>
       </div>
       <div class="vocab-picker-group">
         <b>YCT</b>
-        <button class="vocab-pill" onclick="setVocabLevel('yct1',this)">1</button>
-        <button class="vocab-pill" onclick="setVocabLevel('yct2',this)">2</button>
-        <button class="vocab-pill" onclick="setVocabLevel('yct3',this)">3</button>
-        <button class="vocab-pill" onclick="setVocabLevel('yct4',this)">4</button>
+        <button class="vocab-pill" onclick="setVocabLevel('YCT',this)">YCT</button>
+      </div>
+      <div class="vocab-picker-group">
+        <b>TOCFL</b>
+        <button class="vocab-pill" onclick="setVocabLevel('TOFCL',this)">Band A–C</button>
       </div>
     </div>
 
@@ -1184,59 +1185,57 @@
 
 <!-- ═══ JAVASCRIPT ═══ -->
 <script>
-/* ── Data ─────────────────────────────────────────────── */
-const WORDS = [
-  {
-    simplified:'学', traditional:'學', pinyin:'xué', toneNum:2,
-    zhuyin:'ㄒㄩㄝˊ', meaningId:'belajar; mempelajari',
-    categoryId:'Kata Kerja', level:'HSK 1', strokeCount:8,
-    composeWords:[
-      {word:'学习',pinyin:'xuéxí',meaning:'belajar, berlatih',focus:0},
-      {word:'学生',pinyin:'xuéshēng',meaning:'pelajar; murid',focus:0},
-      {word:'大学',pinyin:'dàxué',meaning:'universitas',focus:1},
-      {word:'学校',pinyin:'xuéxiào',meaning:'sekolah',focus:0},
-    ],
-    sentences:[
-      {han:'我每天学习汉语。',pinyin:'Wǒ měi tiān xuéxí Hànyǔ.',trans:'Saya belajar bahasa Mandarin setiap hari.',focus:'学'},
-      {han:'她在大学里学中文。',pinyin:'Tā zài dàxué lǐ xué Zhōngwén.',trans:'Dia belajar Mandarin di universitas.',focus:'学'},
-    ],
-    related:[{s:'习',p:'xí'},{s:'教',p:'jiāo'},{s:'读',p:'dú'},{s:'写',p:'xiě'},{s:'语',p:'yǔ'}],
-  },
-  {
-    simplified:'爱', traditional:'愛', pinyin:'ài', toneNum:4,
-    zhuyin:'ㄞˋ', meaningId:'cinta; menyukai',
-    categoryId:'Kata Kerja', level:'HSK 1', strokeCount:10,
-    composeWords:[
-      {word:'爱好',pinyin:'àihào',meaning:'hobi; kegemaran',focus:0},
-      {word:'爱情',pinyin:'àiqíng',meaning:'cinta romantis',focus:0},
-      {word:'可爱',pinyin:"kě'ài",meaning:'lucu; menggemaskan',focus:1},
-      {word:'爱国',pinyin:'àiguó',meaning:'cinta tanah air',focus:0},
-    ],
-    sentences:[
-      {han:'我爱学习中文。',pinyin:'Wǒ ài xuéxí Zhōngwén.',trans:'Saya suka belajar bahasa Mandarin.',focus:'爱'},
-      {han:'他非常爱他的家人。',pinyin:'Tā fēicháng ài tā de jiārén.',trans:'Dia sangat mencintai keluarganya.',focus:'爱'},
-    ],
-    related:[{s:'喜',p:'xǐ'},{s:'情',p:'qíng'},{s:'心',p:'xīn'},{s:'恋',p:'liàn'}],
-  },
-  {
-    simplified:'语', traditional:'語', pinyin:'yǔ', toneNum:3,
-    zhuyin:'ㄩˇ', meaningId:'bahasa; kata',
-    categoryId:'Kata Benda', level:'HSK 1', strokeCount:9,
-    composeWords:[
-      {word:'语言',pinyin:'yǔyán',meaning:'bahasa; percakapan',focus:0},
-      {word:'汉语',pinyin:'Hànyǔ',meaning:'bahasa Mandarin',focus:1},
-      {word:'语法',pinyin:'yǔfǎ',meaning:'tata bahasa',focus:0},
-      {word:'英语',pinyin:'Yīngyǔ',meaning:'bahasa Inggris',focus:1},
-    ],
-    sentences:[
-      {han:'汉语是很美的语言。',pinyin:'Hànyǔ shì hěn měi de yǔyán.',trans:'Bahasa Mandarin adalah bahasa yang sangat indah.',focus:'语'},
-      {han:'她的语言能力很强。',pinyin:'Tā de yǔyán nénglì hěn qiáng.',trans:'Kemampuan bahasanya sangat kuat.',focus:'语'},
-    ],
-    related:[{s:'言',p:'yán'},{s:'话',p:'huà'},{s:'文',p:'wén'},{s:'说',p:'shuō'}],
-  },
-];
+/* ── Vocabulary data (loaded from /api/vocab/:level) ──── */
+let WORDS        = [];          // cached page of words
+let curWordIdx   = 0;
+let vocabLevel   = 'HSK1';      // active level key
+let vocabTotal   = 0;           // total words in this level
+let vocabOffset  = 0;           // current offset in the level
+const VOCAB_PAGE = 30;          // words to cache per fetch
 
-let curWordIdx = 0;
+// Normalise API word → internal format
+function apiWordToLocal(w) {
+  const meaning = (w.meaning_id || '').trim() || (w.meaning_en || '');
+  const pos     = (w.part_of_speech_id || '').trim() || (w.part_of_speech_en || '');
+  return {
+    simplified:  w.simplified  || '?',
+    traditional: w.traditional || w.simplified || '?',
+    pinyin:      w.pinyin      || '',
+    toneNum:     w.tone        || 0,
+    zhuyin:      w.zhuyin      || '',
+    meaningId:   meaning,
+    meaningEn:   w.meaning_en  || '',
+    isEnFallback:!(w.meaning_id || '').trim() && !!(w.meaning_en || '').trim(),
+    categoryId:  pos || '—',
+    level:       w.level       || vocabLevel,
+    strokeCount: w.stroke_count || null,
+    composeWords: [],   // not in source data yet
+    sentences:    w.example_sentence_zh ? [{
+      han:    w.example_sentence_zh,
+      pinyin: w.example_sentence_pinyin || '',
+      trans:  w.example_sentence_id || w.example_sentence_en || '',
+      focus:  w.simplified || '',
+    }] : [],
+    related: [],
+  };
+}
+
+async function loadVocabPage(level, offset, randomStart) {
+  try {
+    const url = randomStart
+      ? `/api/vocab/${encodeURIComponent(level)}?limit=${VOCAB_PAGE}&random=1`
+      : `/api/vocab/${encodeURIComponent(level)}?limit=${VOCAB_PAGE}&offset=${offset}`;
+    const data = await fetch(url).then(r => r.json());
+    if (data.error) throw new Error(data.error);
+    vocabTotal  = data.total  || 0;
+    vocabOffset = data.offset || 0;
+    WORDS = (data.items || []).map(apiWordToLocal);
+    return true;
+  } catch (e) {
+    console.error('[Vocab]', e.message);
+    return false;
+  }
+}
 let speechSpeed = 1;
 let hanziWriter = null;
 let currentLang = 'id';
@@ -1388,36 +1387,48 @@ function submitReport() {
 /* ── Vocab section ────────────────────────────────────── */
 function renderWord(idx) {
   const w = WORDS[idx];
+  if (!w) return;
+
   document.getElementById('glyph-char').textContent = w.simplified;
-  document.getElementById('wm-pinyin').innerHTML = `${w.pinyin} <span class="tone" data-t="${w.toneNum}"><span class="stroke"></span>${w.toneNum}</span>`;
-  document.getElementById('wm-trad').textContent = w.traditional;
-  document.getElementById('wm-zhuyin').textContent = w.zhuyin;
-  document.getElementById('wm-meaning').textContent = w.meaningId;
-  document.getElementById('wt-level').textContent = w.level;
-  document.getElementById('wt-cat').textContent = w.categoryId;
-  document.getElementById('wc-cur').textContent = idx + 1;
-  document.getElementById('wc-total').textContent = WORDS.length;
-  document.getElementById('btn-prev').disabled = idx === 0;
-  document.getElementById('btn-next').disabled = idx === WORDS.length - 1;
-  document.getElementById('stroke-count').textContent = w.strokeCount;
+  document.getElementById('wm-pinyin').innerHTML =
+    `${w.pinyin} <span class="tone" data-t="${w.toneNum}"><span class="stroke"></span>${w.toneNum}</span>`;
+  document.getElementById('wm-trad').textContent    = w.traditional;
+  document.getElementById('wm-zhuyin').textContent  = w.zhuyin || '—';
+  document.getElementById('wm-meaning').innerHTML   = w.meaningId
+    ? (w.isEnFallback ? `<span style="color:var(--ink-4);font-size:11px;font-style:italic;display:block;margin-bottom:2px">EN</span>${w.meaningId}` : w.meaningId)
+    : '<span style="color:var(--ink-4)">—</span>';
+  document.getElementById('wt-level').textContent   = w.level;
+  document.getElementById('wt-cat').textContent     = w.categoryId;
+  document.getElementById('wc-cur').textContent     = vocabOffset + idx + 1;
+  document.getElementById('wc-total').textContent   = vocabTotal;
+  document.getElementById('btn-prev').disabled      = vocabOffset + idx === 0;
+  document.getElementById('btn-next').disabled      = vocabOffset + idx >= vocabTotal - 1;
+  document.getElementById('stroke-count').textContent = w.strokeCount ?? '?';
+
   renderComposeWords(w);
   renderSentences(w);
-  renderRelated(w, idx);
-  resetHanziWriter(w.simplified, w.strokeCount);
+  renderRelated(w);
+  if (document.getElementById('word-stroke')?.classList.contains('active')) {
+    resetHanziWriter(w.simplified, w.strokeCount);
+  }
 }
 
 function renderComposeWords(w) {
   const el = document.getElementById('compose-list');
+  if (!w.composeWords.length) {
+    el.innerHTML = `<p style="color:var(--ink-4);font-size:13px;padding:12px 0">Kata gabung untuk kata ini belum tersedia.</p>`;
+    return;
+  }
   el.innerHTML = w.composeWords.map(cw => {
     const chars = cw.word.split('');
-    const highlighted = chars.map((c,i) => i === cw.focus ? `<span class="focus">${c}</span>` : c).join('');
+    const hl = chars.map((c,i) => i === cw.focus ? `<span class="focus">${c}</span>` : c).join('');
     return `<div class="compose-row">
-      <span class="compose-han">${highlighted}</span>
+      <span class="compose-han">${hl}</span>
       <div class="compose-info">
         <div class="compose-pinyin">${cw.pinyin}</div>
         <div class="compose-meaning">${cw.meaning}</div>
       </div>
-      <button class="compose-play" onclick="speakText('${cw.word}')" aria-label="Putar ${cw.word}">
+      <button class="compose-play" onclick="speakText('${cw.word}')">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2.5l7 4-7 4V2.5z" fill="currentColor"/></svg>
       </button>
     </div>`;
@@ -1426,15 +1437,20 @@ function renderComposeWords(w) {
 
 function renderSentences(w) {
   const el = document.getElementById('sentence-list');
+  if (!w.sentences.length) {
+    el.innerHTML = `<p style="color:var(--ink-4);font-size:13px;padding:12px 0">Contoh kalimat untuk kata ini belum tersedia.</p>`;
+    return;
+  }
   el.innerHTML = w.sentences.map((s,i) => {
-    const escaped = s.han.replace(new RegExp(s.focus,'g'), `<span class="focus">${s.focus}</span>`);
+    const esc = s.han.replace(new RegExp(s.focus.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'),
+      `<span class="focus">${s.focus}</span>`);
     return `<div class="sentence">
       <span class="idx">${i+1}</span>
-      <div class="sentence-han">${escaped}</div>
-      <div class="sentence-pinyin">${s.pinyin}</div>
-      <div class="sentence-trans">${s.trans}</div>
+      <div class="sentence-han">${esc}</div>
+      ${s.pinyin ? `<div class="sentence-pinyin">${s.pinyin}</div>` : ''}
+      ${s.trans  ? `<div class="sentence-trans">${s.trans}</div>` : ''}
       <div class="sentence-foot">
-        <button onclick="speakText('${s.han}')">
+        <button onclick="speakText('${s.han.replace(/'/g,"\\'")}')">
           <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 2l7 3.5-7 3.5V2z" fill="currentColor"/></svg>
           Putar
         </button>
@@ -1443,25 +1459,41 @@ function renderSentences(w) {
   }).join('');
 }
 
-function renderRelated(w, currentIdx) {
+function renderRelated(w) {
   const rail = document.getElementById('related-rail');
-  const pills = w.related.map(r => `<button class="related-pill" onclick="speakText('${r.s}')"><span class="han">${r.s}</span><span class="py">${r.p}</span></button>`).join('');
-  // Also add current word as "current" pill at start
-  rail.innerHTML = `<span class="label">Lihat juga</span><button class="related-pill current"><span class="han">${w.simplified}</span><span class="py">${w.pinyin}</span></button>${pills}`;
+  const pills = w.related.map(r =>
+    `<button class="related-pill" onclick="speakText('${r.s}')"><span class="han">${r.s}</span><span class="py">${r.p}</span></button>`
+  ).join('');
+  rail.innerHTML = `<span class="label">Lihat juga</span>
+    <button class="related-pill current"><span class="han">${w.simplified}</span><span class="py">${w.pinyin}</span></button>
+    ${pills || '<span style="color:var(--ink-4);font-size:12px;padding:0 8px">—</span>'}`;
 }
 
-function navWord(dir) {
-  const next = curWordIdx + dir;
-  if (next < 0 || next >= WORDS.length) return;
-  curWordIdx = next;
-  renderWord(curWordIdx);
+async function navWord(dir) {
+  const nextLocal = curWordIdx + dir;
+  // Still within cached page
+  if (nextLocal >= 0 && nextLocal < WORDS.length) {
+    curWordIdx = nextLocal;
+    renderWord(curWordIdx);
+    return;
+  }
+  // Need to fetch next/previous page
+  const newOffset = vocabOffset + (dir > 0 ? VOCAB_PAGE : -VOCAB_PAGE);
+  if (newOffset < 0 || newOffset >= vocabTotal) return;
+  const ok = await loadVocabPage(vocabLevel, newOffset, false);
+  if (ok) {
+    curWordIdx = dir > 0 ? 0 : WORDS.length - 1;
+    renderWord(curWordIdx);
+  }
 }
 
-function setVocabLevel(level, btn) {
+async function setVocabLevel(level, btn) {
   document.querySelectorAll('.vocab-pill').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  // In production would load different word sets
-  showToast(`Level ${btn.textContent} dipilih. Menampilkan contoh kata…`);
+  if (btn) btn.classList.add('active');
+  vocabLevel = level;
+  curWordIdx = 0;
+  const ok = await loadVocabPage(level, 0, true);   // random start
+  if (ok && WORDS.length) renderWord(0);
 }
 
 /* ── Word tabs ────────────────────────────────────────── */
@@ -1472,8 +1504,13 @@ function switchWordTab(tab, btn) {
     const el = document.getElementById('word-' + t);
     if (el) el.classList.toggle('active', t === tab);
   });
-  if (tab === 'stroke' && !hanziWriter) resetHanziWriter(WORDS[curWordIdx].simplified, WORDS[curWordIdx].strokeCount);
+  if (tab === 'stroke') resetHanziWriter(WORDS[curWordIdx]?.simplified, WORDS[curWordIdx]?.strokeCount);
 }
+
+// ── Bootstrap vocab on load ────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  setVocabLevel('HSK1', document.querySelector('.vocab-pill.active'));
+});
 
 /* ── Glyph grid toggle ────────────────────────────────── */
 function toggleGlyphGrid() {

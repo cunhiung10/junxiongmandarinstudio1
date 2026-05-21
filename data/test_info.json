@@ -1,0 +1,518 @@
+{
+  "source": "Compiled from multiple sources: https://studycli.org/hsk/hsk-levels/, https://www.digmandarin.com/bct-guide.html, https://www.digmandarin.com/the-overall-hskk-guide.html, https://en.wikipedia.org/wiki/Test_of_Chinese_as_a_Foreign_Language, https://ukbi.kemendikdasmen.go.id/front-new/page/predikat",
+  "compiled_date": "2026-05",
+  "tests": [
+    {
+      "test": "HSK",
+      "full_name_zh": "汉语水平考试",
+      "full_name_en": "Hanyu Shuiping Kaoshi (Chinese Proficiency Test)",
+      "full_name_id": "Ujian Kemahiran Bahasa Tionghoa",
+      "standard": "HSK 3.0 (New HSK, 2021)",
+      "administered_by": "Center for International Education Exchange (CIEF) / Hanban",
+      "official_website": "https://www.chinesetest.cn",
+      "description_en": "The HSK is China's official Chinese language proficiency test for non-native speakers. The new HSK 3.0 standard (2021) expanded from 6 to 9 levels. HSK 1-6 uses a three-skill format (Listening + Reading + Writing), while HSK 7-9 is a single advanced integrated test.",
+      "description_id": "HSK adalah ujian kemahiran bahasa Tionghoa resmi China untuk penutur non-asli. Standar HSK 3.0 baru (2021) diperluas dari 6 menjadi 9 tingkat.",
+      "levels": [
+        {
+          "level": "HSK 1",
+          "words_cumulative": 300,
+          "words_new": 300,
+          "characters_to_recognize": 246,
+          "characters_to_write": 0,
+          "score_range": "0–200",
+          "passing_score": 120,
+          "skills_tested": [
+            "Listening",
+            "Reading"
+          ],
+          "cefr_equivalent": "A1",
+          "description_en": "Basic survival Chinese. Can understand and use very simple expressions to introduce themselves and handle basic daily needs.",
+          "description_id": "Bahasa Tionghoa untuk bertahan hidup dasar. Dapat memahami dan menggunakan ekspresi sederhana untuk memperkenalkan diri dan memenuhi kebutuhan sehari-hari dasar.",
+          "vocab_file": "vocab_hsk1.json"
+        },
+        {
+          "level": "HSK 2",
+          "words_cumulative": 500,
+          "words_new": 200,
+          "characters_to_recognize": 371,
+          "characters_to_write": 0,
+          "score_range": "0–200",
+          "passing_score": 120,
+          "skills_tested": [
+            "Listening",
+            "Reading"
+          ],
+          "cefr_equivalent": "A1+",
+          "description_en": "Elementary Chinese. Can communicate in simple and routine tasks requiring a simple exchange of information on familiar topics.",
+          "description_id": "Bahasa Tionghoa tingkat dasar. Dapat berkomunikasi dalam tugas sederhana yang memerlukan pertukaran informasi tentang topik yang sudah dikenal.",
+          "vocab_file": "vocab_hsk2.json"
+        },
+        {
+          "level": "HSK 3",
+          "words_cumulative": 1000,
+          "words_new": 500,
+          "characters_to_recognize": 655,
+          "characters_to_write": 0,
+          "score_range": "0–300",
+          "passing_score": 180,
+          "skills_tested": [
+            "Listening",
+            "Reading",
+            "Writing"
+          ],
+          "cefr_equivalent": "A2",
+          "description_en": "Pre-intermediate. Can deal with most situations likely to arise while traveling in China. Can describe experiences, events, dreams and ambitions briefly.",
+          "description_id": "Pra-menengah. Dapat menangani sebagian besar situasi yang mungkin muncul saat bepergian di Tiongkok.",
+          "vocab_file": "vocab_hsk3.json"
+        },
+        {
+          "level": "HSK 4",
+          "words_cumulative": 2000,
+          "words_new": 1000,
+          "characters_to_recognize": 1096,
+          "characters_to_write": 0,
+          "score_range": "0–300",
+          "passing_score": 180,
+          "skills_tested": [
+            "Listening",
+            "Reading",
+            "Writing"
+          ],
+          "cefr_equivalent": "B1",
+          "description_en": "Intermediate. A major milestone — can discuss a wide range of topics with native speakers with relative fluency and spontaneity. Can understand the main points of complex texts.",
+          "description_id": "Menengah. Dapat membahas berbagai topik dengan penutur asli dengan kefasihan relatif. Tonggak penting dalam penguasaan bahasa.",
+          "vocab_file": "vocab_hsk4.json"
+        },
+        {
+          "level": "HSK 5",
+          "words_cumulative": 3600,
+          "words_new": 1600,
+          "characters_to_recognize": 1527,
+          "characters_to_write": 150,
+          "score_range": "0–300",
+          "passing_score": 180,
+          "skills_tested": [
+            "Listening",
+            "Reading",
+            "Writing",
+            "Handwriting"
+          ],
+          "cefr_equivalent": "B2",
+          "description_en": "Upper intermediate. Can read Chinese newspapers and magazines and watch Chinese films. Can give a clear, detailed presentation on a wide range of subjects.",
+          "description_id": "Menengah atas. Dapat membaca surat kabar dan majalah Tionghoa serta menonton film berbahasa Tionghoa.",
+          "vocab_file": "vocab_hsk5.json"
+        },
+        {
+          "level": "HSK 6",
+          "words_cumulative": 5400,
+          "words_new": 1800,
+          "characters_to_recognize": 1940,
+          "characters_to_write": 300,
+          "score_range": "0–300",
+          "passing_score": 180,
+          "skills_tested": [
+            "Listening",
+            "Reading",
+            "Writing",
+            "Handwriting"
+          ],
+          "cefr_equivalent": "C1",
+          "description_en": "Advanced. Can easily comprehend written and spoken information and express themselves spontaneously, very fluently and precisely in Chinese.",
+          "description_id": "Mahir. Dapat dengan mudah memahami informasi tertulis dan lisan serta mengekspresikan diri secara spontan dan fasih dalam bahasa Tionghoa.",
+          "vocab_file": "vocab_hsk6.json"
+        },
+        {
+          "level": "HSK 7-9",
+          "words_cumulative": 11000,
+          "words_new": 5600,
+          "characters_to_recognize": 3088,
+          "characters_to_write": 1000,
+          "score_range": "0–300 (single integrated exam)",
+          "passing_score": 180,
+          "skills_tested": [
+            "Listening",
+            "Reading",
+            "Writing",
+            "Speaking",
+            "Translation",
+            "Oral Defense"
+          ],
+          "cefr_equivalent": "C1-C2",
+          "description_en": "Expert/Mastery level. A single combined exam covering advanced professional and academic Chinese. Includes translation, oral defense, and written composition. Suitable for graduate study and professional use in Chinese.",
+          "description_id": "Tingkat ahli/mahir penuh. Ujian gabungan tunggal yang mencakup bahasa Tionghoa profesional dan akademik tingkat lanjut.",
+          "vocab_file": "vocab_hsk7_9.json",
+          "note": "HSK 7-9 is administered as a single combined test, not three separate levels"
+        }
+      ]
+    },
+    {
+      "test": "BCT",
+      "full_name_zh": "商务汉语考试",
+      "full_name_en": "Business Chinese Test",
+      "full_name_id": "Ujian Bahasa Tionghoa Bisnis",
+      "administered_by": "Center for International Education Exchange (CIEF) / Hanban",
+      "official_website": "https://www.chinesetest.cn",
+      "description_en": "The BCT assesses the ability of non-native Chinese speakers to communicate in Chinese in a business context. It comprises two independent tests: BCT (A) for elementary/lower-intermediate and BCT (B) for intermediate/advanced.",
+      "description_id": "BCT menilai kemampuan penutur non-asli bahasa Tionghoa untuk berkomunikasi dalam konteks bisnis. Terdiri dari dua tes independen: BCT (A) untuk tingkat dasar dan BCT (B) untuk tingkat menengah.",
+      "vocab_file": "vocab_bct.json",
+      "levels": [
+        {
+          "level": "BCT-A",
+          "name": "BCT (A) — Elementary",
+          "vocabulary": 600,
+          "questions": 70,
+          "score_range": "0–300",
+          "passing_score": 180,
+          "duration_minutes": 70,
+          "cefr_equivalent": "A1-A2",
+          "sections": {
+            "Listening": "30 points, 30 questions",
+            "Reading": "30 points, 30 questions",
+            "Writing": "10 points, 10 questions"
+          },
+          "description_en": "For beginners. Tests ability to handle everyday language and basic business communication. Listening dialogues are played twice; writing requires pinyin-to-character recognition.",
+          "description_id": "Untuk pemula. Menguji kemampuan menangani bahasa sehari-hari dan komunikasi bisnis dasar."
+        },
+        {
+          "level": "BCT-B",
+          "name": "BCT (B) — Intermediate/Advanced",
+          "vocabulary": 4000,
+          "questions": 92,
+          "score_range": "0–300",
+          "passing_score": 180,
+          "duration_minutes": 145,
+          "cefr_equivalent": "B1-B2",
+          "sections": {
+            "Listening": "50 points, 50 questions",
+            "Reading": "40 points, 40 questions",
+            "Writing": "100 points, 2 tasks (80+ and 150+ characters)"
+          },
+          "description_en": "For intermediate/advanced learners. Tests ability to communicate fluently in complex business settings including negotiations, reports, and formal correspondence.",
+          "description_id": "Untuk peserta tingkat menengah/lanjut. Menguji kemampuan berkomunikasi secara fasih dalam situasi bisnis kompleks termasuk negosiasi dan laporan formal."
+        },
+        {
+          "level": "BCT-Oral",
+          "name": "BCT (Oral iBT) — Speaking",
+          "vocabulary": 4000,
+          "questions": 15,
+          "score_range": "0–500",
+          "passing_score": 300,
+          "duration_minutes": 25,
+          "cefr_equivalent": "B1+",
+          "format": "Online only (iBT)",
+          "description_en": "Online-only speaking component. Tests ability to articulate ideas clearly and effectively in business contexts including presentations and discussions.",
+          "description_id": "Komponen berbicara yang hanya tersedia secara online. Menguji kemampuan mengutarakan ide dalam konteks bisnis."
+        }
+      ]
+    },
+    {
+      "test": "YCT",
+      "full_name_zh": "中小学生汉语考试",
+      "full_name_en": "Youth Chinese Test",
+      "full_name_id": "Ujian Bahasa Tionghoa untuk Remaja",
+      "administered_by": "Center for International Education Exchange (CIEF) / Hanban",
+      "official_website": "https://www.chinesetest.cn",
+      "description_en": "The YCT is designed for non-native Chinese-speaking children and adolescents to measure their ability to use Chinese in daily life and studies. It has four written levels.",
+      "description_id": "YCT dirancang untuk anak-anak dan remaja non-penutur asli bahasa Tionghoa, mengukur kemampuan menggunakan bahasa Tionghoa dalam kehidupan dan studi sehari-hari.",
+      "vocab_file": "vocab_yct.json",
+      "levels": [
+        {
+          "level": "YCT 1",
+          "vocabulary": 80,
+          "score_range": "0–200",
+          "passing_score": 120,
+          "cefr_equivalent": "pre-A1",
+          "description_en": "Can understand and use very simple Chinese words and phrases learned in school. Suitable for children with basic introductory exposure.",
+          "description_id": "Dapat memahami dan menggunakan kata-kata dan frasa bahasa Tionghoa sederhana yang dipelajari di sekolah."
+        },
+        {
+          "level": "YCT 2",
+          "vocabulary": 150,
+          "score_range": "0–200",
+          "passing_score": 120,
+          "cefr_equivalent": "pre-A1 to A1",
+          "description_en": "Can communicate in simple routine tasks related to school and family life. Expanding beyond YCT 1 vocabulary.",
+          "description_id": "Dapat berkomunikasi dalam tugas rutin sederhana yang berkaitan dengan kehidupan sekolah dan keluarga."
+        },
+        {
+          "level": "YCT 3",
+          "vocabulary": 300,
+          "score_range": "0–300",
+          "passing_score": 180,
+          "cefr_equivalent": "A1-A2",
+          "description_en": "Can converse on familiar topics in daily life, including time, weather, food, school, and family.",
+          "description_id": "Dapat berbicara tentang topik yang familiar dalam kehidupan sehari-hari, termasuk waktu, cuaca, makanan, sekolah, dan keluarga."
+        },
+        {
+          "level": "YCT 4",
+          "vocabulary": 600,
+          "score_range": "0–300",
+          "passing_score": 180,
+          "cefr_equivalent": "A2-B1",
+          "description_en": "Can manage most forms of communication in Chinese including daily, academic, and some professional topics. Roughly equivalent to HSK 2-3.",
+          "description_id": "Dapat mengelola sebagian besar bentuk komunikasi dalam bahasa Tionghoa termasuk topik sehari-hari, akademik, dan sebagian topik profesional."
+        }
+      ]
+    },
+    {
+      "test": "HSKK",
+      "full_name_zh": "汉语水平口语考试",
+      "full_name_en": "Hanyu Shuiping Kouyu Kaoshi (Chinese Speaking Test)",
+      "full_name_id": "Ujian Kemahiran Berbicara Bahasa Tionghoa",
+      "administered_by": "Center for International Education Exchange (CIEF) / Hanban",
+      "official_website": "https://www.chinesetest.cn",
+      "description_en": "The HSKK is an oral component of the HSK, testing speaking ability at three levels. Results are valid for 2 years for academic admission purposes. Each level is scored out of 100 with a passing score of 60.",
+      "description_id": "HSKK adalah komponen lisan HSK yang menguji kemampuan berbicara di tiga tingkat. Hasil berlaku 2 tahun untuk keperluan penerimaan akademik.",
+      "levels": [
+        {
+          "level": "HSKK Beginner",
+          "chinese_name": "汉语水平口语考试（初级）",
+          "vocabulary": 200,
+          "score_range": "0–100",
+          "passing_score": 60,
+          "duration_minutes": 17,
+          "questions": 27,
+          "hsk_equivalent": "HSK 1-2",
+          "cefr_equivalent": "A1-A2",
+          "sections": [
+            {
+              "name": "Listen and repeat",
+              "questions": 15,
+              "minutes": 4
+            },
+            {
+              "name": "Listen and respond",
+              "questions": 10,
+              "minutes": 3
+            },
+            {
+              "name": "Open-ended responses",
+              "questions": 2,
+              "minutes": 3
+            }
+          ],
+          "description_en": "Basic speaking test. Can conduct simple conversations on everyday topics such as greeting, shopping, and describing simple things.",
+          "description_id": "Ujian berbicara dasar. Dapat melakukan percakapan sederhana tentang topik sehari-hari seperti salam, belanja, dan mendeskripsikan hal-hal sederhana."
+        },
+        {
+          "level": "HSKK Intermediate",
+          "chinese_name": "汉语水平口语考试（中级）",
+          "vocabulary": 900,
+          "score_range": "0–100",
+          "passing_score": 60,
+          "duration_minutes": 21,
+          "questions": 14,
+          "hsk_equivalent": "HSK 3-4",
+          "cefr_equivalent": "B1",
+          "sections": [
+            {
+              "name": "Listen and repeat",
+              "questions": 4,
+              "minutes": 3
+            },
+            {
+              "name": "Describe images",
+              "questions": 2,
+              "minutes": 4
+            },
+            {
+              "name": "Open-ended responses",
+              "questions": 2,
+              "minutes": 4
+            }
+          ],
+          "description_en": "Intermediate speaking test. Can speak quite fluently on a range of topics and interact with reasonable ease.",
+          "description_id": "Ujian berbicara tingkat menengah. Dapat berbicara dengan cukup fasih tentang berbagai topik dan berinteraksi dengan cukup mudah."
+        },
+        {
+          "level": "HSKK Advanced",
+          "chinese_name": "汉语水平口语考试（高级）",
+          "vocabulary": 3000,
+          "characters": 1000,
+          "score_range": "0–100",
+          "passing_score": 60,
+          "duration_minutes": 24,
+          "hsk_equivalent": "HSK 5-6",
+          "cefr_equivalent": "C1",
+          "sections": [
+            {
+              "name": "Listen and repeat",
+              "questions": 3,
+              "minutes": 7
+            },
+            {
+              "name": "Read passage aloud",
+              "tasks": 1,
+              "minutes": 2
+            },
+            {
+              "name": "Open-ended responses",
+              "questions": 2,
+              "minutes": 5
+            }
+          ],
+          "description_en": "Advanced speaking test. Can express themselves fluently and spontaneously on most topics including complex professional and academic subjects.",
+          "description_id": "Ujian berbicara tingkat lanjut. Dapat mengekspresikan diri secara fasih dan spontan tentang sebagian besar topik termasuk subjek profesional dan akademik yang kompleks."
+        }
+      ]
+    },
+    {
+      "test": "TOCFL",
+      "full_name_zh": "華語文能力測驗",
+      "full_name_en": "Test of Chinese as a Foreign Language (TOCFL)",
+      "full_name_id": "Ujian Kemahiran Bahasa Tionghoa sebagai Bahasa Asing",
+      "administered_by": "SC-TOP (Steering Committee for the Test of Proficiency-Huayu), Taiwan",
+      "official_website": "https://www.sc-top.org.tw",
+      "note": "The task description refers to this test as 'TOFCL' — this appears to be a transposition. The correct name is TOCFL.",
+      "description_en": "TOCFL is Taiwan's official Chinese proficiency test using Traditional Chinese characters. It has four bands: Novice, Band A, Band B, and Band C — each with two sub-levels, for 8 total levels. Vocabulary list of 14,425 words covers all levels.",
+      "description_id": "TOCFL adalah ujian kemahiran bahasa Tionghoa resmi Taiwan menggunakan aksara Tionghoa tradisional. Memiliki empat band: Novice, Band A, Band B, dan Band C.",
+      "vocab_file": "vocab_tofcl.json",
+      "levels": [
+        {
+          "level": "Novice",
+          "sub_levels": [
+            "Novice 1",
+            "Novice 2"
+          ],
+          "vocabulary": 300,
+          "learning_hours": "30–120",
+          "score_range": "0–160 (80 per section)",
+          "cefr_equivalent": "A1",
+          "description_en": "Pre-beginner level. Limited vocabulary for very basic daily interactions. Often treated as preparatory for Band A.",
+          "description_id": "Tingkat pra-pemula. Kosa kata terbatas untuk interaksi harian yang sangat dasar."
+        },
+        {
+          "level": "Band A",
+          "sub_levels": [
+            "Level 1 (Novice)",
+            "Level 2 (Basic)"
+          ],
+          "vocabulary_range": "500–1000",
+          "learning_hours": "120–360",
+          "score_range": "0–160 (80 per section; pass: min 51 Listening + 53 Reading)",
+          "cefr_equivalent": "A1-A2",
+          "description_en": "Beginner level. Can understand and use familiar everyday expressions and basic phrases for personal communication.",
+          "description_id": "Tingkat pemula. Dapat memahami dan menggunakan ekspresi sehari-hari yang akrab untuk komunikasi pribadi.",
+          "word_count_in_file": 1254
+        },
+        {
+          "level": "Band B",
+          "sub_levels": [
+            "Level 3 (Intermediate)",
+            "Level 4 (Advanced)"
+          ],
+          "vocabulary_range": "2500–5000",
+          "learning_hours": "360–960",
+          "score_range": "0–160 (80 per section)",
+          "cefr_equivalent": "B1-B2",
+          "description_en": "Intermediate level. Can interact with a degree of fluency on a wide range of topics. Can understand the main ideas of complex texts.",
+          "description_id": "Tingkat menengah. Dapat berinteraksi dengan cukup fasih tentang berbagai topik dan memahami gagasan utama teks kompleks.",
+          "word_count_in_file": 4034
+        },
+        {
+          "level": "Band C",
+          "sub_levels": [
+            "Level 5 (Superior)",
+            "Level 6 (Master)"
+          ],
+          "vocabulary": 8000,
+          "learning_hours": "960–1920+",
+          "score_range": "0–160 (80 per section)",
+          "cefr_equivalent": "C1-C2",
+          "description_en": "Advanced to mastery level. Can express themselves fluently and precisely in complex situations for academic, professional, and cultural purposes.",
+          "description_id": "Tingkat mahir hingga penguasaan. Dapat mengekspresikan diri secara fasih dan tepat dalam situasi kompleks untuk keperluan akademik, profesional, dan budaya.",
+          "word_count_in_file": 9137
+        }
+      ]
+    },
+    {
+      "test": "UKBI",
+      "full_name_id": "Uji Kemahiran Berbahasa Indonesia",
+      "full_name_en": "Indonesian Language Proficiency Test",
+      "language": "Indonesian (Bahasa Indonesia)",
+      "administered_by": "Badan Bahasa (Language Center), Kemendikdasmen (Ministry of Education, Culture, Research and Technology), Republic of Indonesia",
+      "official_website": "https://ukbi.kemendikdasmen.go.id",
+      "description_en": "The UKBI is Indonesia's official standardized test for Indonesian language proficiency. It measures proficiency across four skills: Listening (Mendengarkan), Reading (Membaca), Writing (Menulis), and Speaking (Berbicara). Results are valid as proof of Indonesian language proficiency for academic admission, employment, and government purposes.",
+      "description_id": "UKBI adalah ujian standar resmi Indonesia untuk kemahiran berbahasa Indonesia. Mengukur kemahiran dalam empat keterampilan: mendengarkan, membaca, menulis, dan berbicara. Hasilnya berlaku sebagai bukti kemahiran berbahasa Indonesia untuk keperluan akademik, pekerjaan, dan pemerintahan.",
+      "scoring": {
+        "minimum": 251,
+        "maximum": 800,
+        "method": "Adaptive computerized testing with Item Response Theory scoring"
+      },
+      "note": "UKBI is an Indonesian language test (Bahasa Indonesia), not a Chinese/Mandarin test. Included here as requested.",
+      "levels": [
+        {
+          "level": "I",
+          "predikat": "Istimewa",
+          "english_name": "Distinguished",
+          "score_range": "725–800",
+          "score_min": 725,
+          "score_max": 800,
+          "description_id": "Mempunyai kemahiran yang sempurna dalam berkomunikasi menggunakan bahasa Indonesia, baik lisan maupun tulis. Tidak menemukan hambatan dalam berkomunikasi untuk keperluan pribadi, sosial, profesional, dan akademis.",
+          "description_en": "Perfect proficiency in Indonesian communication, both oral and written. No obstacles encountered in communication for personal, social, professional, and academic purposes."
+        },
+        {
+          "level": "II",
+          "predikat": "Sangat Unggul",
+          "english_name": "Very Superior",
+          "score_range": "641–724",
+          "score_min": 641,
+          "score_max": 724,
+          "description_id": "Mempunyai kemahiran yang sangat tinggi dalam berkomunikasi menggunakan bahasa Indonesia, baik lisan maupun tulis. Tidak menemukan hambatan dalam berkomunikasi untuk keperluan pribadi, sosial, dan profesional, tetapi masih menemukan hambatan dalam berkomunikasi untuk keperluan akademis yang kompleks.",
+          "description_en": "Very high proficiency in Indonesian communication, both oral and written. No obstacles for personal, social, and professional communication, but may encounter difficulties with complex academic communication."
+        },
+        {
+          "level": "III",
+          "predikat": "Unggul",
+          "english_name": "Superior",
+          "score_range": "578–640",
+          "score_min": 578,
+          "score_max": 640,
+          "description_id": "Mempunyai kemahiran yang sangat memadai dalam berkomunikasi menggunakan bahasa Indonesia, baik lisan maupun tulis. Tidak menemukan hambatan dalam berkomunikasi untuk keperluan pribadi dan sosial, serta berkomunikasi profesional yang sederhana maupun yang kompleks.",
+          "description_en": "Very adequate proficiency in Indonesian communication, both oral and written. No obstacles in personal and social communication, as well as both simple and complex professional communication."
+        },
+        {
+          "level": "IV",
+          "predikat": "Madya",
+          "english_name": "Average",
+          "score_range": "482–577",
+          "score_min": 482,
+          "score_max": 577,
+          "description_id": "Mempunyai kemahiran yang memadai dalam berkomunikasi menggunakan bahasa Indonesia, baik lisan maupun tulis. Tidak menemukan hambatan dalam berkomunikasi untuk keperluan pribadi dan kemasyarakatan, tetapi masih menemukan hambatan dalam berkomunikasi profesional yang kompleks.",
+          "description_id_short": "Memadai untuk komunikasi pribadi dan kemasyarakatan, namun masih terbatas untuk komunikasi profesional yang kompleks.",
+          "description_en": "Adequate proficiency in Indonesian communication, both oral and written. No obstacles in personal and community communication, but encounters difficulties in complex professional communication."
+        },
+        {
+          "level": "V",
+          "predikat": "Semenjana",
+          "english_name": "Mediocre",
+          "score_range": "405–481",
+          "score_min": 405,
+          "score_max": 481,
+          "description_id": "Mempunyai kemahiran yang cukup memadai dalam berkomunikasi menggunakan bahasa Indonesia, baik lisan maupun tulis. Masih menemukan hambatan yang berarti dalam berkomunikasi untuk keperluan akademis, dan masih mengalami banyak kesulitan dalam berkomunikasi profesional yang kompleks maupun kemasyarakatan yang kompleks, tetapi mampu untuk berkomunikasi profesional yang sederhana.",
+          "description_en": "Reasonably adequate proficiency in Indonesian communication, both oral and written. Encounters significant obstacles in academic communication, and many difficulties in complex professional and community communication, but can manage simple professional communication."
+        },
+        {
+          "level": "VI",
+          "predikat": "Marginal",
+          "english_name": "Marginal",
+          "score_range": "326–404",
+          "score_min": 326,
+          "score_max": 404,
+          "description_id": "Mempunyai kemahiran yang kurang memadai dalam berkomunikasi menggunakan bahasa Indonesia, baik lisan maupun tulis. Mampu berkomunikasi kemasyarakatan yang sederhana, tetapi masih mengalami banyak hambatan dalam berkomunikasi kemasyarakatan yang kompleks dan profesional.",
+          "description_en": "Inadequate proficiency in Indonesian communication, both oral and written. Can manage simple community interactions, but encounters many obstacles in complex community and professional communication."
+        },
+        {
+          "level": "VII",
+          "predikat": "Terbatas",
+          "english_name": "Limited",
+          "score_range": "251–325",
+          "score_min": 251,
+          "score_max": 325,
+          "description_id": "Mempunyai kemahiran yang sangat kurang memadai dalam berkomunikasi menggunakan bahasa Indonesia, baik lisan maupun tulis. Kemampuan berkomunikasi hanya untuk keperluan pribadi, walaupun demikian masih memiliki potensi kemajuan yang besar.",
+          "description_en": "Very inadequate proficiency in Indonesian communication, both oral and written. Communication ability limited mainly to personal daily needs, but still has considerable potential for improvement."
+        }
+      ]
+    }
+  ]
+}

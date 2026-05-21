@@ -62,6 +62,82 @@ async function getVolcanoTTS() {
   return volcanoTTS;
 }
 
+// ── Vocabulary data (loaded once at startup) ─────────────────────────────────
+const DATA_DIR = path.join(__dirname, 'data');
+
+function loadVocabFile(filename) {
+  try {
+    const raw  = JSON.parse(fs.readFileSync(path.join(DATA_DIR, filename), 'utf8'));
+    const words = raw.words ?? raw;
+
+    // Normalise: flatten dict-of-level-arrays into a single array
+    if (words && !Array.isArray(words) && typeof words === 'object') {
+      return Object.entries(words).flatMap(([lvl, arr]) =>
+        Array.isArray(arr) ? arr.map(w => ({ ...w, level: w.level || lvl })) : []
+      );
+    }
+    return Array.isArray(words) ? words : [];
+  } catch { return []; }
+}
+
+const VOCAB = {
+  HSK1:   loadVocabFile('vocab_hsk1.json'),
+  HSK2:   loadVocabFile('vocab_hsk2.json'),
+  HSK3:   loadVocabFile('vocab_hsk3.json'),
+  HSK4:   loadVocabFile('vocab_hsk4.json'),
+  HSK5:   loadVocabFile('vocab_hsk5.json'),
+  HSK6:   loadVocabFile('vocab_hsk6.json'),
+  'HSK7-9': loadVocabFile('vocab_hsk7_9.json'),
+  BCT:    loadVocabFile('vocab_bct.json'),
+  YCT:    loadVocabFile('vocab_yct.json'),
+  TOFCL:  loadVocabFile('vocab_tofcl.json'),
+};
+
+let TEST_INFO = {};
+try { TEST_INFO = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'test_info.json'), 'utf8')); }
+catch { /* optional */ }
+
+// ── Vocab API ────────────────────────────────────────────────────────────────
+
+// GET /api/vocab/levels  — list all levels with word counts
+app.get('/api/vocab/levels', (_req, res) => {
+  const levels = Object.entries(VOCAB).map(([id, arr]) => ({
+    id,
+    label: id.replace('HSK7-9', 'HSK 7–9'),
+    count: arr.length,
+  }));
+  res.json(levels);
+});
+
+// GET /api/vocab/:level?offset=0&limit=1&random=1
+// Returns one or more word objects for the requested level.
+app.get('/api/vocab/:level', (req, res) => {
+  const key   = req.params.level.toUpperCase().replace(/\s/g, '');
+  const words = VOCAB[key] || VOCAB[key.replace('-', '')] || [];
+
+  if (!words.length) return res.status(404).json({ error: `No vocabulary for level "${req.params.level}"` });
+
+  const limit  = Math.min(parseInt(req.query.limit)  || 1, 100);
+  const total  = words.length;
+
+  let start;
+  if (req.query.random === '1') {
+    start = Math.floor(Math.random() * total);
+  } else {
+    start = parseInt(req.query.offset) || 0;
+  }
+
+  const items = [];
+  for (let i = 0; i < limit; i++) {
+    items.push(words[(start + i) % total]);
+  }
+
+  res.json({ level: key, total, offset: start, items });
+});
+
+// GET /api/tests  — full test-info metadata
+app.get('/api/tests', (_req, res) => res.json(TEST_INFO));
+
 // ── Static files ─────────────────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname)));
 
