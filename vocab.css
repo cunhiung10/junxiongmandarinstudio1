@@ -160,11 +160,13 @@
 .word-glyph .glyph-text {
   font-family: var(--font-han);
   font-weight: 600;
-  font-size: 140px;
+  font-size: 140px;        /* overridden per word by JS */
   line-height: 1;
   color: var(--ink);
   position: relative;
   z-index: 1;
+  white-space: nowrap;     /* never wrap — JS scales font instead */
+  letter-spacing: 0.02em;
 }
 .word-glyph .grid-toggle {
   position: absolute;

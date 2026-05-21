@@ -1440,7 +1440,11 @@ function renderWord(idx) {
   const w = WORDS[idx];
   if (!w) return;
 
-  document.getElementById('glyph-char').textContent = w.simplified;
+  const glyphEl = document.getElementById('glyph-char');
+  glyphEl.textContent = w.simplified;
+  // Scale font so all characters fit side-by-side inside the 200px glyph box
+  const cLen = w.simplified.length;
+  glyphEl.style.fontSize = (cLen <= 1 ? 140 : Math.max(28, Math.floor(168 / cLen))) + 'px';
   document.getElementById('wm-pinyin').innerHTML =
     `${w.pinyin} <span class="tone" data-t="${w.toneNum}"><span class="stroke"></span>${w.toneNum}</span>`;
   document.getElementById('wm-trad').textContent    = w.traditional;
