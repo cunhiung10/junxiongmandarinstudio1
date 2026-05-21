@@ -52,91 +52,48 @@
     #hanzi-stroke-target { width:100%; min-height:280px; }
     #hanzi-stroke-target svg { display:block; margin:auto; }
 
-    /* ── Futuristic JUN seal — 3-colour edition ─────────── */
+    /* ── Calligraphy seal — red + gold ─────────────────── */
     .seal-jun {
-      background: linear-gradient(150deg, #161412 0%, #0e0c0a 100%) !important;
-      border: 1px solid rgba(184,49,43,.85) !important;
+      background: linear-gradient(160deg, #c0302b 0%, #9b2420 100%) !important;
+      border: none !important;
       border-radius: 7px !important;
       box-shadow:
-        0 0 0 1px rgba(212,175,55,.18),        /* gold halo ring       */
-        0 0 13px -3px rgba(184,49,43,.65),      /* red inner bloom      */
-        0 0 24px -8px rgba(212,175,55,.35),     /* gold outer bloom     */
-        0 4px 20px -6px rgba(0,0,0,.8),
-        inset 0 1px 0 rgba(255,255,255,.07) !important;
+        inset 0 1px 0 rgba(255,210,100,.18),   /* warm top sheen       */
+        0 0 0 1px rgba(212,175,55,.55),          /* gold outer ring      */
+        0 0 0 2.5px rgba(110,20,16,.65),         /* dark border wrap     */
+        0 6px 22px -6px rgba(120,20,15,.7),
+        0 2px 8px rgba(0,0,0,.35) !important;
     }
-    /* Inner frame — faint red ring */
+    /* Outer gold frame line */
     .seal-jun::before {
       inset: 3px !important;
-      border-color: rgba(220,70,55,.32) !important;
+      border-color: rgba(212,175,55,.5) !important;
       border-radius: 4px !important;
     }
-    /* Innermost frame — faint gold ring */
+    /* Inner gold frame line */
     .seal-jun::after {
-      inset: 7px !important;
-      border-color: rgba(212,175,55,.18) !important;
+      inset: 6px !important;
+      border-color: rgba(212,175,55,.25) !important;
       border-radius: 2px !important;
     }
-    /* Corner-bracket notches */
-    .seal-jun .jun-notch {
-      position: absolute; inset: 0; pointer-events: none; z-index: 1;
-    }
-    .seal-jun .jun-notch::before,
-    .seal-jun .jun-notch::after {
-      content: "";
-      position: absolute;
-      width: 8px; height: 8px;
-    }
-    /* Top-left notch → cinnabar red */
-    .seal-jun .jun-notch::before {
-      top: 5px; left: 5px;
-      border-top:  1.5px solid #e04535;
-      border-left: 1.5px solid #e04535;
-      border-radius: 1px 0 0 0;
-      filter: drop-shadow(0 0 2px rgba(224,69,53,.8));
-    }
-    /* Bottom-right notch → gold */
-    .seal-jun .jun-notch::after {
-      bottom: 5px; right: 5px;
-      border-bottom: 1.5px solid #d4af37;
-      border-right:  1.5px solid #d4af37;
-      border-radius: 0 0 1px 0;
-      filter: drop-shadow(0 0 2px rgba(212,175,55,.8));
-    }
-    /* JUN container — each letter is its own <span> */
+    /* No notch needed for this style */
+    .seal-jun .jun-notch { display: none !important; }
+    /* 俊 calligraphy character */
     .jun-text {
-      font-family: 'JetBrains Mono', monospace !important;
-      font-size: 13px !important;
+      font-family: 'Noto Serif SC', serif !important;
+      font-size: 25px !important;
       font-weight: 700 !important;
-      letter-spacing: 0.16em !important;
+      letter-spacing: -0.02em !important;
+      color: #f5d060 !important;
+      text-shadow:
+        0 1px 2px rgba(80,10,8,.55),
+        0 0 10px rgba(245,208,96,.35),
+        0 0 26px rgba(212,175,55,.18);
       position: relative;
       z-index: 2;
-      padding-left: 0.08em;
-      display: flex;
-      align-items: center;
-    }
-    /* J — cinnabar red */
-    .jun-text .j {
-      color: #f04535;
-      text-shadow:
-        0 0 4px rgba(240,69,53,1),
-        0 0 12px rgba(184,49,43,.7),
-        0 0 22px rgba(184,49,43,.3);
-    }
-    /* U — warm gold */
-    .jun-text .u {
-      color: #f5c842;
-      text-shadow:
-        0 0 4px rgba(245,200,66,1),
-        0 0 12px rgba(212,175,55,.7),
-        0 0 22px rgba(212,175,55,.3);
-    }
-    /* N — pure white */
-    .jun-text .n {
-      color: #ffffff;
-      text-shadow:
-        0 0 4px rgba(255,255,255,.95),
-        0 0 12px rgba(210,235,255,.6),
-        0 0 22px rgba(180,210,255,.25);
+      line-height: 1 !important;
+      padding: 0 !important;
+      display: block !important;
     }
     /* @ prefix styling in brand name */
     .brand-at {
@@ -285,7 +242,7 @@
     <div class="header-inner">
       <!-- Logo -->
       <a class="brand" href="#" aria-label="@JMandarinStudio — Beranda">
-        <div class="seal seal-jun"><span class="jun-notch"></span><span class="jun-text"><span class="j">J</span><span class="u">U</span><span class="n">N</span></span></div>
+        <div class="seal seal-jun"><span class="jun-text">俊</span></div>
         <div class="brand-name">
           <b><span class="brand-at">@</span>JMandarinStudio</b>
         </div>
@@ -1174,7 +1131,7 @@
       <!-- Brand -->
       <div>
         <div class="brand" style="cursor:default">
-          <div class="seal seal-jun" style="width:38px;height:38px"><span class="jun-notch"></span><span class="jun-text" style="font-size:11px"><span class="j">J</span><span class="u">U</span><span class="n">N</span></span></div>
+          <div class="seal seal-jun" style="width:38px;height:38px"><span class="jun-text" style="font-size:20px">俊</span></div>
           <div class="brand-name">
             <b><span class="brand-at">@</span>JMandarinStudio</b>
           </div>
