@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Junxiong Mandarin Studio — Kursus Mandarin Online</title>
+  <title>@JMandarinStudio — Kursus Mandarin Online</title>
   <meta name="description" content="Platform belajar Mandarin online terlengkap. Tersedia kelas HSK, BCT, YCT, HSKK, TOFCL, dan UKBI.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +51,73 @@
     /* Stroke canvas */
     #hanzi-stroke-target { width:100%; min-height:280px; }
     #hanzi-stroke-target svg { display:block; margin:auto; }
+
+    /* ── Futuristic JUN seal ────────────────────────────── */
+    .seal-jun {
+      background: linear-gradient(150deg, #141414 0%, #0d0d0d 100%) !important;
+      border: 1px solid rgba(184,49,43,.75) !important;
+      border-radius: 7px !important;
+      box-shadow:
+        0 0 0 1px rgba(184,49,43,.12),
+        0 0 14px -4px rgba(184,49,43,.55),
+        0 4px 18px -6px rgba(0,0,0,.7),
+        inset 0 1px 0 rgba(255,255,255,.06) !important;
+    }
+    /* Inner corner-bracket lines (override default seal double-border) */
+    .seal-jun::before {
+      inset: 3px !important;
+      border-color: rgba(220,70,55,.28) !important;
+      border-radius: 4px !important;
+    }
+    .seal-jun::after {
+      inset: 7px !important;
+      border-color: rgba(220,70,55,.12) !important;
+      border-radius: 2px !important;
+    }
+    /* Top-left & bottom-right accent notches */
+    .seal-jun .jun-notch {
+      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    }
+    .seal-jun .jun-notch::before,
+    .seal-jun .jun-notch::after {
+      content: "";
+      position: absolute;
+      width: 8px; height: 8px;
+    }
+    .seal-jun .jun-notch::before {
+      top: 5px; left: 5px;
+      border-top: 1.5px solid var(--cinnabar);
+      border-left: 1.5px solid var(--cinnabar);
+      border-radius: 1px 0 0 0;
+    }
+    .seal-jun .jun-notch::after {
+      bottom: 5px; right: 5px;
+      border-bottom: 1.5px solid var(--cinnabar);
+      border-right: 1.5px solid var(--cinnabar);
+      border-radius: 0 0 1px 0;
+    }
+    .jun-text {
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.18em !important;
+      color: #ffffff !important;
+      text-shadow:
+        0 0 6px rgba(255,90,60,.9),
+        0 0 18px rgba(184,49,43,.45);
+      position: relative;
+      z-index: 2;
+      padding-left: 0.09em; /* optical center for letter-spacing */
+    }
+    /* @ prefix styling in brand name */
+    .brand-at {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--cinnabar);
+      font-size: 0.88em;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .footer .brand-at { color: #e07060; }
   </style>
 </head>
 <body>
@@ -188,11 +255,10 @@
   <div class="container">
     <div class="header-inner">
       <!-- Logo -->
-      <a class="brand" href="#" aria-label="Junxiong Mandarin Studio — Beranda">
-        <div class="seal"><span class="seal-char" style="font-size:15px;line-height:1.1;display:flex;flex-direction:column;align-items:center;gap:0"><span>俊</span><span>雄</span></span></div>
+      <a class="brand" href="#" aria-label="@JMandarinStudio — Beranda">
+        <div class="seal seal-jun"><span class="jun-notch"></span><span class="jun-text">JUN</span></div>
         <div class="brand-name">
-          <b>Junxiong Mandarin</b>
-          <small>Studio</small>
+          <b><span class="brand-at">@</span>JMandarinStudio</b>
         </div>
       </a>
 
@@ -1079,10 +1145,9 @@
       <!-- Brand -->
       <div>
         <div class="brand" style="cursor:default">
-          <div class="seal" style="width:38px;height:38px"><span class="seal-char" style="font-size:12px;line-height:1.1;display:flex;flex-direction:column;align-items:center;gap:0"><span>俊</span><span>雄</span></span></div>
+          <div class="seal seal-jun" style="width:38px;height:38px"><span class="jun-notch"></span><span class="jun-text" style="font-size:11px">JUN</span></div>
           <div class="brand-name">
-            <b>Junxiong Mandarin</b>
-            <small>Studio</small>
+            <b><span class="brand-at">@</span>JMandarinStudio</b>
           </div>
         </div>
         <p class="tag">Platform kursus Mandarin online terpercaya. Bersertifikasi internasional, tersedia dalam Bahasa Indonesia &amp; Inggris.</p>
@@ -1173,7 +1238,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 Junxiong Mandarin Studio · 俊雄汉语学院. Hak cipta dilindungi.</span>
+      <span>© 2026 @JMandarinStudio · 俊雄汉语学院. Hak cipta dilindungi.</span>
       <div class="links">
         <a href="#">Syarat &amp; Ketentuan</a>
         <a href="#">Kebijakan Privasi</a>
@@ -1366,7 +1431,7 @@ function submitReport() {
   if (!name || !email || !title) { showToast('Lengkapi nama, email, dan judul laporan.'); return; }
   const type = document.querySelector('.report-type.active b')?.textContent || 'Umum';
   const subject = encodeURIComponent(`[Laporan: ${type}] ${title}`);
-  const body = encodeURIComponent(`Dari: ${name} <${email}>\nJenis: ${type}\nJudul: ${title}\n\nDeskripsi:\n${desc}\n\nDikirim dari: Junxiong Mandarin Studio`);
+  const body = encodeURIComponent(`Dari: ${name} <${email}>\nJenis: ${type}\nJudul: ${title}\n\nDeskripsi:\n${desc}\n\nDikirim dari: @JMandarinStudio`);
   window.location.href = `mailto:junxiongmandarinstudio@gmail.com?subject=${subject}&body=${body}`;
   closeModal('report');
   showToast('Laporan siap dikirim via email!');
