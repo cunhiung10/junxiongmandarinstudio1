@@ -75,6 +75,44 @@
       background-image: linear-gradient(90deg, #e06050 0%, #d4af37 100%);
     }
 
+    /* ── HSK tier badges & group labels ─────────────────── */
+    .hsk-lv-tier {
+      display: inline-block; padding: 3px 10px; border-radius: 20px;
+      font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .tier-pemula   { background: rgba(34,139,34,.15);  color: #1a7a1a; border: 1px solid rgba(34,139,34,.3); }
+    .tier-menengah { background: rgba(30,100,200,.13);  color: #1a55a0; border: 1px solid rgba(30,100,200,.28); }
+    .tier-mahir    { background: rgba(184,49,43,.13);   color: #a02820; border: 1px solid rgba(184,49,43,.3); }
+    /* On dark hero bg — lighten the text */
+    .hsk-lv-hero .tier-pemula   { background: rgba(50,200,50,.15);  color: #7de87d; border-color: rgba(80,200,80,.35); }
+    .hsk-lv-hero .tier-menengah { background: rgba(80,150,255,.15); color: #88b8ff; border-color: rgba(80,150,255,.35); }
+    .hsk-lv-hero .tier-mahir    { background: rgba(212,175,55,.15); color: #d4af37; border-color: rgba(212,175,55,.35); }
+    /* Tier group wrapper in tabs */
+    .hsk-tier-group { display: flex; flex-direction: column; gap: 8px; }
+    .hsk-tier-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 4px; align-self: flex-start;
+    }
+    .hsk-tier-label.tier-pemula   { background: rgba(34,139,34,.1);  color: #1a7a1a; }
+    .hsk-tier-label.tier-menengah { background: rgba(30,100,200,.1); color: #1a55a0; }
+    .hsk-tier-label.tier-mahir    { background: rgba(184,49,43,.1);  color: #a02820; }
+    /* Tab vocab count line */
+    .hsk-level-tab .tab-vocab {
+      font-size: 9.5px; color: var(--ink-4); font-weight: 400;
+      margin-top: 1px; letter-spacing: 0;
+    }
+    .hsk-level-tab.active .tab-vocab { color: rgba(255,248,236,.65); }
+    /* HSK level tabs container — allow tier groups side by side */
+    #hsk-ov-tabs { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+    /* Vocab breakdown (7-9) */
+    .hsk-vocab-breakdown { margin-top: 16px; }
+    .hvb-title { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #7a706a; margin-bottom: 8px; font-weight: 600; }
+    .hvb-row { display: flex; align-items: center; gap: 12px; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .hvb-row:last-child { border-bottom: none; }
+    .hvb-sub   { font-size: 13px; font-weight: 700; color: #fff8ec; min-width: 60px; }
+    .hvb-count { font-size: 18px; font-weight: 700; color: #d4af37; font-family: var(--font-mono); }
+    .hvb-note  { font-size: 11px; color: #7a706a; }
+
     /* ── HSK panel: center all content on wide screens ──── */
     /* max content width ≈ 1140px; collapses to base padding on small screens */
     .hsk-panel-head      { padding-left: max(28px, calc(50% - 570px)); padding-right: max(28px, calc(50% - 570px)); }
@@ -281,7 +319,7 @@
     <div class="search-results" id="search-results">
       <div class="search-result" onclick="closeModal('search')">
         <div class="mm-icon">学</div>
-        <div><b style="font-size:13.5px">Kosakata HSK 1</b><br><span style="font-size:12px;color:var(--ink-3)">Pelajari 150 kosakata dasar</span></div>
+        <div><b style="font-size:13.5px">Kosakata HSK 1</b><br><span style="font-size:12px;color:var(--ink-3)">Pelajari 500 kosakata dasar</span></div>
       </div>
       <div class="search-result" onclick="closeModal('search')">
         <div class="mm-icon">汉</div>
@@ -713,7 +751,7 @@
         <div class="hsk-hero-stats">
           <span>Level <b>1–9</b></span>
           <span>Negara <b>160+</b></span>
-          <span>Kosakata <b>150–11.000+</b></span>
+          <span>Kosakata <b>500–11.000+</b></span>
           <span>Format <b>PBT / IBT</b></span>
         </div>
       </div>
@@ -722,13 +760,28 @@
       <div class="hsk-level-tabs-wrap">
         <div class="hsk-level-tabs-label">Pilih Level untuk detail struktur &amp; kosakata</div>
         <div class="hsk-level-tabs" id="hsk-ov-tabs">
-          <button class="hsk-level-tab" data-lv="1"   onclick="openHSKLevel(1)">  <span class="tab-lvl">Level 1</span><span class="tab-cefr">A1</span></button>
-          <button class="hsk-level-tab" data-lv="2"   onclick="openHSKLevel(2)">  <span class="tab-lvl">Level 2</span><span class="tab-cefr">A2</span></button>
-          <button class="hsk-level-tab" data-lv="3"   onclick="openHSKLevel(3)">  <span class="tab-lvl">Level 3</span><span class="tab-cefr">B1</span></button>
-          <button class="hsk-level-tab" data-lv="4"   onclick="openHSKLevel(4)">  <span class="tab-lvl">Level 4</span><span class="tab-cefr">B2</span></button>
-          <button class="hsk-level-tab" data-lv="5"   onclick="openHSKLevel(5)">  <span class="tab-lvl">Level 5</span><span class="tab-cefr">C1</span></button>
-          <button class="hsk-level-tab" data-lv="6"   onclick="openHSKLevel(6)">  <span class="tab-lvl">Level 6</span><span class="tab-cefr">C2</span></button>
-          <button class="hsk-level-tab" data-lv="7-9" onclick="openHSKLevel('7-9')"><span class="tab-lvl">Level 7–9</span><span class="tab-cefr">C2+</span></button>
+          <div class="hsk-tier-group">
+            <div class="hsk-tier-label tier-pemula">Pemula 初级</div>
+            <div style="display:flex;gap:8px">
+              <button class="hsk-level-tab" data-lv="1"   onclick="openHSKLevel(1)">  <span class="tab-lvl">Level 1</span><span class="tab-cefr">A1</span><span class="tab-vocab">500 kata</span></button>
+              <button class="hsk-level-tab" data-lv="2"   onclick="openHSKLevel(2)">  <span class="tab-lvl">Level 2</span><span class="tab-cefr">A2</span><span class="tab-vocab">1.292 kata</span></button>
+              <button class="hsk-level-tab" data-lv="3"   onclick="openHSKLevel(3)">  <span class="tab-lvl">Level 3</span><span class="tab-cefr">B1</span><span class="tab-vocab">2.245 kata</span></button>
+            </div>
+          </div>
+          <div class="hsk-tier-group">
+            <div class="hsk-tier-label tier-menengah">Menengah 中级</div>
+            <div style="display:flex;gap:8px">
+              <button class="hsk-level-tab" data-lv="4"   onclick="openHSKLevel(4)">  <span class="tab-lvl">Level 4</span><span class="tab-cefr">B2</span><span class="tab-vocab">3.245 kata</span></button>
+              <button class="hsk-level-tab" data-lv="5"   onclick="openHSKLevel(5)">  <span class="tab-lvl">Level 5</span><span class="tab-cefr">C1</span><span class="tab-vocab">4.316 kata</span></button>
+              <button class="hsk-level-tab" data-lv="6"   onclick="openHSKLevel(6)">  <span class="tab-lvl">Level 6</span><span class="tab-cefr">C2</span><span class="tab-vocab">5.456 kata</span></button>
+            </div>
+          </div>
+          <div class="hsk-tier-group">
+            <div class="hsk-tier-label tier-mahir">Mahir 高级</div>
+            <div style="display:flex;gap:8px">
+              <button class="hsk-level-tab" data-lv="7-9" onclick="openHSKLevel('7-9')"><span class="tab-lvl">Level 7–9</span><span class="tab-cefr">C2+</span><span class="tab-vocab">11.000+ kata</span></button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -787,7 +840,10 @@
 
       <!-- Level hero -->
       <div class="hsk-lv-hero">
-        <div class="hsk-lv-badge" id="hsk-lv-badge">HSK 1 · A1</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+          <div class="hsk-lv-badge" id="hsk-lv-badge">HSK 1 · A1</div>
+          <div class="hsk-lv-tier" id="hsk-lv-tier">Pemula 初级</div>
+        </div>
         <p class="hsk-lv-desc" id="hsk-lv-desc">—</p>
         <div class="hsk-lv-stats">
           <div><span>Kosakata</span><b id="hsk-lv-vocab-count">—</b></div>
@@ -795,6 +851,7 @@
           <div><span>Skor Lulus</span><b id="hsk-lv-passing">—</b></div>
           <div><span>CEFR</span><b id="hsk-lv-cefr">—</b></div>
         </div>
+        <div id="hsk-lv-vocab-breakdown"></div>
       </div>
 
       <!-- Test structure -->
@@ -1648,41 +1705,48 @@ function showToast(msg) {
 }
 
 /* ── HSK Panel ──────────────────────────────────────────── */
+// NEW HSK 3.0 — vocabulary counts & tier groupings
 const HSK_DATA = {
-  1:   { label:'HSK 1',  vocabKey:'HSK1',  vocabCount:150,   cefr:'A1',  totalScore:200, passing:120,
-         desc:'Mampu memahami dan menggunakan ekspresi Mandarin sangat dasar untuk kebutuhan sehari-hari yang konkret.',
+  1:   { label:'HSK 1',  vocabKey:'HSK1',  vocabCount:500,   cefr:'A1',  totalScore:200, passing:120,
+         tier:'pemula',  tierLabel:'Pemula 初级',
+         desc:'Mampu memahami dan menggunakan ekspresi Mandarin sangat dasar untuk kebutuhan sehari-hari yang konkret. (NEW HSK 3.0)',
          sections:[
            {name:'Mendengar',  han:'听力', items:20, time:15, score:100},
            {name:'Membaca',    han:'阅读', items:20, time:17, score:100},
          ]},
-  2:   { label:'HSK 2',  vocabKey:'HSK2',  vocabCount:300,   cefr:'A2',  totalScore:200, passing:120,
+  2:   { label:'HSK 2',  vocabKey:'HSK2',  vocabCount:1292,  cefr:'A2',  totalScore:200, passing:120,
+         tier:'pemula',  tierLabel:'Pemula 初级',
          desc:'Mampu berkomunikasi tentang topik-topik umum dan rutin yang sederhana dalam bahasa Mandarin.',
          sections:[
            {name:'Mendengar',  han:'听力', items:35, time:25, score:100},
            {name:'Membaca',    han:'阅读', items:25, time:22, score:100},
          ]},
-  3:   { label:'HSK 3',  vocabKey:'HSK3',  vocabCount:600,   cefr:'B1',  totalScore:300, passing:180,
+  3:   { label:'HSK 3',  vocabKey:'HSK3',  vocabCount:2245,  cefr:'B1',  totalScore:300, passing:180,
+         tier:'pemula',  tierLabel:'Pemula 初级',
          desc:'Mampu berkomunikasi dalam bahasa Mandarin untuk keperluan kehidupan, pekerjaan, dan akademik tingkat dasar.',
          sections:[
            {name:'Mendengar',  han:'听力', items:40, time:35, score:100},
            {name:'Membaca',    han:'阅读', items:30, time:30, score:100},
            {name:'Menulis',    han:'书写', items:10, time:15, score:100},
          ]},
-  4:   { label:'HSK 4',  vocabKey:'HSK4',  vocabCount:1200,  cefr:'B2',  totalScore:300, passing:180,
+  4:   { label:'HSK 4',  vocabKey:'HSK4',  vocabCount:3245,  cefr:'B2',  totalScore:300, passing:180,
+         tier:'menengah', tierLabel:'Menengah 中级',
          desc:'Mampu berdiskusi tentang berbagai topik dalam bahasa Mandarin dan berkomunikasi dengan penutur asli secara fasih.',
          sections:[
            {name:'Mendengar',  han:'听力', items:45, time:30, score:100},
            {name:'Membaca',    han:'阅读', items:40, time:40, score:100},
            {name:'Menulis',    han:'书写', items:15, time:25, score:100},
          ]},
-  5:   { label:'HSK 5',  vocabKey:'HSK5',  vocabCount:2500,  cefr:'C1',  totalScore:300, passing:180,
+  5:   { label:'HSK 5',  vocabKey:'HSK5',  vocabCount:4316,  cefr:'C1',  totalScore:300, passing:180,
+         tier:'menengah', tierLabel:'Menengah 中级',
          desc:'Mampu membaca koran dan majalah berbahasa Mandarin, menonton film, serta berpidato dalam bahasa Mandarin.',
          sections:[
            {name:'Mendengar',  han:'听力', items:45, time:30, score:100},
            {name:'Membaca',    han:'阅读', items:45, time:45, score:100},
            {name:'Menulis',    han:'书写', items:10, time:40, score:100},
          ]},
-  6:   { label:'HSK 6',  vocabKey:'HSK6',  vocabCount:5000,  cefr:'C2',  totalScore:300, passing:180,
+  6:   { label:'HSK 6',  vocabKey:'HSK6',  vocabCount:5456,  cefr:'C2',  totalScore:300, passing:180,
+         tier:'menengah', tierLabel:'Menengah 中级',
          desc:'Mampu dengan mudah memahami semua informasi Mandarin yang tertulis maupun lisan, dan berekspresi secara spontan dan lancar.',
          sections:[
            {name:'Mendengar',  han:'听力', items:50, time:35, score:100},
@@ -1690,6 +1754,12 @@ const HSK_DATA = {
            {name:'Menulis',    han:'书写', items:1,  time:45, score:100, note:'Esai'},
          ]},
   '7-9':{ label:'HSK 7–9', vocabKey:'HSK7-9', vocabCount:11000, cefr:'C2+', totalScore:null, passing:null,
+         tier:'mahir',   tierLabel:'Mahir 高级',
+         vocabBreakdown:[
+           {sub:'HSK 7', count:'8.600',   note:''},
+           {sub:'HSK 8', count:'10.900',  note:''},
+           {sub:'HSK 9', count:'11.000+', note:'(tanpa batas atas)'},
+         ],
          desc:'Tingkat mahir setara profesional dan akademik. Mencakup mendengar, membaca, menulis panjang, terjemahan, dan berbicara.',
          sections:[
            {name:'Mendengar',    han:'听力', items:60, time:40,  score:null},
@@ -1730,10 +1800,31 @@ function openHSKLevel(lv) {
   // Hero section
   document.getElementById('hsk-lv-badge').textContent = `${d.label} · ${d.cefr}`;
   document.getElementById('hsk-lv-desc').textContent  = d.desc;
-  document.getElementById('hsk-lv-vocab-count').textContent = d.vocabCount.toLocaleString();
+  document.getElementById('hsk-lv-vocab-count').textContent = d.vocabCount.toLocaleString('id-ID');
   document.getElementById('hsk-lv-total-score').textContent = d.totalScore ? d.totalScore.toString() : '—';
   document.getElementById('hsk-lv-passing').textContent     = d.passing    ? d.passing.toString()    : '—';
   document.getElementById('hsk-lv-cefr').textContent        = d.cefr;
+
+  // Tier badge
+  const tierEl = document.getElementById('hsk-lv-tier');
+  tierEl.textContent  = d.tierLabel;
+  tierEl.className    = 'hsk-lv-tier tier-' + d.tier;
+
+  // Vocab breakdown (HSK 7-9 only)
+  const brkEl = document.getElementById('hsk-lv-vocab-breakdown');
+  if (d.vocabBreakdown) {
+    brkEl.innerHTML = `<div class="hsk-vocab-breakdown">
+      <div class="hvb-title">Rincian per sub-level:</div>
+      ${d.vocabBreakdown.map(b => `
+        <div class="hvb-row">
+          <span class="hvb-sub">${b.sub}</span>
+          <span class="hvb-count">${b.count} kata</span>
+          ${b.note ? `<span class="hvb-note">${b.note}</span>` : ''}
+        </div>`).join('')}
+    </div>`;
+  } else {
+    brkEl.innerHTML = '';
+  }
 
   // Test structure
   const sg = document.getElementById('hsk-struct-grid');
