@@ -78,22 +78,26 @@
     }
     /* No notch needed for this style */
     .seal-jun .jun-notch { display: none !important; }
-    /* 俊 calligraphy character */
+    /* JUN — stacked vertically like seal script */
     .jun-text {
-      font-family: 'Noto Serif SC', serif !important;
-      font-size: 25px !important;
+      font-family: 'Source Serif 4', serif !important;
+      font-size: 11px !important;
       font-weight: 700 !important;
-      letter-spacing: -0.02em !important;
+      letter-spacing: 0.18em !important;
       color: #f5d060 !important;
       text-shadow:
-        0 1px 2px rgba(80,10,8,.55),
-        0 0 10px rgba(245,208,96,.35),
-        0 0 26px rgba(212,175,55,.18);
+        0 1px 1px rgba(80,10,8,.6),
+        0 0 8px rgba(245,208,96,.45),
+        0 0 20px rgba(212,175,55,.2);
       position: relative;
       z-index: 2;
       line-height: 1 !important;
       padding: 0 !important;
-      display: block !important;
+      /* vertical stack */
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 2px !important;
     }
     /* @ prefix styling in brand name */
     .brand-at {
@@ -242,7 +246,7 @@
     <div class="header-inner">
       <!-- Logo -->
       <a class="brand" href="#" aria-label="@JMandarinStudio — Beranda">
-        <div class="seal seal-jun"><span class="jun-text">俊</span></div>
+        <div class="seal seal-jun"><span class="jun-text"><span>J</span><span>U</span><span>N</span></span></div>
         <div class="brand-name">
           <b><span class="brand-at">@</span>JMandarinStudio</b>
         </div>
@@ -1131,7 +1135,7 @@
       <!-- Brand -->
       <div>
         <div class="brand" style="cursor:default">
-          <div class="seal seal-jun" style="width:38px;height:38px"><span class="jun-text" style="font-size:20px">俊</span></div>
+          <div class="seal seal-jun" style="width:38px;height:38px"><span class="jun-text" style="font-size:9px;gap:1px"><span>J</span><span>U</span><span>N</span></span></div>
           <div class="brand-name">
             <b><span class="brand-at">@</span>JMandarinStudio</b>
           </div>
