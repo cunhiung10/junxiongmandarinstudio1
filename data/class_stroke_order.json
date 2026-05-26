@@ -1,0 +1,309 @@
+{
+  "id": "stroke_order",
+  "title": "Urutan Goresan 笔划",
+  "subtitle": "Cara Menulis Karakter Han dengan Benar",
+  "han": "笔划",
+  "level": "Pemula · Fondasi",
+  "cefr": "Pre-A1",
+  "duration_hours": 6,
+  "lesson_count": 20,
+  "price": "Rp 129.000",
+  "tag": "Pro",
+  "category": ["dasar", "mandarin"],
+  "thumb_char": "笔",
+  "description": "Pelajari 8 goresan dasar Han dan aturan urutan penulisan karakter Mandarin. Dari goresan tunggal hingga karakter kompleks, fondasi menulis yang benar.",
+  "objectives": [
+    "Menguasai 8 goresan dasar (横竖撇捺折钩点提)",
+    "Memahami 7 aturan urutan goresan universal",
+    "Menulis 100 karakter umum dengan urutan goresan benar",
+    "Mengenali komponen radikal dan cara penulisannya",
+    "Membedakan karakter yang mirip melalui struktur goresan"
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "title": "8 Goresan Dasar",
+      "lessons": [
+        {"id": "L1.1", "title": "Pengenalan sistem goresan Han", "duration_min": 15, "type": "teori"},
+        {"id": "L1.2", "title": "横 héng (goresan horizontal)", "duration_min": 20, "type": "latihan"},
+        {"id": "L1.3", "title": "竖 shù (goresan vertikal)", "duration_min": 20, "type": "latihan"},
+        {"id": "L1.4", "title": "撇 piě (goresan miring kiri) & 捺 nà (miring kanan)", "duration_min": 25, "type": "latihan"},
+        {"id": "L1.5", "title": "折 zhé (goresan tekuk) & 钩 gōu (kait)", "duration_min": 25, "type": "latihan"},
+        {"id": "L1.6", "title": "点 diǎn (titik) & 提 tí (angkat)", "duration_min": 20, "type": "latihan"}
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "7 Aturan Urutan Goresan",
+      "lessons": [
+        {"id": "L2.1", "title": "Aturan 1: Atas ke bawah (上到下)", "duration_min": 20, "type": "teori"},
+        {"id": "L2.2", "title": "Aturan 2: Kiri ke kanan (左到右)", "duration_min": 20, "type": "teori"},
+        {"id": "L2.3", "title": "Aturan 3: Horizontal sebelum vertikal", "duration_min": 15, "type": "teori"},
+        {"id": "L2.4", "title": "Aturan 4–7: Bingkai, tengah, simetri, penutup", "duration_min": 25, "type": "teori"},
+        {"id": "L2.5", "title": "Kuis Aturan Urutan", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Radikal Umum & Penulisannya",
+      "lessons": [
+        {"id": "L3.1", "title": "Radikal orang: 人 亻 儿", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.2", "title": "Radikal air & api: 氵 灬", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.3", "title": "Radikal tangan & mulut: 扌 口", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.4", "title": "Radikal hati & kayu: 忄 木 木", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.5", "title": "Kuis Radikal", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "100 Karakter Umum",
+      "lessons": [
+        {"id": "L4.1", "title": "Karakter 1–25: angka, hari, dasar", "duration_min": 30, "type": "latihan"},
+        {"id": "L4.2", "title": "Karakter 26–50: orang, benda, tempat", "duration_min": 30, "type": "latihan"},
+        {"id": "L4.3", "title": "Karakter 51–75: kata kerja umum", "duration_min": 30, "type": "latihan"},
+        {"id": "L4.4", "title": "Karakter 76–100: kata sifat & ekspresi", "duration_min": 30, "type": "latihan"}
+      ]
+    }
+  ],
+  "basic_strokes": [
+    {
+      "id": 1,
+      "name_zh": "横",
+      "name_pinyin": "héng",
+      "name_id": "Goresan horizontal",
+      "direction": "kiri → kanan",
+      "example_chars": ["一", "王", "土", "三"],
+      "tip": "Tulis dari kiri ke kanan dengan tekanan merata; sedikit naik di ujung."
+    },
+    {
+      "id": 2,
+      "name_zh": "竖",
+      "name_pinyin": "shù",
+      "name_id": "Goresan vertikal",
+      "direction": "atas → bawah",
+      "example_chars": ["十", "中", "木", "目"],
+      "tip": "Tulis tegak lurus dari atas ke bawah; ujung bisa tumpul atau tajam."
+    },
+    {
+      "id": 3,
+      "name_zh": "撇",
+      "name_pinyin": "piě",
+      "name_id": "Goresan miring kiri",
+      "direction": "kanan atas → kiri bawah",
+      "example_chars": ["人", "大", "月", "手"],
+      "tip": "Mulai dari kanan atas, turun ke kiri bawah; ujung meruncing dan terangkat."
+    },
+    {
+      "id": 4,
+      "name_zh": "捺",
+      "name_pinyin": "nà",
+      "name_id": "Goresan miring kanan",
+      "direction": "kiri atas → kanan bawah",
+      "example_chars": ["人", "大", "文", "木"],
+      "tip": "Mulai tipis dari kiri atas, melebar ke kanan bawah, lalu angkat pena."
+    },
+    {
+      "id": 5,
+      "name_zh": "折",
+      "name_pinyin": "zhé",
+      "name_id": "Goresan tekuk",
+      "direction": "berubah arah",
+      "example_chars": ["口", "山", "女", "马"],
+      "tip": "Goresan yang berbelok arah; paling umum adalah héng-zhé (horizontal + belok bawah)."
+    },
+    {
+      "id": 6,
+      "name_zh": "钩",
+      "name_pinyin": "gōu",
+      "name_id": "Goresan kait",
+      "direction": "berakhir dengan kait kecil",
+      "example_chars": ["子", "小", "水", "心"],
+      "tip": "Goresan yang diakhiri kait kecil; arah kait bervariasi sesuai konteks."
+    },
+    {
+      "id": 7,
+      "name_zh": "点",
+      "name_pinyin": "diǎn",
+      "name_id": "Titik",
+      "direction": "kanan atas → kiri bawah (singkat)",
+      "example_chars": ["心", "六", "冰", "字"],
+      "tip": "Goresan pendek menyerupai titik; ditulis dengan cepat dan penuh tekanan."
+    },
+    {
+      "id": 8,
+      "name_zh": "提",
+      "name_pinyin": "tí",
+      "name_id": "Goresan angkat",
+      "direction": "kiri bawah → kanan atas",
+      "example_chars": ["打", "地", "冰", "习"],
+      "tip": "Goresan pendek naik dari kiri bawah ke kanan atas; sering muncul di sisi kiri karakter."
+    }
+  ],
+  "stroke_rules": [
+    {
+      "id": 1,
+      "rule_zh": "从上到下",
+      "rule_id": "Dari atas ke bawah",
+      "description": "Tulis bagian atas karakter sebelum bagian bawah.",
+      "example_chars": ["三", "言", "字"]
+    },
+    {
+      "id": 2,
+      "rule_zh": "从左到右",
+      "rule_id": "Dari kiri ke kanan",
+      "description": "Tulis bagian kiri karakter sebelum bagian kanan.",
+      "example_chars": ["川", "林", "明"]
+    },
+    {
+      "id": 3,
+      "rule_zh": "先横后竖",
+      "rule_id": "Horizontal sebelum vertikal",
+      "description": "Jika goresan horizontal dan vertikal bersilangan, tulis horizontal dulu.",
+      "example_chars": ["十", "王", "丰"]
+    },
+    {
+      "id": 4,
+      "rule_zh": "先撇后捺",
+      "rule_id": "Miring kiri sebelum miring kanan",
+      "description": "Tulis goresan piě (miring kiri) sebelum nà (miring kanan).",
+      "example_chars": ["人", "大", "父"]
+    },
+    {
+      "id": 5,
+      "rule_zh": "先外后内",
+      "rule_id": "Luar sebelum dalam",
+      "description": "Tulis bingkai/kontur luar sebelum isi dalam.",
+      "example_chars": ["日", "月", "回"]
+    },
+    {
+      "id": 6,
+      "rule_zh": "先中间后两边",
+      "rule_id": "Tengah sebelum samping",
+      "description": "Untuk karakter simetris, tulis bagian tengah dahulu, lalu kiri dan kanan.",
+      "example_chars": ["小", "水", "山"]
+    },
+    {
+      "id": 7,
+      "rule_zh": "先进门再关门",
+      "rule_id": "Masuk dulu baru tutup",
+      "description": "Tulis isi kotak/bingkai terlebih dahulu, baru goresan penutup bawah.",
+      "example_chars": ["国", "回", "因"]
+    }
+  ],
+  "top_100_chars": [
+    {"rank": 1,  "char": "一", "pinyin": "yī",    "strokes": 1, "meaning_id": "satu",           "radical": "一"},
+    {"rank": 2,  "char": "人", "pinyin": "rén",   "strokes": 2, "meaning_id": "orang",          "radical": "人"},
+    {"rank": 3,  "char": "大", "pinyin": "dà",    "strokes": 3, "meaning_id": "besar",          "radical": "大"},
+    {"rank": 4,  "char": "三", "pinyin": "sān",   "strokes": 3, "meaning_id": "tiga",           "radical": "一"},
+    {"rank": 5,  "char": "上", "pinyin": "shàng", "strokes": 3, "meaning_id": "atas",           "radical": "一"},
+    {"rank": 6,  "char": "下", "pinyin": "xià",   "strokes": 3, "meaning_id": "bawah",          "radical": "一"},
+    {"rank": 7,  "char": "中", "pinyin": "zhōng", "strokes": 4, "meaning_id": "tengah",         "radical": "丨"},
+    {"rank": 8,  "char": "不", "pinyin": "bù",    "strokes": 4, "meaning_id": "tidak",          "radical": "一"},
+    {"rank": 9,  "char": "日", "pinyin": "rì",    "strokes": 4, "meaning_id": "matahari / hari","radical": "日"},
+    {"rank": 10, "char": "月", "pinyin": "yuè",   "strokes": 4, "meaning_id": "bulan",          "radical": "月"},
+    {"rank": 11, "char": "木", "pinyin": "mù",    "strokes": 4, "meaning_id": "kayu",           "radical": "木"},
+    {"rank": 12, "char": "水", "pinyin": "shuǐ",  "strokes": 4, "meaning_id": "air",            "radical": "水"},
+    {"rank": 13, "char": "火", "pinyin": "huǒ",   "strokes": 4, "meaning_id": "api",            "radical": "火"},
+    {"rank": 14, "char": "山", "pinyin": "shān",  "strokes": 3, "meaning_id": "gunung",         "radical": "山"},
+    {"rank": 15, "char": "土", "pinyin": "tǔ",    "strokes": 3, "meaning_id": "tanah",          "radical": "土"},
+    {"rank": 16, "char": "口", "pinyin": "kǒu",   "strokes": 3, "meaning_id": "mulut",          "radical": "口"},
+    {"rank": 17, "char": "手", "pinyin": "shǒu",  "strokes": 4, "meaning_id": "tangan",         "radical": "手"},
+    {"rank": 18, "char": "心", "pinyin": "xīn",   "strokes": 4, "meaning_id": "hati",           "radical": "心"},
+    {"rank": 19, "char": "目", "pinyin": "mù",    "strokes": 5, "meaning_id": "mata",           "radical": "目"},
+    {"rank": 20, "char": "耳", "pinyin": "ěr",    "strokes": 6, "meaning_id": "telinga",        "radical": "耳"},
+    {"rank": 21, "char": "门", "pinyin": "mén",   "strokes": 3, "meaning_id": "pintu",          "radical": "门"},
+    {"rank": 22, "char": "女", "pinyin": "nǚ",    "strokes": 3, "meaning_id": "perempuan",      "radical": "女"},
+    {"rank": 23, "char": "子", "pinyin": "zǐ",    "strokes": 3, "meaning_id": "anak",           "radical": "子"},
+    {"rank": 24, "char": "小", "pinyin": "xiǎo",  "strokes": 3, "meaning_id": "kecil",          "radical": "小"},
+    {"rank": 25, "char": "王", "pinyin": "wáng",  "strokes": 4, "meaning_id": "raja",           "radical": "王"},
+    {"rank": 26, "char": "天", "pinyin": "tiān",  "strokes": 4, "meaning_id": "langit",         "radical": "大"},
+    {"rank": 27, "char": "地", "pinyin": "dì",    "strokes": 6, "meaning_id": "bumi",           "radical": "土"},
+    {"rank": 28, "char": "年", "pinyin": "nián",  "strokes": 6, "meaning_id": "tahun",          "radical": "干"},
+    {"rank": 29, "char": "国", "pinyin": "guó",   "strokes": 8, "meaning_id": "negara",         "radical": "囗"},
+    {"rank": 30, "char": "我", "pinyin": "wǒ",    "strokes": 7, "meaning_id": "saya",           "radical": "戈"},
+    {"rank": 31, "char": "你", "pinyin": "nǐ",    "strokes": 7, "meaning_id": "kamu",           "radical": "亻"},
+    {"rank": 32, "char": "他", "pinyin": "tā",    "strokes": 5, "meaning_id": "dia (laki-laki)","radical": "亻"},
+    {"rank": 33, "char": "她", "pinyin": "tā",    "strokes": 6, "meaning_id": "dia (perempuan)","radical": "女"},
+    {"rank": 34, "char": "们", "pinyin": "men",   "strokes": 5, "meaning_id": "jamak (sufiks)", "radical": "亻"},
+    {"rank": 35, "char": "是", "pinyin": "shì",   "strokes": 9, "meaning_id": "adalah",         "radical": "日"},
+    {"rank": 36, "char": "有", "pinyin": "yǒu",   "strokes": 6, "meaning_id": "ada / memiliki", "radical": "月"},
+    {"rank": 37, "char": "没", "pinyin": "méi",   "strokes": 7, "meaning_id": "tidak ada",      "radical": "氵"},
+    {"rank": 38, "char": "在", "pinyin": "zài",   "strokes": 6, "meaning_id": "di / berada di", "radical": "土"},
+    {"rank": 39, "char": "来", "pinyin": "lái",   "strokes": 7, "meaning_id": "datang",         "radical": "木"},
+    {"rank": 40, "char": "去", "pinyin": "qù",    "strokes": 5, "meaning_id": "pergi",          "radical": "厶"},
+    {"rank": 41, "char": "说", "pinyin": "shuō",  "strokes": 9, "meaning_id": "berkata",        "radical": "讠"},
+    {"rank": 42, "char": "看", "pinyin": "kàn",   "strokes": 9, "meaning_id": "melihat",        "radical": "目"},
+    {"rank": 43, "char": "听", "pinyin": "tīng",  "strokes": 7, "meaning_id": "mendengar",      "radical": "口"},
+    {"rank": 44, "char": "写", "pinyin": "xiě",   "strokes": 5, "meaning_id": "menulis",        "radical": "冖"},
+    {"rank": 45, "char": "读", "pinyin": "dú",    "strokes": 10,"meaning_id": "membaca",        "radical": "讠"},
+    {"rank": 46, "char": "学", "pinyin": "xué",   "strokes": 8, "meaning_id": "belajar",        "radical": "子"},
+    {"rank": 47, "char": "吃", "pinyin": "chī",   "strokes": 6, "meaning_id": "makan",          "radical": "口"},
+    {"rank": 48, "char": "喝", "pinyin": "hē",    "strokes": 12,"meaning_id": "minum",          "radical": "口"},
+    {"rank": 49, "char": "买", "pinyin": "mǎi",   "strokes": 6, "meaning_id": "membeli",        "radical": "乙"},
+    {"rank": 50, "char": "卖", "pinyin": "mài",   "strokes": 8, "meaning_id": "menjual",        "radical": "十"},
+    {"rank": 51, "char": "好", "pinyin": "hǎo",   "strokes": 6, "meaning_id": "baik",           "radical": "女"},
+    {"rank": 52, "char": "多", "pinyin": "duō",   "strokes": 6, "meaning_id": "banyak",         "radical": "夕"},
+    {"rank": 53, "char": "少", "pinyin": "shǎo",  "strokes": 4, "meaning_id": "sedikit",        "radical": "小"},
+    {"rank": 54, "char": "高", "pinyin": "gāo",   "strokes": 10,"meaning_id": "tinggi",         "radical": "高"},
+    {"rank": 55, "char": "低", "pinyin": "dī",    "strokes": 7, "meaning_id": "rendah",         "radical": "亻"},
+    {"rank": 56, "char": "长", "pinyin": "cháng", "strokes": 4, "meaning_id": "panjang",        "radical": "长"},
+    {"rank": 57, "char": "短", "pinyin": "duǎn",  "strokes": 12,"meaning_id": "pendek",         "radical": "矢"},
+    {"rank": 58, "char": "新", "pinyin": "xīn",   "strokes": 13,"meaning_id": "baru",           "radical": "斤"},
+    {"rank": 59, "char": "老", "pinyin": "lǎo",   "strokes": 6, "meaning_id": "tua",            "radical": "耂"},
+    {"rank": 60, "char": "热", "pinyin": "rè",    "strokes": 10,"meaning_id": "panas",          "radical": "灬"},
+    {"rank": 61, "char": "冷", "pinyin": "lěng",  "strokes": 7, "meaning_id": "dingin",         "radical": "冫"},
+    {"rank": 62, "char": "今", "pinyin": "jīn",   "strokes": 4, "meaning_id": "sekarang / hari ini","radical": "人"},
+    {"rank": 63, "char": "明", "pinyin": "míng",  "strokes": 8, "meaning_id": "terang / besok", "radical": "日"},
+    {"rank": 64, "char": "时", "pinyin": "shí",   "strokes": 7, "meaning_id": "waktu",          "radical": "日"},
+    {"rank": 65, "char": "间", "pinyin": "jiān",  "strokes": 7, "meaning_id": "antara / ruang", "radical": "门"},
+    {"rank": 66, "char": "家", "pinyin": "jiā",   "strokes": 10,"meaning_id": "rumah / keluarga","radical": "宀"},
+    {"rank": 67, "char": "学校","pinyin":"xuéxiào","strokes":null,"meaning_id": "sekolah",       "radical": "子"},
+    {"rank": 68, "char": "老师","pinyin":"lǎoshī", "strokes":null,"meaning_id": "guru",          "radical": "耂"},
+    {"rank": 69, "char": "朋友","pinyin":"péngyou","strokes":null,"meaning_id": "teman",         "radical": "月"},
+    {"rank": 70, "char": "中国","pinyin":"Zhōngguó","strokes":null,"meaning_id": "Tiongkok",    "radical": "丨"},
+    {"rank": 71, "char": "北", "pinyin": "běi",   "strokes": 5, "meaning_id": "utara",          "radical": "匕"},
+    {"rank": 72, "char": "南", "pinyin": "nán",   "strokes": 9, "meaning_id": "selatan",        "radical": "十"},
+    {"rank": 73, "char": "东", "pinyin": "dōng",  "strokes": 5, "meaning_id": "timur",          "radical": "木"},
+    {"rank": 74, "char": "西", "pinyin": "xī",    "strokes": 6, "meaning_id": "barat",          "radical": "覀"},
+    {"rank": 75, "char": "前", "pinyin": "qián",  "strokes": 9, "meaning_id": "depan",          "radical": "刀"},
+    {"rank": 76, "char": "后", "pinyin": "hòu",   "strokes": 6, "meaning_id": "belakang",       "radical": "口"},
+    {"rank": 77, "char": "左", "pinyin": "zuǒ",   "strokes": 5, "meaning_id": "kiri",           "radical": "工"},
+    {"rank": 78, "char": "右", "pinyin": "yòu",   "strokes": 5, "meaning_id": "kanan",          "radical": "口"},
+    {"rank": 79, "char": "里", "pinyin": "lǐ",    "strokes": 7, "meaning_id": "dalam / di dalam","radical": "土"},
+    {"rank": 80, "char": "外", "pinyin": "wài",   "strokes": 5, "meaning_id": "luar",           "radical": "夕"},
+    {"rank": 81, "char": "钱", "pinyin": "qián",  "strokes": 10,"meaning_id": "uang",           "radical": "钅"},
+    {"rank": 82, "char": "书", "pinyin": "shū",   "strokes": 4, "meaning_id": "buku",           "radical": "乙"},
+    {"rank": 83, "char": "车", "pinyin": "chē",   "strokes": 4, "meaning_id": "kendaraan",      "radical": "车"},
+    {"rank": 84, "char": "路", "pinyin": "lù",    "strokes": 13,"meaning_id": "jalan",          "radical": "足"},
+    {"rank": 85, "char": "饭", "pinyin": "fàn",   "strokes": 7, "meaning_id": "nasi / makanan", "radical": "饣"},
+    {"rank": 86, "char": "水果","pinyin":"shuǐguǒ","strokes":null,"meaning_id": "buah-buahan",   "radical": "水"},
+    {"rank": 87, "char": "苹果","pinyin":"píngguǒ","strokes":null,"meaning_id": "apel",          "radical": "艹"},
+    {"rank": 88, "char": "茶", "pinyin": "chá",   "strokes": 9, "meaning_id": "teh",            "radical": "艹"},
+    {"rank": 89, "char": "咖啡","pinyin":"kāfēi",  "strokes":null,"meaning_id": "kopi",          "radical": "口"},
+    {"rank": 90, "char": "医生","pinyin":"yīshēng","strokes":null,"meaning_id": "dokter",        "radical": "匚"},
+    {"rank": 91, "char": "电", "pinyin": "diàn",  "strokes": 5, "meaning_id": "listrik",        "radical": "电"},
+    {"rank": 92, "char": "话", "pinyin": "huà",   "strokes": 8, "meaning_id": "kata / pembicaraan","radical": "讠"},
+    {"rank": 93, "char": "语", "pinyin": "yǔ",    "strokes": 9, "meaning_id": "bahasa",         "radical": "讠"},
+    {"rank": 94, "char": "文", "pinyin": "wén",   "strokes": 4, "meaning_id": "teks / budaya",  "radical": "文"},
+    {"rank": 95, "char": "字", "pinyin": "zì",    "strokes": 6, "meaning_id": "karakter / huruf","radical": "宀"},
+    {"rank": 96, "char": "名", "pinyin": "míng",  "strokes": 6, "meaning_id": "nama",           "radical": "夕"},
+    {"rank": 97, "char": "爱", "pinyin": "ài",    "strokes": 10,"meaning_id": "cinta",          "radical": "爪"},
+    {"rank": 98, "char": "快", "pinyin": "kuài",  "strokes": 7, "meaning_id": "cepat / menyenangkan","radical": "忄"},
+    {"rank": 99, "char": "慢", "pinyin": "màn",   "strokes": 14,"meaning_id": "lambat",         "radical": "忄"},
+    {"rank": 100,"char": "对", "pinyin": "duì",   "strokes": 5, "meaning_id": "benar / tepat",  "radical": "又"}
+  ],
+  "key_radicals": [
+    {"radical": "亻", "meaning_id": "orang (kiri)", "example_chars": ["你", "他", "们", "做"]},
+    {"radical": "氵", "meaning_id": "air (kiri)",   "example_chars": ["海", "河", "洗", "没"]},
+    {"radical": "火/灬", "meaning_id": "api",        "example_chars": ["热", "煮", "然", "点"]},
+    {"radical": "扌", "meaning_id": "tangan (kiri)","example_chars": ["打", "找", "把", "拿"]},
+    {"radical": "口", "meaning_id": "mulut",         "example_chars": ["吃", "喝", "叫", "问"]},
+    {"radical": "忄", "meaning_id": "hati (kiri)",  "example_chars": ["快", "慢", "忘", "情"]},
+    {"radical": "讠", "meaning_id": "kata / bicara", "example_chars": ["说", "话", "读", "语"]},
+    {"radical": "木", "meaning_id": "kayu",          "example_chars": ["树", "桌", "椅", "校"]},
+    {"radical": "艹", "meaning_id": "rumput / tanaman","example_chars": ["花", "草", "茶", "苹"]},
+    {"radical": "女", "meaning_id": "perempuan",     "example_chars": ["她", "姐", "妈", "妹"]},
+    {"radical": "宀", "meaning_id": "atap / rumah",  "example_chars": ["家", "字", "学", "宝"]},
+    {"radical": "日", "meaning_id": "matahari / hari","example_chars": ["明", "时", "是", "晚"]}
+  ]
+}

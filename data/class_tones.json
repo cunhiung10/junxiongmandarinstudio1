@@ -1,0 +1,273 @@
+{
+  "id": "tones",
+  "title": "Tones 声调",
+  "subtitle": "Penguasaan 4 Nada Bahasa Mandarin",
+  "han": "声调",
+  "level": "Pemula · Fondasi",
+  "cefr": "Pre-A1 – A1",
+  "duration_hours": 6,
+  "lesson_count": 18,
+  "price": "Gratis",
+  "tag": "Gratis",
+  "category": ["dasar", "mandarin", "free"],
+  "thumb_char": "声",
+  "description": "Kuasai 4 nada + nada netral Mandarin melalui latihan pendengaran, minimal pairs, dan drill intensif. Nada yang benar = komunikasi yang tepat.",
+  "objectives": [
+    "Membedakan 4 nada dan nada netral secara auditif",
+    "Melafalkan setiap nada dengan intonasi yang benar",
+    "Memahami aturan sandhi nada (perubahan nada kontekstual)",
+    "Mengidentifikasi nada dari karakter yang tidak dikenal",
+    "Menghindari kesalahan nada umum yang dihadapi penutur Indonesia"
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "title": "Mengapa Nada Penting?",
+      "lessons": [
+        {"id": "L1.1", "title": "Mandarin adalah bahasa tonal — contoh nyata", "duration_min": 15, "type": "teori"},
+        {"id": "L1.2", "title": "Empat nada + nada netral: gambaran umum", "duration_min": 20, "type": "teori"},
+        {"id": "L1.3", "title": "Kontur nada — diagram pitch", "duration_min": 15, "type": "teori"}
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Nada Pertama — 第一声 (ā)",
+      "lessons": [
+        {"id": "L2.1", "title": "Cara melafalkan nada 1 — tinggi datar", "duration_min": 20, "type": "latihan"},
+        {"id": "L2.2", "title": "Kata-kata nada 1 yang umum", "duration_min": 15, "type": "latihan"},
+        {"id": "L2.3", "title": "Drill pendengaran nada 1", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Nada Kedua — 第二声 (á)",
+      "lessons": [
+        {"id": "L3.1", "title": "Cara melafalkan nada 2 — naik", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.2", "title": "Kata-kata nada 2 yang umum", "duration_min": 15, "type": "latihan"},
+        {"id": "L3.3", "title": "Drill pendengaran nada 2", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "Nada Ketiga — 第三声 (ǎ)",
+      "lessons": [
+        {"id": "L4.1", "title": "Cara melafalkan nada 3 — turun-naik", "duration_min": 20, "type": "latihan"},
+        {"id": "L4.2", "title": "Nada 3 pendek dalam percakapan cepat", "duration_min": 15, "type": "teori"},
+        {"id": "L4.3", "title": "Drill pendengaran nada 3", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "Nada Keempat — 第四声 (à)",
+      "lessons": [
+        {"id": "L5.1", "title": "Cara melafalkan nada 4 — turun tajam", "duration_min": 20, "type": "latihan"},
+        {"id": "L5.2", "title": "Kata-kata nada 4 yang umum", "duration_min": 15, "type": "latihan"},
+        {"id": "L5.3", "title": "Drill pendengaran nada 4", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M6",
+      "title": "Nada Netral & Sandhi",
+      "lessons": [
+        {"id": "L6.1", "title": "Nada netral (轻声) — kapan dan bagaimana", "duration_min": 15, "type": "teori"},
+        {"id": "L6.2", "title": "Sandhi nada: 不, 一, dan nada 3+3", "duration_min": 25, "type": "teori"},
+        {"id": "L6.3", "title": "Ujian akhir — Identifikasi 60 nada", "duration_min": 30, "type": "ujian"}
+      ]
+    }
+  ],
+  "tones": [
+    {
+      "number": 1,
+      "name_id": "Nada Pertama",
+      "name_zh": "第一声",
+      "mark": "ā",
+      "zhuyin_mark": "(tanpa tanda)",
+      "pitch_level": "55",
+      "description_id": "Tinggi dan datar. Mulai tinggi, pertahankan tanpa naik atau turun. Seperti bernyanyi nada tinggi stabil.",
+      "common_words": [
+        {"char":"妈","pinyin":"mā","zhuyin":"ㄇㄚ","meaning_id":"ibu"},
+        {"char":"书","pinyin":"shū","zhuyin":"ㄕㄨ","meaning_id":"buku"},
+        {"char":"天","pinyin":"tiān","zhuyin":"ㄊㄧㄢ","meaning_id":"langit"},
+        {"char":"吃","pinyin":"chī","zhuyin":"ㄔ","meaning_id":"makan"},
+        {"char":"花","pinyin":"huā","zhuyin":"ㄏㄨㄚ","meaning_id":"bunga"},
+        {"char":"多","pinyin":"duō","zhuyin":"ㄉㄨㄛ","meaning_id":"banyak"},
+        {"char":"飞","pinyin":"fēi","zhuyin":"ㄈㄟ","meaning_id":"terbang"},
+        {"char":"工","pinyin":"gōng","zhuyin":"ㄍㄨㄥ","meaning_id":"kerja"}
+      ]
+    },
+    {
+      "number": 2,
+      "name_id": "Nada Kedua",
+      "name_zh": "第二声",
+      "mark": "á",
+      "zhuyin_mark": "ˊ",
+      "pitch_level": "35",
+      "description_id": "Naik dari tengah ke atas. Seperti bertanya 'Ha?' dengan nada heran atau kebingungan.",
+      "common_words": [
+        {"char":"麻","pinyin":"má","zhuyin":"ㄇㄚˊ","meaning_id":"rami / baal"},
+        {"char":"来","pinyin":"lái","zhuyin":"ㄌㄞˊ","meaning_id":"datang"},
+        {"char":"年","pinyin":"nián","zhuyin":"ㄋㄧㄢˊ","meaning_id":"tahun"},
+        {"char":"人","pinyin":"rén","zhuyin":"ㄖㄣˊ","meaning_id":"orang"},
+        {"char":"学","pinyin":"xué","zhuyin":"ㄒㄩㄝˊ","meaning_id":"belajar"},
+        {"char":"白","pinyin":"bái","zhuyin":"ㄅㄞˊ","meaning_id":"putih"},
+        {"char":"长","pinyin":"cháng","zhuyin":"ㄔㄤˊ","meaning_id":"panjang"},
+        {"char":"行","pinyin":"xíng","zhuyin":"ㄒㄧㄥˊ","meaning_id":"boleh / berjalan"}
+      ]
+    },
+    {
+      "number": 3,
+      "name_id": "Nada Ketiga",
+      "name_zh": "第三声",
+      "mark": "ǎ",
+      "zhuyin_mark": "ˇ",
+      "pitch_level": "214",
+      "description_id": "Turun ke rendah lalu naik. Dalam percakapan cepat sering hanya turun (half-tone 3). Seperti berkata 'Hmm...' ragu-ragu.",
+      "common_words": [
+        {"char":"马","pinyin":"mǎ","zhuyin":"ㄇㄚˇ","meaning_id":"kuda"},
+        {"char":"你","pinyin":"nǐ","zhuyin":"ㄋㄧˇ","meaning_id":"kamu"},
+        {"char":"好","pinyin":"hǎo","zhuyin":"ㄏㄠˇ","meaning_id":"baik"},
+        {"char":"我","pinyin":"wǒ","zhuyin":"ㄨㄛˇ","meaning_id":"saya"},
+        {"char":"买","pinyin":"mǎi","zhuyin":"ㄇㄞˇ","meaning_id":"membeli"},
+        {"char":"小","pinyin":"xiǎo","zhuyin":"ㄒㄧㄠˇ","meaning_id":"kecil"},
+        {"char":"请","pinyin":"qǐng","zhuyin":"ㄑㄧㄥˇ","meaning_id":"silakan"},
+        {"char":"水","pinyin":"shuǐ","zhuyin":"ㄕㄨㄟˇ","meaning_id":"air"}
+      ]
+    },
+    {
+      "number": 4,
+      "name_id": "Nada Keempat",
+      "name_zh": "第四声",
+      "mark": "à",
+      "zhuyin_mark": "ˋ",
+      "pitch_level": "51",
+      "description_id": "Turun tajam dari tinggi ke rendah. Tegas dan singkat. Seperti memberi perintah atau mengucapkan 'Tidak!'",
+      "common_words": [
+        {"char":"骂","pinyin":"mà","zhuyin":"ㄇㄚˋ","meaning_id":"memaki"},
+        {"char":"大","pinyin":"dà","zhuyin":"ㄉㄚˋ","meaning_id":"besar"},
+        {"char":"是","pinyin":"shì","zhuyin":"ㄕˋ","meaning_id":"adalah"},
+        {"char":"再","pinyin":"zài","zhuyin":"ㄗㄞˋ","meaning_id":"lagi"},
+        {"char":"去","pinyin":"qù","zhuyin":"ㄑㄩˋ","meaning_id":"pergi"},
+        {"char":"看","pinyin":"kàn","zhuyin":"ㄎㄢˋ","meaning_id":"melihat"},
+        {"char":"爱","pinyin":"ài","zhuyin":"ㄞˋ","meaning_id":"cinta"},
+        {"char":"对","pinyin":"duì","zhuyin":"ㄉㄨㄟˋ","meaning_id":"benar"}
+      ]
+    },
+    {
+      "number": 0,
+      "name_id": "Nada Netral",
+      "name_zh": "轻声",
+      "mark": "(tanpa tanda)",
+      "zhuyin_mark": "˙",
+      "pitch_level": "2",
+      "description_id": "Pendek, ringan, dan tidak ditekankan. Tergantung nada sebelumnya. Biasanya terjadi pada partikel dan akhiran.",
+      "common_words": [
+        {"char":"吗","pinyin":"ma","zhuyin":"˙ㄇㄚ","meaning_id":"partikel tanya"},
+        {"char":"呢","pinyin":"ne","zhuyin":"˙ㄋㄜ","meaning_id":"partikel lanjutan"},
+        {"char":"了","pinyin":"le","zhuyin":"˙ㄌㄜ","meaning_id":"partikel selesai"},
+        {"char":"的","pinyin":"de","zhuyin":"˙ㄉㄜ","meaning_id":"partikel kepemilikan"},
+        {"char":"吧","pinyin":"ba","zhuyin":"˙ㄅㄚ","meaning_id":"partikel saran"},
+        {"char":"着","pinyin":"zhe","zhuyin":"˙ㄓㄜ","meaning_id":"partikel keberlangsungan"}
+      ]
+    }
+  ],
+  "minimal_pairs": [
+    {
+      "base_vowel": "a",
+      "set": [
+        {"char":"妈","pinyin":"mā","tone":1,"meaning_id":"ibu"},
+        {"char":"麻","pinyin":"má","tone":2,"meaning_id":"rami"},
+        {"char":"马","pinyin":"mǎ","tone":3,"meaning_id":"kuda"},
+        {"char":"骂","pinyin":"mà","tone":4,"meaning_id":"memaki"}
+      ]
+    },
+    {
+      "base_vowel": "ai",
+      "set": [
+        {"char":"猜","pinyin":"cāi","tone":1,"meaning_id":"menebak"},
+        {"char":"才","pinyin":"cái","tone":2,"meaning_id":"baru/bakat"},
+        {"char":"采","pinyin":"cǎi","tone":3,"meaning_id":"memetik"},
+        {"char":"菜","pinyin":"cài","tone":4,"meaning_id":"sayuran"}
+      ]
+    },
+    {
+      "base_vowel": "i",
+      "set": [
+        {"char":"低","pinyin":"dī","tone":1,"meaning_id":"rendah"},
+        {"char":"笛","pinyin":"dí","tone":2,"meaning_id":"seruling"},
+        {"char":"底","pinyin":"dǐ","tone":3,"meaning_id":"dasar"},
+        {"char":"地","pinyin":"dì","tone":4,"meaning_id":"tanah"}
+      ]
+    },
+    {
+      "base_vowel": "u",
+      "set": [
+        {"char":"夫","pinyin":"fū","tone":1,"meaning_id":"suami"},
+        {"char":"服","pinyin":"fú","tone":2,"meaning_id":"pakaian"},
+        {"char":"斧","pinyin":"fǔ","tone":3,"meaning_id":"kapak"},
+        {"char":"父","pinyin":"fù","tone":4,"meaning_id":"ayah"}
+      ]
+    },
+    {
+      "base_vowel": "an",
+      "set": [
+        {"char":"安","pinyin":"ān","tone":1,"meaning_id":"aman"},
+        {"char":"含","pinyin":"hán","tone":2,"meaning_id":"mengandung"},
+        {"char":"汉","pinyin":"hǎn","tone":3,"meaning_id":"memanggil"},
+        {"char":"汉","pinyin":"hàn","tone":4,"meaning_id":"pria/Han"}
+      ]
+    }
+  ],
+  "sandhi_rules": [
+    {
+      "id": "sandhi_t3t3",
+      "name": "Nada 3 + Nada 3",
+      "rule_id": "Dua nada ke-3 berurutan: yang pertama berubah menjadi nada ke-2",
+      "examples": [
+        {"original": "你好 nǐ hǎo", "spoken": "níhǎo", "meaning_id": "halo"},
+        {"original": "可以 kě yǐ", "spoken": "kéyǐ", "meaning_id": "boleh"},
+        {"original": "所以 suǒ yǐ", "spoken": "suóyǐ", "meaning_id": "oleh karena itu"},
+        {"original": "手表 shǒu biǎo", "spoken": "shóubiǎo", "meaning_id": "jam tangan"}
+      ]
+    },
+    {
+      "id": "sandhi_bu",
+      "name": "不 (bù) + Nada 4",
+      "rule_id": "不 berubah dari nada ke-4 menjadi nada ke-2 sebelum kata bernada ke-4",
+      "examples": [
+        {"original": "不是 bù shì", "spoken": "búshì", "meaning_id": "bukan"},
+        {"original": "不对 bù duì", "spoken": "búduì", "meaning_id": "salah"},
+        {"original": "不去 bù qù", "spoken": "búqù", "meaning_id": "tidak pergi"},
+        {"original": "不要 bù yào", "spoken": "búyào", "meaning_id": "tidak mau / jangan"}
+      ]
+    },
+    {
+      "id": "sandhi_yi",
+      "name": "一 (yī) — perubahan nada",
+      "rule_id": "一 berubah nada tergantung nada kata sesudahnya: jadi nada 2 sebelum nada 4; jadi nada 4 sebelum nada 1, 2, 3",
+      "examples": [
+        {"original": "一个 yī gè", "spoken": "yí gè", "meaning_id": "satu (satuan)"},
+        {"original": "一天 yī tiān", "spoken": "yì tiān", "meaning_id": "satu hari"},
+        {"original": "一年 yī nián", "spoken": "yì nián", "meaning_id": "satu tahun"},
+        {"original": "一起 yī qǐ", "spoken": "yìqǐ", "meaning_id": "bersama"}
+      ]
+    }
+  ],
+  "common_mistakes": [
+    {
+      "mistake": "Menyamakan nada 2 dan 3",
+      "tip": "Nada 2 hanya naik (35). Nada 3 turun dulu baru naik (214). Bedanya ada pada bagian bawah."
+    },
+    {
+      "mistake": "Melupakan sandhi nada — mengucapkan 你好 sebagai nǐ hǎo",
+      "tip": "Dalam percakapan nyata, 你好 selalu diucapkan níhǎo. Praktikkan sandhi dari awal."
+    },
+    {
+      "mistake": "Nada 1 terdengar seperti nada 4 saat berbicara cepat",
+      "tip": "Nada 1 tetap tinggi sampai akhir. Jangan biarkan turun di akhir suku kata."
+    },
+    {
+      "mistake": "Mengabaikan nada netral — diucapkan terlalu keras",
+      "tip": "Nada netral harus ringan dan pendek. Jangan diberi tekanan."
+    }
+  ]
+}

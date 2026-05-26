@@ -1,0 +1,218 @@
+{
+  "id": "pinyin",
+  "title": "Pinyin 拼音",
+  "subtitle": "Sistem Romanisasi Bahasa Mandarin",
+  "han": "拼音",
+  "level": "Pemula · Fondasi",
+  "cefr": "Pre-A1",
+  "duration_hours": 10,
+  "lesson_count": 28,
+  "price": "Gratis",
+  "tag": "Gratis",
+  "category": ["dasar", "mandarin", "free"],
+  "thumb_char": "拼",
+  "description": "Kuasai sistem fonetik Pinyin dari nol — inisial, final, nada, dan aturan kombinasi — fondasi wajib sebelum belajar kosakata Mandarin.",
+  "objectives": [
+    "Membaca dan menulis semua 21 inisial (声母) dengan benar",
+    "Melafalkan semua 35 final (韵母) dengan akurasi",
+    "Memahami 4 nada + nada netral dalam Pinyin",
+    "Membaca teks Pinyin berupa kata dan kalimat pendek",
+    "Memahami aturan penulisan Pinyin (kapitalisasi, apostrofe, dll.)"
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "title": "Pengenalan Pinyin",
+      "lessons": [
+        {"id": "L1.1", "title": "Apa itu Pinyin?", "duration_min": 15, "type": "teori"},
+        {"id": "L1.2", "title": "Sejarah dan kegunaan Pinyin", "duration_min": 10, "type": "teori"},
+        {"id": "L1.3", "title": "Struktur suku kata Mandarin", "duration_min": 20, "type": "teori"}
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Inisial (声母) — Konsonan",
+      "lessons": [
+        {"id": "L2.1", "title": "Grup Bibir: b p m f", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.2", "title": "Grup Gigi-Lidah: d t n l", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.3", "title": "Grup Belakang: g k h", "duration_min": 20, "type": "latihan"},
+        {"id": "L2.4", "title": "Grup Palatal: j q x", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.5", "title": "Grup Retrofleks: zh ch sh r", "duration_min": 30, "type": "latihan"},
+        {"id": "L2.6", "title": "Grup Sibildental: z c s", "duration_min": 20, "type": "latihan"},
+        {"id": "L2.7", "title": "Kuis Inisial", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Final (韵母) — Vokal",
+      "lessons": [
+        {"id": "L3.1", "title": "Final sederhana: a o e i u ü", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.2", "title": "Final gabungan: ai ei ui ao ou iu", "duration_min": 25, "type": "latihan"},
+        {"id": "L3.3", "title": "Final dengan n: an en in un ün", "duration_min": 25, "type": "latihan"},
+        {"id": "L3.4", "title": "Final dengan ng: ang eng ing ong", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.5", "title": "Final kompleks: ie üe ie er", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.6", "title": "Kuis Final", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "Nada (声调)",
+      "lessons": [
+        {"id": "L4.1", "title": "4 Nada + Nada Netral", "duration_min": 20, "type": "teori"},
+        {"id": "L4.2", "title": "Latihan nada pada vokal a, e, o", "duration_min": 25, "type": "latihan"},
+        {"id": "L4.3", "title": "Minimal pairs: mā má mǎ mà", "duration_min": 20, "type": "latihan"},
+        {"id": "L4.4", "title": "Tanda nada pada kombinasi vokal", "duration_min": 15, "type": "teori"},
+        {"id": "L4.5", "title": "Kuis Nada", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "Aturan & Kombinasi",
+      "lessons": [
+        {"id": "L5.1", "title": "Aturan penulisan Pinyin", "duration_min": 20, "type": "teori"},
+        {"id": "L5.2", "title": "Kombinasi inisial + final yang valid", "duration_min": 25, "type": "latihan"},
+        {"id": "L5.3", "title": "Apostrofe: xi'an vs. xian", "duration_min": 10, "type": "teori"},
+        {"id": "L5.4", "title": "Membaca kalimat Pinyin", "duration_min": 20, "type": "latihan"},
+        {"id": "L5.5", "title": "Ujian akhir Pinyin", "duration_min": 30, "type": "ujian"}
+      ]
+    }
+  ],
+  "initials": [
+    {"symbol": "b", "ipa": "p", "example_char": "爸", "example_pinyin": "bà", "example_id": "ayah"},
+    {"symbol": "p", "ipa": "pʰ", "example_char": "苹", "example_pinyin": "píng", "example_id": "apel"},
+    {"symbol": "m", "ipa": "m", "example_char": "妈", "example_pinyin": "mā", "example_id": "ibu"},
+    {"symbol": "f", "ipa": "f", "example_char": "饭", "example_pinyin": "fàn", "example_id": "nasi"},
+    {"symbol": "d", "ipa": "t", "example_char": "大", "example_pinyin": "dà", "example_id": "besar"},
+    {"symbol": "t", "ipa": "tʰ", "example_char": "天", "example_pinyin": "tiān", "example_id": "langit"},
+    {"symbol": "n", "ipa": "n", "example_char": "你", "example_pinyin": "nǐ", "example_id": "kamu"},
+    {"symbol": "l", "ipa": "l", "example_char": "来", "example_pinyin": "lái", "example_id": "datang"},
+    {"symbol": "g", "ipa": "k", "example_char": "国", "example_pinyin": "guó", "example_id": "negara"},
+    {"symbol": "k", "ipa": "kʰ", "example_char": "看", "example_pinyin": "kàn", "example_id": "melihat"},
+    {"symbol": "h", "ipa": "x", "example_char": "好", "example_pinyin": "hǎo", "example_id": "baik"},
+    {"symbol": "j", "ipa": "tɕ", "example_char": "家", "example_pinyin": "jiā", "example_id": "rumah"},
+    {"symbol": "q", "ipa": "tɕʰ", "example_char": "请", "example_pinyin": "qǐng", "example_id": "silakan"},
+    {"symbol": "x", "ipa": "ɕ", "example_char": "学", "example_pinyin": "xué", "example_id": "belajar"},
+    {"symbol": "zh", "ipa": "ʈʂ", "example_char": "中", "example_pinyin": "zhōng", "example_id": "tengah"},
+    {"symbol": "ch", "ipa": "ʈʂʰ", "example_char": "吃", "example_pinyin": "chī", "example_id": "makan"},
+    {"symbol": "sh", "ipa": "ʂ", "example_char": "书", "example_pinyin": "shū", "example_id": "buku"},
+    {"symbol": "r",  "ipa": "ɻ", "example_char": "人", "example_pinyin": "rén", "example_id": "orang"},
+    {"symbol": "z",  "ipa": "ts", "example_char": "字", "example_pinyin": "zì", "example_id": "karakter"},
+    {"symbol": "c",  "ipa": "tsʰ", "example_char": "菜", "example_pinyin": "cài", "example_id": "sayur"},
+    {"symbol": "s",  "ipa": "s", "example_char": "三", "example_pinyin": "sān", "example_id": "tiga"}
+  ],
+  "finals": [
+    {"symbol": "a",   "group": "tunggal", "example_char": "啊", "example_pinyin": "a", "example_id": "partikel seru"},
+    {"symbol": "o",   "group": "tunggal", "example_char": "哦", "example_pinyin": "ó", "example_id": "oh"},
+    {"symbol": "e",   "group": "tunggal", "example_char": "饿", "example_pinyin": "è", "example_id": "lapar"},
+    {"symbol": "i",   "group": "tunggal", "example_char": "一", "example_pinyin": "yī", "example_id": "satu"},
+    {"symbol": "u",   "group": "tunggal", "example_char": "五", "example_pinyin": "wǔ", "example_id": "lima"},
+    {"symbol": "ü",   "group": "tunggal", "example_char": "鱼", "example_pinyin": "yú", "example_id": "ikan"},
+    {"symbol": "ai",  "group": "gabungan", "example_char": "爱", "example_pinyin": "ài", "example_id": "cinta"},
+    {"symbol": "ei",  "group": "gabungan", "example_char": "飞", "example_pinyin": "fēi", "example_id": "terbang"},
+    {"symbol": "ui",  "group": "gabungan", "example_char": "水", "example_pinyin": "shuǐ", "example_id": "air"},
+    {"symbol": "ao",  "group": "gabungan", "example_char": "好", "example_pinyin": "hǎo", "example_id": "baik"},
+    {"symbol": "ou",  "group": "gabungan", "example_char": "走", "example_pinyin": "zǒu", "example_id": "berjalan"},
+    {"symbol": "iu",  "group": "gabungan", "example_char": "六", "example_pinyin": "liù", "example_id": "enam"},
+    {"symbol": "ie",  "group": "gabungan", "example_char": "也", "example_pinyin": "yě", "example_id": "juga"},
+    {"symbol": "üe",  "group": "gabungan", "example_char": "月", "example_pinyin": "yuè", "example_id": "bulan"},
+    {"symbol": "er",  "group": "khusus",  "example_char": "二", "example_pinyin": "èr", "example_id": "dua"},
+    {"symbol": "an",  "group": "nasal-n", "example_char": "安", "example_pinyin": "ān", "example_id": "aman"},
+    {"symbol": "en",  "group": "nasal-n", "example_char": "恩", "example_pinyin": "ēn", "example_id": "kebaikan"},
+    {"symbol": "in",  "group": "nasal-n", "example_char": "心", "example_pinyin": "xīn", "example_id": "hati"},
+    {"symbol": "un",  "group": "nasal-n", "example_char": "温", "example_pinyin": "wēn", "example_id": "hangat"},
+    {"symbol": "ün",  "group": "nasal-n", "example_char": "云", "example_pinyin": "yún", "example_id": "awan"},
+    {"symbol": "ang", "group": "nasal-ng","example_char": "忙", "example_pinyin": "máng", "example_id": "sibuk"},
+    {"symbol": "eng", "group": "nasal-ng","example_char": "冷", "example_pinyin": "lěng", "example_id": "dingin"},
+    {"symbol": "ing", "group": "nasal-ng","example_char": "名", "example_pinyin": "míng", "example_id": "nama"},
+    {"symbol": "ong", "group": "nasal-ng","example_char": "红", "example_pinyin": "hóng", "example_id": "merah"},
+    {"symbol": "ian", "group": "gabungan+n","example_char":"年", "example_pinyin":"nián","example_id":"tahun"},
+    {"symbol": "uan", "group": "gabungan+n","example_char":"万", "example_pinyin":"wàn","example_id":"sepuluh ribu"},
+    {"symbol": "iang","group": "gabungan+ng","example_char":"想","example_pinyin":"xiǎng","example_id":"ingin"},
+    {"symbol": "uang","group": "gabungan+ng","example_char":"黄","example_pinyin":"huáng","example_id":"kuning"},
+    {"symbol": "iong","group": "gabungan+ng","example_char":"用","example_pinyin":"yòng","example_id":"pakai"}
+  ],
+  "tone_rules": [
+    {
+      "tone": 1,
+      "name": "Nada Pertama",
+      "name_zh": "第一声",
+      "symbol": "ā",
+      "description": "Tinggi dan datar — seperti bernyanyi nada tinggi yang stabil",
+      "pitch_contour": "55",
+      "examples": [
+        {"char": "妈", "pinyin": "mā", "meaning": "ibu"},
+        {"char": "书", "pinyin": "shū", "meaning": "buku"},
+        {"char": "天", "pinyin": "tiān", "meaning": "langit"}
+      ]
+    },
+    {
+      "tone": 2,
+      "name": "Nada Kedua",
+      "name_zh": "第二声",
+      "symbol": "á",
+      "description": "Naik — seperti bertanya 'Apa?' dengan nada heran",
+      "pitch_contour": "35",
+      "examples": [
+        {"char": "麻", "pinyin": "má", "meaning": "rami/baal"},
+        {"char": "来", "pinyin": "lái", "meaning": "datang"},
+        {"char": "年", "pinyin": "nián", "meaning": "tahun"}
+      ]
+    },
+    {
+      "tone": 3,
+      "name": "Nada Ketiga",
+      "name_zh": "第三声",
+      "symbol": "ǎ",
+      "description": "Turun lalu naik — seperti berkata 'Hm...' ragu-ragu",
+      "pitch_contour": "214",
+      "examples": [
+        {"char": "马", "pinyin": "mǎ", "meaning": "kuda"},
+        {"char": "你", "pinyin": "nǐ", "meaning": "kamu"},
+        {"char": "好", "pinyin": "hǎo", "meaning": "baik"}
+      ]
+    },
+    {
+      "tone": 4,
+      "name": "Nada Keempat",
+      "name_zh": "第四声",
+      "symbol": "à",
+      "description": "Turun tajam — seperti memberi perintah tegas",
+      "pitch_contour": "51",
+      "examples": [
+        {"char": "骂", "pinyin": "mà", "meaning": "memaki"},
+        {"char": "大", "pinyin": "dà", "meaning": "besar"},
+        {"char": "是", "pinyin": "shì", "meaning": "adalah"}
+      ]
+    },
+    {
+      "tone": 0,
+      "name": "Nada Netral",
+      "name_zh": "轻声",
+      "symbol": "a",
+      "description": "Pendek dan ringan — tidak ditandai, biasanya pada partikel",
+      "pitch_contour": "2",
+      "examples": [
+        {"char": "吗", "pinyin": "ma", "meaning": "partikel tanya"},
+        {"char": "呢", "pinyin": "ne", "meaning": "partikel lanjutan"},
+        {"char": "了", "pinyin": "le", "meaning": "partikel selesai"}
+      ]
+    }
+  ],
+  "sandhi_rules": [
+    {
+      "rule": "Nada ke-3 + Nada ke-3 → Nada ke-2 + Nada ke-3",
+      "example": "你好 nǐ hǎo → níhǎo",
+      "note": "Saat dua nada ketiga berurutan, yang pertama berubah jadi nada ke-2"
+    },
+    {
+      "rule": "不 (bù) sebelum nada ke-4 → bú",
+      "example": "不是 bù shì → búshì",
+      "note": "Negasi 不 berubah jadi nada ke-2 sebelum kata bernada ke-4"
+    },
+    {
+      "rule": "一 (yī) berubah sesuai nada kata berikut",
+      "example": "一个 yī gè → yí gè; 一天 yī tiān → yì tiān",
+      "note": "一 menjadi nada ke-2 sebelum nada ke-4; nada ke-4 sebelum nada ke-1,2,3"
+    }
+  ]
+}

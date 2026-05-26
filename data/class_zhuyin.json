@@ -1,0 +1,137 @@
+{
+  "id": "zhuyin",
+  "title": "Zhuyin 注音",
+  "subtitle": "Sistem Fonetik Taiwan (Bopomofo)",
+  "han": "注音",
+  "level": "Pemula · Fondasi",
+  "cefr": "Pre-A1",
+  "duration_hours": 8,
+  "lesson_count": 22,
+  "price": "Rp 149.000",
+  "tag": "Pro",
+  "category": ["dasar", "mandarin"],
+  "thumb_char": "注",
+  "description": "Pelajari Zhuyin Fuhao (注音符號) — sistem fonetik resmi Taiwan — dari 37 simbol dasar hingga membaca teks berbasis Zhuyin. Cocok sebagai pelengkap Pinyin.",
+  "objectives": [
+    "Menghafal dan melafalkan 21 konsonan Zhuyin (ㄅ–ㄙ)",
+    "Menghafal dan melafalkan 16 vokal Zhuyin (ㄚ–ㄩ)",
+    "Memahami penempatan tanda nada dalam Zhuyin",
+    "Membaca kamus dan teks berbasis Zhuyin",
+    "Membandingkan Zhuyin dengan Pinyin secara sistematis"
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "title": "Pengenalan Zhuyin",
+      "lessons": [
+        {"id": "L1.1", "title": "Sejarah Zhuyin Fuhao 注音符號", "duration_min": 15, "type": "teori"},
+        {"id": "L1.2", "title": "Zhuyin vs. Pinyin — persamaan & perbedaan", "duration_min": 20, "type": "teori"},
+        {"id": "L1.3", "title": "Cara penulisan & penempatan tanda nada", "duration_min": 15, "type": "teori"}
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Konsonan (聲母) — 21 Simbol",
+      "lessons": [
+        {"id": "L2.1", "title": "ㄅ ㄆ ㄇ ㄈ (b p m f)", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.2", "title": "ㄉ ㄊ ㄋ ㄌ (d t n l)", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.3", "title": "ㄍ ㄎ ㄏ (g k h)", "duration_min": 20, "type": "latihan"},
+        {"id": "L2.4", "title": "ㄐ ㄑ ㄒ (j q x)", "duration_min": 20, "type": "latihan"},
+        {"id": "L2.5", "title": "ㄓ ㄔ ㄕ ㄖ (zh ch sh r)", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.6", "title": "ㄗ ㄘ ㄙ (z c s)", "duration_min": 20, "type": "latihan"},
+        {"id": "L2.7", "title": "Kuis Konsonan", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Vokal (韻母) — 16 Simbol",
+      "lessons": [
+        {"id": "L3.1", "title": "ㄚ ㄛ ㄜ ㄝ (a o e ê)", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.2", "title": "ㄞ ㄟ ㄠ ㄡ (ai ei ao ou)", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.3", "title": "ㄢ ㄣ ㄤ ㄥ (an en ang eng)", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.4", "title": "ㄦ ㄧ ㄨ ㄩ (er i u ü)", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.5", "title": "Kuis Vokal", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "Nada dalam Zhuyin",
+      "lessons": [
+        {"id": "L4.1", "title": "Tanda nada Zhuyin: ˉ ˊ ˇ ˋ (tanpa tanda = nada 1)", "duration_min": 20, "type": "teori"},
+        {"id": "L4.2", "title": "Latihan nada dengan simbol Zhuyin", "duration_min": 25, "type": "latihan"},
+        {"id": "L4.3", "title": "Kuis Nada Zhuyin", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "Membaca Teks Zhuyin",
+      "lessons": [
+        {"id": "L5.1", "title": "Membaca kata-kata sederhana dalam Zhuyin", "duration_min": 20, "type": "latihan"},
+        {"id": "L5.2", "title": "Membaca kalimat pendek", "duration_min": 25, "type": "latihan"},
+        {"id": "L5.3", "title": "Ujian akhir Zhuyin", "duration_min": 30, "type": "ujian"}
+      ]
+    }
+  ],
+  "consonants": [
+    {"zhuyin": "ㄅ", "pinyin": "b", "example_char": "爸", "example_pinyin": "bà", "zhuyin_full": "ㄅㄚˋ", "meaning_id": "ayah"},
+    {"zhuyin": "ㄆ", "pinyin": "p", "example_char": "苹", "example_pinyin": "píng","zhuyin_full": "ㄆㄧㄥˊ", "meaning_id": "apel"},
+    {"zhuyin": "ㄇ", "pinyin": "m", "example_char": "妈", "example_pinyin": "mā",  "zhuyin_full": "ㄇㄚ",   "meaning_id": "ibu"},
+    {"zhuyin": "ㄈ", "pinyin": "f", "example_char": "饭", "example_pinyin": "fàn", "zhuyin_full": "ㄈㄢˋ", "meaning_id": "nasi"},
+    {"zhuyin": "ㄉ", "pinyin": "d", "example_char": "大", "example_pinyin": "dà",  "zhuyin_full": "ㄉㄚˋ", "meaning_id": "besar"},
+    {"zhuyin": "ㄊ", "pinyin": "t", "example_char": "天", "example_pinyin": "tiān","zhuyin_full": "ㄊㄧㄢ", "meaning_id": "langit"},
+    {"zhuyin": "ㄋ", "pinyin": "n", "example_char": "你", "example_pinyin": "nǐ",  "zhuyin_full": "ㄋㄧˇ", "meaning_id": "kamu"},
+    {"zhuyin": "ㄌ", "pinyin": "l", "example_char": "来", "example_pinyin": "lái", "zhuyin_full": "ㄌㄞˊ", "meaning_id": "datang"},
+    {"zhuyin": "ㄍ", "pinyin": "g", "example_char": "国", "example_pinyin": "guó", "zhuyin_full": "ㄍㄨㄛˊ","meaning_id": "negara"},
+    {"zhuyin": "ㄎ", "pinyin": "k", "example_char": "看", "example_pinyin": "kàn", "zhuyin_full": "ㄎㄢˋ", "meaning_id": "melihat"},
+    {"zhuyin": "ㄏ", "pinyin": "h", "example_char": "好", "example_pinyin": "hǎo", "zhuyin_full": "ㄏㄠˇ", "meaning_id": "baik"},
+    {"zhuyin": "ㄐ", "pinyin": "j", "example_char": "家", "example_pinyin": "jiā", "zhuyin_full": "ㄐㄧㄚ", "meaning_id": "rumah"},
+    {"zhuyin": "ㄑ", "pinyin": "q", "example_char": "请", "example_pinyin": "qǐng","zhuyin_full": "ㄑㄧㄥˇ","meaning_id": "silakan"},
+    {"zhuyin": "ㄒ", "pinyin": "x", "example_char": "学", "example_pinyin": "xué", "zhuyin_full": "ㄒㄩㄝˊ","meaning_id": "belajar"},
+    {"zhuyin": "ㄓ", "pinyin": "zh","example_char": "中", "example_pinyin": "zhōng","zhuyin_full":"ㄓㄨㄥ",  "meaning_id": "tengah"},
+    {"zhuyin": "ㄔ", "pinyin": "ch","example_char": "吃", "example_pinyin": "chī", "zhuyin_full": "ㄔ",     "meaning_id": "makan"},
+    {"zhuyin": "ㄕ", "pinyin": "sh","example_char": "书", "example_pinyin": "shū", "zhuyin_full": "ㄕㄨ",   "meaning_id": "buku"},
+    {"zhuyin": "ㄖ", "pinyin": "r", "example_char": "人", "example_pinyin": "rén", "zhuyin_full": "ㄖㄣˊ", "meaning_id": "orang"},
+    {"zhuyin": "ㄗ", "pinyin": "z", "example_char": "字", "example_pinyin": "zì",  "zhuyin_full": "ㄗˋ",   "meaning_id": "karakter"},
+    {"zhuyin": "ㄘ", "pinyin": "c", "example_char": "菜", "example_pinyin": "cài", "zhuyin_full": "ㄘㄞˋ", "meaning_id": "sayur"},
+    {"zhuyin": "ㄙ", "pinyin": "s", "example_char": "三", "example_pinyin": "sān", "zhuyin_full": "ㄙㄢ",  "meaning_id": "tiga"}
+  ],
+  "vowels": [
+    {"zhuyin": "ㄚ", "pinyin": "a",  "example_char": "啊",  "example_pinyin": "a",    "meaning_id": "partikel seru"},
+    {"zhuyin": "ㄛ", "pinyin": "o",  "example_char": "哦",  "example_pinyin": "ó",    "meaning_id": "oh"},
+    {"zhuyin": "ㄜ", "pinyin": "e",  "example_char": "饿",  "example_pinyin": "è",    "meaning_id": "lapar"},
+    {"zhuyin": "ㄝ", "pinyin": "ê",  "example_char": "耶",  "example_pinyin": "yē",   "meaning_id": "hore"},
+    {"zhuyin": "ㄞ", "pinyin": "ai", "example_char": "爱",  "example_pinyin": "ài",   "meaning_id": "cinta"},
+    {"zhuyin": "ㄟ", "pinyin": "ei", "example_char": "飞",  "example_pinyin": "fēi",  "meaning_id": "terbang"},
+    {"zhuyin": "ㄠ", "pinyin": "ao", "example_char": "好",  "example_pinyin": "hǎo",  "meaning_id": "baik"},
+    {"zhuyin": "ㄡ", "pinyin": "ou", "example_char": "走",  "example_pinyin": "zǒu",  "meaning_id": "berjalan"},
+    {"zhuyin": "ㄢ", "pinyin": "an", "example_char": "安",  "example_pinyin": "ān",   "meaning_id": "aman"},
+    {"zhuyin": "ㄣ", "pinyin": "en", "example_char": "很",  "example_pinyin": "hěn",  "meaning_id": "sangat"},
+    {"zhuyin": "ㄤ", "pinyin": "ang","example_char": "忙",  "example_pinyin": "máng", "meaning_id": "sibuk"},
+    {"zhuyin": "ㄥ", "pinyin": "eng","example_char": "冷",  "example_pinyin": "lěng", "meaning_id": "dingin"},
+    {"zhuyin": "ㄦ", "pinyin": "er", "example_char": "二",  "example_pinyin": "èr",   "meaning_id": "dua"},
+    {"zhuyin": "ㄧ", "pinyin": "i",  "example_char": "一",  "example_pinyin": "yī",   "meaning_id": "satu"},
+    {"zhuyin": "ㄨ", "pinyin": "u",  "example_char": "五",  "example_pinyin": "wǔ",   "meaning_id": "lima"},
+    {"zhuyin": "ㄩ", "pinyin": "ü",  "example_char": "鱼",  "example_pinyin": "yú",   "meaning_id": "ikan"}
+  ],
+  "tone_marks": [
+    {"tone": 1, "mark": "(tanpa tanda)", "example_zhuyin": "ㄇㄚ",   "example_pinyin": "mā", "meaning_id": "ibu"},
+    {"tone": 2, "mark": "ˊ",            "example_zhuyin": "ㄇㄚˊ",  "example_pinyin": "má", "meaning_id": "rami"},
+    {"tone": 3, "mark": "ˇ",            "example_zhuyin": "ㄇㄚˇ",  "example_pinyin": "mǎ", "meaning_id": "kuda"},
+    {"tone": 4, "mark": "ˋ",            "example_zhuyin": "ㄇㄚˋ",  "example_pinyin": "mà", "meaning_id": "memaki"},
+    {"tone": 0, "mark": "˙",            "example_zhuyin": "˙ㄇㄚ",  "example_pinyin": "ma", "meaning_id": "partikel tanya"}
+  ],
+  "pinyin_zhuyin_map": [
+    {"pinyin":"a","zhuyin":"ㄚ"},{"pinyin":"o","zhuyin":"ㄛ"},{"pinyin":"e","zhuyin":"ㄜ"},
+    {"pinyin":"ai","zhuyin":"ㄞ"},{"pinyin":"ei","zhuyin":"ㄟ"},{"pinyin":"ao","zhuyin":"ㄠ"},
+    {"pinyin":"ou","zhuyin":"ㄡ"},{"pinyin":"an","zhuyin":"ㄢ"},{"pinyin":"en","zhuyin":"ㄣ"},
+    {"pinyin":"ang","zhuyin":"ㄤ"},{"pinyin":"eng","zhuyin":"ㄥ"},{"pinyin":"er","zhuyin":"ㄦ"},
+    {"pinyin":"b","zhuyin":"ㄅ"},{"pinyin":"p","zhuyin":"ㄆ"},{"pinyin":"m","zhuyin":"ㄇ"},
+    {"pinyin":"f","zhuyin":"ㄈ"},{"pinyin":"d","zhuyin":"ㄉ"},{"pinyin":"t","zhuyin":"ㄊ"},
+    {"pinyin":"n","zhuyin":"ㄋ"},{"pinyin":"l","zhuyin":"ㄌ"},{"pinyin":"g","zhuyin":"ㄍ"},
+    {"pinyin":"k","zhuyin":"ㄎ"},{"pinyin":"h","zhuyin":"ㄏ"},{"pinyin":"j","zhuyin":"ㄐ"},
+    {"pinyin":"q","zhuyin":"ㄑ"},{"pinyin":"x","zhuyin":"ㄒ"},{"pinyin":"zh","zhuyin":"ㄓ"},
+    {"pinyin":"ch","zhuyin":"ㄔ"},{"pinyin":"sh","zhuyin":"ㄕ"},{"pinyin":"r","zhuyin":"ㄖ"},
+    {"pinyin":"z","zhuyin":"ㄗ"},{"pinyin":"c","zhuyin":"ㄘ"},{"pinyin":"s","zhuyin":"ㄙ"},
+    {"pinyin":"yi/i","zhuyin":"ㄧ"},{"pinyin":"wu/u","zhuyin":"ㄨ"},{"pinyin":"yu/ü","zhuyin":"ㄩ"}
+  ]
+}
