@@ -1191,7 +1191,7 @@
     </div>
 
     <div class="class-tabs" role="tablist">
-      <button class="active" role="tab" onclick="filterClasses('all', this)">Semua <span class="badge">13</span></button>
+      <button class="active" role="tab" onclick="filterClasses('all', this)">Semua <span class="badge">15</span></button>
       <button role="tab" onclick="filterClasses('dasar', this)">Dasar &amp; Fonetik</button>
       <button role="tab" onclick="filterClasses('mandarin', this)">Mandarin</button>
       <button role="tab" onclick="filterClasses('test', this)">Persiapan Ujian</button>
@@ -1440,7 +1440,7 @@
       </div>
 
       <!-- Pinyin -->
-      <div class="class-card class-free" data-cat="dasar mandarin free">
+      <div class="class-card class-free" data-cat="dasar mandarin free" onclick="window.location='/kelas.html?id=pinyin'" style="cursor:pointer">
         <div class="class-thumb">
           <div class="class-thumb-pattern"></div>
           <div class="class-thumb-han">拼</div>
@@ -1467,7 +1467,7 @@
       </div>
 
       <!-- Zhuyin -->
-      <div class="class-card class-pro" data-cat="dasar mandarin">
+      <div class="class-card class-pro" data-cat="dasar mandarin" onclick="window.location='/kelas.html?id=zhuyin'" style="cursor:pointer">
         <div class="class-thumb">
           <div class="class-thumb-pattern"></div>
           <div class="class-thumb-han">注</div>
@@ -1494,7 +1494,7 @@
       </div>
 
       <!-- Tones -->
-      <div class="class-card class-free" data-cat="dasar mandarin free">
+      <div class="class-card class-free" data-cat="dasar mandarin free" onclick="window.location='/kelas.html?id=tones'" style="cursor:pointer">
         <div class="class-thumb">
           <div class="class-thumb-pattern"></div>
           <div class="class-thumb-han">声</div>
@@ -1521,7 +1521,7 @@
       </div>
 
       <!-- Stroke Order -->
-      <div class="class-card class-pro" data-cat="dasar mandarin">
+      <div class="class-card class-pro" data-cat="dasar mandarin" onclick="window.location='/kelas.html?id=stroke_order'" style="cursor:pointer">
         <div class="class-thumb">
           <div class="class-thumb-pattern"></div>
           <div class="class-thumb-han">笔</div>
@@ -1541,6 +1541,60 @@
               <span>
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V4a1 1 0 011-1h7a1 1 0 011 1v6l-4.5-2.5L2 10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
                 20 pelajaran
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Measure Words -->
+      <div class="class-card class-free" data-cat="dasar mandarin free" onclick="window.location='/kelas.html?id=measure_words'" style="cursor:pointer">
+        <div class="class-thumb">
+          <div class="class-thumb-pattern"></div>
+          <div class="class-thumb-han">量</div>
+          <span class="class-thumb-tag">Gratis</span>
+        </div>
+        <div class="class-body">
+          <div class="class-level">Pemula · Dasar</div>
+          <h3 class="class-title">Kata Satuan <span style="font-family:var(--font-han);font-weight:400;font-size:.85em;color:var(--ink-3)">量词</span></h3>
+          <p class="class-desc">Kuasai 80+ kata satuan Mandarin — wajib digunakan saat menghitung orang, benda, hewan, dan konsep abstrak.</p>
+          <div class="class-foot">
+            <span class="class-price"><span class="free">Gratis</span></span>
+            <div class="class-meta-icons">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                5 jam
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V4a1 1 0 011-1h7a1 1 0 011 1v6l-4.5-2.5L2 10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                16 pelajaran
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Radicals -->
+      <div class="class-card class-pro" data-cat="dasar mandarin" onclick="window.location='/kelas.html?id=radicals'" style="cursor:pointer">
+        <div class="class-thumb">
+          <div class="class-thumb-pattern"></div>
+          <div class="class-thumb-han">偏</div>
+          <span class="class-thumb-tag">Pro</span>
+        </div>
+        <div class="class-body">
+          <div class="class-level">Pemula · Dasar</div>
+          <h3 class="class-title">Radikal <span style="font-family:var(--font-han);font-weight:400;font-size:.85em;color:var(--ink-3)">偏旁部首</span></h3>
+          <p class="class-desc">Pelajari 80+ radikal kunci — petunjuk makna karakter Han yang membantu membaca kamus dan menghafal ribuan karakter.</p>
+          <div class="class-foot">
+            <span class="class-price">Rp 99.000</span>
+            <div class="class-meta-icons">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                6 jam
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V4a1 1 0 011-1h7a1 1 0 011 1v6l-4.5-2.5L2 10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                18 pelajaran
               </span>
             </div>
           </div>

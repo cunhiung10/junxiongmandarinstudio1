@@ -1,0 +1,600 @@
+{
+  "id": "measure_words",
+  "title": "Kata Satuan 量词",
+  "subtitle": "Measure Words dalam Bahasa Mandarin",
+  "han": "量词",
+  "level": "Pemula · Dasar",
+  "cefr": "A1–A2",
+  "duration_hours": 5,
+  "lesson_count": 16,
+  "price": "Gratis",
+  "tag": "Gratis",
+  "category": ["dasar", "mandarin", "free"],
+  "thumb_char": "量",
+  "description": "Kuasai lebih dari 80 kata satuan (量词) Mandarin — kata kunci yang wajib digunakan saat menghitung benda, orang, hewan, dan konsep abstrak dalam bahasa Mandarin.",
+  "objectives": [
+    "Memahami fungsi dan pentingnya 量词 dalam bahasa Mandarin",
+    "Menggunakan 个 dan kata satuan umum dengan benar",
+    "Membedakan kata satuan untuk orang, hewan, benda, dan alam",
+    "Mengidentifikasi kata satuan untuk transportasi dan bangunan",
+    "Menggunakan kata satuan waktu dan konsep abstrak"
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "title": "Pengenalan 量词",
+      "lessons": [
+        {"id": "L1.1", "title": "Apa itu kata satuan? Mengapa penting?", "duration_min": 15, "type": "teori"},
+        {"id": "L1.2", "title": "Struktur: bilangan + 量词 + kata benda", "duration_min": 20, "type": "teori"},
+        {"id": "L1.3", "title": "个 — kata satuan paling serbaguna", "duration_min": 20, "type": "latihan"}
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Kata Satuan untuk Orang & Hewan",
+      "lessons": [
+        {"id": "L2.1", "title": "位, 名, 口, 群 — untuk orang", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.2", "title": "只, 头, 匹, 条 — untuk hewan", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.3", "title": "Kuis Orang & Hewan", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Kata Satuan untuk Benda",
+      "lessons": [
+        {"id": "L3.1", "title": "本, 张, 幅, 封 — buku, kertas, surat", "duration_min": 25, "type": "latihan"},
+        {"id": "L3.2", "title": "件, 把, 双, 套 — pakaian & peralatan", "duration_min": 25, "type": "latihan"},
+        {"id": "L3.3", "title": "台, 部, 辆, 架 — mesin & kendaraan", "duration_min": 20, "type": "latihan"},
+        {"id": "L3.4", "title": "Kuis Benda", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "Kata Satuan untuk Alam, Makanan & Waktu",
+      "lessons": [
+        {"id": "L4.1", "title": "棵, 朵, 根, 片 — alam & tanaman", "duration_min": 25, "type": "latihan"},
+        {"id": "L4.2", "title": "碗, 杯, 盘, 瓶 — makanan & minuman", "duration_min": 20, "type": "latihan"},
+        {"id": "L4.3", "title": "次, 遍, 趟, 场 — waktu & peristiwa", "duration_min": 20, "type": "latihan"},
+        {"id": "L4.4", "title": "Ujian akhir 量词", "duration_min": 30, "type": "ujian"}
+      ]
+    }
+  ],
+  "measure_words": [
+    {
+      "mw": "个",      "pinyin": "gè",   "meaning_id": "kata satuan umum",
+      "category": "umum",
+      "use_for_id": "orang, benda, buah, ide — paling fleksibel",
+      "example_noun": "苹果", "example_noun_pinyin": "píngguǒ", "example_noun_id": "apel",
+      "example_phrase": "三个苹果", "example_phrase_pinyin": "sān gè píngguǒ", "example_phrase_id": "tiga buah apel",
+      "note_id": "Dapat menggantikan hampir semua 量词 dalam percakapan informal"
+    },
+    {
+      "mw": "些",      "pinyin": "xiē",  "meaning_id": "beberapa, sejumlah",
+      "category": "umum",
+      "use_for_id": "jumlah yang tidak ditentukan (jamak)",
+      "example_noun": "书",  "example_noun_pinyin": "shū",  "example_noun_id": "buku",
+      "example_phrase": "一些书", "example_phrase_pinyin": "yīxiē shū", "example_phrase_id": "beberapa buku",
+      "note_id": "Selalu berpasangan dengan 一 (yī)"
+    },
+    {
+      "mw": "位",      "pinyin": "wèi",  "meaning_id": "orang (sopan/hormat)",
+      "category": "orang",
+      "use_for_id": "orang dengan status atau peran (guru, tamu, senior)",
+      "example_noun": "老师", "example_noun_pinyin": "lǎoshī", "example_noun_id": "guru",
+      "example_phrase": "两位老师", "example_phrase_pinyin": "liǎng wèi lǎoshī", "example_phrase_id": "dua orang guru",
+      "note_id": "Lebih sopan daripada 个 untuk manusia"
+    },
+    {
+      "mw": "名",      "pinyin": "míng", "meaning_id": "orang (formal, bernama peran)",
+      "category": "orang",
+      "use_for_id": "orang dalam konteks formal: murid, pegawai, pasien",
+      "example_noun": "学生", "example_noun_pinyin": "xuésheng", "example_noun_id": "murid",
+      "example_phrase": "三十名学生", "example_phrase_pinyin": "sānshí míng xuésheng", "example_phrase_id": "tiga puluh murid",
+      "note_id": "Sering digunakan dalam konteks resmi/berita"
+    },
+    {
+      "mw": "口",      "pinyin": "kǒu",  "meaning_id": "anggota keluarga, mulut",
+      "category": "orang",
+      "use_for_id": "anggota keluarga; juga: sumur, suara",
+      "example_noun": "人",  "example_noun_pinyin": "rén",  "example_noun_id": "orang",
+      "example_phrase": "一家三口", "example_phrase_pinyin": "yījiā sān kǒu", "example_phrase_id": "keluarga tiga orang",
+      "note_id": "Hampir eksklusif untuk anggota keluarga (家口)"
+    },
+    {
+      "mw": "群",      "pinyin": "qún",  "meaning_id": "kelompok, kawanan",
+      "category": "orang",
+      "use_for_id": "kelompok orang atau hewan",
+      "example_noun": "孩子", "example_noun_pinyin": "háizi", "example_noun_id": "anak-anak",
+      "example_phrase": "一群孩子", "example_phrase_pinyin": "yī qún háizi", "example_phrase_id": "sekelompok anak-anak",
+      "note_id": "Bisa digunakan untuk hewan maupun manusia"
+    },
+    {
+      "mw": "批",      "pinyin": "pī",   "meaning_id": "kelompok/batch",
+      "category": "orang",
+      "use_for_id": "sekelompok orang atau barang yang datang bersamaan",
+      "example_noun": "游客", "example_noun_pinyin": "yóukè", "example_noun_id": "turis",
+      "example_phrase": "一批游客", "example_phrase_pinyin": "yī pī yóukè", "example_phrase_id": "satu rombongan turis",
+      "note_id": "Menekankan bahwa mereka datang/pergi sekaligus"
+    },
+    {
+      "mw": "只",      "pinyin": "zhī",  "meaning_id": "hewan kecil, tangan, kapal kecil",
+      "category": "hewan",
+      "use_for_id": "hewan kecil (kucing, anjing, burung), tangan, mata",
+      "example_noun": "猫",  "example_noun_pinyin": "māo",  "example_noun_id": "kucing",
+      "example_phrase": "一只猫", "example_phrase_pinyin": "yī zhī māo", "example_phrase_id": "seekor kucing",
+      "note_id": "Paling umum untuk hewan kecil; juga 一只手 (satu tangan)"
+    },
+    {
+      "mw": "头",      "pinyin": "tóu",  "meaning_id": "hewan besar",
+      "category": "hewan",
+      "use_for_id": "hewan besar: sapi, kerbau, babi, gajah",
+      "example_noun": "牛",  "example_noun_pinyin": "niú",  "example_noun_id": "sapi",
+      "example_phrase": "五头牛", "example_phrase_pinyin": "wǔ tóu niú", "example_phrase_id": "lima ekor sapi",
+      "note_id": "Khusus hewan bertubuh besar"
+    },
+    {
+      "mw": "匹",      "pinyin": "pǐ",   "meaning_id": "kuda, keledai; gulung kain",
+      "category": "hewan",
+      "use_for_id": "kuda dan keledai; juga gulungan kain",
+      "example_noun": "马",  "example_noun_pinyin": "mǎ",   "example_noun_id": "kuda",
+      "example_phrase": "三匹马", "example_phrase_pinyin": "sān pǐ mǎ", "example_phrase_id": "tiga ekor kuda",
+      "note_id": "Tradisional; juga 一匹布 (satu gulung kain)"
+    },
+    {
+      "mw": "条",      "pinyin": "tiáo", "meaning_id": "benda panjang & fleksibel",
+      "category": "hewan",
+      "use_for_id": "ikan, ular, anjing, sungai, jalan, celana panjang",
+      "example_noun": "鱼",  "example_noun_pinyin": "yú",   "example_noun_id": "ikan",
+      "example_phrase": "一条鱼", "example_phrase_pinyin": "yī tiáo yú", "example_phrase_id": "seekor ikan",
+      "note_id": "Serbaguna: ikan, anjing, ular, sungai, celana, berita (一条新闻)"
+    },
+    {
+      "mw": "本",      "pinyin": "běn",  "meaning_id": "buku, album, binder",
+      "category": "buku",
+      "use_for_id": "buku, majalah, album foto, buku catatan",
+      "example_noun": "书",  "example_noun_pinyin": "shū",  "example_noun_id": "buku",
+      "example_phrase": "两本书", "example_phrase_pinyin": "liǎng běn shū", "example_phrase_id": "dua buku",
+      "note_id": "Standar untuk segala jenis buku"
+    },
+    {
+      "mw": "册",      "pinyin": "cè",   "meaning_id": "jilid, seri",
+      "category": "buku",
+      "use_for_id": "jilid dalam seri buku, buku kecil/booklet",
+      "example_noun": "手册", "example_noun_pinyin": "shǒucè", "example_noun_id": "buku panduan",
+      "example_phrase": "第一册", "example_phrase_pinyin": "dì yī cè", "example_phrase_id": "jilid pertama",
+      "note_id": "Digunakan untuk buku yang merupakan bagian dari seri"
+    },
+    {
+      "mw": "篇",      "pinyin": "piān", "meaning_id": "artikel, esai, bab",
+      "category": "buku",
+      "use_for_id": "artikel, esai, cerita pendek, bab",
+      "example_noun": "文章", "example_noun_pinyin": "wénzhāng", "example_noun_id": "artikel",
+      "example_phrase": "一篇文章", "example_phrase_pinyin": "yī piān wénzhāng", "example_phrase_id": "satu artikel",
+      "note_id": "Untuk tulisan, bukan buku fisik"
+    },
+    {
+      "mw": "首",      "pinyin": "shǒu", "meaning_id": "puisi, lagu",
+      "category": "buku",
+      "use_for_id": "puisi klasik, lagu, nyanyian",
+      "example_noun": "歌",  "example_noun_pinyin": "gē",   "example_noun_id": "lagu",
+      "example_phrase": "一首歌", "example_phrase_pinyin": "yī shǒu gē", "example_phrase_id": "satu lagu",
+      "note_id": "Khusus untuk puisi dan lagu"
+    },
+    {
+      "mw": "幅",      "pinyin": "fú",   "meaning_id": "lukisan, gambar, foto",
+      "category": "buku",
+      "use_for_id": "lukisan, foto, gambar, peta (sesuatu yang perlu dibingkai)",
+      "example_noun": "画",  "example_noun_pinyin": "huà",  "example_noun_id": "lukisan",
+      "example_phrase": "一幅画", "example_phrase_pinyin": "yī fú huà", "example_phrase_id": "sebuah lukisan",
+      "note_id": "Untuk karya visual yang biasanya dipajang"
+    },
+    {
+      "mw": "张",      "pinyin": "zhāng","meaning_id": "benda datar lebar",
+      "category": "benda",
+      "use_for_id": "kertas, foto, meja, wajah, tiket, koran",
+      "example_noun": "纸",  "example_noun_pinyin": "zhǐ",  "example_noun_id": "kertas",
+      "example_phrase": "一张纸", "example_phrase_pinyin": "yī zhāng zhǐ", "example_phrase_id": "selembar kertas",
+      "note_id": "Serbaguna: kertas, foto, meja (一张桌子), wajah (一张脸)"
+    },
+    {
+      "mw": "份",      "pinyin": "fèn",  "meaning_id": "porsi, salinan, berkas",
+      "category": "benda",
+      "use_for_id": "porsi makanan, salinan dokumen, satu set koran",
+      "example_noun": "报纸", "example_noun_pinyin": "bàozhǐ", "example_noun_id": "koran",
+      "example_phrase": "一份报纸", "example_phrase_pinyin": "yī fèn bàozhǐ", "example_phrase_id": "satu koran",
+      "note_id": "Juga: 一份工作 (satu pekerjaan), 一份礼物 (satu hadiah)"
+    },
+    {
+      "mw": "封",      "pinyin": "fēng", "meaning_id": "surat, email, pesan",
+      "category": "benda",
+      "use_for_id": "surat, email, pesan yang 'disegel/dikirim'",
+      "example_noun": "信",  "example_noun_pinyin": "xìn",  "example_noun_id": "surat",
+      "example_phrase": "一封信", "example_phrase_pinyin": "yī fēng xìn", "example_phrase_id": "satu surat",
+      "note_id": "Juga untuk 一封邮件 (satu email)"
+    },
+    {
+      "mw": "件",      "pinyin": "jiàn", "meaning_id": "pakaian, hal, perkara",
+      "category": "benda",
+      "use_for_id": "pakaian bagian atas, hal/perkara, barang",
+      "example_noun": "衣服", "example_noun_pinyin": "yīfu",  "example_noun_id": "pakaian",
+      "example_phrase": "一件衣服", "example_phrase_pinyin": "yī jiàn yīfu", "example_phrase_id": "satu pakaian",
+      "note_id": "Juga: 一件事 (satu hal/urusan), 一件行李 (satu bagasi)"
+    },
+    {
+      "mw": "把",      "pinyin": "bǎ",   "meaning_id": "benda bergagang",
+      "category": "benda",
+      "use_for_id": "benda bergagang: payung, pisau, kursi, sikat gigi, gunting",
+      "example_noun": "椅子", "example_noun_pinyin": "yǐzi",  "example_noun_id": "kursi",
+      "example_phrase": "一把椅子", "example_phrase_pinyin": "yī bǎ yǐzi", "example_phrase_id": "sebuah kursi",
+      "note_id": "Kuncinya: ada bagian untuk dipegang"
+    },
+    {
+      "mw": "双",      "pinyin": "shuāng","meaning_id": "pasangan (satu set dua)",
+      "category": "benda",
+      "use_for_id": "benda yang selalu berpasangan: sepatu, kaus kaki, sumpit",
+      "example_noun": "鞋",  "example_noun_pinyin": "xié",  "example_noun_id": "sepatu",
+      "example_phrase": "一双鞋", "example_phrase_pinyin": "yī shuāng xié", "example_phrase_id": "sepasang sepatu",
+      "note_id": "Untuk dua benda identik yang dipakai bersamaan"
+    },
+    {
+      "mw": "对",      "pinyin": "duì",  "meaning_id": "sepasang (dua yg simetris)",
+      "category": "benda",
+      "use_for_id": "pasangan simetris: suami-istri, bunga telinga, lilin",
+      "example_noun": "耳环", "example_noun_pinyin": "ěrhuán", "example_noun_id": "anting",
+      "example_phrase": "一对耳环", "example_phrase_pinyin": "yī duì ěrhuán", "example_phrase_id": "sepasang anting",
+      "note_id": "Berbeda dari 双: 对 bisa untuk pasangan manusia juga (一对夫妻)"
+    },
+    {
+      "mw": "套",      "pinyin": "tào",  "meaning_id": "satu set, setelan",
+      "category": "benda",
+      "use_for_id": "set lengkap: apartemen, baju setelan, alat, buku seri",
+      "example_noun": "房子", "example_noun_pinyin": "fángzi", "example_noun_id": "rumah/apartemen",
+      "example_phrase": "一套房子", "example_phrase_pinyin": "yī tào fángzi", "example_phrase_id": "satu unit rumah",
+      "note_id": "Menekankan kelengkapan satu set"
+    },
+    {
+      "mw": "副",      "pinyin": "fù",   "meaning_id": "sepasang, set (wajah/ekspresi)",
+      "category": "benda",
+      "use_for_id": "kacamata, sarung tangan, ekspresi wajah, kartu",
+      "example_noun": "眼镜", "example_noun_pinyin": "yǎnjìng", "example_noun_id": "kacamata",
+      "example_phrase": "一副眼镜", "example_phrase_pinyin": "yī fù yǎnjìng", "example_phrase_id": "sepasang kacamata",
+      "note_id": "Juga: 一副表情 (satu ekspresi), 一副牌 (satu set kartu)"
+    },
+    {
+      "mw": "块",      "pinyin": "kuài", "meaning_id": "potongan, gumpalan, keping",
+      "category": "benda",
+      "use_for_id": "sabun, coklat, batu, roti, uang koin",
+      "example_noun": "肥皂", "example_noun_pinyin": "féizào", "example_noun_id": "sabun",
+      "example_phrase": "一块肥皂", "example_phrase_pinyin": "yī kuài féizào", "example_phrase_id": "sepotong sabun",
+      "note_id": "Juga untuk uang: 一块钱 = 1 Yuan"
+    },
+    {
+      "mw": "片",      "pinyin": "piàn", "meaning_id": "keping tipis, hamparan",
+      "category": "benda",
+      "use_for_id": "roti iris, pil, CD, daun, awan, hamparan sawah",
+      "example_noun": "面包", "example_noun_pinyin": "miànbāo", "example_noun_id": "roti",
+      "example_phrase": "一片面包", "example_phrase_pinyin": "yī piàn miànbāo", "example_phrase_id": "seirisan roti",
+      "note_id": "Untuk benda tipis atau hamparan luas (一片森林 = satu hamparan hutan)"
+    },
+    {
+      "mw": "台",      "pinyin": "tái",  "meaning_id": "mesin, perangkat, pertunjukan",
+      "category": "kendaraan",
+      "use_for_id": "komputer, TV, mesin cuci, AC, pertunjukan",
+      "example_noun": "电脑", "example_noun_pinyin": "diànnǎo", "example_noun_id": "komputer",
+      "example_phrase": "两台电脑", "example_phrase_pinyin": "liǎng tái diànnǎo", "example_phrase_id": "dua buah komputer",
+      "note_id": "Juga untuk pertunjukan: 一台晚会 (satu gala malam)"
+    },
+    {
+      "mw": "部",      "pinyin": "bù",   "meaning_id": "kendaraan besar, film, novel, HP",
+      "category": "kendaraan",
+      "use_for_id": "mobil, film, novel, ponsel, ensiklopedi",
+      "example_noun": "电影", "example_noun_pinyin": "diànyǐng", "example_noun_id": "film",
+      "example_phrase": "一部电影", "example_phrase_pinyin": "yī bù diànyǐng", "example_phrase_id": "satu film",
+      "note_id": "Serbaguna: satu HP (一部手机), satu mobil (一部车)"
+    },
+    {
+      "mw": "辆",      "pinyin": "liàng","meaning_id": "kendaraan beroda",
+      "category": "kendaraan",
+      "use_for_id": "mobil, sepeda motor, sepeda, truk, bus",
+      "example_noun": "车",  "example_noun_pinyin": "chē",  "example_noun_id": "kendaraan",
+      "example_phrase": "一辆车", "example_phrase_pinyin": "yī liàng chē", "example_phrase_id": "sebuah kendaraan",
+      "note_id": "Khusus kendaraan darat beroda"
+    },
+    {
+      "mw": "架",      "pinyin": "jià",  "meaning_id": "pesawat, mesin besar, rak",
+      "category": "kendaraan",
+      "use_for_id": "pesawat terbang, helikopter, kamera, piano",
+      "example_noun": "飞机", "example_noun_pinyin": "fēijī",  "example_noun_id": "pesawat",
+      "example_phrase": "一架飞机", "example_phrase_pinyin": "yī jià fēijī", "example_phrase_id": "sebuah pesawat",
+      "note_id": "Juga: 一架钢琴 (satu piano)"
+    },
+    {
+      "mw": "艘",      "pinyin": "sōu",  "meaning_id": "kapal, perahu besar",
+      "category": "kendaraan",
+      "use_for_id": "kapal laut, kapal perang, kapal penumpang",
+      "example_noun": "船",  "example_noun_pinyin": "chuán", "example_noun_id": "kapal",
+      "example_phrase": "一艘船", "example_phrase_pinyin": "yī sōu chuán", "example_phrase_id": "sebuah kapal",
+      "note_id": "Khusus untuk kapal/perahu"
+    },
+    {
+      "mw": "列",      "pinyin": "liè",  "meaning_id": "rangkaian (kereta)",
+      "category": "kendaraan",
+      "use_for_id": "kereta api (satu rangkaian penuh)",
+      "example_noun": "火车", "example_noun_pinyin": "huǒchē", "example_noun_id": "kereta api",
+      "example_phrase": "一列火车", "example_phrase_pinyin": "yī liè huǒchē", "example_phrase_id": "satu rangkaian kereta",
+      "note_id": "Khusus kereta api dalam satu rangkaian penuh"
+    },
+    {
+      "mw": "班",      "pinyin": "bān",  "meaning_id": "jadwal perjalanan",
+      "category": "kendaraan",
+      "use_for_id": "penerbangan, bus, kapal yang berjadwal",
+      "example_noun": "飞机", "example_noun_pinyin": "fēijī",  "example_noun_id": "penerbangan",
+      "example_phrase": "下一班飞机", "example_phrase_pinyin": "xià yī bān fēijī", "example_phrase_id": "penerbangan berikutnya",
+      "note_id": "Menekankan jadwal, bukan fisik kendaraannya"
+    },
+    {
+      "mw": "间",      "pinyin": "jiān", "meaning_id": "ruangan",
+      "category": "bangunan",
+      "use_for_id": "kamar, ruang kelas, toko kecil, rumah sakit",
+      "example_noun": "房间", "example_noun_pinyin": "fángjiān", "example_noun_id": "kamar",
+      "example_phrase": "一间房间", "example_phrase_pinyin": "yī jiān fángjiān", "example_phrase_id": "sebuah kamar",
+      "note_id": "Untuk ruang yang dikelilingi dinding"
+    },
+    {
+      "mw": "座",      "pinyin": "zuò",  "meaning_id": "bangunan besar, gunung, jembatan",
+      "category": "bangunan",
+      "use_for_id": "gedung, gunung, jembatan, bendungan, kota",
+      "example_noun": "山",  "example_noun_pinyin": "shān",  "example_noun_id": "gunung",
+      "example_phrase": "一座山", "example_phrase_pinyin": "yī zuò shān", "example_phrase_id": "sebuah gunung",
+      "note_id": "Untuk sesuatu yang kokoh dan monumental"
+    },
+    {
+      "mw": "栋",      "pinyin": "dòng", "meaning_id": "gedung, rumah (satu bangunan)",
+      "category": "bangunan",
+      "use_for_id": "satu bangunan rumah atau gedung",
+      "example_noun": "楼",  "example_noun_pinyin": "lóu",  "example_noun_id": "gedung",
+      "example_phrase": "一栋楼", "example_phrase_pinyin": "yī dòng lóu", "example_phrase_id": "satu gedung",
+      "note_id": "Untuk satu bangunan fisik; 套 untuk unit di dalam bangunan"
+    },
+    {
+      "mw": "所",      "pinyin": "suǒ",  "meaning_id": "institusi (sekolah, RS)",
+      "category": "bangunan",
+      "use_for_id": "sekolah, rumah sakit, universitas, penjara",
+      "example_noun": "学校", "example_noun_pinyin": "xuéxiào", "example_noun_id": "sekolah",
+      "example_phrase": "一所学校", "example_phrase_pinyin": "yī suǒ xuéxiào", "example_phrase_id": "satu sekolah",
+      "note_id": "Untuk institusi/lembaga, bukan sekedar gedung"
+    },
+    {
+      "mw": "层",      "pinyin": "céng", "meaning_id": "lantai, lapisan",
+      "category": "bangunan",
+      "use_for_id": "lantai gedung, lapisan cat, layer",
+      "example_noun": "楼",  "example_noun_pinyin": "lóu",  "example_noun_id": "lantai",
+      "example_phrase": "第三层楼", "example_phrase_pinyin": "dì sān céng lóu", "example_phrase_id": "lantai tiga",
+      "note_id": "Juga untuk lapisan non-fisik: 一层意思 (satu lapisan makna)"
+    },
+    {
+      "mw": "碗",      "pinyin": "wǎn",  "meaning_id": "semangkuk",
+      "category": "makanan",
+      "use_for_id": "nasi, mie, sup — isi semangkuk",
+      "example_noun": "饭",  "example_noun_pinyin": "fàn",  "example_noun_id": "nasi",
+      "example_phrase": "一碗饭", "example_phrase_pinyin": "yī wǎn fàn", "example_phrase_id": "semangkuk nasi",
+      "note_id": "Bergantung pada wadah, bukan jenis makanan"
+    },
+    {
+      "mw": "杯",      "pinyin": "bēi",  "meaning_id": "segelas, secangkir",
+      "category": "makanan",
+      "use_for_id": "teh, air, jus, kopi, bir",
+      "example_noun": "茶",  "example_noun_pinyin": "chá",  "example_noun_id": "teh",
+      "example_phrase": "一杯茶", "example_phrase_pinyin": "yī bēi chá", "example_phrase_id": "secangkir teh",
+      "note_id": "Untuk minuman dalam gelas/cangkir"
+    },
+    {
+      "mw": "盘",      "pinyin": "pán",  "meaning_id": "sepiring, satu piring/cakram",
+      "category": "makanan",
+      "use_for_id": "hidangan di piring, cakram/disk, gulungan",
+      "example_noun": "菜",  "example_noun_pinyin": "cài",  "example_noun_id": "sayuran/hidangan",
+      "example_phrase": "一盘菜", "example_phrase_pinyin": "yī pán cài", "example_phrase_id": "sepiring sayuran",
+      "note_id": "Juga: 一盘棋 (satu permainan catur)"
+    },
+    {
+      "mw": "瓶",      "pinyin": "píng", "meaning_id": "sebotol",
+      "category": "makanan",
+      "use_for_id": "air, bir, saus, parfum — isi botol",
+      "example_noun": "水",  "example_noun_pinyin": "shuǐ", "example_noun_id": "air",
+      "example_phrase": "两瓶水", "example_phrase_pinyin": "liǎng píng shuǐ", "example_phrase_id": "dua botol air",
+      "note_id": "Mengacu pada isi botol, bukan botol itu sendiri"
+    },
+    {
+      "mw": "袋",      "pinyin": "dài",  "meaning_id": "sekantor, sekantung",
+      "category": "makanan",
+      "use_for_id": "beras, tepung, sampah — isi kantung/karung",
+      "example_noun": "米",  "example_noun_pinyin": "mǐ",   "example_noun_id": "beras",
+      "example_phrase": "一袋米", "example_phrase_pinyin": "yī dài mǐ", "example_phrase_id": "sekantung beras",
+      "note_id": "Untuk isi kantung/karung; juga 一袋零食 (sekantung camilan)"
+    },
+    {
+      "mw": "盒",      "pinyin": "hé",   "meaning_id": "sekotak, satu boks",
+      "category": "makanan",
+      "use_for_id": "coklat, tisu, hadiah, obat dalam kotak",
+      "example_noun": "巧克力","example_noun_pinyin": "qiǎokèlì","example_noun_id": "coklat",
+      "example_phrase": "一盒巧克力", "example_phrase_pinyin": "yī hé qiǎokèlì", "example_phrase_id": "sekotak coklat",
+      "note_id": "Untuk benda dalam kotak/kemasan"
+    },
+    {
+      "mw": "颗",      "pinyin": "kē",   "meaning_id": "benda bulat kecil",
+      "category": "makanan",
+      "use_for_id": "biji, permen, gigi, bintang, mutiara",
+      "example_noun": "糖",  "example_noun_pinyin": "táng",  "example_noun_id": "permen",
+      "example_phrase": "一颗糖", "example_phrase_pinyin": "yī kē táng", "example_phrase_id": "sebutir permen",
+      "note_id": "Untuk benda bulat/berbiji kecil yang bisa digenggam"
+    },
+    {
+      "mw": "粒",      "pinyin": "lì",   "meaning_id": "butiran sangat kecil",
+      "category": "makanan",
+      "use_for_id": "butiran beras, pasir, pil, benih, peluru",
+      "example_noun": "米",  "example_noun_pinyin": "mǐ",   "example_noun_id": "beras",
+      "example_phrase": "一粒米", "example_phrase_pinyin": "yī lì mǐ", "example_phrase_id": "sebutir beras",
+      "note_id": "Lebih kecil dari 颗; untuk benda sangat kecil berbentuk butiran"
+    },
+    {
+      "mw": "棵",      "pinyin": "kē",   "meaning_id": "pohon, tanaman bertangkai",
+      "category": "alam",
+      "use_for_id": "pohon, tanaman yang tumbuh di tanah",
+      "example_noun": "树",  "example_noun_pinyin": "shù",  "example_noun_id": "pohon",
+      "example_phrase": "一棵树", "example_phrase_pinyin": "yī kē shù", "example_phrase_id": "sebatang pohon",
+      "note_id": "Khusus untuk tanaman yang tumbuh secara vertikal"
+    },
+    {
+      "mw": "朵",      "pinyin": "duǒ",  "meaning_id": "bunga, awan",
+      "category": "alam",
+      "use_for_id": "bunga, awan, jamur",
+      "example_noun": "花",  "example_noun_pinyin": "huā",  "example_noun_id": "bunga",
+      "example_phrase": "一朵花", "example_phrase_pinyin": "yī duǒ huā", "example_phrase_id": "sekuntum bunga",
+      "note_id": "Juga: 一朵云 (sebuah awan)"
+    },
+    {
+      "mw": "根",      "pinyin": "gēn",  "meaning_id": "benda panjang kaku/tipis",
+      "category": "alam",
+      "use_for_id": "sumpit, tulang, jarum, rambut, tongkat, rokok",
+      "example_noun": "筷子", "example_noun_pinyin": "kuàizi", "example_noun_id": "sumpit",
+      "example_phrase": "两根筷子", "example_phrase_pinyin": "liǎng gēn kuàizi", "example_phrase_id": "dua buah sumpit",
+      "note_id": "Untuk benda panjang dan kaku/tipis"
+    },
+    {
+      "mw": "支",      "pinyin": "zhī",  "meaning_id": "benda panjang & ramping",
+      "category": "alam",
+      "use_for_id": "pena, pensil, senapan, lilin, lagu (informal)",
+      "example_noun": "笔",  "example_noun_pinyin": "bǐ",   "example_noun_id": "pena/pensil",
+      "example_phrase": "一支笔", "example_phrase_pinyin": "yī zhī bǐ", "example_phrase_id": "sebuah pena",
+      "note_id": "Mirip 根 tapi lebih untuk benda buatan manusia"
+    },
+    {
+      "mw": "段",      "pinyin": "duàn", "meaning_id": "bagian, penggalan",
+      "category": "abstrak",
+      "use_for_id": "segmen jalan, paragraf, periode waktu, hubungan",
+      "example_noun": "时间", "example_noun_pinyin": "shíjiān", "example_noun_id": "waktu",
+      "example_phrase": "一段时间", "example_phrase_pinyin": "yī duàn shíjiān", "example_phrase_id": "suatu periode waktu",
+      "note_id": "Juga: 一段路 (satu ruas jalan), 一段关系 (satu hubungan)"
+    },
+    {
+      "mw": "次",      "pinyin": "cì",   "meaning_id": "kali, kesempatan",
+      "category": "waktu",
+      "use_for_id": "seberapa sering sesuatu terjadi",
+      "example_noun": "机会", "example_noun_pinyin": "jīhuì", "example_noun_id": "kesempatan",
+      "example_phrase": "三次机会", "example_phrase_pinyin": "sān cì jīhuì", "example_phrase_id": "tiga kali kesempatan",
+      "note_id": "Paling umum untuk frekuensi (去了三次 = sudah pergi 3 kali)"
+    },
+    {
+      "mw": "遍",      "pinyin": "biàn", "meaning_id": "kali (dari awal hingga akhir)",
+      "category": "waktu",
+      "use_for_id": "membaca, menonton dari awal hingga selesai",
+      "example_noun": "课文", "example_noun_pinyin": "kèwén", "example_noun_id": "teks pelajaran",
+      "example_phrase": "读了三遍", "example_phrase_pinyin": "dú le sān biàn", "example_phrase_id": "membaca tiga kali (dari awal)",
+      "note_id": "Menekankan proses penuh dari awal ke akhir (不同于次)"
+    },
+    {
+      "mw": "趟",      "pinyin": "tàng", "meaning_id": "perjalanan (pulang-pergi)",
+      "category": "waktu",
+      "use_for_id": "perjalanan ke suatu tempat",
+      "example_noun": "超市", "example_noun_pinyin": "chāoshì", "example_noun_id": "supermarket",
+      "example_phrase": "去了一趟超市", "example_phrase_pinyin": "qù le yī tàng chāoshì", "example_phrase_id": "pergi ke supermarket (satu kali)",
+      "note_id": "Menekankan perjalanan fisik yang ditempuh"
+    },
+    {
+      "mw": "场",      "pinyin": "chǎng","meaning_id": "pertandingan, pertunjukan, hujan",
+      "category": "waktu",
+      "use_for_id": "pertandingan olahraga, konser, hujan lebat",
+      "example_noun": "比赛", "example_noun_pinyin": "bǐsài",  "example_noun_id": "pertandingan",
+      "example_phrase": "一场比赛", "example_phrase_pinyin": "yī chǎng bǐsài", "example_phrase_id": "sebuah pertandingan",
+      "note_id": "Juga: 一场雨 (satu hujan), 一场梦 (satu mimpi)"
+    },
+    {
+      "mw": "顿",      "pinyin": "dùn",  "meaning_id": "kali makan",
+      "category": "waktu",
+      "use_for_id": "sarapan, makan siang, makan malam (satu sesi makan)",
+      "example_noun": "饭",  "example_noun_pinyin": "fàn",  "example_noun_id": "makanan",
+      "example_phrase": "一顿饭", "example_phrase_pinyin": "yī dùn fàn", "example_phrase_id": "satu kali makan",
+      "note_id": "Khusus untuk sesi makan; juga 一顿骂 (satu kali dimarahi)"
+    },
+    {
+      "mw": "阵",      "pinyin": "zhèn", "meaning_id": "sebentar, semburan",
+      "category": "waktu",
+      "use_for_id": "hujan sebentar, angin, suara, rasa sakit sementara",
+      "example_noun": "风",  "example_noun_pinyin": "fēng",  "example_noun_id": "angin",
+      "example_phrase": "一阵风", "example_phrase_pinyin": "yī zhèn fēng", "example_phrase_id": "setiup angin",
+      "note_id": "Untuk sesuatu yang datang sebentar lalu pergi (satu semburan)"
+    },
+    {
+      "mw": "种",      "pinyin": "zhǒng","meaning_id": "jenis, macam",
+      "category": "abstrak",
+      "use_for_id": "jenis, macam, tipe dari sesuatu",
+      "example_noun": "语言", "example_noun_pinyin": "yǔyán", "example_noun_id": "bahasa",
+      "example_phrase": "三种语言", "example_phrase_pinyin": "sān zhǒng yǔyán", "example_phrase_id": "tiga jenis bahasa",
+      "note_id": "Serbaguna: 各种各样 (berbagai macam)"
+    },
+    {
+      "mw": "项",      "pinyin": "xiàng","meaning_id": "butir, poin, acara",
+      "category": "abstrak",
+      "use_for_id": "butir dalam daftar, cabang olahraga, proyek, keterampilan",
+      "example_noun": "运动", "example_noun_pinyin": "yùndòng", "example_noun_id": "olahraga",
+      "example_phrase": "一项运动", "example_phrase_pinyin": "yī xiàng yùndòng", "example_phrase_id": "satu cabang olahraga",
+      "note_id": "Juga: 一项工程 (satu proyek), 一项技能 (satu keterampilan)"
+    },
+    {
+      "mw": "句",      "pinyin": "jù",   "meaning_id": "kalimat, frasa",
+      "category": "abstrak",
+      "use_for_id": "kalimat, ucapan, lirik",
+      "example_noun": "话",  "example_noun_pinyin": "huà",  "example_noun_id": "ucapan",
+      "example_phrase": "说一句话", "example_phrase_pinyin": "shuō yī jù huà", "example_phrase_id": "mengucapkan satu kalimat",
+      "note_id": "Untuk kalimat atau ucapan"
+    },
+    {
+      "mw": "节",      "pinyin": "jié",  "meaning_id": "periode/sesi, ruas, sendi",
+      "category": "abstrak",
+      "use_for_id": "jam pelajaran, sesi, ruas bambu, sendi tulang",
+      "example_noun": "课",  "example_noun_pinyin": "kè",   "example_noun_id": "pelajaran",
+      "example_phrase": "两节课", "example_phrase_pinyin": "liǎng jié kè", "example_phrase_id": "dua jam pelajaran",
+      "note_id": "Juga: 一节竹子 (satu ruas bambu)"
+    },
+    {
+      "mw": "门",      "pinyin": "mén",  "meaning_id": "disiplin ilmu, senjata besar",
+      "category": "abstrak",
+      "use_for_id": "mata pelajaran, disiplin ilmu, meriam",
+      "example_noun": "课",  "example_noun_pinyin": "kè",   "example_noun_id": "mata pelajaran",
+      "example_phrase": "三门课", "example_phrase_pinyin": "sān mén kè", "example_phrase_id": "tiga mata pelajaran",
+      "note_id": "Juga: 一门大炮 (satu meriam), 一门技术 (satu keahlian teknis)"
+    },
+    {
+      "mw": "家",      "pinyin": "jiā",  "meaning_id": "usaha, toko, restoran",
+      "category": "abstrak",
+      "use_for_id": "restoran, toko, perusahaan, bank",
+      "example_noun": "餐厅", "example_noun_pinyin": "cāntīng", "example_noun_id": "restoran",
+      "example_phrase": "一家餐厅", "example_phrase_pinyin": "yī jiā cāntīng", "example_phrase_id": "sebuah restoran",
+      "note_id": "Untuk bisnis dan tempat usaha; juga 一家人 (satu keluarga)"
+    },
+    {
+      "mw": "滴",      "pinyin": "dī",   "meaning_id": "tetes",
+      "category": "alam",
+      "use_for_id": "tetes air, darah, air mata, obat tetes",
+      "example_noun": "水",  "example_noun_pinyin": "shuǐ", "example_noun_id": "air",
+      "example_phrase": "一滴水", "example_phrase_pinyin": "yī dī shuǐ", "example_phrase_id": "setetes air",
+      "note_id": "Untuk cairan dalam jumlah sangat kecil"
+    },
+    {
+      "mw": "行",      "pinyin": "háng", "meaning_id": "baris, deret",
+      "category": "abstrak",
+      "use_for_id": "baris teks, deret pohon, deret produk",
+      "example_noun": "字",  "example_noun_pinyin": "zì",   "example_noun_id": "karakter/huruf",
+      "example_phrase": "一行字", "example_phrase_pinyin": "yī háng zì", "example_phrase_id": "satu baris huruf",
+      "note_id": "Juga: 一行树 (satu deret pohon)"
+    },
+    {
+      "mw": "声",      "pinyin": "shēng","meaning_id": "suara (sekali)",
+      "category": "abstrak",
+      "use_for_id": "suara sekali: tembakan, bunyi, seruan",
+      "example_noun": "枪声", "example_noun_pinyin": "qiāngshēng","example_noun_id": "suara tembakan",
+      "example_phrase": "一声枪响", "example_phrase_pinyin": "yī shēng qiāngxiǎng", "example_phrase_id": "satu suara tembakan",
+      "note_id": "Untuk satu kejadian bunyi/suara"
+    }
+  ]
+}

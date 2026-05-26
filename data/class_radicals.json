@@ -1,0 +1,613 @@
+{
+  "id": "radicals",
+  "title": "Radikal 偏旁部首",
+  "subtitle": "Kunci Membaca & Memahami Karakter Han",
+  "han": "偏旁部首",
+  "level": "Pemula · Dasar",
+  "cefr": "Pre-A1–A1",
+  "duration_hours": 6,
+  "lesson_count": 18,
+  "price": "Rp 99.000",
+  "tag": "Pro",
+  "category": ["dasar", "mandarin"],
+  "thumb_char": "偏",
+  "description": "Pelajari 80+ radikal (偏旁部首) paling penting dalam bahasa Mandarin. Pahami cara radikal memberi petunjuk makna dan bunyi karakter — kunci membaca kamus dan menghafal ribuan karakter.",
+  "objectives": [
+    "Memahami fungsi radikal sebagai petunjuk makna karakter",
+    "Mengenali 80+ radikal dan varian bentuknya",
+    "Mengidentifikasi posisi radikal: kiri, kanan, atas, bawah, melingkar",
+    "Menggunakan radikal untuk menebak makna karakter yang belum dikenal",
+    "Menelusuri karakter dalam kamus menggunakan indeks radikal"
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "title": "Pengenalan Radikal",
+      "lessons": [
+        {"id": "L1.1", "title": "Apa itu radikal? Sejarah sistem 部首", "duration_min": 15, "type": "teori"},
+        {"id": "L1.2", "title": "214 Radikal Kangxi — gambaran umum", "duration_min": 20, "type": "teori"},
+        {"id": "L1.3", "title": "Posisi radikal: kiri, kanan, atas, bawah, melingkar", "duration_min": 20, "type": "teori"}
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Radikal Manusia & Tubuh",
+      "lessons": [
+        {"id": "L2.1", "title": "人亻女子 — orang & keluarga", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.2", "title": "口手足心目 — organ & indra", "duration_min": 25, "type": "latihan"},
+        {"id": "L2.3", "title": "Kuis Radikal Manusia", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Radikal Alam & Lingkungan",
+      "lessons": [
+        {"id": "L3.1", "title": "日月山水火 — matahari, bulan, alam", "duration_min": 25, "type": "latihan"},
+        {"id": "L3.2", "title": "木土金草石 — bahan & tumbuhan", "duration_min": 25, "type": "latihan"},
+        {"id": "L3.3", "title": "Kuis Radikal Alam", "duration_min": 15, "type": "kuis"}
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "Radikal Tindakan & Benda",
+      "lessons": [
+        {"id": "L4.1", "title": "言力刀走 — bicara, aksi, gerak", "duration_min": 25, "type": "latihan"},
+        {"id": "L4.2", "title": "衣食贝车 — kebutuhan & benda", "duration_min": 25, "type": "latihan"},
+        {"id": "L4.3", "title": "宀门囗 — tempat & bangunan", "duration_min": 20, "type": "latihan"},
+        {"id": "L4.4", "title": "Ujian akhir Radikal", "duration_min": 30, "type": "ujian"}
+      ]
+    }
+  ],
+  "radicals": [
+    {
+      "id": 1, "radical": "人", "variant": "亻", "pinyin": "rén", "strokes": 2,
+      "meaning_id": "orang", "category": "manusia", "position": "kiri",
+      "example_chars": [
+        {"char": "你", "pinyin": "nǐ",  "meaning_id": "kamu"},
+        {"char": "他", "pinyin": "tā",  "meaning_id": "dia (lk)"},
+        {"char": "们", "pinyin": "men", "meaning_id": "jamak"},
+        {"char": "做", "pinyin": "zuò", "meaning_id": "melakukan"},
+        {"char": "住", "pinyin": "zhù", "meaning_id": "tinggal"}
+      ]
+    },
+    {
+      "id": 2, "radical": "女", "variant": "", "pinyin": "nǚ", "strokes": 3,
+      "meaning_id": "perempuan", "category": "manusia", "position": "kiri",
+      "example_chars": [
+        {"char": "她", "pinyin": "tā",   "meaning_id": "dia (pr)"},
+        {"char": "姐", "pinyin": "jiě",  "meaning_id": "kakak perempuan"},
+        {"char": "妈", "pinyin": "mā",   "meaning_id": "ibu"},
+        {"char": "妹", "pinyin": "mèi",  "meaning_id": "adik perempuan"},
+        {"char": "好", "pinyin": "hǎo",  "meaning_id": "baik"}
+      ]
+    },
+    {
+      "id": 3, "radical": "子", "variant": "", "pinyin": "zǐ", "strokes": 3,
+      "meaning_id": "anak, benih", "category": "manusia", "position": "kiri/bawah",
+      "example_chars": [
+        {"char": "好", "pinyin": "hǎo",  "meaning_id": "baik"},
+        {"char": "学", "pinyin": "xué",  "meaning_id": "belajar"},
+        {"char": "孩", "pinyin": "hái",  "meaning_id": "anak"},
+        {"char": "字", "pinyin": "zì",   "meaning_id": "karakter"},
+        {"char": "孙", "pinyin": "sūn",  "meaning_id": "cucu"}
+      ]
+    },
+    {
+      "id": 4, "radical": "口", "variant": "", "pinyin": "kǒu", "strokes": 3,
+      "meaning_id": "mulut, ucapan", "category": "tubuh", "position": "kiri/atas",
+      "example_chars": [
+        {"char": "吃", "pinyin": "chī",  "meaning_id": "makan"},
+        {"char": "喝", "pinyin": "hē",   "meaning_id": "minum"},
+        {"char": "叫", "pinyin": "jiào", "meaning_id": "memanggil"},
+        {"char": "问", "pinyin": "wèn",  "meaning_id": "bertanya"},
+        {"char": "唱", "pinyin": "chàng","meaning_id": "bernyanyi"}
+      ]
+    },
+    {
+      "id": 5, "radical": "手", "variant": "扌", "pinyin": "shǒu", "strokes": 4,
+      "meaning_id": "tangan, aksi tangan", "category": "tubuh", "position": "kiri",
+      "example_chars": [
+        {"char": "打", "pinyin": "dǎ",   "meaning_id": "memukul"},
+        {"char": "找", "pinyin": "zhǎo", "meaning_id": "mencari"},
+        {"char": "拿", "pinyin": "ná",   "meaning_id": "mengambil"},
+        {"char": "把", "pinyin": "bǎ",   "meaning_id": "memegang"},
+        {"char": "推", "pinyin": "tuī",  "meaning_id": "mendorong"}
+      ]
+    },
+    {
+      "id": 6, "radical": "足", "variant": "⻊", "pinyin": "zú", "strokes": 7,
+      "meaning_id": "kaki, gerakan kaki", "category": "tubuh", "position": "kiri",
+      "example_chars": [
+        {"char": "跑", "pinyin": "pǎo",  "meaning_id": "berlari"},
+        {"char": "跳", "pinyin": "tiào", "meaning_id": "melompat"},
+        {"char": "路", "pinyin": "lù",   "meaning_id": "jalan"},
+        {"char": "跟", "pinyin": "gēn",  "meaning_id": "mengikuti"},
+        {"char": "踢", "pinyin": "tī",   "meaning_id": "menendang"}
+      ]
+    },
+    {
+      "id": 7, "radical": "心", "variant": "忄", "pinyin": "xīn", "strokes": 4,
+      "meaning_id": "hati, perasaan, pikiran", "category": "tubuh", "position": "kiri/bawah",
+      "example_chars": [
+        {"char": "快", "pinyin": "kuài", "meaning_id": "senang/cepat"},
+        {"char": "慢", "pinyin": "màn",  "meaning_id": "lambat"},
+        {"char": "想", "pinyin": "xiǎng","meaning_id": "berpikir/ingin"},
+        {"char": "忘", "pinyin": "wàng", "meaning_id": "lupa"},
+        {"char": "情", "pinyin": "qíng", "meaning_id": "perasaan"}
+      ]
+    },
+    {
+      "id": 8, "radical": "目", "variant": "", "pinyin": "mù", "strokes": 5,
+      "meaning_id": "mata, penglihatan", "category": "tubuh", "position": "kiri",
+      "example_chars": [
+        {"char": "看", "pinyin": "kàn",  "meaning_id": "melihat"},
+        {"char": "睡", "pinyin": "shuì", "meaning_id": "tidur"},
+        {"char": "眼", "pinyin": "yǎn",  "meaning_id": "mata"},
+        {"char": "眉", "pinyin": "méi",  "meaning_id": "alis"},
+        {"char": "盲", "pinyin": "máng", "meaning_id": "buta"}
+      ]
+    },
+    {
+      "id": 9, "radical": "耳", "variant": "", "pinyin": "ěr", "strokes": 6,
+      "meaning_id": "telinga, pendengaran", "category": "tubuh", "position": "kiri",
+      "example_chars": [
+        {"char": "听", "pinyin": "tīng", "meaning_id": "mendengar"},
+        {"char": "聪", "pinyin": "cōng", "meaning_id": "cerdas/tajam pendengaran"},
+        {"char": "聋", "pinyin": "lóng", "meaning_id": "tuli"},
+        {"char": "聊", "pinyin": "liáo", "meaning_id": "mengobrol"},
+        {"char": "聪", "pinyin": "cōng", "meaning_id": "cerdas"}
+      ]
+    },
+    {
+      "id": 10, "radical": "言", "variant": "讠", "pinyin": "yán", "strokes": 7,
+      "meaning_id": "kata, ucapan, bahasa", "category": "tindakan", "position": "kiri",
+      "example_chars": [
+        {"char": "说", "pinyin": "shuō", "meaning_id": "berkata"},
+        {"char": "话", "pinyin": "huà",  "meaning_id": "pembicaraan"},
+        {"char": "读", "pinyin": "dú",   "meaning_id": "membaca"},
+        {"char": "语", "pinyin": "yǔ",   "meaning_id": "bahasa"},
+        {"char": "请", "pinyin": "qǐng", "meaning_id": "silakan/mengundang"}
+      ]
+    },
+    {
+      "id": 11, "radical": "日", "variant": "", "pinyin": "rì", "strokes": 4,
+      "meaning_id": "matahari, hari, sinar", "category": "alam", "position": "kiri/atas",
+      "example_chars": [
+        {"char": "明", "pinyin": "míng", "meaning_id": "terang/besok"},
+        {"char": "时", "pinyin": "shí",  "meaning_id": "waktu"},
+        {"char": "早", "pinyin": "zǎo",  "meaning_id": "pagi/dini"},
+        {"char": "晚", "pinyin": "wǎn",  "meaning_id": "malam/terlambat"},
+        {"char": "晴", "pinyin": "qíng", "meaning_id": "cerah"}
+      ]
+    },
+    {
+      "id": 12, "radical": "月", "variant": "", "pinyin": "yuè", "strokes": 4,
+      "meaning_id": "bulan, daging/tubuh (月肉)", "category": "alam", "position": "kiri",
+      "example_chars": [
+        {"char": "有", "pinyin": "yǒu",  "meaning_id": "ada/punya"},
+        {"char": "明", "pinyin": "míng", "meaning_id": "terang"},
+        {"char": "服", "pinyin": "fú",   "meaning_id": "pakaian/melayani"},
+        {"char": "脸", "pinyin": "liǎn", "meaning_id": "wajah"},
+        {"char": "胖", "pinyin": "pàng", "meaning_id": "gemuk"}
+      ]
+    },
+    {
+      "id": 13, "radical": "山", "variant": "", "pinyin": "shān", "strokes": 3,
+      "meaning_id": "gunung, bukit", "category": "alam", "position": "atas/kiri",
+      "example_chars": [
+        {"char": "出", "pinyin": "chū",  "meaning_id": "keluar"},
+        {"char": "岛", "pinyin": "dǎo",  "meaning_id": "pulau"},
+        {"char": "岁", "pinyin": "suì",  "meaning_id": "tahun usia"},
+        {"char": "峰", "pinyin": "fēng", "meaning_id": "puncak gunung"},
+        {"char": "崖", "pinyin": "yá",   "meaning_id": "tebing"}
+      ]
+    },
+    {
+      "id": 14, "radical": "水", "variant": "氵", "pinyin": "shuǐ", "strokes": 4,
+      "meaning_id": "air, cairan", "category": "alam", "position": "kiri",
+      "example_chars": [
+        {"char": "海", "pinyin": "hǎi",  "meaning_id": "laut"},
+        {"char": "河", "pinyin": "hé",   "meaning_id": "sungai"},
+        {"char": "洗", "pinyin": "xǐ",   "meaning_id": "mencuci"},
+        {"char": "没", "pinyin": "méi",  "meaning_id": "tidak ada"},
+        {"char": "游", "pinyin": "yóu",  "meaning_id": "berenang/berwisata"}
+      ]
+    },
+    {
+      "id": 15, "radical": "火", "variant": "灬", "pinyin": "huǒ", "strokes": 4,
+      "meaning_id": "api, panas, energi", "category": "alam", "position": "kiri/bawah",
+      "example_chars": [
+        {"char": "热", "pinyin": "rè",   "meaning_id": "panas"},
+        {"char": "煮", "pinyin": "zhǔ",  "meaning_id": "memasak"},
+        {"char": "烧", "pinyin": "shāo", "meaning_id": "membakar"},
+        {"char": "点", "pinyin": "diǎn", "meaning_id": "titik/menyalakan"},
+        {"char": "炒", "pinyin": "chǎo", "meaning_id": "menumis"}
+      ]
+    },
+    {
+      "id": 16, "radical": "土", "variant": "", "pinyin": "tǔ", "strokes": 3,
+      "meaning_id": "tanah, bumi, lokal", "category": "alam", "position": "kiri",
+      "example_chars": [
+        {"char": "地", "pinyin": "dì",   "meaning_id": "tanah/tempat"},
+        {"char": "在", "pinyin": "zài",  "meaning_id": "berada di"},
+        {"char": "场", "pinyin": "chǎng","meaning_id": "lapangan/tempat"},
+        {"char": "坐", "pinyin": "zuò",  "meaning_id": "duduk"},
+        {"char": "城", "pinyin": "chéng","meaning_id": "kota"}
+      ]
+    },
+    {
+      "id": 17, "radical": "木", "variant": "", "pinyin": "mù", "strokes": 4,
+      "meaning_id": "kayu, pohon, bahan kayu", "category": "alam", "position": "kiri",
+      "example_chars": [
+        {"char": "树", "pinyin": "shù",  "meaning_id": "pohon"},
+        {"char": "桌", "pinyin": "zhuō", "meaning_id": "meja"},
+        {"char": "椅", "pinyin": "yǐ",   "meaning_id": "kursi"},
+        {"char": "校", "pinyin": "xiào", "meaning_id": "sekolah"},
+        {"char": "林", "pinyin": "lín",  "meaning_id": "hutan kecil"}
+      ]
+    },
+    {
+      "id": 18, "radical": "草", "variant": "艹", "pinyin": "cǎo", "strokes": 3,
+      "meaning_id": "rumput, tanaman", "category": "alam", "position": "atas",
+      "example_chars": [
+        {"char": "花", "pinyin": "huā",  "meaning_id": "bunga"},
+        {"char": "草", "pinyin": "cǎo",  "meaning_id": "rumput"},
+        {"char": "茶", "pinyin": "chá",  "meaning_id": "teh"},
+        {"char": "苹", "pinyin": "píng", "meaning_id": "apel (苹果)"},
+        {"char": "药", "pinyin": "yào",  "meaning_id": "obat"}
+      ]
+    },
+    {
+      "id": 19, "radical": "石", "variant": "", "pinyin": "shí", "strokes": 5,
+      "meaning_id": "batu, mineral", "category": "alam", "position": "kiri",
+      "example_chars": [
+        {"char": "研", "pinyin": "yán",  "meaning_id": "meneliti"},
+        {"char": "碗", "pinyin": "wǎn",  "meaning_id": "mangkuk"},
+        {"char": "破", "pinyin": "pò",   "meaning_id": "pecah"},
+        {"char": "硬", "pinyin": "yìng", "meaning_id": "keras"},
+        {"char": "碰", "pinyin": "pèng", "meaning_id": "menabrak/bertemu"}
+      ]
+    },
+    {
+      "id": 20, "radical": "金", "variant": "钅", "pinyin": "jīn", "strokes": 8,
+      "meaning_id": "logam, emas, benda logam", "category": "alam", "position": "kiri",
+      "example_chars": [
+        {"char": "钱", "pinyin": "qián", "meaning_id": "uang"},
+        {"char": "银", "pinyin": "yín",  "meaning_id": "perak"},
+        {"char": "铁", "pinyin": "tiě",  "meaning_id": "besi"},
+        {"char": "铜", "pinyin": "tóng", "meaning_id": "tembaga"},
+        {"char": "锁", "pinyin": "suǒ",  "meaning_id": "kunci/mengunci"}
+      ]
+    },
+    {
+      "id": 21, "radical": "虫", "variant": "", "pinyin": "chóng", "strokes": 6,
+      "meaning_id": "serangga, hewan kecil", "category": "hewan", "position": "kiri",
+      "example_chars": [
+        {"char": "蛇", "pinyin": "shé",  "meaning_id": "ular"},
+        {"char": "虾", "pinyin": "xiā",  "meaning_id": "udang"},
+        {"char": "蚊", "pinyin": "wén",  "meaning_id": "nyamuk"},
+        {"char": "蜘", "pinyin": "zhī",  "meaning_id": "laba-laba"},
+        {"char": "螃", "pinyin": "páng", "meaning_id": "kepiting"}
+      ]
+    },
+    {
+      "id": 22, "radical": "鱼", "variant": "", "pinyin": "yú", "strokes": 8,
+      "meaning_id": "ikan", "category": "hewan", "position": "kiri",
+      "example_chars": [
+        {"char": "鲜", "pinyin": "xiān", "meaning_id": "segar"},
+        {"char": "鲤", "pinyin": "lǐ",   "meaning_id": "ikan mas"},
+        {"char": "鲸", "pinyin": "jīng", "meaning_id": "paus"},
+        {"char": "鳄", "pinyin": "è",    "meaning_id": "buaya"},
+        {"char": "鲨", "pinyin": "shā",  "meaning_id": "hiu"}
+      ]
+    },
+    {
+      "id": 23, "radical": "鸟", "variant": "", "pinyin": "niǎo", "strokes": 5,
+      "meaning_id": "burung", "category": "hewan", "position": "kiri/kanan",
+      "example_chars": [
+        {"char": "鸡", "pinyin": "jī",   "meaning_id": "ayam"},
+        {"char": "鸭", "pinyin": "yā",   "meaning_id": "bebek"},
+        {"char": "鹅", "pinyin": "é",    "meaning_id": "angsa"},
+        {"char": "鹦", "pinyin": "yīng", "meaning_id": "burung beo"},
+        {"char": "鹰", "pinyin": "yīng", "meaning_id": "elang"}
+      ]
+    },
+    {
+      "id": 24, "radical": "马", "variant": "", "pinyin": "mǎ", "strokes": 3,
+      "meaning_id": "kuda", "category": "hewan", "position": "kiri",
+      "example_chars": [
+        {"char": "骑", "pinyin": "qí",   "meaning_id": "menunggang"},
+        {"char": "驾", "pinyin": "jià",  "meaning_id": "mengemudikan"},
+        {"char": "骗", "pinyin": "piàn", "meaning_id": "menipu"},
+        {"char": "驴", "pinyin": "lǘ",   "meaning_id": "keledai"},
+        {"char": "骆", "pinyin": "luò",  "meaning_id": "unta"}
+      ]
+    },
+    {
+      "id": 25, "radical": "宀", "variant": "", "pinyin": "mián", "strokes": 3,
+      "meaning_id": "atap, rumah, tempat bernaung", "category": "tempat", "position": "atas",
+      "example_chars": [
+        {"char": "家", "pinyin": "jiā",  "meaning_id": "rumah/keluarga"},
+        {"char": "字", "pinyin": "zì",   "meaning_id": "karakter/huruf"},
+        {"char": "安", "pinyin": "ān",   "meaning_id": "aman/tenang"},
+        {"char": "宝", "pinyin": "bǎo",  "meaning_id": "harta/berharga"},
+        {"char": "睡", "pinyin": "shuì", "meaning_id": "tidur"}
+      ]
+    },
+    {
+      "id": 26, "radical": "门", "variant": "", "pinyin": "mén", "strokes": 3,
+      "meaning_id": "pintu, gerbang", "category": "tempat", "position": "melingkup",
+      "example_chars": [
+        {"char": "间", "pinyin": "jiān", "meaning_id": "kamar/ruang"},
+        {"char": "问", "pinyin": "wèn",  "meaning_id": "bertanya"},
+        {"char": "闻", "pinyin": "wén",  "meaning_id": "mencium bau"},
+        {"char": "闹", "pinyin": "nào",  "meaning_id": "ribut/ramai"},
+        {"char": "阔", "pinyin": "kuò",  "meaning_id": "luas/kaya"}
+      ]
+    },
+    {
+      "id": 27, "radical": "囗", "variant": "", "pinyin": "wéi", "strokes": 3,
+      "meaning_id": "pagar, batas, melingkup", "category": "tempat", "position": "melingkup",
+      "example_chars": [
+        {"char": "国", "pinyin": "guó",  "meaning_id": "negara"},
+        {"char": "回", "pinyin": "huí",  "meaning_id": "kembali"},
+        {"char": "因", "pinyin": "yīn",  "meaning_id": "karena"},
+        {"char": "图", "pinyin": "tú",   "meaning_id": "gambar/peta"},
+        {"char": "园", "pinyin": "yuán", "meaning_id": "kebun/taman"}
+      ]
+    },
+    {
+      "id": 28, "radical": "力", "variant": "", "pinyin": "lì", "strokes": 2,
+      "meaning_id": "kekuatan, usaha", "category": "tindakan", "position": "kanan",
+      "example_chars": [
+        {"char": "加", "pinyin": "jiā",  "meaning_id": "menambah"},
+        {"char": "努", "pinyin": "nǔ",   "meaning_id": "berusaha"},
+        {"char": "动", "pinyin": "dòng", "meaning_id": "bergerak"},
+        {"char": "功", "pinyin": "gōng", "meaning_id": "prestasi/jasa"},
+        {"char": "劳", "pinyin": "láo",  "meaning_id": "kerja keras"}
+      ]
+    },
+    {
+      "id": 29, "radical": "刀", "variant": "刂", "pinyin": "dāo", "strokes": 2,
+      "meaning_id": "pisau, memotong", "category": "tindakan", "position": "kanan",
+      "example_chars": [
+        {"char": "切", "pinyin": "qiē",  "meaning_id": "memotong"},
+        {"char": "别", "pinyin": "bié",  "meaning_id": "jangan/berpisah"},
+        {"char": "刻", "pinyin": "kè",   "meaning_id": "mengukir"},
+        {"char": "割", "pinyin": "gē",   "meaning_id": "menyayat"},
+        {"char": "删", "pinyin": "shān", "meaning_id": "menghapus"}
+      ]
+    },
+    {
+      "id": 30, "radical": "竹", "variant": "⺮", "pinyin": "zhú", "strokes": 6,
+      "meaning_id": "bambu, benda dari bambu", "category": "alam", "position": "atas",
+      "example_chars": [
+        {"char": "笔", "pinyin": "bǐ",   "meaning_id": "pena/pensil"},
+        {"char": "篮", "pinyin": "lán",  "meaning_id": "keranjang"},
+        {"char": "筷", "pinyin": "kuài", "meaning_id": "sumpit"},
+        {"char": "笑", "pinyin": "xiào", "meaning_id": "tertawa"},
+        {"char": "算", "pinyin": "suàn", "meaning_id": "menghitung"}
+      ]
+    },
+    {
+      "id": 31, "radical": "纟", "variant": "糸", "pinyin": "sī", "strokes": 3,
+      "meaning_id": "benang, sutra, kain", "category": "benda", "position": "kiri",
+      "example_chars": [
+        {"char": "红", "pinyin": "hóng", "meaning_id": "merah"},
+        {"char": "绿", "pinyin": "lǜ",   "meaning_id": "hijau"},
+        {"char": "给", "pinyin": "gěi",  "meaning_id": "memberi"},
+        {"char": "纸", "pinyin": "zhǐ",  "meaning_id": "kertas"},
+        {"char": "线", "pinyin": "xiàn", "meaning_id": "benang/garis"}
+      ]
+    },
+    {
+      "id": 32, "radical": "衤", "variant": "衣", "pinyin": "yī", "strokes": 6,
+      "meaning_id": "pakaian, kain", "category": "benda", "position": "kiri",
+      "example_chars": [
+        {"char": "被", "pinyin": "bèi",  "meaning_id": "selimut/kena"},
+        {"char": "裤", "pinyin": "kù",   "meaning_id": "celana"},
+        {"char": "裙", "pinyin": "qún",  "meaning_id": "rok"},
+        {"char": "补", "pinyin": "bǔ",   "meaning_id": "menambal/melengkapi"},
+        {"char": "袖", "pinyin": "xiù",  "meaning_id": "lengan baju"}
+      ]
+    },
+    {
+      "id": 33, "radical": "饣", "variant": "食", "pinyin": "shí", "strokes": 3,
+      "meaning_id": "makan, makanan", "category": "benda", "position": "kiri",
+      "example_chars": [
+        {"char": "饭", "pinyin": "fàn",  "meaning_id": "nasi/makan"},
+        {"char": "饿", "pinyin": "è",    "meaning_id": "lapar"},
+        {"char": "饮", "pinyin": "yǐn",  "meaning_id": "minum"},
+        {"char": "饱", "pinyin": "bǎo",  "meaning_id": "kenyang"},
+        {"char": "馆", "pinyin": "guǎn", "meaning_id": "restoran/museum"}
+      ]
+    },
+    {
+      "id": 34, "radical": "疒", "variant": "", "pinyin": "nè", "strokes": 5,
+      "meaning_id": "penyakit, kondisi fisik buruk", "category": "tubuh", "position": "atas-kiri",
+      "example_chars": [
+        {"char": "病", "pinyin": "bìng", "meaning_id": "sakit"},
+        {"char": "痛", "pinyin": "tòng", "meaning_id": "sakit/nyeri"},
+        {"char": "疼", "pinyin": "téng", "meaning_id": "sakit/nyeri"},
+        {"char": "癌", "pinyin": "ái",   "meaning_id": "kanker"},
+        {"char": "疯", "pinyin": "fēng", "meaning_id": "gila"}
+      ]
+    },
+    {
+      "id": 35, "radical": "礻", "variant": "示", "pinyin": "shì", "strokes": 4,
+      "meaning_id": "dewa, roh, ritual, keberuntungan", "category": "abstrak", "position": "kiri",
+      "example_chars": [
+        {"char": "社", "pinyin": "shè",  "meaning_id": "masyarakat/organisasi"},
+        {"char": "福", "pinyin": "fú",   "meaning_id": "keberuntungan"},
+        {"char": "祝", "pinyin": "zhù",  "meaning_id": "mengucapkan selamat"},
+        {"char": "神", "pinyin": "shén", "meaning_id": "dewa/roh"},
+        {"char": "祖", "pinyin": "zǔ",   "meaning_id": "leluhur"}
+      ]
+    },
+    {
+      "id": 36, "radical": "广", "variant": "", "pinyin": "guǎng", "strokes": 3,
+      "meaning_id": "tempat berlindung, bangunan", "category": "tempat", "position": "atas-kiri",
+      "example_chars": [
+        {"char": "店", "pinyin": "diàn", "meaning_id": "toko"},
+        {"char": "床", "pinyin": "chuáng","meaning_id": "tempat tidur"},
+        {"char": "度", "pinyin": "dù",   "meaning_id": "derajat/kali"},
+        {"char": "应", "pinyin": "yīng", "meaning_id": "harus/merespons"},
+        {"char": "厅", "pinyin": "tīng", "meaning_id": "aula/ruang tamu"}
+      ]
+    },
+    {
+      "id": 37, "radical": "巾", "variant": "", "pinyin": "jīn", "strokes": 3,
+      "meaning_id": "kain, saputangan", "category": "benda", "position": "kiri/bawah",
+      "example_chars": [
+        {"char": "帮", "pinyin": "bāng", "meaning_id": "membantu"},
+        {"char": "市", "pinyin": "shì",  "meaning_id": "kota/pasar"},
+        {"char": "布", "pinyin": "bù",   "meaning_id": "kain"},
+        {"char": "帽", "pinyin": "mào",  "meaning_id": "topi"},
+        {"char": "带", "pinyin": "dài",  "meaning_id": "membawa/sabuk"}
+      ]
+    },
+    {
+      "id": 38, "radical": "贝", "variant": "", "pinyin": "bèi", "strokes": 4,
+      "meaning_id": "kerang, uang, kekayaan", "category": "benda", "position": "kiri/bawah",
+      "example_chars": [
+        {"char": "买", "pinyin": "mǎi",  "meaning_id": "membeli"},
+        {"char": "卖", "pinyin": "mài",  "meaning_id": "menjual"},
+        {"char": "财", "pinyin": "cái",  "meaning_id": "kekayaan/harta"},
+        {"char": "贵", "pinyin": "guì",  "meaning_id": "mahal/terhormat"},
+        {"char": "贫", "pinyin": "pín",  "meaning_id": "miskin"}
+      ]
+    },
+    {
+      "id": 39, "radical": "车", "variant": "", "pinyin": "chē", "strokes": 4,
+      "meaning_id": "kendaraan, roda", "category": "benda", "position": "kiri",
+      "example_chars": [
+        {"char": "辆", "pinyin": "liàng","meaning_id": "kata satuan kendaraan"},
+        {"char": "较", "pinyin": "jiào", "meaning_id": "relatif/membanding"},
+        {"char": "轻", "pinyin": "qīng", "meaning_id": "ringan"},
+        {"char": "转", "pinyin": "zhuǎn","meaning_id": "berputar/beralih"},
+        {"char": "连", "pinyin": "lián", "meaning_id": "menghubungkan"}
+      ]
+    },
+    {
+      "id": 40, "radical": "米", "variant": "", "pinyin": "mǐ", "strokes": 6,
+      "meaning_id": "beras, biji-bijian", "category": "alam", "position": "kiri",
+      "example_chars": [
+        {"char": "粥", "pinyin": "zhōu", "meaning_id": "bubur"},
+        {"char": "糖", "pinyin": "táng", "meaning_id": "gula/permen"},
+        {"char": "粮", "pinyin": "liáng","meaning_id": "bahan pangan"},
+        {"char": "粉", "pinyin": "fěn",  "meaning_id": "tepung/bedak"},
+        {"char": "精", "pinyin": "jīng", "meaning_id": "murni/roh"}
+      ]
+    },
+    {
+      "id": 41, "radical": "雨", "variant": "", "pinyin": "yǔ", "strokes": 8,
+      "meaning_id": "hujan, cuaca", "category": "alam", "position": "atas",
+      "example_chars": [
+        {"char": "雪", "pinyin": "xuě",  "meaning_id": "salju"},
+        {"char": "雷", "pinyin": "léi",  "meaning_id": "petir"},
+        {"char": "云", "pinyin": "yún",  "meaning_id": "awan"},
+        {"char": "霜", "pinyin": "shuāng","meaning_id": "embun beku"},
+        {"char": "露", "pinyin": "lù",   "meaning_id": "embun"}
+      ]
+    },
+    {
+      "id": 42, "radical": "阝", "variant": "阜(左)", "pinyin": "fù", "strokes": 3,
+      "meaning_id": "bukit, kiri=tanah tinggi/kota (左耳旁)", "category": "tempat", "position": "kiri",
+      "example_chars": [
+        {"char": "阳", "pinyin": "yáng", "meaning_id": "matahari/positif"},
+        {"char": "院", "pinyin": "yuàn", "meaning_id": "halaman/kantor"},
+        {"char": "陪", "pinyin": "péi",  "meaning_id": "menemani"},
+        {"char": "队", "pinyin": "duì",  "meaning_id": "regu/antrian"},
+        {"char": "降", "pinyin": "jiàng","meaning_id": "turun"}
+      ]
+    },
+    {
+      "id": 43, "radical": "阝", "variant": "邑(右)", "pinyin": "yì", "strokes": 3,
+      "meaning_id": "kota, wilayah (kanan=右耳旁)", "category": "tempat", "position": "kanan",
+      "example_chars": [
+        {"char": "都", "pinyin": "dōu",  "meaning_id": "semua/ibu kota"},
+        {"char": "郎", "pinyin": "láng", "meaning_id": "pemuda/pejabat"},
+        {"char": "那", "pinyin": "nà",   "meaning_id": "itu"},
+        {"char": "部", "pinyin": "bù",   "meaning_id": "bagian/departemen"},
+        {"char": "邻", "pinyin": "lín",  "meaning_id": "tetangga"}
+      ]
+    },
+    {
+      "id": 44, "radical": "攴", "variant": "攵", "pinyin": "pū", "strokes": 4,
+      "meaning_id": "memukul, tindakan fisik", "category": "tindakan", "position": "kanan",
+      "example_chars": [
+        {"char": "教", "pinyin": "jiāo", "meaning_id": "mengajar"},
+        {"char": "收", "pinyin": "shōu", "meaning_id": "menerima/mengumpulkan"},
+        {"char": "放", "pinyin": "fàng", "meaning_id": "melepas/meletakkan"},
+        {"char": "救", "pinyin": "jiù",  "meaning_id": "menyelamatkan"},
+        {"char": "改", "pinyin": "gǎi",  "meaning_id": "mengubah"}
+      ]
+    },
+    {
+      "id": 45, "radical": "彳", "variant": "", "pinyin": "chì", "strokes": 3,
+      "meaning_id": "langkah, perjalanan, jalan", "category": "tindakan", "position": "kiri",
+      "example_chars": [
+        {"char": "往", "pinyin": "wǎng", "meaning_id": "menuju"},
+        {"char": "很", "pinyin": "hěn",  "meaning_id": "sangat"},
+        {"char": "后", "pinyin": "hòu",  "meaning_id": "setelah/belakang"},
+        {"char": "得", "pinyin": "dé",   "meaning_id": "mendapat/bisa"},
+        {"char": "街", "pinyin": "jiē",  "meaning_id": "jalan"}
+      ]
+    },
+    {
+      "id": 46, "radical": "走", "variant": "", "pinyin": "zǒu", "strokes": 7,
+      "meaning_id": "berjalan, bergerak", "category": "tindakan", "position": "kiri/bawah",
+      "example_chars": [
+        {"char": "起", "pinyin": "qǐ",   "meaning_id": "bangkit/mulai"},
+        {"char": "超", "pinyin": "chāo", "meaning_id": "melampaui"},
+        {"char": "赶", "pinyin": "gǎn",  "meaning_id": "mengejar"},
+        {"char": "越", "pinyin": "yuè",  "meaning_id": "melampaui"},
+        {"char": "趣", "pinyin": "qù",   "meaning_id": "minat/menarik"}
+      ]
+    },
+    {
+      "id": 47, "radical": "户", "variant": "", "pinyin": "hù", "strokes": 4,
+      "meaning_id": "rumah tangga, pintu setengah", "category": "tempat", "position": "atas-kiri",
+      "example_chars": [
+        {"char": "房", "pinyin": "fáng", "meaning_id": "kamar/rumah"},
+        {"char": "扇", "pinyin": "shàn", "meaning_id": "kipas/daun pintu"},
+        {"char": "所", "pinyin": "suǒ",  "meaning_id": "tempat/institusi"},
+        {"char": "启", "pinyin": "qǐ",   "meaning_id": "membuka/memulai"},
+        {"char": "居", "pinyin": "jū",   "meaning_id": "tinggal/menempati"}
+      ]
+    },
+    {
+      "id": 48, "radical": "白", "variant": "", "pinyin": "bái", "strokes": 5,
+      "meaning_id": "putih, terang, jelas", "category": "abstrak", "position": "atas/kiri",
+      "example_chars": [
+        {"char": "百", "pinyin": "bǎi",  "meaning_id": "seratus"},
+        {"char": "的", "pinyin": "de",   "meaning_id": "partikel kepemilikan"},
+        {"char": "皇", "pinyin": "huáng","meaning_id": "kaisar"},
+        {"char": "泡", "pinyin": "pào",  "meaning_id": "gelembung/merendam"},
+        {"char": "伯", "pinyin": "bó",   "meaning_id": "paman/kakek"}
+      ]
+    },
+    {
+      "id": 49, "radical": "立", "variant": "", "pinyin": "lì", "strokes": 5,
+      "meaning_id": "berdiri, mendirikan", "category": "tindakan", "position": "kiri/atas",
+      "example_chars": [
+        {"char": "站", "pinyin": "zhàn", "meaning_id": "berdiri/stasiun"},
+        {"char": "端", "pinyin": "duān", "meaning_id": "ujung/menopang"},
+        {"char": "童", "pinyin": "tóng", "meaning_id": "anak/kanak-kanak"},
+        {"char": "亲", "pinyin": "qīn",  "meaning_id": "kerabat/mencium"},
+        {"char": "竟", "pinyin": "jìng", "meaning_id": "ternyata/selesai"}
+      ]
+    },
+    {
+      "id": 50, "radical": "又", "variant": "", "pinyin": "yòu", "strokes": 2,
+      "meaning_id": "lagi, tangan kanan (kuno)", "category": "tindakan", "position": "kanan",
+      "example_chars": [
+        {"char": "对", "pinyin": "duì",  "meaning_id": "benar/menghadap"},
+        {"char": "友", "pinyin": "yǒu",  "meaning_id": "teman"},
+        {"char": "叔", "pinyin": "shū",  "meaning_id": "paman"},
+        {"char": "取", "pinyin": "qǔ",   "meaning_id": "mengambil"},
+        {"char": "双", "pinyin": "shuāng","meaning_id": "ganda/pasang"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Kelas — JMandarinStudio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --ivory:#faf6ef; --ivory-2:#f3ece0; --paper:#fffdf8;
+      --ink:#1a1714; --ink-2:#2c2722; --ink-3:#5a4f44; --ink-4:#8a7d6f;
+      --rule:#e6dccb; --rule-2:#d8ccb6;
+      --cinnabar:#b8312b; --cinnabar-deep:#8c1f1c; --gold:#b5894a; --jade:#2f6b54;
+      --font-sans:"Plus Jakarta Sans",ui-sans-serif,system-ui,sans-serif;
+      --font-serif:"Source Serif 4",Georgia,serif;
+      --font-han:"Noto Serif SC","Songti SC",serif;
+      --font-mono:"JetBrains Mono",ui-monospace,monospace;
+      --radius:14px; --radius-sm:8px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--ivory);color:var(--ink);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit;cursor:pointer}
+
+    /* ── Top bar ── */
+    .kelas-topbar{background:var(--ink);color:#e8ddc8;font-size:12.5px;height:38px;display:flex;align-items:center;padding:0 32px;justify-content:space-between}
+    .kelas-topbar a{color:#e8ddc8;opacity:.8}
+    .kelas-topbar a:hover{opacity:1}
+    .topbar-brand{font-family:var(--font-serif);font-weight:600;font-size:15px;color:#faf6ef}
+
+    /* ── Page header (sticky) ── */
+    .kelas-header{position:sticky;top:0;z-index:100;background:var(--ivory);border-bottom:1px solid var(--rule);padding:0 32px;height:56px;display:flex;align-items:center;gap:16px}
+    .back-btn{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-3);background:none;border:1px solid var(--rule);border-radius:8px;padding:6px 12px;transition:.15s}
+    .back-btn:hover{background:var(--ivory-2);color:var(--ink)}
+    .back-btn svg{flex-shrink:0}
+    .kelas-header-title{font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--ink);margin:0}
+    .kelas-header-han{font-family:var(--font-han);font-size:14px;color:var(--ink-3);margin-left:8px}
+    .header-spacer{flex:1}
+    .tag-chip{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.04em}
+    .tag-chip.gratis{background:#e8f5e9;color:#1b5e20}
+    .tag-chip.pro{background:#1a1714;color:#faf6ef}
+
+    /* ── Hero ── */
+    .kelas-hero{background:var(--paper);border-bottom:1px solid var(--rule);padding:40px 32px 32px}
+    .kelas-hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
+    .hero-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cinnabar);margin:0 0 10px}
+    .hero-title{font-family:var(--font-serif);font-size:clamp(26px,4vw,38px);font-weight:600;line-height:1.2;margin:0 0 8px;color:var(--ink)}
+    .hero-han{font-family:var(--font-han);font-weight:500;color:var(--ink-3);font-size:.75em;margin-left:10px}
+    .hero-subtitle{font-size:15px;color:var(--ink-3);margin:0 0 20px}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--ink-3)}
+    .hero-meta span{display:flex;align-items:center;gap:5px}
+    .hero-thumb{width:120px;height:120px;background:var(--ivory-2);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-family:var(--font-han);font-size:64px;color:rgba(184,49,43,.15);flex-shrink:0;border:1px solid var(--rule)}
+    @media(max-width:700px){
+      .kelas-hero-inner{grid-template-columns:1fr}
+      .hero-thumb{display:none}
+      .kelas-topbar,.kelas-header{padding:0 16px}
+      .kelas-hero{padding:24px 16px 20px}
+      .kelas-content{padding:0 16px 40px}
+      .content-grid{grid-template-columns:1fr!important}
+      .sidebar{display:none}
+    }
+
+    /* ── Objectives ── */
+    .objectives-bar{background:var(--ivory-2);border-bottom:1px solid var(--rule);padding:20px 32px}
+    .objectives-inner{max-width:1100px;margin:0 auto}
+    .objectives-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin:0 0 12px}
+    .objectives-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 24px}
+    .objectives-list li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--ink-2);line-height:1.5}
+    .objectives-list li::before{content:"✓";color:var(--jade);font-weight:700;flex-shrink:0;margin-top:1px}
+
+    /* ── Content area ── */
+    .kelas-content{max-width:1100px;margin:0 auto;padding:28px 32px 60px}
+    .content-grid{display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start}
+
+    /* ── Sidebar syllabus ── */
+    .sidebar{position:sticky;top:72px}
+    .sidebar-section{margin-bottom:8px;border:1px solid var(--rule);border-radius:var(--radius-sm);overflow:hidden}
+    .sidebar-module{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--paper);font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;gap:8px;border:none;width:100%;text-align:left}
+    .sidebar-module:hover{background:var(--ivory-2)}
+    .sidebar-module.open .chevron{transform:rotate(180deg)}
+    .chevron{transition:transform .2s;flex-shrink:0}
+    .sidebar-lessons{display:none}
+    .sidebar-lessons.open{display:block}
+    .sidebar-lesson{display:flex;align-items:center;gap:8px;padding:7px 14px 7px 22px;font-size:12.5px;color:var(--ink-3);cursor:pointer;border-top:1px solid var(--rule);transition:.12s;background:none;border-right:none;border-bottom:none;border-left:none;width:100%;text-align:left}
+    .sidebar-lesson:hover{background:var(--ivory);color:var(--ink)}
+    .lesson-type-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .dot-teori{background:#b5894a}
+    .dot-latihan{background:#2f6b54}
+    .dot-kuis{background:#b8312b}
+    .dot-ujian{background:#1a1714}
+
+    /* ── Tab bar ── */
+    .tab-bar{display:flex;gap:0;border-bottom:2px solid var(--rule);margin-bottom:24px}
+    .tab-btn{padding:10px 20px;font-size:13.5px;font-weight:500;color:var(--ink-3);background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:.15s}
+    .tab-btn.active{color:var(--cinnabar);border-bottom-color:var(--cinnabar);font-weight:600}
+    .tab-btn:hover:not(.active){color:var(--ink)}
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
+
+    /* ── Reference section headings ── */
+    .ref-section{margin-bottom:36px}
+    .ref-heading{font-family:var(--font-serif);font-size:19px;font-weight:600;color:var(--ink);margin:0 0 4px;display:flex;align-items:center;gap:10px}
+    .ref-heading .han{font-family:var(--font-han);font-size:15px;color:var(--ink-3);font-weight:400}
+    .ref-sub{font-size:13px;color:var(--ink-3);margin:0 0 16px}
+    .ref-note{font-size:12.5px;color:var(--ink-4);background:var(--ivory-2);border:1px solid var(--rule);border-radius:8px;padding:8px 14px;margin-bottom:14px;line-height:1.6}
+
+    /* ── Generic data table ── */
+    .data-tbl-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:var(--radius-sm);margin-bottom:8px}
+    .data-tbl{width:100%;border-collapse:collapse;font-size:13px}
+    .data-tbl thead th{background:var(--ivory-2);padding:9px 14px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-4);text-align:left;border-bottom:1px solid var(--rule);white-space:nowrap}
+    .data-tbl tbody tr{border-bottom:1px solid var(--rule)}
+    .data-tbl tbody tr:last-child{border-bottom:none}
+    .data-tbl tbody tr:hover{background:var(--ivory)}
+    .data-tbl td{padding:9px 14px;vertical-align:middle}
+    .td-han{font-family:var(--font-han);font-size:20px;color:var(--ink)}
+    .td-han-sm{font-family:var(--font-han);font-size:15px;color:var(--ink)}
+    .td-pinyin{font-family:var(--font-mono);font-size:13px;color:var(--cinnabar)}
+    .td-ipa{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-4)}
+    .td-label{font-size:12px;color:var(--ink-4);font-style:italic}
+    .td-note{font-size:12px;color:var(--ink-3);max-width:300px}
+    .td-examples{font-size:12px;color:var(--ink-3)}
+    .td-examples span{display:inline-block;margin-right:8px;white-space:nowrap}
+    .td-examples .ehan{font-family:var(--font-han);font-size:15px;color:var(--ink);margin-right:2px}
+
+    /* ── Tone cards ── */
+    .tone-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:8px}
+    .tone-card{border:1px solid var(--rule);border-radius:var(--radius);padding:16px;background:var(--paper)}
+    .tone-card-num{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cinnabar);margin:0 0 6px}
+    .tone-card-mark{font-family:var(--font-han);font-size:40px;line-height:1.1;color:var(--ink);margin:0 0 6px}
+    .tone-card-name{font-size:13px;font-weight:600;color:var(--ink);margin:0 0 4px}
+    .tone-card-desc{font-size:12.5px;color:var(--ink-3);margin:0 0 10px;line-height:1.5}
+    .tone-card-words{display:flex;flex-wrap:wrap;gap:6px}
+    .tone-word{display:flex;align-items:center;gap:3px;background:var(--ivory-2);border-radius:6px;padding:3px 8px;font-size:12px}
+    .tone-word .han{font-family:var(--font-han);font-size:15px;color:var(--ink)}
+    .tone-word .py{font-family:var(--font-mono);font-size:11px;color:var(--cinnabar)}
+
+    /* ── Stroke order display ── */
+    .stroke-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px}
+    .stroke-card{border:1px solid var(--rule);border-radius:var(--radius);padding:16px;background:var(--paper)}
+    .stroke-card-name{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+    .stroke-han{font-family:var(--font-han);font-size:28px;color:var(--cinnabar)}
+    .stroke-label{font-size:13px;font-weight:600;color:var(--ink)}
+    .stroke-pinyin{font-family:var(--font-mono);font-size:12px;color:var(--ink-4)}
+    .stroke-dir{font-size:12px;color:var(--ink-3);margin-bottom:8px;font-style:italic}
+    .stroke-tip{font-size:12px;color:var(--ink-3);margin-bottom:10px;line-height:1.5}
+    .stroke-examples{display:flex;gap:8px}
+    .stroke-ex-char{font-family:var(--font-han);font-size:24px;color:var(--ink)}
+
+    /* ── Radical display ── */
+    .radical-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+    .radical-card{border:1px solid var(--rule);border-radius:var(--radius);padding:14px;background:var(--paper)}
+    .radical-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+    .radical-char{display:flex;gap:4px}
+    .radical-main{font-family:var(--font-han);font-size:32px;color:var(--cinnabar);line-height:1}
+    .radical-variant{font-family:var(--font-han);font-size:20px;color:var(--ink-3);line-height:1;align-self:flex-end}
+    .radical-info{flex:1}
+    .radical-pinyin{font-family:var(--font-mono);font-size:12px;color:var(--ink-4)}
+    .radical-meaning{font-size:13px;font-weight:600;color:var(--ink);margin:2px 0}
+    .radical-pos{font-size:11px;color:var(--ink-4);font-style:italic}
+    .radical-examples{display:flex;flex-wrap:wrap;gap:6px}
+    .radical-ex{background:var(--ivory-2);border-radius:6px;padding:4px 10px;text-align:center;font-size:12px}
+    .radical-ex .ehan{font-family:var(--font-han);font-size:18px;color:var(--ink);display:block}
+    .radical-ex .epy{font-family:var(--font-mono);font-size:10px;color:var(--cinnabar)}
+    .radical-ex .eid{font-size:10.5px;color:var(--ink-3)}
+
+    /* ── Measure Word table variant ── */
+    .mw-filter{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+    .mw-filter-btn{padding:4px 12px;border:1px solid var(--rule);border-radius:999px;font-size:12px;background:var(--paper);color:var(--ink-3);transition:.12s}
+    .mw-filter-btn.active{background:var(--ink);color:#faf6ef;border-color:var(--ink)}
+    .mw-filter-btn:hover:not(.active){background:var(--ivory-2)}
+
+    /* ── Comparison table (zhuyin↔pinyin) ── */
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:6px;margin-bottom:8px}
+    .compare-cell{border:1px solid var(--rule);border-radius:8px;padding:8px;text-align:center;background:var(--paper)}
+    .compare-cell .cz{font-family:var(--font-han);font-size:20px;color:var(--ink)}
+    .compare-cell .cp{font-family:var(--font-mono);font-size:12px;color:var(--cinnabar);margin-top:2px}
+
+    /* ── Sandhi / rules ── */
+    .rules-list{display:flex;flex-direction:column;gap:10px}
+    .rule-card{border:1px solid var(--rule);border-radius:var(--radius);padding:14px 16px;background:var(--paper);display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start}
+    .rule-num{font-family:var(--font-mono);font-size:18px;font-weight:700;color:var(--cinnabar);line-height:1}
+    .rule-title{font-size:14px;font-weight:600;color:var(--ink);margin:0 0 4px}
+    .rule-body{font-size:13px;color:var(--ink-3);margin:0;line-height:1.6}
+    .rule-examples{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .rule-ex-chip{background:var(--ivory-2);border-radius:6px;padding:3px 10px;font-size:12.5px}
+    .rule-ex-chip .han{font-family:var(--font-han);font-size:14px}
+    .rule-ex-chip .py{font-family:var(--font-mono);font-size:11px;color:var(--cinnabar)}
+    .rule-ex-chip .tr{font-size:11px;color:var(--ink-3)}
+
+    /* ── Minimal pairs ── */
+    .mp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:8px}
+    .mp-card{border:1px solid var(--rule);border-radius:var(--radius);padding:14px;background:var(--paper)}
+    .mp-title{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-4);margin:0 0 10px}
+    .mp-row{display:flex;align-items:center;gap:10px;padding:4px 0;border-bottom:1px solid var(--rule)}
+    .mp-row:last-child{border-bottom:none}
+    .mp-han{font-family:var(--font-han);font-size:22px;color:var(--ink);width:36px;flex-shrink:0}
+    .mp-py{font-family:var(--font-mono);font-size:13px;color:var(--cinnabar);width:60px;flex-shrink:0}
+    .mp-id{font-size:12.5px;color:var(--ink-3)}
+
+    /* ── Loading state ── */
+    .loading-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:12px;color:var(--ink-3)}
+    .loading-han{font-family:var(--font-han);font-size:48px;color:var(--rule-2)}
+    .loading-text{font-size:14px}
+
+    /* ── Error state ── */
+    .error-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:12px}
+    .error-title{font-size:20px;font-weight:600;color:var(--ink)}
+    .error-body{font-size:14px;color:var(--ink-3);text-align:center;max-width:360px;line-height:1.6}
+
+    /* ── Pill badge counts ── */
+    .count-badge{background:var(--ivory-2);border:1px solid var(--rule);border-radius:999px;padding:1px 8px;font-size:11px;color:var(--ink-4);font-family:var(--font-mono)}
+
+    /* ── Category chip ── */
+    .cat-chip{display:inline-block;background:var(--ivory-2);border-radius:999px;padding:2px 9px;font-size:11px;color:var(--ink-4);border:1px solid var(--rule);margin-right:4px}
+  </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="kelas-topbar">
+  <a href="/" class="topbar-brand">JMandarinStudio</a>
+  <a href="/#semua-kelas">← Semua Kelas</a>
+</div>
+
+<!-- Sticky header -->
+<header class="kelas-header">
+  <button class="back-btn" onclick="history.length>1?history.back():location.href='/#semua-kelas'">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Kembali
+  </button>
+  <h1 class="kelas-header-title" id="header-title">Memuat…</h1>
+  <div class="header-spacer"></div>
+  <span id="header-tag" class="tag-chip" style="display:none"></span>
+</header>
+
+<!-- Main page content injected by JS -->
+<main id="kelas-main">
+  <div class="loading-screen">
+    <div class="loading-han" id="loading-char">学</div>
+    <div class="loading-text">Memuat materi…</div>
+  </div>
+</main>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   KELAS PAGE — Dynamic class detail renderer
+   URL: /kelas.html?id=CLASS_ID
+   ═══════════════════════════════════════════════════════ */
+
+const CLASS_IDS = {
+  'pinyin':'拼', 'zhuyin':'注', 'tones':'声',
+  'stroke_order':'笔', 'measure_words':'量', 'radicals':'偏'
+};
+
+(async () => {
+  const id = new URLSearchParams(location.search).get('id') || '';
+  if (!id) { showError('ID kelas tidak ditemukan.'); return; }
+  // animate loading han char
+  if (CLASS_IDS[id]) document.getElementById('loading-char').textContent = CLASS_IDS[id];
+  try {
+    const res = await fetch(`/data/class_${id}.json`);
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    renderPage(data);
+  } catch(e) {
+    showError('Materi kelas ini belum tersedia atau terjadi kesalahan.', id);
+  }
+})();
+
+/* ── MAIN RENDER ─────────────────────────────────────── */
+function renderPage(d) {
+  document.title = `${d.title} — JMandarinStudio`;
+  document.getElementById('page-title').textContent = `${d.title} — JMandarinStudio`;
+  document.getElementById('header-title').textContent = d.title;
+  const tagEl = document.getElementById('header-tag');
+  if (d.tag) {
+    tagEl.textContent = d.tag.toUpperCase();
+    tagEl.className = 'tag-chip ' + (d.tag === 'Gratis' ? 'gratis' : 'pro');
+    tagEl.style.display = 'inline-flex';
+  }
+
+  const main = document.getElementById('kelas-main');
+  main.innerHTML = '';
+
+  // Hero
+  main.insertAdjacentHTML('beforeend', buildHero(d));
+  // Objectives
+  if (d.objectives?.length) main.insertAdjacentHTML('beforeend', buildObjectives(d));
+  // Content
+  main.insertAdjacentHTML('beforeend', `
+    <div class="kelas-content">
+      <div class="content-grid">
+        <aside class="sidebar" id="sidebar">${buildSidebar(d)}</aside>
+        <div class="main-panel">
+          <div class="tab-bar">
+            <button class="tab-btn active" onclick="switchTab('silabus',this)">📋 Silabus</button>
+            <button class="tab-btn" onclick="switchTab('materi',this)">📖 Materi Referensi</button>
+          </div>
+          <div class="tab-panel active" id="panel-silabus">${buildSilabusFull(d)}</div>
+          <div class="tab-panel" id="panel-materi">${buildMateri(d)}</div>
+        </div>
+      </div>
+    </div>`);
+
+  // Sidebar accordion
+  document.querySelectorAll('.sidebar-module').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ul = btn.nextElementSibling;
+      if (!ul) return;
+      const open = ul.classList.toggle('open');
+      btn.classList.toggle('open', open);
+    });
+  });
+  // open first module
+  const first = document.querySelector('.sidebar-module');
+  if (first) first.click();
+}
+
+/* ── HERO ────────────────────────────────────────────── */
+function buildHero(d) {
+  const price = d.price === 'Gratis'
+    ? `<span style="color:var(--jade);font-weight:700">Gratis</span>`
+    : `<span style="font-weight:600">${d.price}</span>`;
+  return `
+  <div class="kelas-hero">
+    <div class="kelas-hero-inner">
+      <div>
+        <p class="hero-label">${d.level}${d.cefr ? ' · '+d.cefr : ''}</p>
+        <h2 class="hero-title">${d.title.replace(/ /, ' <span class="hero-han">')}${d.title.includes(' ') ? '</span>' : ''}</h2>
+        <p class="hero-subtitle">${d.subtitle || d.description}</p>
+        <div class="hero-meta">
+          <span><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>${d.duration_hours} jam</span>
+          <span><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V4a1 1 0 011-1h7a1 1 0 011 1v6l-4.5-2.5L2 10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>${d.lesson_count} pelajaran</span>
+          <span>💰 ${price}</span>
+          ${d.category?.map(c=>`<span class="cat-chip">${c}</span>`).join('') || ''}
+        </div>
+      </div>
+      <div class="hero-thumb">${d.thumb_char || d.han?.charAt(0) || '学'}</div>
+    </div>
+  </div>`;
+}
+
+/* ── OBJECTIVES ──────────────────────────────────────── */
+function buildObjectives(d) {
+  return `<div class="objectives-bar">
+    <div class="objectives-inner">
+      <p class="objectives-title">Yang akan kamu pelajari</p>
+      <ul class="objectives-list">
+        ${d.objectives.map(o=>`<li>${esc(o)}</li>`).join('')}
+      </ul>
+    </div>
+  </div>`;
+}
+
+/* ── SIDEBAR SYLLABUS ────────────────────────────────── */
+function buildSidebar(d) {
+  if (!d.modules) return '';
+  return d.modules.map(m => `
+    <div class="sidebar-section">
+      <button class="sidebar-module">
+        <span>${esc(m.title)}</span>
+        <svg class="chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="sidebar-lessons">
+        ${(m.lessons||[]).map(l => `
+          <button class="sidebar-lesson">
+            <span class="lesson-type-dot dot-${l.type}"></span>
+            <span>${esc(l.title)}</span>
+            <span style="margin-left:auto;font-size:11px;color:var(--ink-4)">${l.duration_min}m</span>
+          </button>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+/* ── FULL SYLLABUS TAB ───────────────────────────────── */
+function buildSilabusFull(d) {
+  if (!d.modules) return '<p style="color:var(--ink-3);font-size:14px">Silabus belum tersedia.</p>';
+  const totalMin = d.modules.flatMap(m=>m.lessons||[]).reduce((s,l)=>s+l.duration_min,0);
+  const lessonCount = d.modules.flatMap(m=>m.lessons||[]).length;
+  return `
+    <p style="font-size:13px;color:var(--ink-3);margin:0 0 16px">
+      <strong>${d.modules.length} modul</strong> · <strong>${lessonCount} pelajaran</strong> · <strong>${Math.round(totalMin/60*10)/10} jam</strong>
+    </p>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      ${d.modules.map((m,mi) => `
+        <div style="border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden">
+          <div style="padding:12px 16px;background:var(--ivory-2);display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:14px;font-weight:600;color:var(--ink)">${mi+1}. ${esc(m.title)}</span>
+            <span class="count-badge">${(m.lessons||[]).length} pelajaran</span>
+          </div>
+          <div>
+            ${(m.lessons||[]).map((l,li) => `
+              <div style="padding:9px 16px 9px 24px;border-top:1px solid var(--rule);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-2)">
+                <span class="lesson-type-dot dot-${l.type}"></span>
+                <span>${esc(l.title)}</span>
+                <span style="margin-left:auto;font-size:11px;color:var(--ink-4);font-family:var(--font-mono)">${l.duration_min} mnt</span>
+              </div>`).join('')}
+          </div>
+        </div>`).join('')}
+    </div>`;
+}
+
+/* ── TAB SWITCH ──────────────────────────────────────── */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+id)?.classList.add('active');
+}
+
+/* ══════════════════════════════════════════════════════
+   MATERI (reference content) — per class type
+   ══════════════════════════════════════════════════════ */
+function buildMateri(d) {
+  const parts = [];
+
+  // ── PINYIN ──────────────────────────────────────────
+  if (d.initials) parts.push(buildInitialsSection(d));
+  if (d.finals)   parts.push(buildFinalsSection(d));
+
+  // ── ZHUYIN ──────────────────────────────────────────
+  if (d.consonants) parts.push(buildZhuyinConsonants(d));
+  if (d.vowels)     parts.push(buildZhuyinVowels(d));
+  if (d.tone_marks) parts.push(buildZhuyinToneMarks(d));
+  if (d.pinyin_zhuyin_map) parts.push(buildPinyinZhuyinMap(d));
+
+  // ── TONES ────────────────────────────────────────────
+  if (d.tones || d.tones_detail) parts.push(buildTonesSection(d));
+  if (d.minimal_pairs) parts.push(buildMinimalPairs(d));
+  if (d.sandhi_rules)  parts.push(buildSandhiRules(d));
+
+  // ── STROKE ORDER ─────────────────────────────────────
+  if (d.basic_strokes) parts.push(buildBasicStrokes(d));
+  if (d.stroke_rules)  parts.push(buildStrokeRules(d));
+  if (d.top_100_chars) parts.push(buildTop100(d));
+  if (d.key_radicals)  parts.push(buildKeyRadicals(d));
+
+  // ── MEASURE WORDS ────────────────────────────────────
+  if (d.measure_words) parts.push(buildMWSection(d));
+
+  // ── RADICALS ─────────────────────────────────────────
+  if (d.radicals) parts.push(buildRadicalsSection(d));
+
+  if (!parts.length) return '<p style="color:var(--ink-3);font-size:14px">Materi referensi akan segera tersedia.</p>';
+  return parts.join('');
+}
+
+/* ── PINYIN: INITIALS ─────────────────────────────────── */
+function buildInitialsSection(d) {
+  const rows = d.initials.map(i => `
+    <tr>
+      <td class="td-pinyin" style="font-size:20px;font-weight:600">${esc(i.symbol||i.initial||i.pinyin||'')}</td>
+      <td class="td-ipa">[${esc(i.ipa||'')}]</td>
+      <td class="td-label">${esc(i.group||i.type||'')}</td>
+      <td class="td-han" style="font-size:22px">${esc(i.example_char||'')}</td>
+      <td class="td-pinyin">${esc(i.example_pinyin||'')}</td>
+      <td class="td-note">${esc(i.example_id||i.meaning_id||'')}</td>
+      <td class="td-note">${esc(i.tip||i.note||'')}</td>
+    </tr>`).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">Inisial 声母 <span class="han">21 konsonan</span></h3>
+    <p class="ref-sub">21 bunyi konsonan awal suku kata Mandarin, dikelompokkan berdasarkan titik artikulasi.</p>
+    <div class="data-tbl-wrap">
+      <table class="data-tbl">
+        <thead><tr><th>Inisial</th><th>IPA</th><th>Kelompok</th><th>Contoh</th><th>Pinyin</th><th>Arti</th><th>Catatan</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+/* ── PINYIN: FINALS ───────────────────────────────────── */
+function buildFinalsSection(d) {
+  const groups = {};
+  d.finals.forEach(f => {
+    const g = f.group || 'Lainnya';
+    if (!groups[g]) groups[g] = [];
+    groups[g].push(f);
+  });
+  let html = `<div class="ref-section">
+    <h3 class="ref-heading">Final 韵母 <span class="han">vokal & diftong</span></h3>
+    <p class="ref-sub">${d.finals.length} final dikelompokkan berdasarkan jenis bunyi vokal.</p>`;
+  for (const [grp, list] of Object.entries(groups)) {
+    html += `<p style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-4);margin:14px 0 6px">${esc(grp)}</p>
+    <div class="data-tbl-wrap" style="margin-bottom:10px">
+      <table class="data-tbl">
+        <thead><tr><th>Final</th><th>Contoh</th><th>Pinyin</th><th>Arti</th></tr></thead>
+        <tbody>${list.map(f=>`
+          <tr>
+            <td class="td-pinyin" style="font-size:18px;font-weight:600">${esc(f.symbol||f.final||'')}</td>
+            <td class="td-han">${esc(f.example_char||'')}</td>
+            <td class="td-pinyin">${esc(f.example_pinyin||'')}</td>
+            <td class="td-note">${esc(f.example_id||f.meaning_id||'')}</td>
+          </tr>`).join('')}</tbody>
+      </table>
+    </div>`;
+  }
+  html += '</div>';
+
+  // Tone placement rules
+  if (d.tone_placement_rules) {
+    html += `<div class="ref-section">
+      <h3 class="ref-heading">Aturan Tanda Nada</h3>
+      <div class="rules-list">${d.tone_placement_rules.map((r,i) => `
+        <div class="rule-card">
+          <div class="rule-num">${i+1}</div>
+          <div>
+            <p class="rule-title">${esc(r.rule_id||r.rule||'')}</p>
+            <p class="rule-body">${esc(r.desc||r.description||'')}</p>
+            ${r.examples?.length ? `<div class="rule-examples">${r.examples.map(e=>`
+              <div class="rule-ex-chip"><span class="py">${esc(e.pinyin||e)}</span></div>`).join('')}</div>` : ''}
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }
+  return html;
+}
+
+/* ── ZHUYIN: CONSONANTS ───────────────────────────────── */
+function buildZhuyinConsonants(d) {
+  const rows = d.consonants.map(c => `
+    <tr>
+      <td class="td-han" style="font-size:28px">${esc(c.zhuyin)}</td>
+      <td class="td-pinyin" style="font-size:16px">${esc(c.pinyin)}</td>
+      <td class="td-han" style="font-size:22px">${esc(c.example_char||'')}</td>
+      <td class="td-pinyin">${esc(c.example_pinyin||'')}</td>
+      <td class="td-han" style="font-size:14px;color:var(--ink-3)">${esc(c.zhuyin_full||'')}</td>
+      <td class="td-note">${esc(c.meaning_id||'')}</td>
+    </tr>`).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">Konsonan Zhuyin 聲母 <span class="han">21 simbol</span></h3>
+    <p class="ref-sub">21 konsonan Zhuyin (Bopomofo) beserta padanan Pinyin dan contoh karakter.</p>
+    <div class="data-tbl-wrap">
+      <table class="data-tbl">
+        <thead><tr><th>Zhuyin</th><th>Pinyin</th><th>Contoh</th><th>Pinyin</th><th>Zhuyin Penuh</th><th>Arti</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+/* ── ZHUYIN: VOWELS ───────────────────────────────────── */
+function buildZhuyinVowels(d) {
+  const rows = d.vowels.map(v => `
+    <tr>
+      <td class="td-han" style="font-size:28px">${esc(v.zhuyin)}</td>
+      <td class="td-pinyin" style="font-size:16px">${esc(v.pinyin)}</td>
+      <td class="td-han" style="font-size:22px">${esc(v.example_char||'')}</td>
+      <td class="td-pinyin">${esc(v.example_pinyin||'')}</td>
+      <td class="td-note">${esc(v.meaning_id||'')}</td>
+    </tr>`).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">Vokal Zhuyin 韻母 <span class="han">16 simbol</span></h3>
+    <p class="ref-sub">16 vokal/final Zhuyin beserta padanan Pinyin.</p>
+    <div class="data-tbl-wrap">
+      <table class="data-tbl">
+        <thead><tr><th>Zhuyin</th><th>Pinyin</th><th>Contoh</th><th>Pinyin</th><th>Arti</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+/* ── ZHUYIN: TONE MARKS ───────────────────────────────── */
+function buildZhuyinToneMarks(d) {
+  const rows = d.tone_marks.map(t => `
+    <tr>
+      <td style="font-family:var(--font-mono);font-size:16px;font-weight:700;color:var(--cinnabar)">${esc(t.mark)}</td>
+      <td style="font-size:13px;color:var(--ink-2)">Nada ${t.tone}</td>
+      <td class="td-han" style="font-size:22px">${esc(t.example_zhuyin||'')}</td>
+      <td class="td-pinyin">${esc(t.example_pinyin||'')}</td>
+      <td class="td-note">${esc(t.meaning_id||'')}</td>
+    </tr>`).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">Tanda Nada Zhuyin</h3>
+    <p class="ref-sub">Nada 1 tidak ditandai; nada 2–5 menggunakan simbol berikut:</p>
+    <div class="data-tbl-wrap">
+      <table class="data-tbl">
+        <thead><tr><th>Tanda</th><th>Nada</th><th>Contoh Zhuyin</th><th>Pinyin</th><th>Arti</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+/* ── ZHUYIN: PINYIN MAP ───────────────────────────────── */
+function buildPinyinZhuyinMap(d) {
+  const cells = d.pinyin_zhuyin_map.map(e => `
+    <div class="compare-cell">
+      <div class="cz">${esc(e.zhuyin)}</div>
+      <div class="cp">${esc(e.pinyin)}</div>
+    </div>`).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">Perbandingan Pinyin ↔ Zhuyin</h3>
+    <p class="ref-sub">Setiap simbol Zhuyin dan padanan Pinyin-nya secara langsung.</p>
+    <div class="compare-grid">${cells}</div>
+  </div>`;
+}
+
+/* ── TONES ────────────────────────────────────────────── */
+function buildTonesSection(d) {
+  const list = d.tones_detail || d.tones || [];
+  const cards = list.map(t => {
+    // support both 'common_words' (class_tones) and 'example_words' key
+    const wlist = t.common_words || t.example_words || [];
+    const words = wlist.slice(0,6).map(w=>`
+      <div class="tone-word">
+        <span class="han">${esc(w.char||w.simplified||'')}</span>
+        <span class="py">${esc(w.pinyin||'')}</span>
+      </div>`).join('');
+    const toneNum = t.tone || t.number;
+    const exSyl  = t.example_syllable || t.mark || '';
+    const pitchInfo = t.pitch_contour || t.pitch_level || '';
+    return `<div class="tone-card">
+      <p class="tone-card-num">Nada ${toneNum}</p>
+      <div class="tone-card-mark">${esc(exSyl)}</div>
+      <p class="tone-card-name">${esc(t.name_id||t.name||t.name_zh||'')}</p>
+      <p class="tone-card-desc">${esc(t.description_id||t.description||'')}${pitchInfo ? ` · <strong>${esc(pitchInfo)}</strong>` : ''}</p>
+      <div class="tone-card-words">${words}</div>
+    </div>`;
+  }).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">Empat Nada + Nada Netral <span class="han">四声</span></h3>
+    <p class="ref-sub">Setiap nada memiliki kontur yang berbeda — kesalahan nada dapat mengubah arti sepenuhnya.</p>
+    <div class="tone-cards">${cards}</div>
+  </div>`;
+}
+
+/* ── MINIMAL PAIRS ────────────────────────────────────── */
+function buildMinimalPairs(d) {
+  const cards = d.minimal_pairs.map(mp => {
+    // Support both {pairs:[]} and {set:[]} formats
+    const plist = mp.pairs || mp.set || [];
+    const rows = plist.map(p=>`
+      <div class="mp-row">
+        <span class="mp-han">${esc(p.char||p.simplified||'')}</span>
+        <span class="mp-py">${esc(p.pinyin||'')}</span>
+        <span class="mp-id">${esc(p.meaning_id||'')}</span>
+      </div>`).join('');
+    const label = mp.title || mp.vowel || mp.base_vowel || '';
+    const desc  = mp.description_id || mp.description || '';
+    return `<div class="mp-card">
+      <p class="mp-title">${esc(label)}${desc ? ' — '+esc(desc) : ''}</p>
+      ${rows}
+    </div>`;
+  }).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">Pasangan Minimal <span class="han">最小对</span></h3>
+    <p class="ref-sub">Kata-kata yang hanya berbeda pada satu nada — latihan penting untuk ketepatan pengucapan.</p>
+    <div class="mp-grid">${cards}</div>
+  </div>`;
+}
+
+/* ── SANDHI RULES (tones file) ────────────────────────── */
+function buildSandhiRules(d) {
+  return buildSandhiSection(d.sandhi_rules, 'sandhi_rules');
+}
+function buildSandhiSection(rules, key) {
+  if (!rules?.length) return '';
+  const cards = rules.map((r,i) => {
+    // Support two formats:
+    // Format A (class_tones/class_pinyin): {rule, example, note}
+    // Format B (future): {rule_id, description_id, examples:[]}
+    const title   = r.rule_id || r.rule    || r.title || '';
+    const body    = r.description_id || r.description || r.note || '';
+    // examples: either array of objects or a single "example" string
+    let exHtml = '';
+    if (r.examples?.length) {
+      exHtml = `<div class="rule-examples">${r.examples.map(e=>`
+        <div class="rule-ex-chip">
+          ${e.before_char ? `<span class="han">${esc(e.before_char)}</span> → <span class="han">${esc(e.after_char||'')}</span> ` : ''}
+          <span class="py">${esc(e.pinyin||e.before_pinyin||e)}</span>
+          ${e.meaning_id ? `<span class="tr"> ${esc(e.meaning_id)}</span>` : ''}
+        </div>`).join('')}</div>`;
+    } else if (r.example) {
+      exHtml = `<div class="rule-examples"><div class="rule-ex-chip"><span class="py">${esc(r.example)}</span></div></div>`;
+    }
+    return `<div class="rule-card">
+      <div class="rule-num">${i+1}</div>
+      <div>
+        <p class="rule-title">${esc(title)}</p>
+        <p class="rule-body">${esc(body)}</p>
+        ${exHtml}
+      </div>
+    </div>`;
+  }).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">Aturan Perubahan Nada <span class="han">变调</span></h3>
+    <p class="ref-sub">Nada tertentu berubah tergantung konteks — ini disebut tone sandhi.</p>
+    <div class="rules-list">${cards}</div>
+  </div>`;
+}
+
+/* ── BASIC STROKES ────────────────────────────────────── */
+function buildBasicStrokes(d) {
+  const cards = d.basic_strokes.map(s => `
+    <div class="stroke-card">
+      <div class="stroke-card-name">
+        <span class="stroke-han">${esc(s.name_zh||'')}</span>
+        <div>
+          <div class="stroke-label">${esc(s.name_id||'')}</div>
+          <div class="stroke-pinyin">${esc(s.name_pinyin||'')}</div>
+        </div>
+      </div>
+      <div class="stroke-dir">↗ ${esc(s.direction||'')}</div>
+      <p class="stroke-tip">${esc(s.tip||'')}</p>
+      <div class="stroke-examples">
+        ${(s.example_chars||[]).map(c=>`<span class="stroke-ex-char">${esc(c)}</span>`).join('')}
+      </div>
+    </div>`).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">8 Goresan Dasar <span class="han">基本笔画</span></h3>
+    <p class="ref-sub">Semua karakter Han dibangun dari 8 goresan dasar ini. Kuasai keduanya sebelum menulis karakter.</p>
+    <div class="stroke-cards">${cards}</div>
+  </div>`;
+}
+
+/* ── STROKE RULES ─────────────────────────────────────── */
+function buildStrokeRules(d) {
+  const cards = d.stroke_rules.map(r => `
+    <div class="rule-card">
+      <div class="rule-num">${r.id}</div>
+      <div>
+        <p class="rule-title">${esc(r.rule_id||'')} <span style="color:var(--ink-3);font-size:12.5px;font-weight:400">${esc(r.rule_zh||'')}</span></p>
+        <p class="rule-body">${esc(r.description||'')}</p>
+        ${(r.example_chars||[]).length ? `<div class="rule-examples">${r.example_chars.map(c=>`
+          <div class="rule-ex-chip"><span class="han">${esc(c)}</span></div>`).join('')}</div>` : ''}
+      </div>
+    </div>`).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">7 Aturan Urutan Goresan <span class="han">笔顺规则</span></h3>
+    <p class="ref-sub">Aturan universal yang menentukan urutan goresan pada setiap karakter Han.</p>
+    <div class="rules-list">${cards}</div>
+  </div>`;
+}
+
+/* ── TOP 100 CHARS ────────────────────────────────────── */
+function buildTop100(d) {
+  const rows = d.top_100_chars.map(c => `
+    <tr>
+      <td style="font-family:var(--font-mono);font-size:11px;color:var(--ink-4)">#${c.rank}</td>
+      <td class="td-han" style="font-size:28px">${esc(c.char)}</td>
+      <td class="td-pinyin">${esc(c.pinyin)}</td>
+      <td style="font-size:13px;color:var(--ink-4);font-family:var(--font-mono)">${c.strokes != null ? c.strokes : '—'}</td>
+      <td style="font-family:var(--font-han);font-size:14px;color:var(--ink-3)">${esc(c.radical||'')}</td>
+      <td class="td-note">${esc(c.meaning_id)}</td>
+    </tr>`).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">100 Karakter Paling Umum <span class="han">常用汉字</span></h3>
+    <p class="ref-sub">Karakter-karakter ini mencakup sekitar 40–50% teks bahasa Mandarin sehari-hari.</p>
+    <div class="data-tbl-wrap">
+      <table class="data-tbl">
+        <thead><tr><th>#</th><th>Karakter</th><th>Pinyin</th><th>Goresan</th><th>Radikal</th><th>Arti</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+/* ── KEY RADICALS (in stroke_order file) ─────────────── */
+function buildKeyRadicals(d) {
+  if (!d.key_radicals?.length) return '';
+  const rows = d.key_radicals.map(r => `
+    <tr>
+      <td class="td-han" style="font-size:24px">${esc(r.radical)}</td>
+      <td class="td-note">${esc(r.meaning_id)}</td>
+      <td class="td-examples">${(r.example_chars||[]).map(c=>`<span><span class="ehan">${esc(c)}</span></span>`).join(' ')}</td>
+    </tr>`).join('');
+  return `<div class="ref-section">
+    <h3 class="ref-heading">Radikal Kunci <span class="han">关键部首</span></h3>
+    <p class="ref-sub">Radikal yang sering muncul dan membantu mengidentifikasi makna karakter.</p>
+    <div class="data-tbl-wrap">
+      <table class="data-tbl">
+        <thead><tr><th>Radikal</th><th>Arti</th><th>Contoh Karakter</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+/* ── MEASURE WORDS ────────────────────────────────────── */
+function buildMWSection(d) {
+  const cats = [...new Set(d.measure_words.map(w=>w.category))];
+  const catBtns = ['semua',...cats].map(c=>`
+    <button class="mw-filter-btn${c==='semua'?' active':''}" onclick="filterMW('${c}',this)">${esc(c)}</button>`).join('');
+  const rows = d.measure_words.map(w => `
+    <tr data-cat="${esc(w.category)}">
+      <td class="td-han" style="font-size:28px">${esc(w.mw)}</td>
+      <td class="td-pinyin">${esc(w.pinyin)}</td>
+      <td style="font-size:12px;color:var(--ink-4)">${esc(w.category)}</td>
+      <td class="td-note">${esc(w.meaning_id)}</td>
+      <td class="td-note">${esc(w.use_for_id||'')}</td>
+      <td style="font-size:13px">
+        <span style="font-family:var(--font-han);font-size:17px">${esc(w.example_phrase||'')}</span>
+        <span style="font-size:11px;color:var(--cinnabar);font-family:var(--font-mono);display:block">${esc(w.example_phrase_pinyin||'')}</span>
+        <span style="font-size:11.5px;color:var(--ink-3)">${esc(w.example_phrase_id||'')}</span>
+      </td>
+      <td class="td-note" style="font-size:12px;max-width:200px">${esc(w.note_id||'')}</td>
+    </tr>`).join('');
+  return `<div class="ref-section" id="mw-section">
+    <h3 class="ref-heading">Daftar Kata Satuan <span class="han">量词表</span> <span class="count-badge">${d.measure_words.length}</span></h3>
+    <p class="ref-sub">Filter berdasarkan kategori untuk mencari kata satuan yang tepat.</p>
+    <div class="mw-filter">${catBtns}</div>
+    <div class="data-tbl-wrap">
+      <table class="data-tbl" id="mw-tbl">
+        <thead><tr><th>量词</th><th>Pinyin</th><th>Kategori</th><th>Arti</th><th>Digunakan untuk</th><th>Contoh</th><th>Catatan</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+function filterMW(cat, btn) {
+  document.querySelectorAll('.mw-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#mw-tbl tbody tr').forEach(tr => {
+    tr.style.display = (cat==='semua' || tr.dataset.cat===cat) ? '' : 'none';
+  });
+}
+
+/* ── RADICALS ─────────────────────────────────────────── */
+function buildRadicalsSection(d) {
+  const cats = [...new Set(d.radicals.map(r=>r.category))];
+  const catBtns = ['semua',...cats].map(c=>`
+    <button class="mw-filter-btn${c==='semua'?' active':''}" onclick="filterRadicals('${c}',this)">${esc(c)}</button>`).join('');
+  const cards = d.radicals.map(r => `
+    <div class="radical-card" data-cat="${esc(r.category)}">
+      <div class="radical-head">
+        <div class="radical-char">
+          <span class="radical-main">${esc(r.radical)}</span>
+          ${r.variant ? `<span class="radical-variant">${esc(r.variant)}</span>` : ''}
+        </div>
+        <div class="radical-info">
+          <div class="radical-pinyin">${esc(r.pinyin)} · ${r.strokes} goresan</div>
+          <div class="radical-meaning">${esc(r.meaning_id)}</div>
+          <div class="radical-pos">${esc(r.position)} · ${esc(r.category)}</div>
+        </div>
+      </div>
+      <div class="radical-examples">
+        ${(r.example_chars||[]).map(e=>`
+          <div class="radical-ex">
+            <span class="ehan">${esc(e.char)}</span>
+            <span class="epy">${esc(e.pinyin)}</span>
+            <span class="eid">${esc(e.meaning_id)}</span>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+  return `<div class="ref-section" id="rad-section">
+    <h3 class="ref-heading">Daftar Radikal <span class="han">部首表</span> <span class="count-badge">${d.radicals.length}</span></h3>
+    <p class="ref-sub">Filter berdasarkan kategori. Setiap kartu menunjukkan radikal, varian bentuknya, dan contoh karakter.</p>
+    <div class="mw-filter">${catBtns}</div>
+    <div class="radical-cards" id="rad-cards">${cards}</div>
+  </div>`;
+}
+
+function filterRadicals(cat, btn) {
+  document.querySelectorAll('.mw-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#rad-cards .radical-card').forEach(c => {
+    c.style.display = (cat==='semua' || c.dataset.cat===cat) ? '' : 'none';
+  });
+}
+
+/* ── HELPERS ─────────────────────────────────────────── */
+function esc(s) {
+  if (s == null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function showError(msg, id) {
+  document.getElementById('header-title').textContent = 'Kelas tidak ditemukan';
+  document.getElementById('kelas-main').innerHTML = `
+    <div class="error-screen">
+      <div style="font-family:var(--font-han);font-size:64px;color:var(--rule-2)">找不到</div>
+      <div class="error-title">Materi tidak tersedia</div>
+      <div class="error-body">${esc(msg)}${id ? `<br><small style="font-family:var(--font-mono);color:var(--ink-4)">id: ${esc(id)}</small>` : ''}</div>
+      <a href="/#semua-kelas" style="margin-top:8px;font-size:14px;color:var(--cinnabar);font-weight:600">← Kembali ke semua kelas</a>
+    </div>`;
+}
+</script>
+</body>
+</html>
