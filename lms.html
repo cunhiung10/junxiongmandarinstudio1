@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS — JMandarinStudio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lms.css">
+</head>
+<body class="lms-body">
+
+<!-- Sidebar overlay for mobile -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- SIDEBAR -->
+<aside class="lms-sidebar" id="lms-sidebar">
+  <!-- Logo -->
+  <div class="lms-sidebar-logo">
+    <div class="logo-icon">汉</div>
+    <div>
+      <div class="logo-text">JMandarinStudio</div>
+      <div class="logo-sub">Learning System</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="lms-nav" id="lms-nav">
+    <div class="lms-nav-section">
+      <div class="lms-nav-label">Menu Utama</div>
+      <button class="lms-nav-item active" data-view="dashboard" onclick="renderView('dashboard'); closeSidebar();">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="7" height="7" rx="1.5"/><rect x="11" y="2" width="7" height="7" rx="1.5"/><rect x="2" y="11" width="7" height="7" rx="1.5"/><rect x="11" y="11" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+        <span class="nav-zh">仪表盘</span>
+      </button>
+      <button class="lms-nav-item" data-view="courses" onclick="renderView('courses'); closeSidebar();">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12M4 10h12M4 14h7"/><rect x="2" y="3" width="16" height="14" rx="2"/></svg>
+        Kelas Saya
+        <span class="nav-zh">我的课程</span>
+      </button>
+      <button class="lms-nav-item" data-view="vocab" onclick="renderView('vocab'); closeSidebar();">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4a2 2 0 012-2h8l6 6v8a2 2 0 01-2 2H4a2 2 0 01-2-2z"/><path d="M14 2v6h6"/><path d="M6 10h8M6 14h5"/></svg>
+        Kosakata
+        <span class="nav-zh">词汇</span>
+      </button>
+      <button class="lms-nav-item" data-view="assessment" onclick="renderView('assessment'); closeSidebar();">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 3"/></svg>
+        Penilaian
+        <span class="nav-zh">评估</span>
+      </button>
+      <button class="lms-nav-item" data-view="progress" onclick="renderView('progress'); closeSidebar();">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 14 7 9 11 13 18 6"/><path d="M2 18h16"/></svg>
+        Progres
+        <span class="nav-zh">进步</span>
+      </button>
+      <button class="lms-nav-item" data-view="laporan" onclick="renderView('laporan'); closeSidebar();">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12v12H4zM8 8h4M8 12h2"/></svg>
+        Laporan
+        <span class="nav-zh">报告</span>
+      </button>
+    </div>
+
+    <!-- Admin section (shown only for admin) -->
+    <div class="lms-nav-section" id="admin-nav-section" style="display:none;">
+      <hr class="lms-nav-divider">
+      <div class="lms-nav-label">Admin</div>
+      <button class="lms-nav-item" data-view="admin" onclick="renderView('admin'); closeSidebar();">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7" r="3"/><path d="M4 18a6 6 0 0112 0"/></svg>
+        Panel Admin
+        <span class="nav-zh">管理</span>
+      </button>
+    </div>
+
+    <div class="lms-nav-section">
+      <hr class="lms-nav-divider">
+      <button class="lms-nav-item" onclick="alert('Pengaturan akan tersedia segera.')">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="2.5"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.2 4.2l1.4 1.4M14.4 14.4l1.4 1.4M4.2 15.8l1.4-1.4M14.4 5.6l1.4-1.4"/></svg>
+        Pengaturan
+      </button>
+      <button class="lms-nav-item" onclick="if(confirm('Keluar dari LMS?')) window.location='/'">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16H4a1 1 0 01-1-1V5a1 1 0 011-1h3M13 15l4-5-4-5M17 10H7"/></svg>
+        Keluar
+      </button>
+    </div>
+  </nav>
+
+  <!-- User panel -->
+  <div class="lms-sidebar-user">
+    <div class="lms-user-avatar" id="sidebar-avatar">BH</div>
+    <div class="lms-user-info">
+      <div class="lms-user-name" id="sidebar-name">Budi Hartono</div>
+      <div class="lms-user-role" id="sidebar-role">Siswa · HSK 3</div>
+    </div>
+    <button class="role-switch-btn" id="role-switch-btn" onclick="toggleRole()" title="Ganti peran">
+      Siswa
+    </button>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="lms-main">
+  <!-- TOP BAR -->
+  <header class="lms-topbar">
+    <button class="hamburger" id="hamburger" onclick="openSidebar()" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Breadcrumb -->
+    <nav class="lms-breadcrumb" id="lms-breadcrumb" aria-label="Breadcrumb">
+      <span>JMandarinStudio</span>
+      <span class="crumb-sep">›</span>
+      <span class="crumb-current" id="crumb-current">Dashboard</span>
+    </nav>
+
+    <div class="lms-topbar-spacer"></div>
+
+    <!-- Demo chip -->
+    <button class="demo-chip" onclick="toggleRole()" title="Klik untuk ganti peran">
+      <span class="dot"></span>
+      Demo — <span id="demo-role-label">Siswa</span>
+    </button>
+
+    <!-- Search -->
+    <div class="lms-search">
+      <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="6"/><path d="M15 15l3 3" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Cari pelajaran, kata…" id="search-input">
+    </div>
+
+    <!-- Actions -->
+    <div class="lms-topbar-actions">
+      <button class="icon-btn" title="Notifikasi" onclick="alert('3 notifikasi baru:\n• Kuis baru tersedia: HSK 3 Bab 9\n• Evaluasi Lisan jadwal diperbarui\n• Selamat! 12 hari belajar berturut-turut')">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 2a6 6 0 016 6c0 3 .5 5 2 6H2c1.5-1 2-3 2-6a6 6 0 016-6z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 18a2 2 0 004 0" stroke-linecap="round"/></svg>
+        <span class="notif-badge">3</span>
+      </button>
+
+      <div class="topbar-avatar" onclick="renderView('progress')">
+        <div class="av-circle">BH</div>
+        <span class="av-name">Budi Hartono</span>
+      </div>
+
+      <a class="back-link" href="/">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 4l-7 6 7 6"/></svg>
+        Beranda
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="lms-content view-animate" id="lms-content">
+    <!-- Views rendered here by JS -->
+  </main>
+</div>
+
+<!-- EVALUATION MODAL -->
+<div class="modal-overlay" id="eval-modal" onclick="if(event.target===this)closeEvalModal()">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="eval-modal-title">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="eval-modal-title">Penilaian Siswa</div>
+        <div class="text-sm text-muted" id="eval-modal-sub">Masukkan nilai untuk 4 kemampuan</div>
+      </div>
+      <button class="modal-close" onclick="closeEvalModal()" aria-label="Tutup">×</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="eval-student-id">
+      <div class="skill-inputs-grid">
+        <div class="form-group">
+          <label class="form-label">听力 Mendengar</label>
+          <input type="number" class="form-control" id="eval-listen" min="0" max="100" placeholder="0–100">
+        </div>
+        <div class="form-group">
+          <label class="form-label">口语 Berbicara</label>
+          <input type="number" class="form-control" id="eval-speak" min="0" max="100" placeholder="0–100">
+        </div>
+        <div class="form-group">
+          <label class="form-label">阅读 Membaca</label>
+          <input type="number" class="form-control" id="eval-read" min="0" max="100" placeholder="0–100">
+        </div>
+        <div class="form-group">
+          <label class="form-label">书写 Menulis</label>
+          <input type="number" class="form-control" id="eval-write" min="0" max="100" placeholder="0–100">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tanggal Penilaian</label>
+        <input type="date" class="form-control" id="eval-date">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Level yang Direkomendasikan</label>
+        <select class="form-control" id="eval-level">
+          <option value="HSK 1">HSK 1</option>
+          <option value="HSK 2">HSK 2</option>
+          <option value="HSK 3" selected>HSK 3</option>
+          <option value="HSK 4">HSK 4</option>
+          <option value="HSK 5">HSK 5</option>
+          <option value="HSK 6">HSK 6</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Catatan Guru</label>
+        <textarea class="form-control" id="eval-notes" rows="3" placeholder="Komentar dan saran untuk siswa…"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-sm btn-ghost" onclick="closeEvalModal()">Batal</button>
+      <button class="btn-sm btn-primary" onclick="saveEvaluation()">Simpan Penilaian</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   JMandarinStudio LMS — Client-side Application
+   ============================================================ */
+
+// ── State & Data ──────────────────────────────────────────────
+const DEFAULT_STATE = {
+  role: 'siswa',
+  currentView: 'dashboard',
+  courseFilter: 'all',
+  student: {
+    name: 'Budi Hartono',
+    initials: 'BH',
+    level: 'HSK 3',
+    levelBand: 'B1',
+    levelLabel: 'Menengah',
+    streak: 12,
+    wordsToNextLevel: 87,
+    levelProgress: 68,
+    skills: {
+      listen: 72,
+      speak:  58,
+      read:   81,
+      write:  64,
+      vocab:  77,
+      grammar:69
+    },
+    totalHours: 127,
+    vocabMastered: 1847,
+    lessonsComplete: 48,
+    totalLessons: 72,
+    avgScore: 74,
+    monthlyHours: [18, 22, 15, 28, 31, 25, 20, 34, 29, 22, 0, 0]
+  }
+};
+
+const STUDENTS = [
+  { id:1, name:'Siti Aisyah R.',  level:'HSK 3', listen:85, speak:78, read:88, write:70, status:'Aktif'  },
+  { id:2, name:'Budi Hartono',    level:'HSK 2', listen:70, speak:55, read:75, write:60, status:'Aktif'  },
+  { id:3, name:'Rina Maharani',   level:'HSK 3', listen:90, speak:82, read:85, write:75, status:'Aktif'  },
+  { id:4, name:'Ahmad Fauzi',     level:'HSK 1', listen:60, speak:45, read:65, write:50, status:'Perlu Perhatian'},
+  { id:5, name:'Dewi Lestari',    level:'HSK 4', listen:88, speak:80, read:91, write:83, status:'Aktif'  },
+  { id:6, name:'Reza Pratama',    level:'HSK 2', listen:72, speak:60, read:70, write:55, status:'Tidak Aktif'},
+  { id:7, name:'Maya Sari',       level:'HSK 3', listen:78, speak:70, read:80, write:65, status:'Aktif'  },
+  { id:8, name:'Kevin Tan',       level:'HSK 5', listen:92, speak:88, read:94, write:87, status:'Aktif'  },
+];
+
+const COURSES = [
+  { id:1, title:'HSK 1 Dasar',                level:'HSK 1', lessons:24, status:'done',    pct:100, char:'一', color:'#22c55e' },
+  { id:2, title:'HSK 2 Pemula',               level:'HSK 2', lessons:32, status:'done',    pct:100, char:'二', color:'#16a34a' },
+  { id:3, title:'HSK 3 Menengah Bawah',       level:'HSK 3', lessons:36, status:'active',  pct:68,  char:'三', color:'#b8312b' },
+  { id:4, title:'HSK 3 Persiapan Ujian',      level:'HSK 3', lessons:18, status:'active',  pct:30,  char:'考', color:'#ea7c22' },
+  { id:5, title:'HSK 4 Menengah',             level:'HSK 4', lessons:40, status:'locked',  pct:0,   char:'四', color:'#6366f1' },
+  { id:6, title:'HSKK Dasar Berbicara',       level:'HSKK',  lessons:20, status:'locked',  pct:0,   char:'说', color:'#7c3aed' },
+];
+
+const LESSONS = [
+  { num:1,  title:'Perkenalan Diri', zh:'自我介绍',        dur:'25 mnt', type:'🗣️', done:true  },
+  { num:2,  title:'Di Sekolah',      zh:'在学校',           dur:'30 mnt', type:'📖', done:true  },
+  { num:3,  title:'Makanan & Minuman',zh:'食物与饮料',      dur:'28 mnt', type:'🎧', done:true  },
+  { num:4,  title:'Hobi & Waktu Luang',zh:'爱好与娱乐',    dur:'35 mnt', type:'📖', done:true  },
+  { num:5,  title:'Perjalanan & Transportasi',zh:'旅行与交通',dur:'32 mnt',type:'🎧',done:true },
+  { num:6,  title:'Kesehatan & Tubuh',zh:'健康与身体',      dur:'30 mnt', type:'✍️', done:true  },
+  { num:7,  title:'Belanja & Harga',  zh:'购物与价格',      dur:'28 mnt', type:'🗣️', done:true  },
+  { num:8,  title:'Di Restoran',      zh:'在餐厅',          dur:'35 mnt', type:'🎧', done:false, current:true },
+  { num:9,  title:'Cuaca & Musim',    zh:'天气与季节',      dur:'26 mnt', type:'📖', done:false },
+  { num:10, title:'Keluarga & Hubungan',zh:'家庭与关系',    dur:'30 mnt', type:'✍️', done:false },
+];
+
+let appState = {};
+
+// ── Initialisation ────────────────────────────────────────────
+function initLMS() {
+  try {
+    const saved = localStorage.getItem('jms_lms_state');
+    appState = saved ? { ...DEFAULT_STATE, ...JSON.parse(saved) } : { ...DEFAULT_STATE };
+    // Deep-merge student object
+    appState.student = { ...DEFAULT_STATE.student, ...(appState.student || {}) };
+    appState.student.skills = { ...DEFAULT_STATE.student.skills, ...(appState.student?.skills || {}) };
+  } catch(e) {
+    appState = { ...DEFAULT_STATE };
+  }
+
+  // Set today's date on eval modal
+  document.getElementById('eval-date').value = new Date().toISOString().split('T')[0];
+
+  updateSidebarUser();
+  renderView(appState.currentView || 'dashboard');
+}
+
+function saveState() {
+  try { localStorage.setItem('jms_lms_state', JSON.stringify(appState)); } catch(e) {}
+}
+
+// ── Role Switching ────────────────────────────────────────────
+function toggleRole() {
+  appState.role = appState.role === 'siswa' ? 'admin' : 'siswa';
+  saveState();
+  updateSidebarUser();
+  document.getElementById('role-switch-btn').textContent = appState.role === 'admin' ? 'Admin' : 'Siswa';
+  document.getElementById('demo-role-label').textContent = appState.role === 'admin' ? 'Admin' : 'Siswa';
+  document.getElementById('admin-nav-section').style.display = appState.role === 'admin' ? '' : 'none';
+  if (appState.role === 'admin' && appState.currentView === 'dashboard') {
+    renderView('admin');
+  } else if (appState.role === 'siswa' && appState.currentView === 'admin') {
+    renderView('dashboard');
+  } else {
+    renderView(appState.currentView);
+  }
+}
+
+function switchRole(role) {
+  appState.role = role;
+  saveState();
+  updateSidebarUser();
+  document.getElementById('role-switch-btn').textContent = role === 'admin' ? 'Admin' : 'Siswa';
+  document.getElementById('demo-role-label').textContent = role === 'admin' ? 'Admin' : 'Siswa';
+  document.getElementById('admin-nav-section').style.display = role === 'admin' ? '' : 'none';
+  renderView(appState.currentView);
+}
+
+function updateSidebarUser() {
+  const isAdmin = appState.role === 'admin';
+  document.getElementById('sidebar-name').textContent = isAdmin ? 'Administrator' : appState.student.name;
+  document.getElementById('sidebar-avatar').textContent = isAdmin ? 'AD' : appState.student.initials;
+  document.getElementById('sidebar-role').textContent = isAdmin ? 'Admin · Pengajar' : `Siswa · ${appState.student.level}`;
+  document.getElementById('role-switch-btn').textContent = appState.role === 'admin' ? 'Admin' : 'Siswa';
+  document.getElementById('demo-role-label').textContent = appState.role === 'admin' ? 'Admin' : 'Siswa';
+  document.getElementById('admin-nav-section').style.display = appState.role === 'admin' ? '' : 'none';
+}
+
+// ── Navigation ────────────────────────────────────────────────
+const VIEW_LABELS = {
+  dashboard:  'Dashboard',
+  courses:    'Kelas Saya',
+  vocab:      'Kosakata',
+  assessment: 'Penilaian',
+  progress:   'Progres',
+  laporan:    'Laporan',
+  admin:      'Panel Admin',
+};
+
+function renderView(viewName) {
+  if (viewName === 'dashboard' && appState.role === 'admin') viewName = 'admin';
+  appState.currentView = viewName;
+  saveState();
+
+  // Update nav active state
+  document.querySelectorAll('.lms-nav-item').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.view === viewName);
+  });
+
+  // Update breadcrumb
+  document.getElementById('crumb-current').textContent = VIEW_LABELS[viewName] || viewName;
+
+  // Render content
+  const content = document.getElementById('lms-content');
+  content.classList.remove('view-animate');
+  void content.offsetWidth; // force reflow
+  content.classList.add('view-animate');
+
+  switch(viewName) {
+    case 'dashboard':  content.innerHTML = buildDashboard(); break;
+    case 'courses':    content.innerHTML = buildCourses(); break;
+    case 'vocab':      content.innerHTML = buildVocab(); break;
+    case 'assessment': content.innerHTML = buildAssessment(); break;
+    case 'progress':   content.innerHTML = buildProgress(); break;
+    case 'laporan':    content.innerHTML = buildLaporan(); break;
+    case 'admin':      content.innerHTML = buildAdmin(); break;
+    default:           content.innerHTML = buildDashboard();
+  }
+
+  // Post-render
+  if (viewName === 'dashboard') initDashboardRings();
+  if (viewName === 'progress')  { drawRadarChart(appState.student.skills); drawBarChart(appState.student.monthlyHours); }
+  if (viewName === 'courses')   initCourseFilter();
+  if (viewName === 'assessment') initAssessmentBars();
+}
+
+// ── Mobile Sidebar ────────────────────────────────────────────
+function openSidebar() {
+  document.getElementById('lms-sidebar').classList.add('open');
+  document.getElementById('sidebar-overlay').classList.add('open');
+}
+function closeSidebar() {
+  document.getElementById('lms-sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+}
+
+// ── SVG Progress Ring ─────────────────────────────────────────
+function drawProgressRing(el, pct, color) {
+  const r = 33;
+  const circ = 2 * Math.PI * r;
+  const offset = circ - (pct / 100) * circ;
+  const fill = el.querySelector('.ring-fill');
+  if (!fill) return;
+  fill.style.stroke = color;
+  fill.setAttribute('stroke-dasharray', circ.toFixed(2));
+  fill.setAttribute('stroke-dashoffset', offset.toFixed(2));
+}
+
+function initDashboardRings() {
+  const { listen, speak, read, write } = appState.student.skills;
+  const rings = [
+    { id:'ring-listen', pct: listen, color:'#2563eb' },
+    { id:'ring-speak',  pct: speak,  color:'#16a34a' },
+    { id:'ring-read',   pct: read,   color:'#ea7c22' },
+    { id:'ring-write',  pct: write,  color:'#7c3aed' },
+  ];
+  rings.forEach(r => {
+    const el = document.getElementById(r.id);
+    if (el) drawProgressRing(el, r.pct, r.color);
+  });
+}
+
+function initAssessmentBars() {
+  const colors = {
+    listen:'#2563eb', speak:'#16a34a', read:'#ea7c22', write:'#7c3aed'
+  };
+  Object.entries(colors).forEach(([key, color]) => {
+    const container = document.getElementById(`hist-${key}`);
+    if (!container) return;
+    // Generate mock history
+    const history = [65, 70, 68, 72, appState.student.skills[key]];
+    const max = 100;
+    container.innerHTML = history.map(v => {
+      const h = Math.max(4, Math.round((v / max) * 40));
+      return `<div class="score-bar-mini" style="height:${h}px;background:${color};opacity:0.8;"></div>`;
+    }).join('');
+  });
+}
+
+// ── SVG Radar Chart ───────────────────────────────────────────
+function drawRadarChart(skills) {
+  const el = document.getElementById('radar-chart');
+  if (!el) return;
+
+  const axes = [
+    { label:'听力', sub:'Mendengar', val: skills.listen },
+    { label:'口语', sub:'Berbicara', val: skills.speak  },
+    { label:'阅读', sub:'Membaca',   val: skills.read   },
+    { label:'书写', sub:'Menulis',   val: skills.write  },
+    { label:'词汇', sub:'Kosakata',  val: skills.vocab  },
+    { label:'语法', sub:'Tata Bahasa',val:skills.grammar },
+  ];
+  const n = axes.length;
+  const cx = 200, cy = 200, R = 140;
+  const levels = 5;
+  const toRad = deg => deg * Math.PI / 180;
+  const angle = i => toRad(-90 + (360 / n) * i);
+  const pt = (i, r) => ({
+    x: cx + r * Math.cos(angle(i)),
+    y: cy + r * Math.sin(angle(i))
+  });
+  const ptStr = (i, r) => { const p = pt(i, r); return `${p.x.toFixed(2)},${p.y.toFixed(2)}`; };
+
+  // Background grids
+  let gridSVG = '';
+  for (let l = 1; l <= levels; l++) {
+    const r = (R / levels) * l;
+    const poly = Array.from({length: n}, (_, i) => ptStr(i, r)).join(' ');
+    gridSVG += `<polygon points="${poly}" fill="none" stroke="#e5e0d8" stroke-width="${l===levels?1.5:1}"/>`;
+    // Level label at top
+    const topPt = pt(0, r);
+    gridSVG += `<text x="${topPt.x + 4}" y="${topPt.y}" font-size="9" fill="#8a7d6f" font-family="'JetBrains Mono',monospace">${l*20}</text>`;
+  }
+
+  // Axis lines
+  let axisLines = '';
+  for (let i = 0; i < n; i++) {
+    const outer = pt(i, R);
+    axisLines += `<line x1="${cx}" y1="${cy}" x2="${outer.x.toFixed(2)}" y2="${outer.y.toFixed(2)}" stroke="#dbd5cc" stroke-width="1"/>`;
+  }
+
+  // Data polygon
+  const dataPoints = axes.map((a, i) => ptStr(i, (a.val / 100) * R)).join(' ');
+
+  // Labels
+  let labels = '';
+  axes.forEach((a, i) => {
+    const labelR = R + 28;
+    const lp = pt(i, labelR);
+    const anchor = lp.x < cx - 5 ? 'end' : lp.x > cx + 5 ? 'start' : 'middle';
+    labels += `<text x="${lp.x.toFixed(2)}" y="${(lp.y - 6).toFixed(2)}" text-anchor="${anchor}" font-size="13" font-weight="700" fill="#1a1714" font-family="'Noto Serif SC','Source Serif 4',serif">${a.label}</text>`;
+    labels += `<text x="${lp.x.toFixed(2)}" y="${(lp.y + 8).toFixed(2)}" text-anchor="${anchor}" font-size="9.5" fill="#8a7d6f" font-family="'Plus Jakarta Sans',sans-serif">${a.val}</text>`;
+  });
+
+  el.innerHTML = `
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" id="radar-svg">
+      <defs>
+        <radialGradient id="radarGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#b8312b" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#b8312b" stop-opacity="0.08"/>
+        </radialGradient>
+      </defs>
+      ${gridSVG}
+      ${axisLines}
+      <polygon points="${dataPoints}" fill="url(#radarGrad)" stroke="#b8312b" stroke-width="2" stroke-linejoin="round"/>
+      ${labels}
+    </svg>
+  `;
+}
+
+// ── SVG Bar Chart ─────────────────────────────────────────────
+function drawBarChart(data) {
+  const el = document.getElementById('bar-chart');
+  if (!el) return;
+
+  const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  const W = 600, H = 180;
+  const padL = 40, padR = 16, padT = 16, padB = 40;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+  const barW = chartW / data.length;
+  const maxVal = Math.max(...data, 1);
+  const currentMonth = new Date().getMonth(); // 0-indexed
+
+  let bars = '';
+  let xLabels = '';
+  let yGrid = '';
+
+  // Y-axis grid lines
+  for (let i = 0; i <= 4; i++) {
+    const y = padT + chartH - (chartH / 4) * i;
+    const val = Math.round((maxVal / 4) * i);
+    yGrid += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#e5e0d8" stroke-width="1"/>`;
+    yGrid += `<text x="${padL - 4}" y="${y + 4}" text-anchor="end" font-size="9" fill="#8a7d6f" font-family="'JetBrains Mono',monospace">${val}</text>`;
+  }
+
+  data.forEach((v, i) => {
+    const bH = v > 0 ? Math.max(4, (v / maxVal) * chartH) : 0;
+    const x = padL + i * barW + barW * 0.15;
+    const bW = barW * 0.7;
+    const y = padT + chartH - bH;
+    const isCurrent = i === currentMonth;
+    const isFuture = v === 0;
+
+    if (v > 0) {
+      bars += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bW.toFixed(1)}" height="${bH.toFixed(1)}"
+        fill="${isCurrent ? '#b8312b' : '#d4796e'}" rx="3" opacity="${isFuture ? 0.3 : 1}"/>`;
+      bars += `<text x="${(x + bW/2).toFixed(1)}" y="${(y - 4).toFixed(1)}" text-anchor="middle"
+        font-size="8" fill="#5a4f44" font-family="'JetBrains Mono',monospace">${v}</text>`;
+    } else {
+      bars += `<rect x="${x.toFixed(1)}" y="${(padT + chartH - 3).toFixed(1)}" width="${bW.toFixed(1)}" height="3"
+        fill="#e5e0d8" rx="1.5"/>`;
+    }
+    xLabels += `<text x="${(padL + i * barW + barW / 2).toFixed(1)}" y="${H - 8}" text-anchor="middle"
+      font-size="9.5" fill="${isCurrent ? '#b8312b' : '#8a7d6f'}" font-weight="${isCurrent ? '600' : '400'}"
+      font-family="'Plus Jakarta Sans',sans-serif">${months[i]}</text>`;
+  });
+
+  el.innerHTML = `
+    <svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+      ${yGrid}
+      <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + chartH}" stroke="#dbd5cc" stroke-width="1.5"/>
+      <line x1="${padL}" y1="${padT + chartH}" x2="${W - padR}" y2="${padT + chartH}" stroke="#dbd5cc" stroke-width="1.5"/>
+      ${bars}
+      ${xLabels}
+    </svg>
+  `;
+}
+
+// ── Course Filter ─────────────────────────────────────────────
+function filterCourses(status) {
+  appState.courseFilter = status;
+  document.querySelectorAll('.filter-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.filter === status);
+  });
+  const grid = document.getElementById('course-grid');
+  if (!grid) return;
+  grid.innerHTML = buildCourseCards(status);
+}
+
+function initCourseFilter() {
+  document.querySelectorAll('.filter-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.filter === (appState.courseFilter || 'all'));
+  });
+}
+
+// ── Evaluation Modal ──────────────────────────────────────────
+function openEvalModal(studentId) {
+  const student = STUDENTS.find(s => s.id === studentId);
+  if (!student) return;
+
+  document.getElementById('eval-student-id').value = studentId;
+  document.getElementById('eval-modal-title').textContent = `Penilaian: ${student.name}`;
+  document.getElementById('eval-modal-sub').textContent = `Level saat ini: ${student.level}`;
+  document.getElementById('eval-listen').value = student.listen;
+  document.getElementById('eval-speak').value  = student.speak;
+  document.getElementById('eval-read').value   = student.read;
+  document.getElementById('eval-write').value  = student.write;
+
+  // Try to load saved data
+  try {
+    const saved = JSON.parse(localStorage.getItem(`jms_eval_${studentId}`) || '{}');
+    if (saved.notes)  document.getElementById('eval-notes').value = saved.notes;
+    if (saved.level)  document.getElementById('eval-level').value = saved.level;
+  } catch(e) {}
+
+  document.getElementById('eval-level').value = student.level;
+  document.getElementById('eval-modal').classList.add('open');
+}
+
+function closeEvalModal() {
+  document.getElementById('eval-modal').classList.remove('open');
+}
+
+function saveEvaluation() {
+  const id   = document.getElementById('eval-student-id').value;
+  const data = {
+    listen: +document.getElementById('eval-listen').value,
+    speak:  +document.getElementById('eval-speak').value,
+    read:   +document.getElementById('eval-read').value,
+    write:  +document.getElementById('eval-write').value,
+    notes:  document.getElementById('eval-notes').value,
+    level:  document.getElementById('eval-level').value,
+    date:   document.getElementById('eval-date').value,
+    saved:  new Date().toISOString()
+  };
+
+  // Validate
+  const vals = [data.listen, data.speak, data.read, data.write];
+  if (vals.some(v => isNaN(v) || v < 0 || v > 100)) {
+    alert('Nilai harus antara 0 dan 100.');
+    return;
+  }
+
+  try { localStorage.setItem(`jms_eval_${id}`, JSON.stringify(data)); } catch(e) {}
+
+  // Update student in memory
+  const student = STUDENTS.find(s => s.id === +id);
+  if (student) {
+    student.listen = data.listen;
+    student.speak  = data.speak;
+    student.read   = data.read;
+    student.write  = data.write;
+    student.level  = data.level;
+  }
+
+  closeEvalModal();
+  // Refresh admin view
+  const content = document.getElementById('lms-content');
+  content.innerHTML = buildAdmin();
+
+  // Show success feedback
+  const banner = document.createElement('div');
+  banner.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#16a34a;color:#fff;padding:12px 20px;border-radius:8px;font-weight:600;font-size:.875rem;box-shadow:0 4px 12px rgba(0,0,0,.2);z-index:600;';
+  banner.textContent = `✓ Penilaian ${student?.name} berhasil disimpan`;
+  document.body.appendChild(banner);
+  setTimeout(() => banner.remove(), 3000);
+}
+
+// ── Helpers ───────────────────────────────────────────────────
+function scoreClass(v) {
+  if (v >= 80) return 'score-good';
+  if (v >= 60) return 'score-ok';
+  return 'score-low';
+}
+function statusBadge(s) {
+  const map = {
+    'Aktif':         'badge-green',
+    'Tidak Aktif':   'badge-gray',
+    'Perlu Perhatian':'badge-orange',
+  };
+  return `<span class="badge ${map[s]||'badge-gray'}">${s}</span>`;
+}
+function avg(s) {
+  return Math.round((s.listen + s.speak + s.read + s.write) / 4);
+}
+
+// Inline ring SVG
+function ringCard(id, label, labelId, score, colorClass) {
+  const r = 33, circ = (2 * Math.PI * r).toFixed(2);
+  const colors = { listen:'#2563eb', speak:'#16a34a', read:'#ea7c22', write:'#7c3aed' };
+  const color = colors[id] || '#b8312b';
+  const offset = (circ - (score / 100) * circ).toFixed(2);
+  return `
+  <div class="skill-card">
+    <div class="ring-wrap" id="${id==='listen'?'ring-listen':id==='speak'?'ring-speak':id==='read'?'ring-read':'ring-write'}">
+      <svg class="ring-svg" viewBox="0 0 80 80">
+        <circle class="ring-track" cx="40" cy="40" r="${r}"/>
+        <circle class="ring-fill" cx="40" cy="40" r="${r}"
+          stroke="${color}" stroke-dasharray="${circ}" stroke-dashoffset="${offset}"/>
+      </svg>
+      <div class="ring-score">${score}</div>
+    </div>
+    <div class="skill-zh">${label}</div>
+    <div class="skill-id">${labelId}</div>
+    <span class="skill-badge ${id}">${score}/100</span>
+    <button class="btn-sm btn-secondary" onclick="renderView('assessment')">Latihan</button>
+  </div>`;
+}
+
+// ── View Builders ─────────────────────────────────────────────
+
+function buildDashboard() {
+  const s = appState.student;
+  return `
+  <div class="view-header">
+    <div class="view-title">Dashboard</div>
+    <div class="view-subtitle">Pantau perkembangan belajar Mandarin Anda</div>
+  </div>
+
+  <!-- Hero card -->
+  <div class="hero-card mb-24">
+    <div class="hero-greeting">Selamat datang kembali, ${s.name.split(' ')[0]}! 👋</div>
+    <div class="hero-meta">
+      <span class="badge badge-cinnabar">${s.level} · ${s.levelBand} · ${s.levelLabel}</span>
+      <span class="hero-streak">🔥 ${s.streak} hari berturut-turut</span>
+    </div>
+    <div class="text-sm" style="color:rgba(232,221,200,.7);margin-bottom:14px;">
+      ${s.wordsToNextLevel} kata lagi untuk naik ke HSK 4
+    </div>
+    <div class="hero-progress-area">
+      <div class="hero-progress-label">
+        <span>Progres menuju HSK 4</span>
+        <span>${s.levelProgress}%</span>
+      </div>
+      <div class="hero-progress-bar">
+        <div class="hero-progress-fill" style="width:${s.levelProgress}%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skill rings -->
+  <div class="skill-cards-row">
+    ${ringCard('listen','听力','Mendengar',s.skills.listen,'listen')}
+    ${ringCard('speak', '口语','Berbicara', s.skills.speak, 'speak')}
+    ${ringCard('read',  '阅读','Membaca',   s.skills.read,  'read')}
+    ${ringCard('write', '书写','Menulis',   s.skills.write, 'write')}
+  </div>
+
+  <!-- Continue learning -->
+  <div class="continue-card">
+    <div class="continue-art">餐</div>
+    <div class="continue-info">
+      <div class="continue-title">HSK 3 — Pelajaran 8: Di Restoran 在餐厅</div>
+      <div class="continue-sub">Terakhir belajar: 2 jam yang lalu · Mendengar + Berbicara</div>
+      <div class="continue-progress-row">
+        <div class="progress-bar" style="flex:1"><div class="progress-fill red" style="width:65%"></div></div>
+        <span class="continue-pct">65%</span>
+      </div>
+    </div>
+    <button class="btn-lg btn-primary" onclick="renderView('courses')">Lanjutkan</button>
+  </div>
+
+  <!-- Activity + Upcoming -->
+  <div class="grid-2 mb-24">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Aktivitas Terbaru</span>
+        <span class="badge badge-gray">5 item</span>
+      </div>
+      <div class="card-body" style="padding-top:8px;padding-bottom:8px;">
+        <ul class="activity-list">
+          <li class="activity-item">
+            <div class="activity-icon">✅</div>
+            <div class="activity-text">
+              <div class="activity-name">Kuis Kosakata HSK 3</div>
+              <div class="activity-meta">2 jam yang lalu</div>
+            </div>
+            <span class="activity-score" style="color:#16a34a">89%</span>
+          </li>
+          <li class="activity-item">
+            <div class="activity-icon">🎧</div>
+            <div class="activity-text">
+              <div class="activity-name">Mendengar Pelajaran 7</div>
+              <div class="activity-meta">Kemarin</div>
+            </div>
+            <span class="activity-score">Selesai</span>
+          </li>
+          <li class="activity-item">
+            <div class="activity-icon">✍️</div>
+            <div class="activity-text">
+              <div class="activity-name">Latihan Menulis Karakter</div>
+              <div class="activity-meta">Kemarin</div>
+            </div>
+            <span class="activity-score">15 字</span>
+          </li>
+          <li class="activity-item">
+            <div class="activity-icon">📖</div>
+            <div class="activity-text">
+              <div class="activity-name">Membaca Teks HSK 3</div>
+              <div class="activity-meta">2 hari lalu</div>
+            </div>
+            <span class="activity-score" style="color:#ea7c22">76%</span>
+          </li>
+          <li class="activity-item">
+            <div class="activity-icon">🗣️</div>
+            <div class="activity-text">
+              <div class="activity-name">Evaluasi Berbicara</div>
+              <div class="activity-meta">3 hari lalu</div>
+            </div>
+            <span class="activity-score badge badge-yellow" style="font-size:.625rem;">Menunggu</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Ujian & Penilaian Mendatang</span>
+      </div>
+      <div class="card-body" style="padding-top:8px;padding-bottom:8px;">
+        <div class="upcoming-item">
+          <div class="activity-icon">📝</div>
+          <div class="upcoming-info">
+            <div class="upcoming-name">HSK 3 Simulasi Ujian</div>
+            <div class="upcoming-date">3 hari lagi · Online</div>
+          </div>
+          <button class="btn-sm btn-primary" onclick="alert('Pendaftaran berhasil!')">Daftar</button>
+        </div>
+        <div class="upcoming-item">
+          <div class="activity-icon">🎤</div>
+          <div class="upcoming-info">
+            <div class="upcoming-name">Evaluasi Lisan HSKK</div>
+            <div class="upcoming-date">7 hari lagi · Kelas</div>
+          </div>
+          <button class="btn-sm btn-primary" onclick="alert('Pendaftaran berhasil!')">Daftar</button>
+        </div>
+        <div class="upcoming-item">
+          <div class="activity-icon">📊</div>
+          <div class="upcoming-info">
+            <div class="upcoming-name">Penilaian Bulanan</div>
+            <div class="upcoming-date">14 hari lagi · Komprehensif</div>
+          </div>
+          <button class="btn-sm btn-ghost" onclick="renderView('assessment')">Lihat Detail</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats row -->
+  <div class="grid-4">
+    <div class="stat-card">
+      <div class="stat-label">Total Jam Belajar</div>
+      <div class="stat-value">${s.totalHours}</div>
+      <div class="stat-sub">jam · sejak mulai belajar</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Kosakata Dikuasai</div>
+      <div class="stat-value">${s.vocabMastered.toLocaleString('id')}</div>
+      <div class="stat-sub">kata · dari total 2.245 (HSK 3)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Pelajaran Selesai</div>
+      <div class="stat-value">${s.lessonsComplete} <span style="font-size:1rem;color:var(--ink-4)">/ ${s.totalLessons}</span></div>
+      <div class="stat-sub">pelajaran dari semua kursus</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Rata-rata Nilai</div>
+      <div class="stat-value">${s.avgScore}<span style="font-size:1rem;color:var(--ink-4)">%</span></div>
+      <div class="stat-sub">dari seluruh penilaian</div>
+    </div>
+  </div>
+  `;
+}
+
+function buildCourseCards(filter) {
+  const filtered = filter === 'all' ? COURSES :
+    filter === 'active'  ? COURSES.filter(c => c.status === 'active')  :
+    filter === 'done'    ? COURSES.filter(c => c.status === 'done')    :
+    COURSES.filter(c => c.status === 'locked');
+
+  if (!filtered.length) return '<div class="text-sm text-muted" style="padding:20px">Tidak ada kursus di kategori ini.</div>';
+
+  return filtered.map(c => {
+    const statusMap = { done:'Selesai ✅', active:'Sedang Belajar 🔵', locked:'Belum Mulai 🔒' };
+    const badgeMap  = { done:'badge-green', active:'badge-blue', locked:'badge-gray' };
+    const btnMap    = { done:'Lihat Lagi', active:'Lanjutkan', locked:'Mulai' };
+    const btnStyleMap = { done:'btn-ghost', active:'btn-primary', locked:'btn-ghost' };
+
+    return `
+    <div class="course-card">
+      <div class="course-cover" style="background:${c.color}">
+        <div class="course-cover-char">${c.char}</div>
+        <div class="course-cover-badge">
+          <span class="badge ${badgeMap[c.status]}">${statusMap[c.status]}</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-title">${c.title}</div>
+        <div class="course-meta">${c.lessons} pelajaran · ${c.level}</div>
+        <div class="course-progress-row">
+          <div class="progress-bar">
+            <div class="progress-fill ${c.status==='done'?'green':c.status==='active'?'red':'gray'}" style="width:${c.pct}%"></div>
+          </div>
+          <span class="course-pct">${c.pct}%</span>
+        </div>
+        <button class="btn-sm ${btnStyleMap[c.status]} w-full"
+          onclick="${c.status==='locked'?`alert('Selesaikan kursus sebelumnya untuk membuka kursus ini.')`:`renderView('courses')`}"
+          style="margin-top:4px;">
+          ${c.status==='locked'?'🔒 Terkunci':btnMap[c.status]}
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function buildCourses() {
+  const lessonList = LESSONS.map(l => {
+    const statusIcon = l.done ? '✅' : l.current ? '🔵' : '🔒';
+    return `
+    <li class="lesson-item">
+      <span class="lesson-num">${String(l.num).padStart(2,'0')}</span>
+      <span class="lesson-type">${l.type}</span>
+      <div class="lesson-info">
+        <div class="lesson-title">${l.title}</div>
+        <div class="lesson-title-zh">${l.zh}</div>
+      </div>
+      <span class="lesson-duration text-xs text-muted">${l.dur}</span>
+      <span class="lesson-status">${statusIcon}</span>
+    </li>`;
+  }).join('');
+
+  return `
+  <div class="view-header flex items-center justify-between">
+    <div>
+      <div class="view-title">Kelas Saya 我的课程</div>
+      <div class="view-subtitle">Semua kursus Mandarin yang Anda ikuti</div>
+    </div>
+  </div>
+
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all"    onclick="filterCourses('all')">Semua</button>
+    <button class="filter-tab"       data-filter="active"  onclick="filterCourses('active')">Sedang Belajar</button>
+    <button class="filter-tab"       data-filter="done"    onclick="filterCourses('done')">Selesai</button>
+    <button class="filter-tab"       data-filter="locked"  onclick="filterCourses('locked')">Belum Mulai</button>
+  </div>
+
+  <div class="grid-3 mb-24" id="course-grid">
+    ${buildCourseCards('all')}
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">HSK 3 Menengah Bawah — Daftar Pelajaran</span>
+      <span class="badge badge-blue">Sedang Belajar · 68%</span>
+    </div>
+    <ul class="lesson-list">${lessonList}</ul>
+  </div>
+  `;
+}
+
+function buildVocab() {
+  const groups = [
+    { zh:'人', id:'Orang & Keluarga', count:45, mastered:45 },
+    { zh:'食', id:'Makanan & Minuman', count:38, mastered:32 },
+    { zh:'行', id:'Perjalanan', count:52, mastered:40 },
+    { zh:'家', id:'Rumah & Tempat', count:41, mastered:35 },
+    { zh:'时', id:'Waktu & Cuaca', count:33, mastered:33 },
+    { zh:'学', id:'Pendidikan', count:29, mastered:22 },
+    { zh:'健', id:'Kesehatan', count:36, mastered:18 },
+    { zh:'买', id:'Belanja', count:27, mastered:27 },
+  ];
+
+  const cards = groups.map(g => {
+    const pct = Math.round((g.mastered / g.count) * 100);
+    return `
+    <div class="stat-card" style="display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:40px;height:40px;background:var(--cinnabar-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-zh);font-size:20px;font-weight:700;color:var(--cinnabar);">${g.zh}</div>
+        <div>
+          <div style="font-weight:600;font-size:.875rem;">${g.id}</div>
+          <div class="text-xs text-muted">${g.mastered}/${g.count} kata</div>
+        </div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill red" style="width:${pct}%"></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="text-xs text-muted">${pct}% dikuasai</span>
+        <button class="btn-sm btn-secondary" onclick="alert('Fitur flashcard segera hadir!')">Latihan</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  return `
+  <div class="view-header">
+    <div class="view-title">Kosakata 词汇</div>
+    <div class="view-subtitle">Pelajari dan latih kosakata Mandarin berdasarkan topik</div>
+  </div>
+
+  <div class="grid-4 mb-24">${cards}</div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Kosakata HSK 3 — Latihan Terbaru</span>
+      <button class="btn-sm btn-primary" onclick="alert('Sesi flashcard dimulai!')">🃏 Mulai Flashcard</button>
+    </div>
+    <div class="card-body">
+      <div class="lms-table-wrap">
+        <table class="lms-table">
+          <thead><tr>
+            <th>Hanzi</th><th>Pinyin</th><th>Arti Indonesia</th><th>HSK</th><th>Status</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="font-zh" style="font-size:1.25rem;">餐厅</td><td class="font-mono">cāntīng</td><td>restoran</td><td><span class="badge badge-cinnabar">HSK 3</span></td><td><span class="badge badge-green">Dikuasai</span></td></tr>
+            <tr><td class="font-zh" style="font-size:1.25rem;">服务员</td><td class="font-mono">fúwùyuán</td><td>pelayan</td><td><span class="badge badge-cinnabar">HSK 3</span></td><td><span class="badge badge-green">Dikuasai</span></td></tr>
+            <tr><td class="font-zh" style="font-size:1.25rem;">点菜</td><td class="font-mono">diǎn cài</td><td>memesan makanan</td><td><span class="badge badge-cinnabar">HSK 3</span></td><td><span class="badge badge-blue">Dipelajari</span></td></tr>
+            <tr><td class="font-zh" style="font-size:1.25rem;">好吃</td><td class="font-mono">hǎo chī</td><td>enak / lezat</td><td><span class="badge badge-cinnabar">HSK 3</span></td><td><span class="badge badge-green">Dikuasai</span></td></tr>
+            <tr><td class="font-zh" style="font-size:1.25rem;">买单</td><td class="font-mono">mǎi dān</td><td>bayar tagihan</td><td><span class="badge badge-cinnabar">HSK 3</span></td><td><span class="badge badge-yellow">Perlu Latihan</span></td></tr>
+            <tr><td class="font-zh" style="font-size:1.25rem;">位子</td><td class="font-mono">wèi zi</td><td>tempat duduk</td><td><span class="badge badge-cinnabar">HSK 3</span></td><td><span class="badge badge-yellow">Perlu Latihan</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+function buildAssessment() {
+  const s = appState.student.skills;
+  const skills = [
+    { key:'listen', zh:'听力', id:'Mendengar', color:'#2563eb', bg:'#dbeafe', score:s.listen,
+      desc:'Kemampuan memahami percakapan, dialog, dan pengumuman dalam bahasa Mandarin.' },
+    { key:'speak',  zh:'口语', id:'Berbicara',  color:'#16a34a', bg:'#dcfce7', score:s.speak,
+      desc:'Kemampuan berkomunikasi secara lisan dengan pelafalan dan intonasi yang tepat.' },
+    { key:'read',   zh:'阅读', id:'Membaca',    color:'#ea7c22', bg:'#ffedd5', score:s.read,
+      desc:'Kemampuan memahami teks tertulis, karakter Hanzi, dan makna kontekstual.' },
+    { key:'write',  zh:'书写', id:'Menulis',    color:'#7c3aed', bg:'#ede9fe', score:s.write,
+      desc:'Kemampuan menulis karakter Hanzi dengan urutan goresan yang benar dan tepat.' },
+  ];
+
+  const skillCards = skills.map(sk => `
+  <div class="skill-assess-card">
+    <div class="skill-assess-header">
+      <div class="skill-assess-icon" style="background:${sk.bg};color:${sk.color};">${sk.zh}</div>
+      <div>
+        <div class="skill-assess-title" style="color:${sk.color}">${sk.zh} ${sk.id}</div>
+        <div class="skill-assess-subtitle">Kemampuan ${sk.id}</div>
+      </div>
+    </div>
+    <div class="score-big" style="color:${sk.color}">${sk.score}<span style="font-size:1.25rem;color:var(--ink-4)">/100</span></div>
+    <div class="score-history" id="hist-${sk.key}">
+      <!-- filled by JS -->
+    </div>
+    <div class="text-xs text-muted mb-12">Riwayat 5 penilaian terakhir</div>
+    <p class="skill-desc">${sk.desc}</p>
+    <button class="btn-sm btn-secondary" style="border-color:${sk.color};color:${sk.color};" onclick="alert('Sesi latihan ${sk.id} dimulai!')">Mulai Latihan</button>
+  </div>`).join('');
+
+  return `
+  <div class="view-header flex items-center justify-between">
+    <div>
+      <div class="view-title">Penilaian 评估</div>
+      <div class="view-subtitle">Pantau penilaian 4 kemampuan bahasa Mandarin Anda</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="grade-display">
+        <span class="grade-letter">B+</span>
+        <span class="grade-pct">74%</span>
+      </div>
+      <div class="text-xs text-muted">Nilai keseluruhan saat ini</div>
+    </div>
+  </div>
+
+  <div class="skill-assess-grid mb-24">${skillCards}</div>
+
+  <!-- Rubric Table -->
+  <div class="card mb-24">
+    <div class="card-header"><span class="card-title">Rubrik Penilaian</span></div>
+    <div class="card-body" style="padding:0;">
+      <div class="lms-table-wrap" style="border:none;box-shadow:none;border-radius:0 0 var(--radius) var(--radius);">
+        <table class="lms-table">
+          <thead><tr>
+            <th>Kemampuan</th>
+            <th>Sangat Baik (90–100)</th>
+            <th>Baik (75–89)</th>
+            <th>Cukup (60–74)</th>
+            <th>Perlu Perbaikan (&lt;60)</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="skill-badge listen">听力 Mendengar</span></td>
+              <td class="text-sm">Memahami semua nuansa percakapan</td>
+              <td class="text-sm">Memahami ide utama dengan baik</td>
+              <td class="text-sm">Memahami topik familiar</td>
+              <td class="text-sm">Kesulitan memahami percakapan</td>
+            </tr>
+            <tr>
+              <td><span class="skill-badge speak">口语 Berbicara</span></td>
+              <td class="text-sm">Pelafalan sangat jelas & alami</td>
+              <td class="text-sm">Pelafalan jelas dengan sedikit aksen</td>
+              <td class="text-sm">Dapat berkomunikasi dasar</td>
+              <td class="text-sm">Sulit dipahami penutur asli</td>
+            </tr>
+            <tr>
+              <td><span class="skill-badge read">阅读 Membaca</span></td>
+              <td class="text-sm">Membaca teks kompleks dengan cepat</td>
+              <td class="text-sm">Memahami teks standar HSK 3</td>
+              <td class="text-sm">Memahami teks sederhana</td>
+              <td class="text-sm">Kesulitan mengenali karakter</td>
+            </tr>
+            <tr>
+              <td><span class="skill-badge write">书写 Menulis</span></td>
+              <td class="text-sm">Menulis dengan urutan goresan tepat</td>
+              <td class="text-sm">Menulis dengan benar & rapi</td>
+              <td class="text-sm">Menulis karakter dasar</td>
+              <td class="text-sm">Banyak kesalahan goresan</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming tests -->
+  <div class="card">
+    <div class="card-header"><span class="card-title">Jadwal Ujian</span></div>
+    <div class="card-body" style="padding:0;">
+      <div class="lms-table-wrap" style="border:none;box-shadow:none;border-radius:0 0 var(--radius) var(--radius);">
+        <table class="lms-table">
+          <thead><tr><th>Ujian</th><th>Level</th><th>Tanggal</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>HSK 3 Simulasi Ujian</strong></td>
+              <td><span class="badge badge-cinnabar">HSK 3</span></td>
+              <td class="font-mono text-sm">29 Mei 2026</td>
+              <td><span class="badge badge-blue">Terbuka</span></td>
+              <td><button class="btn-sm btn-primary" onclick="alert('Berhasil mendaftar!')">Daftar</button></td>
+            </tr>
+            <tr>
+              <td><strong>Evaluasi Lisan HSKK</strong></td>
+              <td><span class="badge badge-purple">HSKK</span></td>
+              <td class="font-mono text-sm">2 Jun 2026</td>
+              <td><span class="badge badge-blue">Terbuka</span></td>
+              <td><button class="btn-sm btn-primary" onclick="alert('Berhasil mendaftar!')">Daftar</button></td>
+            </tr>
+            <tr>
+              <td><strong>Penilaian Bulanan Komprehensif</strong></td>
+              <td><span class="badge badge-cinnabar">HSK 3</span></td>
+              <td class="font-mono text-sm">9 Jun 2026</td>
+              <td><span class="badge badge-yellow">Akan Datang</span></td>
+              <td><button class="btn-sm btn-ghost">Detail</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+function buildProgress() {
+  const vocabRows = [
+    { level:'HSK 1', total:500,   mastered:500,  learning:0,   remaining:0    },
+    { level:'HSK 2', total:1292,  mastered:1292, learning:0,   remaining:0    },
+    { level:'HSK 3', total:2245,  mastered:55,   learning:312, remaining:1878 },
+    { level:'HSK 4', total:1971,  mastered:0,    learning:0,   remaining:1971 },
+    { level:'HSK 5', total:2218,  mastered:0,    learning:0,   remaining:2218 },
+    { level:'HSK 6', total:2663,  mastered:0,    learning:0,   remaining:2663 },
+  ];
+
+  const timelineNodes = [
+    { label:'HSK 1', date:'Mar 2024', done:true  },
+    { label:'HSK 2', date:'Okt 2024', done:true  },
+    { label:'HSK 3', date:'Saat ini', done:false, current:true },
+    { label:'HSK 4', date:'',         done:false },
+    { label:'HSK 5', date:'',         done:false },
+    { label:'HSK 6', date:'',         done:false },
+  ];
+
+  const timelineHTML = timelineNodes.map((n, i) => `
+    ${i > 0 ? `<div class="timeline-connector ${timelineNodes[i-1].done ? 'done' : ''}"></div>` : ''}
+    <div class="timeline-node">
+      <div class="timeline-circle ${n.current ? 'current' : n.done ? 'done' : 'future'}">${n.label}</div>
+      <div class="timeline-label">${n.current ? '🎯 Saat ini' : n.done ? '✅ Selesai' : '🔒 Terkunci'}</div>
+      <div class="timeline-date">${n.date || '—'}</div>
+    </div>
+  `).join('');
+
+  const vocabTableRows = vocabRows.map(r => {
+    const mastPct = r.total > 0 ? Math.round((r.mastered / r.total) * 100) : 0;
+    return `
+    <tr>
+      <td><span class="badge badge-cinnabar">${r.level}</span></td>
+      <td class="font-mono">${r.total.toLocaleString('id')}</td>
+      <td class="font-mono text-sm" style="color:#16a34a">${r.mastered.toLocaleString('id')}</td>
+      <td class="font-mono text-sm" style="color:#ea7c22">${r.learning.toLocaleString('id')}</td>
+      <td class="font-mono text-sm" style="color:var(--ink-4)">${r.remaining.toLocaleString('id')}</td>
+      <td class="vocab-progress-cell">
+        <div class="progress-bar"><div class="progress-fill ${mastPct===100?'green':'red'}" style="width:${mastPct}%"></div></div>
+        <div class="text-xs text-muted mt-4">${mastPct}%</div>
+      </td>
+    </tr>`;
+  }).join('');
+
+  return `
+  <div class="view-header">
+    <div class="view-title">Progres 进步</div>
+    <div class="view-subtitle">Perjalanan belajar Mandarin Anda dari awal hingga sekarang</div>
+  </div>
+
+  <!-- Level Timeline -->
+  <div class="card mb-24">
+    <div class="card-header"><span class="card-title">Perjalanan Level HSK</span></div>
+    <div class="card-body">
+      <div class="level-timeline">${timelineHTML}</div>
+    </div>
+  </div>
+
+  <!-- Radar + Bar side by side -->
+  <div class="grid-2 mb-24">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Radar Kemampuan</span>
+        <span class="badge badge-cinnabar">6 Dimensi</span>
+      </div>
+      <div class="card-body">
+        <div class="radar-container">
+          <div id="radar-chart"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Jam Belajar Per Bulan</span>
+        <span class="text-sm text-muted">2026</span>
+      </div>
+      <div class="card-body">
+        <div class="bar-chart-container">
+          <div id="bar-chart"></div>
+        </div>
+        <div class="stat-sub mt-12" style="text-align:center;">
+          Total: <strong class="font-mono">${appState.student.monthlyHours.reduce((a,b)=>a+b,0)} jam</strong> tahun ini
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vocab mastery table -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Penguasaan Kosakata per Level</span>
+    </div>
+    <div class="card-body" style="padding:0;">
+      <div class="lms-table-wrap" style="border:none;box-shadow:none;border-radius:0 0 var(--radius) var(--radius);">
+        <table class="lms-table">
+          <thead><tr>
+            <th>Level</th><th>Total Kata</th>
+            <th style="color:#16a34a">Dikuasai</th>
+            <th style="color:#ea7c22">Dipelajari</th>
+            <th>Belum</th>
+            <th>Progres</th>
+          </tr></thead>
+          <tbody>${vocabTableRows}</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+function buildLaporan() {
+  return `
+  <div class="view-header">
+    <div class="view-title">Laporan 报告</div>
+    <div class="view-subtitle">Unduh laporan kemajuan belajar Anda</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Laporan Kemajuan Siswa</span></div>
+      <div class="card-body">
+        <p class="text-sm text-muted mb-16">Laporan komprehensif yang mencakup semua kemampuan, nilai ujian, dan catatan guru Anda.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <button class="quick-action-btn" onclick="alert('Mengunduh laporan PDF…')">
+            <div class="quick-action-icon">📄</div>
+            Unduh Laporan PDF
+          </button>
+          <button class="quick-action-btn" onclick="alert('Mengunduh laporan Excel…')">
+            <div class="quick-action-icon">📊</div>
+            Unduh Laporan Excel
+          </button>
+          <button class="quick-action-btn" onclick="alert('Berbagi laporan ke orang tua…')">
+            <div class="quick-action-icon">📤</div>
+            Kirim ke Orang Tua / Wali
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span class="card-title">Sertifikat & Pencapaian</span></div>
+      <div class="card-body">
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div class="activity-item">
+            <div class="activity-icon">🏅</div>
+            <div class="activity-text">
+              <div class="activity-name">Sertifikat HSK 1</div>
+              <div class="activity-meta">Selesai Maret 2024</div>
+            </div>
+            <button class="btn-sm btn-ghost" onclick="alert('Unduh sertifikat HSK 1')">Unduh</button>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">🏅</div>
+            <div class="activity-text">
+              <div class="activity-name">Sertifikat HSK 2</div>
+              <div class="activity-meta">Selesai Oktober 2024</div>
+            </div>
+            <button class="btn-sm btn-ghost" onclick="alert('Unduh sertifikat HSK 2')">Unduh</button>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">🔒</div>
+            <div class="activity-text">
+              <div class="activity-name">Sertifikat HSK 3</div>
+              <div class="activity-meta">Dalam proses · 68% selesai</div>
+            </div>
+            <button class="btn-sm btn-ghost" disabled style="opacity:.4;">Terkunci</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+function buildAdmin() {
+  // Load any saved evaluations
+  const studentsWithSaved = STUDENTS.map(s => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(`jms_eval_${s.id}`) || '{}');
+      return { ...s, ...saved };
+    } catch(e) { return s; }
+  });
+
+  const rows = studentsWithSaved.map(s => {
+    const a = avg(s);
+    return `
+    <tr>
+      <td>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="lms-user-avatar" style="width:28px;height:28px;font-size:.6875rem;background:var(--cinnabar-deep);">${s.name.split(' ').map(w=>w[0]).slice(0,2).join('')}</div>
+          <strong>${s.name}</strong>
+        </div>
+      </td>
+      <td><span class="badge badge-cinnabar">${s.level}</span></td>
+      <td><span class="score-cell ${scoreClass(s.listen)}">${s.listen}</span></td>
+      <td><span class="score-cell ${scoreClass(s.speak)}">${s.speak}</span></td>
+      <td><span class="score-cell ${scoreClass(s.read)}">${s.read}</span></td>
+      <td><span class="score-cell ${scoreClass(s.write)}">${s.write}</span></td>
+      <td><span class="score-cell ${scoreClass(a)}" style="width:44px;">${a}%</span></td>
+      <td>${statusBadge(s.status)}</td>
+      <td>
+        <div style="display:flex;gap:6px;">
+          <button class="btn-sm btn-primary" onclick="openEvalModal(${s.id})">Nilai</button>
+          ${s.status==='Aktif'||s.status==='Perlu Perhatian'?`<button class="btn-sm btn-ghost" onclick="alert('Detail: ${s.name}')">Detail</button>`:''}
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+
+  const totalSiswa = STUDENTS.length;
+  const aktif = STUDENTS.filter(s => s.status === 'Aktif').length;
+  const pending = 3;
+  const rataRata = Math.round(STUDENTS.reduce((acc, s) => acc + avg(s), 0) / STUDENTS.length);
+
+  return `
+  <div class="view-header flex items-center justify-between">
+    <div>
+      <div class="view-title">Panel Admin 管理面板</div>
+      <div class="view-subtitle">Kelola siswa, nilai, dan jadwal kelas</div>
+    </div>
+    <button class="btn-lg btn-primary" onclick="alert('Form tambah siswa segera hadir!')">＋ Tambah Siswa</button>
+  </div>
+
+  <!-- Admin stats -->
+  <div class="grid-4 mb-24">
+    <div class="admin-stat-card c-cinnabar">
+      <div class="stat-label">Total Siswa</div>
+      <div class="stat-value">${totalSiswa}</div>
+      <div class="stat-sub">terdaftar</div>
+    </div>
+    <div class="admin-stat-card c-blue">
+      <div class="stat-label">Aktif Bulan Ini</div>
+      <div class="stat-value">${aktif}</div>
+      <div class="stat-sub">dari ${totalSiswa} siswa</div>
+    </div>
+    <div class="admin-stat-card c-orange">
+      <div class="stat-label">Penilaian Tertunda</div>
+      <div class="stat-value">${pending}</div>
+      <div class="stat-sub">menunggu evaluasi</div>
+    </div>
+    <div class="admin-stat-card c-green">
+      <div class="stat-label">Rata-rata Nilai</div>
+      <div class="stat-value">${rataRata}%</div>
+      <div class="stat-sub">seluruh siswa</div>
+    </div>
+  </div>
+
+  <!-- Student table -->
+  <div class="card mb-24">
+    <div class="card-header">
+      <span class="card-title">Manajemen Siswa</span>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <input type="text" placeholder="Cari siswa…" class="form-control" style="width:180px;padding:6px 10px;"
+          oninput="filterStudentTable(this.value)">
+      </div>
+    </div>
+    <div class="lms-table-wrap" style="border:none;box-shadow:none;border-radius:0 0 var(--radius) var(--radius);">
+      <table class="lms-table" id="student-table">
+        <thead><tr>
+          <th>Nama</th><th>Level</th>
+          <th><span class="skill-badge listen">听力</span></th>
+          <th><span class="skill-badge speak">口语</span></th>
+          <th><span class="skill-badge read">阅读</span></th>
+          <th><span class="skill-badge write">书写</span></th>
+          <th>Rata-rata</th><th>Status</th><th>Aksi</th>
+        </tr></thead>
+        <tbody id="student-tbody">${rows}</tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Quick actions -->
+  <div class="card">
+    <div class="card-header"><span class="card-title">Tindakan Cepat</span></div>
+    <div class="card-body">
+      <div class="quick-actions">
+        <button class="quick-action-btn" onclick="alert('Form tambah siswa segera hadir!')">
+          <div class="quick-action-icon">➕</div>
+          Tambah Siswa Baru
+        </button>
+        <button class="quick-action-btn" onclick="alert('Editor soal ujian segera hadir!')">
+          <div class="quick-action-icon">📝</div>
+          Buat Soal Ujian
+        </button>
+        <button class="quick-action-btn" onclick="alert('Mengunduh laporan Excel semua siswa…')">
+          <div class="quick-action-icon">📊</div>
+          Unduh Laporan Excel
+        </button>
+        <button class="quick-action-btn" onclick="alert('Jadwal kelas segera hadir!')">
+          <div class="quick-action-icon">📅</div>
+          Jadwal Kelas
+        </button>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+// ── Student Table Filter ──────────────────────────────────────
+function filterStudentTable(query) {
+  const tbody = document.getElementById('student-tbody');
+  if (!tbody) return;
+  const rows = tbody.querySelectorAll('tr');
+  const q = query.toLowerCase();
+  rows.forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+// ── Boot ──────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', initLMS);
+</script>
+</body>
+</html>
