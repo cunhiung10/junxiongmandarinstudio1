@@ -39,8 +39,6 @@
       .footer-grid { grid-template-columns:1fr !important; }
       .container { padding:0 16px; }
     }
-    /* Ensure LMS link looks special */
-    .nav-item.lms-item > button { background:var(--ivory-2); border:1px solid var(--rule); border-radius:8px; }
     /* Tab hidden state */
     .class-card[style*="none"] { display:none !important; }
     /* Smooth transitions for vocal section */
@@ -486,14 +484,6 @@
           </div>
         </div>
 
-        <!-- LMS -->
-        <div class="nav-item lms-item" data-menu="">
-          <button onclick="window.location='/lms.html'">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1a3 3 0 100 6 3 3 0 000-6zm-5 10.5a5 5 0 0110 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <span data-i18n="nav.lms">LMS</span>
-          </button>
-        </div>
-
         <!-- Tes -->
         <div class="nav-item" data-menu="tes">
           <button aria-haspopup="true" aria-expanded="false">
@@ -551,6 +541,10 @@
       <div class="header-right">
         <button class="icon-btn" onclick="openModal('search')" aria-label="Cari">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M12.5 12.5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <button class="btn btn-outline btn-sm" onclick="window.location='/lms.html'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1a3 3 0 100 6 3 3 0 000-6zm-5 10.5a5 5 0 0110 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span data-i18n="nav.lms">LMS</span>
         </button>
         <button class="btn btn-primary btn-sm" onclick="openModal('login')">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1a3 3 0 100 6 3 3 0 000-6zm-5 10.5a5 5 0 0110 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
