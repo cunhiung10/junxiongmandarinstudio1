@@ -654,21 +654,21 @@
 
 
       <!-- BCT -->
-      <div class="test-card" onclick="">
+      <div class="test-card" onclick="openModal('bct')" style="cursor:pointer">
         <div>
           <div class="tc-tag">Bisnis &amp; Profesional</div>
           <div class="tc-title">BCT</div>
           <div class="tc-han">商务汉语考试</div>
         </div>
         <div class="tc-meta-row">
-          <span>Modul <b>2</b></span>
-          <span>Skor <b>0–100</b></span>
+          <span>Modul <b>A &amp; B</b></span>
+          <span>Kosakata <b>600–4.000</b></span>
         </div>
         <div class="tc-bg-char">业</div>
       </div>
 
       <!-- YCT -->
-      <div class="test-card" onclick="">
+      <div class="test-card" onclick="openModal('yct')" style="cursor:pointer">
         <div>
           <div class="tc-tag">Anak &amp; Remaja</div>
           <div class="tc-title">YCT</div>
@@ -868,6 +868,322 @@
 
   </div><!-- /hsk-panel -->
 </div><!-- /overlay-hsk -->
+
+<!-- ═══ BCT OVERLAY PANEL ═══ -->
+<div id="overlay-bct" class="overlay overlay-page" onclick="if(event.target===this)closeModal('bct')">
+  <div class="hsk-panel">
+    <!-- Sticky header -->
+    <div class="hsk-panel-head">
+      <button class="hsk-back-btn" id="bct-head-back" onclick="bctBack()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="bct-back-label">Kembali</span>
+      </button>
+      <div>
+        <span class="hsk-title-main">BCT</span>
+        <span class="hsk-title-han">商务汉语考试</span>
+      </div>
+      <button class="modal-x" onclick="closeModal('bct')" aria-label="Tutup">✕</button>
+    </div>
+
+    <!-- VIEW: OVERVIEW -->
+    <div id="bct-view-overview" class="hsk-view active">
+      <div class="hsk-hero-bar">
+        <div class="hsk-tag">Bisnis &amp; Profesional · Business Chinese Test</div>
+        <p class="hsk-hero-desc">BCT (商务汉语考试) adalah ujian kemampuan bahasa Mandarin untuk keperluan bisnis dan profesional, dikembangkan oleh Hanban. Tersedia dalam dua modul: BCT(A) untuk level dasar dan BCT(B) untuk level menengah-lanjut.</p>
+        <div class="hsk-hero-stats">
+          <span>Modul <b>A &amp; B</b></span>
+          <span>Kosakata <b>600–4.000</b></span>
+          <span>Format <b>PBT / IBT</b></span>
+          <span>Skor <b>0–300</b></span>
+        </div>
+      </div>
+
+      <!-- Module selector -->
+      <div class="hsk-level-tabs-wrap">
+        <div class="hsk-level-tabs-label">Pilih Modul untuk detail struktur &amp; kosakata</div>
+        <div class="hsk-level-tabs" id="bct-ov-tabs">
+          <div class="hsk-tier-group">
+            <div class="hsk-tier-label tier-pemula">Dasar 初级</div>
+            <div style="display:flex;gap:8px">
+              <button class="hsk-level-tab" data-mod="BCT-A" onclick="openBCTModule('BCT-A')">
+                <span class="tab-lvl">BCT-A</span><span class="tab-cefr">A1–B1</span><span class="tab-vocab">~600 kata</span>
+              </button>
+            </div>
+          </div>
+          <div class="hsk-tier-group">
+            <div class="hsk-tier-label tier-menengah">Menengah–Lanjut 中高级</div>
+            <div style="display:flex;gap:8px">
+              <button class="hsk-level-tab" data-mod="BCT-B" onclick="openBCTModule('BCT-B')">
+                <span class="tab-lvl">BCT-B</span><span class="tab-cefr">B2–C1</span><span class="tab-vocab">~4.000 kata</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5W1H -->
+      <div class="hsk-section">
+        <div class="hsk-section-title">Tentang BCT — 5W1H</div>
+        <div class="w5h1-grid">
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHAT · Apa</div>
+            <h4>Apa itu BCT?</h4>
+            <p>BCT (Business Chinese Test — 商务汉语考试) adalah ujian standar kemampuan bahasa Mandarin untuk keperluan bisnis dan dunia kerja, dikembangkan oleh Hanban di bawah Kementerian Pendidikan Tiongkok. BCT mengukur kemampuan berbahasa Mandarin dalam konteks profesional dan komersial.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHY · Mengapa</div>
+            <h4>Mengapa perlu BCT?</h4>
+            <p>BCT dibutuhkan oleh profesional yang bekerja dengan mitra bisnis Tiongkok, perusahaan yang ingin merekrut staf berbahasa Mandarin, serta individu yang ingin membuktikan kemampuan Mandarin bisnis dalam CV. Berbeda dengan HSK, BCT berfokus pada konteks kerja dan bisnis nyata.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHO · Siapa</div>
+            <h4>Siapa yang mengikuti?</h4>
+            <p>BCT dirancang untuk pelajar dewasa dan profesional non-penutur asli Mandarin — termasuk eksekutif bisnis, staf perusahaan yang bermitra dengan Tiongkok, pengusaha, dan individu yang bekerja di sektor perdagangan internasional, pariwisata, atau keuangan.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHEN · Kapan</div>
+            <h4>Kapan ujian dilaksanakan?</h4>
+            <p>BCT diselenggarakan beberapa kali per tahun di pusat tes resmi. Jadwal bervariasi per kota dan negara. Pendaftaran biasanya dibuka 4–6 minggu sebelum hari ujian. Cek jadwal di situs resmi chinesetest.cn atau lembaga tes setempat.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHERE · Di mana</div>
+            <h4>Di mana ujian diadakan?</h4>
+            <p>BCT tersedia di pusat tes resmi Hanban di berbagai negara, termasuk Indonesia. Tersedia dalam format kertas (PBT) dan internet (IBT). Hubungi Institut Konfusius terdekat atau cek daftar pusat tes di chinesetest.cn untuk lokasi di kota Anda.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">HOW · Bagaimana</div>
+            <h4>Bagaimana cara ikut BCT?</h4>
+            <p>Daftar melalui <b>chinesetest.cn</b> atau lembaga tes lokal. Pilih modul (A atau B sesuai level), tanggal, dan lokasi ujian. Bayar biaya pendaftaran. Hasil umumnya keluar 1 bulan setelah tes. Sertifikat BCT tidak memiliki batas masa berlaku.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /bct-view-overview -->
+
+    <!-- VIEW: MODULE DETAIL -->
+    <div id="bct-view-module" class="hsk-view">
+      <!-- Module tab switcher -->
+      <div class="hsk-lv-tabs-row" id="bct-mod-tabs-row">
+        <button class="hsk-lv-tab-sm" data-mod="BCT-A" onclick="openBCTModule('BCT-A')">BCT-A</button>
+        <button class="hsk-lv-tab-sm" data-mod="BCT-B" onclick="openBCTModule('BCT-B')">BCT-B</button>
+      </div>
+
+      <!-- Module hero -->
+      <div class="hsk-lv-hero">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+          <div class="hsk-lv-badge" id="bct-mod-badge">BCT-A · A1–B1</div>
+          <div class="hsk-lv-tier" id="bct-mod-tier">Dasar</div>
+        </div>
+        <p class="hsk-lv-desc" id="bct-mod-desc">—</p>
+        <div class="hsk-lv-stats">
+          <div><span>Referensi Kosakata</span><b id="bct-mod-vocab-count">—</b></div>
+          <div><span>Total Skor</span><b id="bct-mod-total-score">—</b></div>
+          <div><span>Skor Lulus</span><b id="bct-mod-passing">—</b></div>
+          <div><span>CEFR</span><b id="bct-mod-cefr">—</b></div>
+        </div>
+      </div>
+
+      <!-- Test structure -->
+      <div class="hsk-section">
+        <div class="hsk-section-title">Struktur Ujian</div>
+        <div class="struct-grid" id="bct-struct-grid"></div>
+      </div>
+
+      <!-- Vocabulary table -->
+      <div class="hsk-section">
+        <div class="hsk-section-title" style="display:flex;align-items:center;justify-content:space-between">
+          <span>Daftar Kosakata</span>
+          <span class="vocab-tbl-counter" id="bct-vocab-counter">—</span>
+        </div>
+        <div class="vocab-tbl-wrap">
+          <table class="vocab-tbl">
+            <thead>
+              <tr>
+                <th class="td-num">#</th>
+                <th>汉字</th>
+                <th>Tradisional</th>
+                <th>Pinyin</th>
+                <th>注音</th>
+                <th>Arti</th>
+                <th>Kategori</th>
+              </tr>
+            </thead>
+            <tbody id="bct-vocab-tbody">
+              <tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat kosakata…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="vocab-tbl-nav">
+          <button id="bct-vocab-prev" onclick="bctVocabPage(-1)" disabled>← Sebelumnya</button>
+          <span class="vocab-tbl-counter" id="bct-vocab-page-info">—</span>
+          <button id="bct-vocab-next" onclick="bctVocabPage(1)">Berikutnya →</button>
+        </div>
+      </div>
+    </div><!-- /bct-view-module -->
+
+  </div><!-- /bct hsk-panel -->
+</div><!-- /overlay-bct -->
+
+<!-- ═══ YCT OVERLAY PANEL ═══ -->
+<div id="overlay-yct" class="overlay overlay-page" onclick="if(event.target===this)closeModal('yct')">
+  <div class="hsk-panel">
+    <!-- Sticky header -->
+    <div class="hsk-panel-head">
+      <button class="hsk-back-btn" id="yct-head-back" onclick="yctBack()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="yct-back-label">Kembali</span>
+      </button>
+      <div>
+        <span class="hsk-title-main">YCT</span>
+        <span class="hsk-title-han">青少年汉语考试</span>
+      </div>
+      <button class="modal-x" onclick="closeModal('yct')" aria-label="Tutup">✕</button>
+    </div>
+
+    <!-- VIEW: OVERVIEW -->
+    <div id="yct-view-overview" class="hsk-view active">
+      <div class="hsk-hero-bar">
+        <div class="hsk-tag">Anak &amp; Remaja · Youth Chinese Test</div>
+        <p class="hsk-hero-desc">YCT (Youth Chinese Test — 青少年汉语考试) adalah ujian kemampuan bahasa Mandarin yang dirancang khusus untuk pelajar usia sekolah (6–15 tahun) non-penutur asli. Terdiri dari 4 level dengan fokus pada kosakata dan komunikasi sehari-hari yang sesuai usia.</p>
+        <div class="hsk-hero-stats">
+          <span>Level <b>1–4</b></span>
+          <span>Usia <b>6–15 tahun</b></span>
+          <span>Kosakata <b>80–600</b></span>
+          <span>Format <b>PBT</b></span>
+        </div>
+      </div>
+
+      <!-- Level selector -->
+      <div class="hsk-level-tabs-wrap">
+        <div class="hsk-level-tabs-label">Pilih Level untuk detail struktur &amp; kosakata</div>
+        <div class="hsk-level-tabs" id="yct-ov-tabs">
+          <div class="hsk-tier-group">
+            <div class="hsk-tier-label tier-pemula">Pemula — Hanya Mendengar &amp; Membaca</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="hsk-level-tab" data-lv="1" onclick="openYCTLevel(1)">
+                <span class="tab-lvl">YCT 1</span><span class="tab-cefr">A1</span><span class="tab-vocab">80 kata</span>
+              </button>
+              <button class="hsk-level-tab" data-lv="2" onclick="openYCTLevel(2)">
+                <span class="tab-lvl">YCT 2</span><span class="tab-cefr">A1–A2</span><span class="tab-vocab">150 kata</span>
+              </button>
+              <button class="hsk-level-tab" data-lv="3" onclick="openYCTLevel(3)">
+                <span class="tab-lvl">YCT 3</span><span class="tab-cefr">A2–B1</span><span class="tab-vocab">300 kata</span>
+              </button>
+            </div>
+          </div>
+          <div class="hsk-tier-group">
+            <div class="hsk-tier-label tier-menengah">Menengah — Termasuk Menulis</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="hsk-level-tab" data-lv="4" onclick="openYCTLevel(4)">
+                <span class="tab-lvl">YCT 4</span><span class="tab-cefr">B1–B2</span><span class="tab-vocab">600 kata</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5W1H -->
+      <div class="hsk-section">
+        <div class="hsk-section-title">Tentang YCT — 5W1H</div>
+        <div class="w5h1-grid">
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHAT · Apa</div>
+            <h4>Apa itu YCT?</h4>
+            <p>YCT (Youth Chinese Test — 青少年汉语考试) adalah ujian kemampuan bahasa Mandarin yang dirancang khusus untuk siswa sekolah dasar dan menengah pertama non-penutur asli. Dikembangkan oleh Hanban/Institut Konfusius, terdiri dari 4 level dengan konten dan kosakata yang disesuaikan usia.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHY · Mengapa</div>
+            <h4>Mengapa perlu YCT?</h4>
+            <p>YCT memberikan motivasi belajar bagi anak-anak melalui target yang terukur, diakui secara internasional, dan cocok dijadikan portofolio sejak dini. Sertifikat YCT bermanfaat untuk pendaftaran ke program pertukaran pelajar Tiongkok dan menjadi bekal persiapan HSK di masa depan.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHO · Siapa</div>
+            <h4>Siapa yang mengikuti?</h4>
+            <p>Pelajar usia 6–15 tahun yang belajar bahasa Mandarin sebagai bahasa kedua atau asing. Cocok untuk siswa SD dan SMP yang mengikuti kelas Mandarin — baik di sekolah bilingual, kursus Mandarin, maupun belajar mandiri di rumah dengan orang tua.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHEN · Kapan</div>
+            <h4>Kapan ujian dilaksanakan?</h4>
+            <p>YCT diselenggarakan beberapa kali per tahun, biasanya bersamaan dengan jadwal HSK. Di Indonesia, ujian YCT tersedia di pusat tes resmi Institut Konfusius. Pendaftaran biasanya dibuka 1–2 bulan sebelum hari ujian.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">WHERE · Di mana</div>
+            <h4>Di mana ujian diadakan?</h4>
+            <p>Di pusat tes resmi Hanban / Institut Konfusius di seluruh dunia, termasuk Indonesia (Jakarta, Surabaya, Bandung, dan kota lainnya). Ujian YCT tersedia dalam format kertas (PBT). Cek lokasi di chinesetest.cn atau hubungi Institut Konfusius terdekat.</p>
+          </div>
+          <div class="w5h1-card">
+            <div class="w5h1-q">HOW · Bagaimana</div>
+            <h4>Bagaimana cara ikut YCT?</h4>
+            <p>Daftar melalui <b>chinesetest.cn</b> atau lembaga tes lokal. Pilih level yang sesuai, tanggal, dan lokasi ujian. Orang tua atau wali dapat mendaftarkan anak. Hasil keluar sekitar 1 bulan pasca ujian. Sertifikat YCT tidak memiliki masa kedaluwarsa.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /yct-view-overview -->
+
+    <!-- VIEW: LEVEL DETAIL -->
+    <div id="yct-view-level" class="hsk-view">
+      <!-- Level tab switcher -->
+      <div class="hsk-lv-tabs-row" id="yct-lv-tabs-row">
+        <button class="hsk-lv-tab-sm" data-lv="1" onclick="openYCTLevel(1)">L1</button>
+        <button class="hsk-lv-tab-sm" data-lv="2" onclick="openYCTLevel(2)">L2</button>
+        <button class="hsk-lv-tab-sm" data-lv="3" onclick="openYCTLevel(3)">L3</button>
+        <button class="hsk-lv-tab-sm" data-lv="4" onclick="openYCTLevel(4)">L4</button>
+      </div>
+
+      <!-- Level hero -->
+      <div class="hsk-lv-hero">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+          <div class="hsk-lv-badge" id="yct-lv-badge">YCT 1 · A1</div>
+          <div class="hsk-lv-tier" id="yct-lv-tier">Pemula</div>
+        </div>
+        <p class="hsk-lv-desc" id="yct-lv-desc">—</p>
+        <div class="hsk-lv-stats">
+          <div><span>Kosakata</span><b id="yct-lv-vocab-count">—</b></div>
+          <div><span>Total Skor</span><b id="yct-lv-total-score">—</b></div>
+          <div><span>Skor Lulus</span><b id="yct-lv-passing">—</b></div>
+          <div><span>CEFR</span><b id="yct-lv-cefr">—</b></div>
+        </div>
+      </div>
+
+      <!-- Test structure -->
+      <div class="hsk-section">
+        <div class="hsk-section-title">Struktur Ujian</div>
+        <div class="struct-grid" id="yct-struct-grid"></div>
+      </div>
+
+      <!-- Vocabulary table -->
+      <div class="hsk-section">
+        <div class="hsk-section-title" style="display:flex;align-items:center;justify-content:space-between">
+          <span>Daftar Kosakata</span>
+          <span class="vocab-tbl-counter" id="yct-vocab-counter">—</span>
+        </div>
+        <div class="vocab-tbl-wrap">
+          <table class="vocab-tbl">
+            <thead>
+              <tr>
+                <th class="td-num">#</th>
+                <th>汉字</th>
+                <th>Tradisional</th>
+                <th>Pinyin</th>
+                <th>注音</th>
+                <th>Arti</th>
+                <th>Kategori</th>
+              </tr>
+            </thead>
+            <tbody id="yct-vocab-tbody">
+              <tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat kosakata…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="vocab-tbl-nav">
+          <button id="yct-vocab-prev" onclick="yctVocabPage(-1)" disabled>← Sebelumnya</button>
+          <span class="vocab-tbl-counter" id="yct-vocab-page-info">—</span>
+          <button id="yct-vocab-next" onclick="yctVocabPage(1)">Berikutnya →</button>
+        </div>
+      </div>
+    </div><!-- /yct-view-level -->
+
+  </div><!-- /yct hsk-panel -->
+</div><!-- /overlay-yct -->
 
 <!-- ═══ ALL CLASSES ═══ -->
 <section class="section" id="semua-kelas">
@@ -1196,11 +1512,15 @@
       </div>
       <div class="vocab-picker-group">
         <b>BCT</b>
-        <button class="vocab-pill" onclick="setVocabLevel('BCT',this)">BCT</button>
+        <button class="vocab-pill" onclick="setVocabLevel('BCT-A',this)">A</button>
+        <button class="vocab-pill" onclick="setVocabLevel('BCT-B',this)">B</button>
       </div>
       <div class="vocab-picker-group">
         <b>YCT</b>
-        <button class="vocab-pill" onclick="setVocabLevel('YCT',this)">YCT</button>
+        <button class="vocab-pill" onclick="setVocabLevel('YCT1',this)">1</button>
+        <button class="vocab-pill" onclick="setVocabLevel('YCT2',this)">2</button>
+        <button class="vocab-pill" onclick="setVocabLevel('YCT3',this)">3</button>
+        <button class="vocab-pill" onclick="setVocabLevel('YCT4',this)">4</button>
       </div>
       <div class="vocab-picker-group">
         <b>TOCFL</b>
@@ -1956,6 +2276,248 @@ function hskVocabPage(dir) {
   if (newOffset < 0 || newOffset >= hskVocabTotal) return;
   document.querySelector('.hsk-panel').scrollTo({top: document.querySelector('.hsk-section:last-child').offsetTop - 120, behavior:'smooth'});
   hskLoadVocabPage(newOffset);
+}
+
+/* ── BCT Panel ──────────────────────────────────────────── */
+const BCT_DATA = {
+  'BCT-A': {
+    label:'BCT-A', vocabKey:'BCT-A', vocabCount:600, cefr:'A1–B1',
+    totalScore:300, passing:null,
+    tier:'pemula', tierLabel:'Dasar 初级',
+    desc:'Mampu berkomunikasi dalam bahasa Mandarin untuk keperluan bisnis sehari-hari yang umum — seperti perkenalan, rapat dasar, pertukaran informasi, dan transaksi sederhana.',
+    sections:[
+      {name:'Mendengar', han:'听力', items:30, time:20, score:100},
+      {name:'Membaca',   han:'阅读', items:30, time:30, score:100},
+      {name:'Menulis',   han:'书写', items:10, time:10, score:100, note:'Isi titik-titik (pinyin disediakan)'},
+    ]
+  },
+  'BCT-B': {
+    label:'BCT-B', vocabKey:'BCT-B', vocabCount:4000, cefr:'B2–C1',
+    totalScore:300, passing:null,
+    tier:'menengah', tierLabel:'Menengah–Lanjut 中高级',
+    desc:'Mampu menangani situasi bisnis yang kompleks — negosiasi, laporan, presentasi, dan korespondensi formal dalam bahasa Mandarin yang tepat dan efektif.',
+    sections:[
+      {name:'Mendengar', han:'听力', items:50, time:35, score:100},
+      {name:'Membaca',   han:'阅读', items:40, time:60, score:100},
+      {name:'Menulis',   han:'书写', items:2,  time:40, score:100, note:'2 tugas esai (≥80 dan ≥150 karakter)'},
+    ]
+  },
+};
+
+let bctCurrentMod  = null;
+let bctVocabOffset = 0;
+let bctVocabTotal  = 0;
+const BCT_TBL_PAGE = 50;
+
+function openBCTModule(mod) {
+  bctCurrentMod  = mod;
+  bctVocabOffset = 0;
+  const d = BCT_DATA[mod];
+  if (!d) return;
+  document.getElementById('bct-view-overview').classList.remove('active');
+  document.getElementById('bct-view-module').classList.add('active');
+  document.getElementById('bct-back-label').textContent = 'Overview';
+  document.querySelectorAll('#bct-ov-tabs .hsk-level-tab').forEach(b =>
+    b.classList.toggle('active', b.dataset.mod === mod));
+  document.querySelectorAll('#bct-mod-tabs-row .hsk-lv-tab-sm').forEach(b =>
+    b.classList.toggle('active', b.dataset.mod === mod));
+  document.querySelector('#overlay-bct .hsk-panel').scrollTo({top:0, behavior:'smooth'});
+  document.getElementById('bct-mod-badge').textContent      = `${d.label} · ${d.cefr}`;
+  document.getElementById('bct-mod-desc').textContent       = d.desc;
+  document.getElementById('bct-mod-vocab-count').textContent= d.vocabCount.toLocaleString('id-ID') + ' kata';
+  document.getElementById('bct-mod-total-score').textContent= d.totalScore ? d.totalScore.toString() : '—';
+  document.getElementById('bct-mod-passing').textContent    = d.passing ? d.passing.toString() : 'Tidak ada batas lulus';
+  document.getElementById('bct-mod-cefr').textContent       = d.cefr;
+  const tierEl = document.getElementById('bct-mod-tier');
+  tierEl.textContent = d.tierLabel;
+  tierEl.className   = 'hsk-lv-tier tier-' + d.tier;
+  const sg = document.getElementById('bct-struct-grid');
+  sg.innerHTML = d.sections.map(s => `
+    <div class="struct-card">
+      <div class="struct-card-name">${s.name} <span style="font-family:var(--font-han);font-weight:400;color:var(--ink-3)">${s.han}</span></div>
+      <div class="struct-card-meta">
+        ${s.items  != null ? `<span>Soal: <b>${s.items}</b></span>` : ''}
+        ${s.time   != null ? `<span>Waktu: <b>${s.time} mnt</b></span>` : ''}
+        ${s.note               ? `<span style="color:var(--cinnabar);font-size:11px">${s.note}</span>` : ''}
+      </div>
+      ${s.score != null ? `<div class="struct-score-chip">Skor maks ${s.score}</div>` : ''}
+    </div>`).join('');
+  bctLoadVocabPage(0);
+}
+
+function bctBack() {
+  if (document.getElementById('bct-view-module').classList.contains('active')) {
+    document.getElementById('bct-view-module').classList.remove('active');
+    document.getElementById('bct-view-overview').classList.add('active');
+    document.getElementById('bct-back-label').textContent = 'Kembali';
+    document.querySelector('#overlay-bct .hsk-panel').scrollTo({top:0, behavior:'smooth'});
+  } else { closeModal('bct'); }
+}
+
+async function bctLoadVocabPage(offset) {
+  const mod = bctCurrentMod;
+  const tbody = document.getElementById('bct-vocab-tbody');
+  tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat…</td></tr>`;
+  try {
+    const url  = `/api/vocab/${encodeURIComponent(mod)}?limit=${BCT_TBL_PAGE}&offset=${offset}`;
+    const data = await fetch(url).then(r => r.json());
+    if (data.error) throw new Error(data.error);
+    bctVocabTotal  = data.total  || 0;
+    bctVocabOffset = data.offset || 0;
+    const items = data.items || [];
+    tbody.innerHTML = items.length ? items.map((w, i) => {
+      const meaning = (w.meaning_id||'').trim() || (w.meaning_en||'—');
+      const pos     = (w.part_of_speech_id||'').trim() || (w.part_of_speech_en||'—');
+      return `<tr>
+        <td class="td-num">${bctVocabOffset + i + 1}</td>
+        <td class="td-han">${w.simplified||'?'}</td>
+        <td class="td-trad">${w.traditional && w.traditional !== w.simplified ? w.traditional : '—'}</td>
+        <td class="td-py">${w.pinyin||'—'}</td>
+        <td class="td-zhuyin">${w.zhuyin||'—'}</td>
+        <td class="td-meaning">${meaning}</td>
+        <td class="td-cat">${pos}</td>
+      </tr>`;
+    }).join('') : `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Tidak ada data.</td></tr>`;
+    const pageNum = Math.floor(bctVocabOffset / BCT_TBL_PAGE) + 1;
+    const pageTot = Math.ceil(bctVocabTotal   / BCT_TBL_PAGE);
+    document.getElementById('bct-vocab-counter').textContent   = `${bctVocabOffset+1}–${Math.min(bctVocabOffset+items.length, bctVocabTotal)} dari ${bctVocabTotal.toLocaleString()} kata`;
+    document.getElementById('bct-vocab-page-info').textContent = `Halaman ${pageNum} / ${pageTot}`;
+    document.getElementById('bct-vocab-prev').disabled = bctVocabOffset === 0;
+    document.getElementById('bct-vocab-next').disabled = bctVocabOffset + items.length >= bctVocabTotal;
+  } catch(e) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Gagal memuat: ${e.message}</td></tr>`;
+  }
+}
+
+function bctVocabPage(dir) {
+  const newOffset = bctVocabOffset + dir * BCT_TBL_PAGE;
+  if (newOffset < 0 || newOffset >= bctVocabTotal) return;
+  bctLoadVocabPage(newOffset);
+}
+
+/* ── YCT Panel ──────────────────────────────────────────── */
+const YCT_DATA = {
+  1: { label:'YCT 1', vocabKey:'YCT1', vocabCount:80,  cefr:'A1',    totalScore:200, passing:120,
+       tier:'pemula', tierLabel:'Pemula 初级',
+       desc:'Level dasar untuk pemula muda. Mampu memahami dan menggunakan kosakata sangat dasar tentang diri sendiri, keluarga, dan lingkungan sekolah dalam bahasa Mandarin.',
+       sections:[
+         {name:'Mendengar', han:'听力', items:20, time:20, score:100},
+         {name:'Membaca',   han:'阅读', items:15, time:15, score:100},
+       ]},
+  2: { label:'YCT 2', vocabKey:'YCT2', vocabCount:150, cefr:'A1–A2', totalScore:200, passing:120,
+       tier:'pemula', tierLabel:'Pemula 初级',
+       desc:'Mampu berkomunikasi tentang topik sehari-hari yang sederhana seperti sekolah, makanan, hobi, dan waktu. Kosakata bertambah dari 80 menjadi 150 kata.',
+       sections:[
+         {name:'Mendengar', han:'听力', items:20, time:25, score:100},
+         {name:'Membaca',   han:'阅读', items:20, time:25, score:100},
+       ]},
+  3: { label:'YCT 3', vocabKey:'YCT3', vocabCount:300, cefr:'A2–B1', totalScore:200, passing:120,
+       tier:'pemula', tierLabel:'Pemula 初级',
+       desc:'Mampu memahami teks dan percakapan tentang topik yang lebih luas — perjalanan, belanja, cuaca, tubuh dan kesehatan, dengan kosakata mencapai 300 kata.',
+       sections:[
+         {name:'Mendengar', han:'听力', items:35, time:30, score:100},
+         {name:'Membaca',   han:'阅读', items:25, time:30, score:100},
+       ]},
+  4: { label:'YCT 4', vocabKey:'YCT4', vocabCount:600, cefr:'B1–B2', totalScore:300, passing:180,
+       tier:'menengah', tierLabel:'Menengah 中级',
+       desc:'Level tertinggi YCT. Mampu memahami dan menggunakan bahasa Mandarin untuk berbagai topik — sekolah, kehidupan sosial, dan budaya — dengan kosakata 600 kata dan tambahan bagian Menulis.',
+       sections:[
+         {name:'Mendengar', han:'听力', items:40, time:30, score:100},
+         {name:'Membaca',   han:'阅读', items:30, time:35, score:100},
+         {name:'Menulis',   han:'书写', items:10, time:20, score:100, note:'Susun kalimat / isi kata'},
+       ]},
+};
+
+let yctCurrentLevel = null;
+let yctVocabOffset  = 0;
+let yctVocabTotal   = 0;
+const YCT_TBL_PAGE  = 50;
+
+function openYCTLevel(lv) {
+  yctCurrentLevel = lv;
+  yctVocabOffset  = 0;
+  const d = YCT_DATA[lv];
+  if (!d) return;
+  document.getElementById('yct-view-overview').classList.remove('active');
+  document.getElementById('yct-view-level').classList.add('active');
+  document.getElementById('yct-back-label').textContent = 'Overview';
+  document.querySelectorAll('#yct-ov-tabs .hsk-level-tab').forEach(b =>
+    b.classList.toggle('active', b.dataset.lv == String(lv)));
+  document.querySelectorAll('#yct-lv-tabs-row .hsk-lv-tab-sm').forEach(b =>
+    b.classList.toggle('active', b.dataset.lv == String(lv)));
+  document.querySelector('#overlay-yct .hsk-panel').scrollTo({top:0, behavior:'smooth'});
+  document.getElementById('yct-lv-badge').textContent      = `${d.label} · ${d.cefr}`;
+  document.getElementById('yct-lv-desc').textContent       = d.desc;
+  document.getElementById('yct-lv-vocab-count').textContent= d.vocabCount.toLocaleString('id-ID') + ' kata';
+  document.getElementById('yct-lv-total-score').textContent= d.totalScore.toString();
+  document.getElementById('yct-lv-passing').textContent    = d.passing.toString();
+  document.getElementById('yct-lv-cefr').textContent       = d.cefr;
+  const tierEl = document.getElementById('yct-lv-tier');
+  tierEl.textContent = d.tierLabel;
+  tierEl.className   = 'hsk-lv-tier tier-' + d.tier;
+  const sg = document.getElementById('yct-struct-grid');
+  sg.innerHTML = d.sections.map(s => `
+    <div class="struct-card">
+      <div class="struct-card-name">${s.name} <span style="font-family:var(--font-han);font-weight:400;color:var(--ink-3)">${s.han}</span></div>
+      <div class="struct-card-meta">
+        ${s.items  != null ? `<span>Soal: <b>${s.items}</b></span>` : ''}
+        ${s.time   != null ? `<span>Waktu: <b>${s.time} mnt</b></span>` : ''}
+        ${s.note               ? `<span style="color:var(--cinnabar);font-size:11px">${s.note}</span>` : ''}
+      </div>
+      ${s.score != null ? `<div class="struct-score-chip">Skor maks ${s.score}</div>` : ''}
+    </div>`).join('');
+  yctLoadVocabPage(0);
+}
+
+function yctBack() {
+  if (document.getElementById('yct-view-level').classList.contains('active')) {
+    document.getElementById('yct-view-level').classList.remove('active');
+    document.getElementById('yct-view-overview').classList.add('active');
+    document.getElementById('yct-back-label').textContent = 'Kembali';
+    document.querySelector('#overlay-yct .hsk-panel').scrollTo({top:0, behavior:'smooth'});
+  } else { closeModal('yct'); }
+}
+
+async function yctLoadVocabPage(offset) {
+  const lv = yctCurrentLevel;
+  const d  = YCT_DATA[lv];
+  const tbody = document.getElementById('yct-vocab-tbody');
+  tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Memuat…</td></tr>`;
+  try {
+    const url  = `/api/vocab/${encodeURIComponent(d.vocabKey)}?limit=${YCT_TBL_PAGE}&offset=${offset}`;
+    const data = await fetch(url).then(r => r.json());
+    if (data.error) throw new Error(data.error);
+    yctVocabTotal  = data.total  || 0;
+    yctVocabOffset = data.offset || 0;
+    const items = data.items || [];
+    tbody.innerHTML = items.length ? items.map((w, i) => {
+      const meaning = (w.meaning_id||'').trim() || (w.meaning_en||'—');
+      const pos     = (w.part_of_speech_id||'').trim() || (w.part_of_speech_en||'—');
+      return `<tr>
+        <td class="td-num">${yctVocabOffset + i + 1}</td>
+        <td class="td-han">${w.simplified||'?'}</td>
+        <td class="td-trad">${w.traditional && w.traditional !== w.simplified ? w.traditional : '—'}</td>
+        <td class="td-py">${w.pinyin||'—'}</td>
+        <td class="td-zhuyin">${w.zhuyin||'—'}</td>
+        <td class="td-meaning">${meaning}</td>
+        <td class="td-cat">${pos}</td>
+      </tr>`;
+    }).join('') : `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Tidak ada data.</td></tr>`;
+    const pageNum = Math.floor(yctVocabOffset / YCT_TBL_PAGE) + 1;
+    const pageTot = Math.ceil(yctVocabTotal   / YCT_TBL_PAGE);
+    document.getElementById('yct-vocab-counter').textContent   = `${yctVocabOffset+1}–${Math.min(yctVocabOffset+items.length, yctVocabTotal)} dari ${yctVocabTotal.toLocaleString()} kata`;
+    document.getElementById('yct-vocab-page-info').textContent = `Halaman ${pageNum} / ${pageTot}`;
+    document.getElementById('yct-vocab-prev').disabled = yctVocabOffset === 0;
+    document.getElementById('yct-vocab-next').disabled = yctVocabOffset + items.length >= yctVocabTotal;
+  } catch(e) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--ink-4)">Gagal memuat: ${e.message}</td></tr>`;
+  }
+}
+
+function yctVocabPage(dir) {
+  const newOffset = yctVocabOffset + dir * YCT_TBL_PAGE;
+  if (newOffset < 0 || newOffset >= yctVocabTotal) return;
+  yctLoadVocabPage(newOffset);
 }
 
 /* ── Report modal ─────────────────────────────────────── */

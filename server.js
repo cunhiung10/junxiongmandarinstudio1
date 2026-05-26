@@ -80,17 +80,28 @@ function loadVocabFile(filename) {
   } catch { return []; }
 }
 
+const _bctAll = loadVocabFile('vocab_bct.json');
+const _yctAll = loadVocabFile('vocab_yct.json');
+
 const VOCAB = {
-  HSK1:   loadVocabFile('vocab_hsk1.json'),
-  HSK2:   loadVocabFile('vocab_hsk2.json'),
-  HSK3:   loadVocabFile('vocab_hsk3.json'),
-  HSK4:   loadVocabFile('vocab_hsk4.json'),
-  HSK5:   loadVocabFile('vocab_hsk5.json'),
-  HSK6:   loadVocabFile('vocab_hsk6.json'),
+  HSK1:    loadVocabFile('vocab_hsk1.json'),
+  HSK2:    loadVocabFile('vocab_hsk2.json'),
+  HSK3:    loadVocabFile('vocab_hsk3.json'),
+  HSK4:    loadVocabFile('vocab_hsk4.json'),
+  HSK5:    loadVocabFile('vocab_hsk5.json'),
+  HSK6:    loadVocabFile('vocab_hsk6.json'),
   'HSK7-9': loadVocabFile('vocab_hsk7_9.json'),
-  BCT:    loadVocabFile('vocab_bct.json'),
-  YCT:    loadVocabFile('vocab_yct.json'),
-  TOFCL:  loadVocabFile('vocab_tofcl.json'),
+  // BCT sub-levels
+  BCT:     _bctAll,
+  'BCT-A': _bctAll.filter(w => w.level === 'BCT-A'),
+  'BCT-B': _bctAll.filter(w => w.level === 'BCT-B'),
+  // YCT sub-levels
+  YCT:     _yctAll,
+  YCT1:    _yctAll.filter(w => w.level === 'YCT1'),
+  YCT2:    _yctAll.filter(w => w.level === 'YCT2'),
+  YCT3:    _yctAll.filter(w => w.level === 'YCT3'),
+  YCT4:    _yctAll.filter(w => w.level === 'YCT4'),
+  TOFCL:   loadVocabFile('vocab_tofcl.json'),
 };
 
 let TEST_INFO = {};
