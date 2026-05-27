@@ -50,6 +50,32 @@
     #hanzi-stroke-target { width:100%; min-height:280px; }
     #hanzi-stroke-target svg { display:block; margin:auto; }
 
+    /* ── Site watermark ─────────────────────────────────── */
+    #site-watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-14deg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(320px, 55vw, 680px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--cinnabar);
+      opacity: .035;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      white-space: nowrap;
+      letter-spacing: -.04em;
+    }
+
+    /* ── Keep all page content above the watermark ───────── */
+    .utilbar, .header, section, .footer, #toast,
+    .overlay, .fab-report {
+      position: relative;
+      z-index: 1;
+    }
+
     /* @ prefix styling in brand name */
     .brand-at {
       font-family: 'JetBrains Mono', monospace;
@@ -295,6 +321,9 @@
   </style>
 </head>
 <body>
+
+<!-- ═══ SITE WATERMARK ═══ -->
+<div id="site-watermark" aria-hidden="true">J</div>
 
 <!-- ═══ TOAST ═══ -->
 <div id="toast" class="toast" style="display:none" role="status" aria-live="polite">
