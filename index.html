@@ -76,6 +76,95 @@
       z-index: 1;
     }
 
+    /* ── UKBI nav button ─────────────────────────────────── */
+    .nav-ukbi-btn {
+      position: relative;
+    }
+    .nav-ukbi-btn::after {
+      content: 'segera';
+      position: absolute;
+      top: -7px;
+      right: -4px;
+      background: var(--cinnabar);
+      color: #fff;
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: 1px 5px;
+      border-radius: 999px;
+      line-height: 1.6;
+      pointer-events: none;
+    }
+
+    /* ── UKBI coming-soon modal ──────────────────────────── */
+    #overlay-ukbi {
+      z-index: 900;
+      background: rgba(26,23,20,.55);
+      backdrop-filter: blur(4px);
+      place-items: center;
+    }
+    .ukbi-modal {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-3);
+      width: 360px;
+      max-width: calc(100vw - 32px);
+      padding: 36px 32px 28px;
+      text-align: center;
+      animation: ukbi-pop .25s cubic-bezier(.2,.8,.2,1.1) both;
+    }
+    @keyframes ukbi-pop {
+      from { opacity:0; transform:scale(.92) translateY(8px) }
+      to   { opacity:1; transform:scale(1)   translateY(0) }
+    }
+    .ukbi-icon {
+      width: 64px; height: 64px;
+      border-radius: 18px;
+      background: var(--ivory-2);
+      border: 1px solid var(--rule);
+      display: inline-grid;
+      place-items: center;
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--cinnabar);
+      margin-bottom: 18px;
+      letter-spacing: -.02em;
+    }
+    .ukbi-soon-chip {
+      display: inline-block;
+      background: #fff4f4;
+      color: var(--cinnabar);
+      border: 1px solid #f5c6c5;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      margin-bottom: 14px;
+    }
+    .ukbi-modal h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .ukbi-modal p {
+      font-size: 13.5px;
+      color: var(--ink-3);
+      line-height: 1.65;
+      margin: 0 0 24px;
+    }
+    .ukbi-modal-foot {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
     /* @ prefix styling in brand name */
     .brand-at {
       font-family: 'JetBrains Mono', monospace;
@@ -325,6 +414,26 @@
 <!-- ═══ SITE WATERMARK ═══ -->
 <div id="site-watermark" aria-hidden="true">J</div>
 
+<!-- ═══ UKBI COMING SOON ═══ -->
+<div id="overlay-ukbi" class="overlay" role="dialog" aria-modal="true" aria-label="UKBI — Segera Hadir" onclick="if(event.target===this)closeModal('ukbi')">
+  <div class="ukbi-modal">
+    <div class="ukbi-icon">UK</div>
+    <div class="ukbi-soon-chip">🚀 Coming Soon</div>
+    <h3>UKBI</h3>
+    <p>
+      <strong>Uji Kemahiran Berbahasa Indonesia</strong> akan segera hadir di JMandarinStudio.<br><br>
+      Fitur ini sedang dalam pengembangan. Daftarkan email Anda untuk mendapat notifikasi saat diluncurkan.
+    </p>
+    <div class="ukbi-modal-foot">
+      <button class="btn btn-primary" style="justify-content:center" onclick="showToast('Notifikasi aktif! Kami akan kabari Anda segera.');closeModal('ukbi')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 11V5.5A5 5 0 0112 5.5V11l1.5 1H.5L2 11z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 12a1.5 1.5 0 003 0" stroke="currentColor" stroke-width="1.3"/></svg>
+        Beritahu Saya saat Hadir
+      </button>
+      <button class="btn btn-ghost btn-sm" style="justify-content:center" onclick="closeModal('ukbi')">Tutup</button>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ TOAST ═══ -->
 <div id="toast" class="toast" style="display:none" role="status" aria-live="polite">
   <div class="icon">
@@ -563,6 +672,11 @@
         <!-- Karir -->
         <div class="nav-item">
           <button onclick="closeAllMenus()" data-i18n="nav.career">Karir</button>
+        </div>
+
+        <!-- UKBI -->
+        <div class="nav-item">
+          <button class="nav-ukbi-btn" onclick="closeAllMenus();showUKBIToast()" data-i18n="nav.ukbi">UKBI</button>
         </div>
 
       </nav>
@@ -2270,6 +2384,9 @@ function filterClasses(cat, btn) {
     card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
   });
 }
+
+/* ── UKBI Coming Soon ─────────────────────────────────── */
+function showUKBIToast() { openModal('ukbi'); }
 
 /* ── Toast ────────────────────────────────────────────── */
 let toastTimer = null;
