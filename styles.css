@@ -173,10 +173,11 @@ a { color: inherit; text-decoration: none; }
 .brand-name { line-height: 1.05; }
 .brand-name b {
   display: block;
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 19px;
-  letter-spacing: -.005em;
+  font-family: 'Playfair Display', var(--font-serif);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 21px;
+  letter-spacing: 0.01em;
   color: var(--ink);
 }
 .brand-name small {
