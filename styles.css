@@ -173,11 +173,11 @@ a { color: inherit; text-decoration: none; }
 .brand-name { line-height: 1.05; }
 .brand-name b {
   display: block;
-  font-family: 'Cinzel', var(--font-serif);
-  font-weight: 700;
+  font-family: 'Raleway', var(--font-sans);
+  font-weight: 300;
   font-style: normal;
-  font-size: 17px;
-  letter-spacing: 0.09em;
+  font-size: 20px;
+  letter-spacing: 0.12em;
   color: var(--ink);
 }
 .brand-name small {
